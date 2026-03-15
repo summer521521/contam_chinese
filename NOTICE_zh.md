@@ -3,7 +3,7 @@
 这个目录包含：
 
 - 基于 NIST CONTAM 的中文化程序与帮助文件
-- 已经生成好的 `ContamHelp_zh.chm`
+- 已经生成好的 `ContamHelp.chm`
 - 中文帮助 HTML 源码
 - 汉化复现材料
 

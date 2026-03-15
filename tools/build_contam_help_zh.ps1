@@ -1,7 +1,6 @@
 param(
     [string]$RootDir = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
-    [string]$HhcPath,
-    [switch]$ReplaceRuntimeHelp = $true
+    [string]$HhcPath
 )
 
 $ErrorActionPreference = "Stop"
@@ -80,8 +79,7 @@ function Convert-ChmTextFile {
 $root = (Resolve-Path $RootDir).Path
 $helpSourceDir = Join-Path $root "help_src\\ContamHelp_zh_html"
 $buildAssetsDir = Join-Path $root "build_assets"
-$compiledFile = Join-Path $root "ContamHelp_zh.chm"
-$runtimeHelpFile = Join-Path $root "ContamHelp.chm"
+$compiledFile = Join-Path $root "ContamHelp.chm"
 
 if (-not (Test-Path $helpSourceDir)) {
     throw "Help source not found: $helpSourceDir"
@@ -160,12 +158,5 @@ if (-not (Test-Path $compiledFile)) {
     throw "CHM build failed. Expected output not found: $compiledFile"
 }
 
-if ($ReplaceRuntimeHelp) {
-    Copy-Item $compiledFile $runtimeHelpFile -Force
-}
-
 Write-Host "Built: $compiledFile"
 Write-Host "Stage: $stageSourceDir"
-if ($ReplaceRuntimeHelp) {
-    Write-Host "Runtime help updated: $runtimeHelpFile"
-}

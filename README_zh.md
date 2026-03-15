@@ -4,7 +4,7 @@
 
 - 直接运行中文界面的 CONTAM
 - 保留中文帮助源码
-- 保留 `ContamHelp_zh.chm` 的构建链路
+- 保留中文 `CHM` 的构建链路
 - 保留资源级汉化和帮助汉化的核心复现材料
 
 ## 目录结构
@@ -12,15 +12,14 @@
 - 根目录
   - 可直接双击的运行文件
   - 主程序：`contamw3_zh.exe`
-  - 中文帮助：`ContamHelp_zh.chm`
-  - 运行时帮助：`ContamHelp.chm`
+  - 中文帮助：`ContamHelp.chm`
   - 原始命令行工具：`prjup.exe`、`simread.exe`、`simcomp.exe`
   - 双击包装器：`PRJUP_PICKER.cmd`、`SIMREAD_PICKER.cmd`、`SIMCOMP_PICKER.cmd`
 - `help_src/ContamHelp_zh_html/`
   - 中文帮助 HTML 源码
   - 可以直接打开 `html/Introduction/Cover.htm`
 - `tools/`
-  - `build_contam_help_zh.ps1`：生成 `ContamHelp_zh.chm`
+  - `build_contam_help_zh.ps1`：生成 `ContamHelp.chm`
   - `build_contam_help_zh.cmd`：上面脚本的双击入口
   - `download_html_help_workshop.ps1`：下载 HTML Help Workshop 的兜底脚本
 - `build_assets/`
@@ -34,7 +33,6 @@
 
 帮助可直接双击：
 
-- `ContamHelp_zh.chm`
 - `ContamHelp.chm`
 
 三个命令行工具本身不是窗口程序，直接双击通常会一闪而过。要双击使用，请改用：
@@ -45,11 +43,10 @@
 
 如果只是查看中文帮助源码，不等 CHM，直接打开 `help_src/ContamHelp_zh_html/html/Introduction/Cover.htm`。
 
-## 构建 ContamHelp_zh.chm
+## 构建中文 CHM
 
 1. 直接运行 `tools/build_contam_help_zh.cmd`
 2. 成功后会生成：
-   - `ContamHelp_zh.chm`
    - `ContamHelp.chm`
 
 说明：
@@ -57,8 +54,8 @@
 - 脚本会优先查找系统已安装的 `hhc.exe`
 - 如果没装 HTML Help Workshop，可以运行 `tools/download_html_help_workshop.ps1 -UseMirror`
 - 构建脚本会自动生成 `help_src/ContamHelp_zh_html/ContamHelp_zh.hhp`
-- 构建完成后会把中文 CHM 同步复制为根目录运行时帮助 `ContamHelp.chm`
-- 这样程序里点击帮助时就会优先打开中文 CHM
+- 构建完成后根目录只保留一份中文帮助 `ContamHelp.chm`
+- 程序里点击帮助时会直接打开这份中文 CHM
 
 ## 关于 HTML Help Workshop
 
@@ -113,4 +110,4 @@
 
 - 中文程序：已完成，可运行
 - 中文 HTML 帮助：已完成，可直接打开
-- 中文 CHM：已生成，位于根目录 `ContamHelp_zh.chm`
+- 中文 CHM：已生成，位于根目录 `ContamHelp.chm`

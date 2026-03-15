@@ -1,6 +1,6 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=..\..\app\ContamHelp_zh.chm
+Compiled file=..\..\ContamHelp.chm
 Contents file=_Temp.hhc
 Index file=_Temp.hhk
 Default Window=main
