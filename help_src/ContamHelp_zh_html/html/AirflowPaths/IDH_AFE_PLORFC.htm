@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types|One-way flow using Powerlaw Models" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+幂律模型：孔口面积
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h6><a name="kanchor52"></a>
+幂律模型：孔口面积
+</h6>
+        <p>
+该气流元件允许您输入孔口的描述。
+ </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别气流元件的名称。气流元件将保存在当前项目中，并且可以与多个气流路径关联。
+</p>
+        <p><span style="font-weight: bold;">
+横截面积：
+</span> 
+这是指开口的可观察面积。
+</p>
+        <p><span style="font-weight: bold;">
+流量指数（n）：
+</span> 
+流动指数变化范围为 0.5（流动受动态效应主导的大开口）和 1.0（流动受粘性效应主导的狭窄开口）。测量结果通常表明典型渗透开口的流量指数为 0.6 至 0.7。
+</p>
+        <p><span style="font-weight: bold;">
+放电系数：
+</span> 
+流量系数 C 与动态效应有关，对于锐边孔口通常接近 0.6，而对于建筑物中的其他开口则略高。
+</p>
+        <p><span style="font-weight: bold;">
+水力直径：
+</span> 
+水力直径等于（4
+ <span style="font-family: &#x27;Symbol&#x27;;">× </span>
+面积/周长）。对于方形开口，这等于面积的平方根，对于长而薄的开口，它是宽度的两倍。
+</p>
+        <p><span style="font-weight: bold;">
+雷诺数：
+</span> 
+从层流到湍流的转变发生在较大的雷诺数范围内，完全层流的流动大约低于 100。
+</p>
+        <p><span style="font-style: italic;">
+注：水力直径和雷诺数对计算影响不大。一般情况下，除非特殊情况需要修改，否则应使用默认值。上述参数描述了典型操作中孔板的流量特性。在极低的压降下，幂律模型的使用会导致网络求解过程中除以零。 ContamX 通过更改为该区域的线性模型来避免此问题。该模型在概念上基于低压下从湍流到层流的流动变化。水力直径和雷诺数用于确定模型从幂律变为线性的点。
+</span>
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定气流元件的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+图标：
+</span> 根据特定气流元件选择小或大开口图标。该图标对模拟没有影响。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

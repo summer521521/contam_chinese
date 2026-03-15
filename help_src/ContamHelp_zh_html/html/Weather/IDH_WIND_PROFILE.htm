@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Path Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+风压剖面
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5><a name="kanchor47"></a>
+风压剖面
+</h5>
+        <p>
+风压剖面用于考虑流元素中的风向影响。 CONTAM 是指将建筑物正面的平均风压系数与风在建筑物正面的入射角相关联的函数，即
+ <span style="font-style: italic;">
+风压剖面
+</span> or <span style="font-style: italic;">f</span>(<span style="font-family: &#x27;Symbol&#x27;;">q</span>
+）。该函数的更详细解释在
+ <a href="IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a> 
+部分。配置文件以图形方式显示在屏幕底部，以便直观地查看数据。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+这是您为风压剖面指定的名称。风剖面名称在项目中必须是唯一的。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定风压曲线的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+数据点：
+</span> 
+您最多可以输入 16 个角度/压力系数对。压力系数的范围是 -1 到 1。第一个值必须位于风向 0 度处。角度零表示风直接吹向开口所在的表面。自动假定 360° 角度处的相同值。 90° 表示风从右侧平行于墙壁吹来，270° 表示从左侧吹来。通过相对于墙壁形成这些角度，可以在建筑物周围的不同墙壁上使用相同的轮廓，而无需根据建筑物的几何形状进行修改。
+</p>
+        <p>
+要更新图表上输入的数据点，请按曲线拟合框架中的“重绘”按钮。按下此按钮将在图表上重新绘制数据，并按角度对数据点进行排序。
+</p>
+        <p>
+选择曲线拟合：</p>
+        <p class="NormalIndent"><span style="text-decoration: underline;">
+曲线拟合 1
+</span>
+：此曲线拟合只是连接数据点并在数据点之间进行线性插值。
+ </p>
+        <p class="NormalIndent"><span style="text-decoration: underline;">
+曲线拟合2
+</span>
+：此曲线拟合使用点之间的非线性曲线拟合（三次样条）连接所有用户数据点。
+</p>
+        <p class="NormalIndent"><span style="text-decoration: underline;">
+曲线拟合3
+</span>
+：此曲线拟合需要五个数据点 - 每个数据点对应风向角度 0°、90°、180°、270° 和 360°。该曲线根据 Walker 和 Wilson 提出的以下方程将趋势线拟合到这五个数据点（忽略任何其他数据点）[
+<a href="../IDH_References.htm#REF_Walker_and_Wilson_1994">
+沃克和威尔逊 1994
+</a> and <a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a> 
+第 27.6 页]。
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_WindProfile_876x50.png" border="0" alt="
+方程
+" style="width: 876; height: 50;" />
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

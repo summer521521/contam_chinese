@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types|One-way flow using Powerlaw Models" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+幂律模型：连接 (ASCOS)
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h6><a name="kanchor51"></a>
+幂律模型：连接 (ASCOS)
+</h6>
+        <p>
+提供 ASCOS 连接元件是为了与 ASCOS 程序兼容 [
+<a href="../IDH_References.htm#REF_Klote_1982">
+克洛特 1982
+</a>
+]。它是基于孔口方程的更通用的孔口流量元件的实现。
+</p>
+        <p><i>Q</i> = <i>K A</i><sub style="font-style: italic;">o</sub> (2 <span style="font-family: Symbol;font-style: italic;">D</span><i>P</i> / <span style="font-family: Symbol;font-style: italic;">r</span>)</p>
+        <p>
+ASCOS 连接的输入是开口房间，
+ <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>,&#160;
+以及无量纲流量系数 K。描述连接的数据被简化为指数为 0.5 的幂律模型。孔板流量元件（参见
+ <a href="IDH_AFE_PLORFC.htm">
+幂律模型：孔口面积
+</a>
+）提供了更通用的实现。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别气流元件的名称。气流元件将保存在当前项目中，并且可以与多个气流路径关联。
+</p>
+        <p><span style="font-weight: bold;">
+流量系数：
+</span> 
+流量系数
+ <span style="font-style: italic;">K</span> 
+与动态效应有关，对于孔口通常接近 0.6，而对于建筑物中的其他开口则略高。
+</p>
+        <p><span style="font-weight: bold;">
+流通面积：
+</span> 
+Ao，指开口的可观察面积。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定气流元件的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+图标：
+</span> 根据特定气流元件选择小或大开口图标。该图标对模拟没有影响。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

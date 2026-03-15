@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+门口大开口</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+门口（大开口）
+</h4>
+        <p style="">幂律模型和二次模型一次只允许流向一个方向。通过大开口（例如门口）的流动往往更加复杂，开口的不同部分可能会出现相反方向的流动。两个房间之间的温度和由此产生的密度差异可能意味着烟囱效应导致门口顶部产生正压差，底部产生负压差（反之亦然），从而允许开口中的双向流动。通过门口的传热研究总结在[
+<a href="../IDH_References.htm#REF_Barakat_1987">
+巴拉卡特 1987
+</a>
+]。大多数研究都试图开发以下形式的无量纲相关性（使用努塞尔特数、普兰德数和格拉肖夫数）
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000DB.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(63)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-style: italic;">b</span> 
+大约为 0.5 并且
+ <span style="font-style: italic;">C</span> 介于 0.22 和 0.33 之间，具体取决于用于相关的温差。已经表明，这种传热相当于气流，可以通过将总开口划分为具有相同总面积但配置为适当地考虑开口中不同高度处的气流的大小和方向的几个较小开口，通过幂律元素来建模。
+
+        </p>
+        <p>
+另一种方法是创建一个单一的气流元件来解释整个开口的流动。 [中给出了一个简单的理论，用于估计通过垂直隔断中的大开口的烟囱引起的气流。
+<a href="../IDH_References.htm#REF_Brown_1962">
+布朗和索尔瓦森 1962
+</a>]。这种门口模型往往比多重开口方法更快。然而，它也使雅可比矩阵的组装过程变得复杂，因为可能存在一个或两个流。更重要的是，门口单元模型的开发需要了解节点模型中使用的垂直温度分布（此处假设为常数），以便计算作为开口高度函数的压差。这一要求损害了气流网络程序模块化的独立性。
+
+        </p>
+        <h5>
+多开模式
+&#160;</h5>
+        <p style="">
+假设每个房间的空气密度恒定，则使用流体静力方程来关联每个房间不同高度处的压力：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000DC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(64)</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000DD.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(65)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt">0</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span>,<span style="font-style: italic;"> P</span><span style="vertical-align: sub;font-size: 10pt">0</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+y = 0 时 j 区和 i 区的压力，开口的参考标高，
+<br></br><span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span>, <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+j 区和 i 区的空气密度，
+<br></br><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span>, <span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+j 区和 i 区的参考压力，
+<br></br><span style="font-style: italic;">h</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span>, <span style="font-style: italic;">h</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+j 区和 i 区的参考高程，以及
+<br></br><span style="font-style: italic;">h</span><span style="vertical-align: sub;font-size: 10pt">0</span>
+开口中心的标高。
+
+        </p>
+        <p style="">
+根据 [Brown 和 Solvason 1962]，假设气流速度是高度的函数，由孔口方程给出：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000DE.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(66)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span> <![CDATA[ ]>
+= 流量系数，以及
+</p>
+        <p class="NormalIndent"><span style="font-family: Symbol;">r </span>
+= 通过开口的空气密度。
+
+        </p>
+        <p>
+开幕式，
+ <span style="font-style: italic;">H</span> 
+高由 <span style="font-style: italic;">W</span> 
+宽，可以分为多个开口，每个开口代表一条细水平条
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">y</span> 
+高和
+ <span style="font-style: italic;">W</span> 
+宽。通过每个条带的质量流量为
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000DF.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(67)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+每个子开口的幂律模型 (20) 的系数由下式给出
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E0.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(68)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5>
+二开模式
+</h5>
+        <p>
+可以通过考虑两个房间之间的开口来构建近似模型，这两个房间没有通向任何其他房间的流动路径。那么每个方向的流量必须相等并且
+ <span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt">0</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span> = <span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt">0</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+。对方程 (66) 进行积分
+ <span style="font-style: italic;">y</span>
+=0 至
+ <span style="font-style: italic;">y</span>=<span style="font-style: italic;">H</span>
+/2 使用 (65) 计算
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span> 
+给出通过开口上半部分的流量。
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E1.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(69)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+这相当于一个简单的幂律模型
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E2.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(70)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+（一个简单的孔口，总开口面积的一半）放置在高程
+ <span style="font-style: italic;">y </span>= 2<span style="font-style: italic;">H</span>
+/9。两个开口模型以相同的开口完成
+ <span style="font-style: italic;">y </span>= -2<span style="font-style: italic;">H</span>
+/9 高度允许相反方向的相等流量。由于孔口是用简单的孔口开口建模的，因此由于其他力而导致的房间之间的任何额外压降都包含在两个开口模型中。当中性面偏离开口中心时，模型的精确度会降低。
+
+        </p>
+        <h5>
+单开型号
+&#160;</h5>
+        <p>
+第三种方法是创建单个气流元件来解释整个开口上的气流。首先定义中性高度，
+ <span style="font-style: italic;">Y</span>
+，其中空气速度为零。根据等式（66），这必须发生在
+ <span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span>(<span style="font-style: italic;">y</span>) = <span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>(<span style="font-style: italic;">y</span>
+）。根据方程 (65)，这必须是
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E3.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(71)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+如果 |
+<span style="font-style: italic;">Y</span>| &lt; <span style="font-style: italic;">H</span>
+/2，有双向气流通过开口。如果
+ <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span> = <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span>
+，中性高度无法计算，但是，由于不存在双向流动的可能性，因此该开口可以被认为是简单的孔口开口。
+ 
+        </p>
+        <p>
+定义
+ <span style="font-family: Symbol;">D</span><span style="font-family: Symbol;">r</span><span style="font-family: Symbol;">º</span><span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j</span> - <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span> 
+和变换后的高度坐标
+ <span style="font-style: italic;">z </span><span style="font-family: Symbol;">º</span><span style="font-style: italic;"> y</span> - <span style="font-style: italic;">Y</span>
+。然后开口处的压力差由下式给出
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E4.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(72)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+通过中性高度上方开口的质量流量由下式给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E5.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(73)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+和中性高度以下的质量流量
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E6.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(74)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+下标m应该是j还是i取决于流向。方程 (73) 和 (74) 的积分给出了气流的几种不同的解，具体取决于
+ <span style="font-style: italic;">Y</span> 
+和标志
+ <span style="font-family: Symbol;">D</span><span style="font-family: Symbol;">r</span>
+。定义：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000E7.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(75)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+给出以下流量方程。
+</p>
+        <table class="Eqn">
+            <tr>
+                <td class="EqnCenter"><b>
+案例
+</b>
+                </td>
+                <td class="EqnCenter"><b><span style="font-family: Symbol;">Dr</span> &lt; 0</b>
+                </td>
+                <td class="EqnCenter"><b><span style="font-family: Symbol;">Dr</span> &lt; 0</b>
+                </td>
+                <td class="EqnCenter">&#160;</td>
+            </tr>
+            <tr>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EA.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EB.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EC.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnNum">&#160;&#160;&#160;(76)</td>
+            </tr>
+            <tr>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000ED.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EC.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EB.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnNum">&#160;&#160;&#160;(77)</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EE.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000EF.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000F0.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnNum">&#160;&#160;&#160;(78)</td>
+            </tr>
+            <tr>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000F1.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnCenter">&#160;&#160;&#160;<img src="../../image/080000F2.png" alt="
+方程
+" />&#160;&#160;&#160;</td>
+                <td class="EqnNum">&#160;&#160;&#160;(79)</td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

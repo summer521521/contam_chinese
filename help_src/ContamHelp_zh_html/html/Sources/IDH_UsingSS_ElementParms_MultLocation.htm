@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source/Sink Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源汇乘数计划位置属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇 - 乘数和位置属性
+</h5><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span>
+        <p><span style="font-weight: bold;">
+源/汇数量：
+</span> 
+这是当您突出显示图标时出现在状态栏中的数字。
+
+        </p>
+        <p><span style="font-weight: bold;">
+乘数：
+</span> 
+模拟期间将乘以源强度的常数值。使用此功能，您可以定义一个
+ <span style="font-style: italic;">
+源/汇元件
+</span> 
+具有每单位面积的源强度，然后使用乘数作为使用每单位面积源/汇元件的每个源/汇的房间的面积。
+
+</p>
+        <p>
+注：乘数用作边界层扩散模型的表面积，应以 m 为单位输入
+<sup>2</sup>.</p>
+        <p><span style="font-weight: bold;">
+初始浓度：
+</span> 
+一些源/汇是可逆的，因为它们能够在表面内或表面上储存并从表面重新排放或重新悬浮污染物。这些源/汇实际上为污染物传输方程贡献了污染物节点。目前，有两种这样的元素类型：
+ <i>
+边界层扩散控制
+</i> and <i>
+重悬沉积
+</i>
+。 
+      的
+ <i>
+初始浓度
+</i> 
+将为这些元素类型启用属性，您可以设置这些初始载荷的值和单位。
+      </p>
+        <p class="NormalCW2"><b>
+颜色:
+</b> 
+设置图标的颜色。这允许您区分 SketchPad 上的不同图标。通过以下方式激活图标颜色的显示
+ <b><u>V</u>
+瞧——
+&gt; 
+图标
+ <u>C</u>
+着色
+</b> 
+菜单项。
+</p>
+        <p><span style="font-weight: bold;">
+地点：
+</span> 这些是所选源/汇的 X、Y 和相对高程 (Z) 坐标和单位。 X 和 Y 是绝对坐标，相对高程是相对于源/汇所在水平面的。要创建点源，请将最小值和最大值设置为相同。要创建沿着房间的一维轴分布排放的源，请输入跨越源所在房间的所需房间的最小值和最大值。
+
+        </p>
+        <p>
+这些值对于位于 a 内的任何源/汇都是必需的。
+ <span style="font-style: italic;">
+一维对流/扩散区
+</span> 
+（见
+ <a href="../Zones/IDH_PP_ZONEPARMS2_CFD.htm">
+一维房间数据
+</a>
+）。这些坐标将由 ContamW 对照其所在的 1D 房间的轴进行验证。当您选择以下任一选项时，将自动执行此验证
+ <span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> or <span style="font-weight: bold;">
+创建一个Contam
+</span><span style="font-weight: bold;text-decoration: underline;">X</span><span style="font-weight: bold;"> 
+输入文件
+</span> 
+命令来自
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单。
+
+        </p>
+        <p><span style="font-weight: bold;">CFD&#160;
+来源ID：
+</span> 位于 CFD 房间内的每个源/汇都必须被赋予唯一的标识符。此 ID 将用于标识 CFD0 编辑器中的源/汇，该编辑器用于定义相对于 CFD 房间的接口路径的位置。
+                  </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

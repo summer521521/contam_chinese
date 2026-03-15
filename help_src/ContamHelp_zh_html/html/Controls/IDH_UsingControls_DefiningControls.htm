@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Controls" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+定义控制
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+定义控制
+</h3>
+        <p>
+您必须定义所有
+ <span style="font-style: italic;">
+控制节点
+</span> and <span style="font-style: italic;">
+传感器
+</span> 
+图标以执行模拟。控制链路将根据其发出的节点或传感器的定义自动定义。通常，您应该按照链接箭头指示的信息流方向定义控制节点。定义
+ <span style="font-style: italic;">
+控制节点
+</span> and <span style="font-style: italic;">
+传感器
+</span> 
+使用图标定义过程（参见
+ <a href="../SketchPad/IDH_UsingSketchPad_DefiningBuildingComponentIcons.htm">
+定义建筑组件图标
+</a>
+）来显示和编辑它们的属性。
+</p>
+        <p class="SubHeading1">
+传感器
+</p>
+        <p>
+当双击未定义的传感器图标时，将出现控制传感器定义对话框。参数要么是
+ <span style="font-style: italic;">
+房间传感器
+</span> or <span style="font-style: italic;">
+流路传感器
+</span> 
+取决于与传感器关联的建筑组件。
+</p>
+        <p>
+如上面的绘图控件部分所述，当您开始在敏感图标（例如房间或流动路径）上绘制控制链接时，可以自动放置传感器图标。使用 CONTAM 版本 2.4，您现在可以在房间内的任何空白单元格内定义房间传感器。这增加了之前每个房间四个房间传感器的限制，并通过在定义控制节点时选择“传感器”控制元素类型来完成，如以下小节所示。
+</p>
+        <p class="SubHeading1">
+控制节点
+</p>
+        <p>双击未定义的控制节点图标将显示“控制元素类型”对话框，您可以从中选择要定义的控制元素类型。控制元素可以根据与其关联的输入数量进行分类：一元、二元和多元。因此，当显示“控制元素类型”对话框时，将根据您绘制到当前所选节点的输入数量启用/禁用各种类型以供选择。
+</p>
+        <p>
+选择要创建的元素类型后，即可为控制元素的参数分配值。所有控制元件都有一个可选的
+ <span style="font-style: italic;">
+名称
+</span> 
+参数，但幻像除外
+ <span style="font-style: italic;">
+名称
+</span> 
+参数将用于引用另一个现有元素的名称。仅当您想使用虚拟节点引用元素时，才需要 name 参数。
+</p>
+        <p>
+每个元素还有一个可选的
+ <span style="font-style: italic;">
+描述
+</span> 字段，当您创建元素时，该字段会填充默认值，但您可以更改描述。当您突出显示 SketchPad 上的控制节点时，说明将显示在状态栏中。许多元素除了
+ <span style="font-style: italic;">
+名称
+</span> and <span style="font-style: italic;">
+描述
+</span>
+，因为它们只是对节点的输入执行预定操作，例如，“+ Add”元素简单地采用两个输入，将它们相加并将结果作为输出信号提供。其他控制元素具有定义其行为所需的附加参数，例如，“Constant”元素具有用于指定来自控制节点的输出信号的恒定值的值参数。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

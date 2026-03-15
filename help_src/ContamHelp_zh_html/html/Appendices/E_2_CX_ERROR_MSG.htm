@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+CX_ERROR_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+CX_ERROR_MSGTYPE
+</h3>
+        <p>
+此消息可能是
+ <u>
+ContamX 收到
+</u> 
+在任何时间
+ <b>
+就绪模式
+</b>
+，并将导致 ContamX 终止模拟并关闭。如果允许程序运行到由 PRJ 文件中的模拟停止日期/时间确定的模拟结束，则不需要此消息来终止程序。如果
+ <code>
+错误类型
+</code> 
+发送的值为 0，则 ContamX 立即终止并出现错误。如果
+ <code>
+错误类型
+</code> 
+send 为 1，则 ContamX 将运行到当天结束。当与 EnergyPlus 耦合以适应热身日时使用此功能。
+</p>
+        <p>
+这条消息是
+ <u>
+由 ContamX 发送
+</u> 
+向服务器发出它正在关闭的信号。如果 ContamX 因错误而关闭，它将发送带有
+ <code>
+错误类型
+</code> 
+参数设置为1，否则设置为0。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">
+字符
+ </span>
+错误类型；
+<span style="color: #008100;">&#160;</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

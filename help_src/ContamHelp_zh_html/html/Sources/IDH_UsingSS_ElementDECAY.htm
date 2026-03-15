@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源汇元件衰减源模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇元件：衰减源模型
+</h5>
+        <p>
+在模拟过程中，可以使用时间表或控制信号多次启动和停止衰减源模型。将计划或控制值设置为零将关闭源，而计划或控制值大于零将重新打开源。如果没有计划与此源接收器关联，它将立即激活。
+</p>
+        <p><i>S</i><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>(<i>t</i>) = <i></i>
+多
+<i><sub style="font-style: italic;"></sub></i>
+·ctrl键
+<i>
+·G
+</i><sub>0</sub> e<sup>-<i style="vertical-align: super;"><span style="font-family: Symbol; vertical-align: super;">D<span style="font-family: &#x27;Times New Roman&#x27;; vertical-align: super;">t</span></span></i></sup><span style="font-family: Symbol;vertical-align: super;"><span style="font-family: &#x27;Times New Roman&#x27;;vertical-align: super;">/</span>t</span><sup>c</sup><span style="font-family: Symbol;vertical-align: super;"></span></p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">S<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>
+(t) =
+ </span>
+污染物来源强度
+ <span style="font-family: Symbol;">a</span> 
+在某个时间
+<span style="font-style: italic;"> t </span>[kg<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]<span style="font-style: italic;"></span></p>
+        <p class="NormalIndent"><span style="font-style: italic;">G</span><sub style="font-size: 10pt;">0</sub> 
+= 初始生成率 [kg
+<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]<br /><span style="font-style: italic;"><span style="font-family: Symbol;">D</span>t</span>&#160;&#160;&#160; 
+= 自发射开始以来经过的时间 [s]
+<br /><span style="font-style: italic;font-family: Symbol;">t</span><sub>c</sub>&#160;&#160;
+= 时间常数 [s]
+</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+</p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+</p>
+        <p><span style="font-weight: bold;">
+初始发电率：
+</span> 
+污染物的产生由时间表控制。当计划从零变为非零值（在零和一之间）时，污染物开始生成。初始生成率等于调度值乘以初始生成率。单个时间表可用于在不同时间启动多个排放。
+</p>
+        <p><span style="font-weight: bold;">
+衰减常数：
+</span> <![CDATA[ ]><span style="font-family: Symbol;vertical-align: baseline;"></span>1/<span style="font-family: Symbol;">t</span>
+c，生成速率衰减原始速率0.368的时间。
+</p>
+        <p><span style="font-weight: bold;">
+品种：
+</span> 
+从下拉框中选择先前定义的物种。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定接收器/源元件的更详细描述的字段。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

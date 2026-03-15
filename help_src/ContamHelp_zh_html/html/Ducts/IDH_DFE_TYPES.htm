@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts|Defining Ducts|Duct Segment Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+管道流元件类型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor78"></a>
+管道流元件类型
+</h4>
+        <p>
+这是可用管道流元素或数学模型的列表，提供管道段的气流和压差之间的关系。请参阅气流分析
+ <a href="../Theory/IDH_Theory_Background.htm">
+理论背景
+</a> 
+手册的数学细节部分。
+</p>
+        <p class="SubHeading1">
+达西-科尔布鲁克模型
+</p>
+        <p>
+CONTAM 管道系统最常用的模型是达西-韦斯巴赫关系和科尔布鲁克自然粗糙度函数。
+</p>
+        <p class="NormalIndent"><a href="IDH_PP_AFE_DCTDWC.htm">
+达西-科尔布鲁克模型
+</a>
+        </p>
+        <p class="SubHeading1">
+幂律模型
+</p>
+        <p>
+包括幂律模型的三个版本：
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_PP_AFE_DCTPLR.htm">
+孔口阻力模型
+</a>
+                </p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_PP_AFE_DCTFCN.htm">
+电阻：F = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a> 
+（质量流量）
+</p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_PP_AFE_DCTQCN.htm">
+电阻：Q = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a> 
+（体积流量）
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+强制流模型
+</p>
+        <p>
+包括三种类型的强制流动模型：
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_PP_AFE_DCTFAN.htm">
+风扇-性能曲线
+</a>
+                </p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_PP_AFE_DCTCMF.htm">
+恒定质量流量
+</a>
+                </p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_PP_AFE_DCTCVF.htm">
+定体积流量
+</a>
+                </p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+逆止阻尼器模型
+</p>
+        <p>
+逆流阻尼器模型可以对具有不同流阻（取决于压降方向）的特征（例如防烟阻尼器）进行建模，并且在一个方向上的流量大大减少（或为零）。
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_PP_AFE_DCTBDF.htm">
+逆止阻尼器：F = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a> 
+（质量流量）
+</p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_PP_AFE_DCTBDF.htm">
+逆止阻尼器：Q = C(<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a> 
+（体积流量）
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">三次样条流模型
+</p>
+        <p>
+这些模型能够根据三次样条曲线拟合的一组数据点创建用户定义的管道流元素。有四种版本将质量流量或体积流量与流量元件上的压差相关（反之亦然）。三次样条曲线拟合确保流量和压力之间的关系按照 CONTAM 气流求解器的要求是可微分的。
+ </p>
+        <ol>
+            <li value="1">
+                <p><a href="../AirflowPaths/IDH_AFE_CubicSpline.htm">
+F 与 P
+</a>: <i>
+质量流量
+</i> 
+作为一个函数
+ <i>
+压差
+</i></p>
+            </li>
+            <li value="2">
+                <p><a href="../AirflowPaths/IDH_AFE_CubicSpline.htm">
+Q 与 P
+</a>: <i>
+体积流量
+</i> 
+作为一个函数
+ <i>
+压差
+</i></p>
+            </li>
+            <li value="3">
+                <p><a href="../AirflowPaths/IDH_AFE_CubicSpline.htm">
+P 与 F
+</a>: <i>
+压差
+</i> 
+作为一个函数
+ <i>
+质量流量
+</i></p>
+            </li>
+            <li value="4">
+                <p><a href="../AirflowPaths/IDH_AFE_CubicSpline.htm">
+P 与 Q
+</a>: <i>
+压差
+</i> 
+作为一个函数
+ <i>
+体积流量
+</i></p>
+            </li>
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

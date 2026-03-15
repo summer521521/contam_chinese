@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Getting Started" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+用户任务
+</title>
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+用户任务
+</h2>
+        <p>
+使用 CONTAM 分析建筑物中的气流或污染物迁移涉及五个不同的任务：
+</p>
+        <ol>
+            <li value="1">
+                <p><font style="font-style:italic; ">Building Idealization</font>
+: 形成一个
+ <font style="font-style:italic; ">idealization</font> 
+或具体的
+ <font style="font-style:italic; ">model</font> 
+正在考虑的建筑物，
+</p>
+            </li>
+            <li value="2">
+                <p><font style="font-style:italic; ">Schematic Representation</font>
+：使用 ContamW 绘制理想化建筑的示意图
+ <font style="font-style:italic; ">SketchPad</font> 
+绘制建筑构件，
+</p>
+            </li>
+            <li value="3">
+                <p><font style="font-style:italic; ">Define Building Components</font>
+：收集并输入与图中所示的每个建筑组件相关的数据
+ <font style="font-style:italic; ">SketchPad</font>,</p>
+            </li>
+            <li value="4">
+                <p><font style="font-style:italic; ">Simulation</font>
+：选择您想要进行的分析类型，设置模拟参数并执行模拟，
+ </p>
+            </li>
+            <li value="5">
+                <p><font style="font-style:italic; ">Review &amp; Record Results</font>
+：查看模拟结果并记录结果的选定部分。
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+任务 1 - 建立理想化
+</p>
+        <p>
+建筑理想化是指将建筑物简化为与用户执行分析目标相关的一组房间。根据建筑布局、通风系统配置和关注的问题，可以通过多种方式使建筑物理想化。这种理想化分析阶段需要用户具备一定的工程知识，并且是一项后天获得的技能，您可以通过气流和室内空气质量分析方面的经验以及熟悉室内空气质量分析所依据的理论原理和细节来培养该技能。</p>
+        <p>值得注意的是 CONTAM 提供了建筑物的宏观模型。从这个宏观角度来看，每个房间都被认为是充分混合的。充分混合意味着一个房间的特征是一组离散的状态变量，即温度、压力和污染物浓度。温度和污染物浓度在一个房间内不会发生空间变化，并且污染物会在整个混合良好的房间中立即混合。然而，压力在所有房间内确实会发生静水压力变化。
+</p>
+        <p>
+从 CONTAM 版本 2.4 开始，一维对流/扩散区可以在 CONTAM 内实现。此功能可用于模拟污染物通过以单一主导流向为特征的长或高房间的传输。还可以实施一维对流/扩散管道模型，以更真实地捕获整个管道系统内的污染物传输。
+ </p>
+        <p>
+CONTAM 非常适合分析建筑物各房间之间的相互作用
+ <i>
+宏观的
+</i> 
+或整个建筑的水平。计算流体动力学 (CFD) 分析非常适合分析气流和污染物传输特性
+ <i>
+微观的
+</i> 
+水平，即建筑物的单个房间内。然而，对整个建筑物执行 CFD 分析所需的计算资源目前令人望而却步。从 CONTAM 版本 3.0 开始，零阶湍流 CFD 模型已直接与 CONTAM 集成，以便能够考虑单个 CFD 房间与在宏观层面进行分析的建筑物的其余部分，即耦合多房间/CFD 分析。
+</p>
+        <p class="SubHeading1">
+任务 2 - SketchPad 表示
+ </p>
+        <p>
+开发 SketchPad 表示将是您与 ContamW 交互的重点。使用 ContamW 的 SketchPad 您将能够绘制图表 –
+  <font style="font-style:italic; ">SketchPad diagram</font> 
+– 使用绘图工具和图标集来表示建筑系统的组件，从而实现建筑理想化。 CONTAM 将您的图表转换为方程组，然后在您执行模拟时使用该方程组对建筑物的行为进行建模。
+ </p>
+        <p>See <a href="../SketchPad/IDH_UsingSketchPad_WorkingWithTheSketchPad.htm">
+使用 SketchPad
+</a> 
+在
+ <a href="../IDH_Using_Overview.htm">
+使用 CONTAMW
+</a> 
+部分。
+</p>
+        <p class="SubHeading1">
+任务 3 数据输入
+ </p>
+        <p>数据输入可能是使用 ContamW 过程中最耗时的部分之一。它涉及与每个 SketchPad 图标相关的参数数值的确定和输入。这些图标代表建筑模型的元素，包括漏气路径（窗户、门、裂缝）、通风系统元素（风扇、管道、通风口）、污染物源、过滤器、水槽和控制网络组件。每个元素都与许多参数相关联，您必须获取这些参数的值才能输入模型。根据元素和应用，这些值可以从建筑特定数据、工程手册和产品文献中获得。在许多情况下，会涉及一定程度的工程判断。 ContamW 允许您创建这些元素的库，您可以在当前和未来的建模工作中使用它们。
+ </p>
+        <p>
+整个过程中提供了各个组件的详细信息
+ <a href="../IDH_Using_Overview.htm">
+使用 CONTAMW
+</a> 
+部分。
+</p>
+        <p class="SubHeading1">
+任务 4 模拟
+</p>
+        <p>模拟是使用 CONTAM 来求解由建筑物的 SketchPad 表示组装而成的方程组，以预测感兴趣的气流和污染物浓度。此步骤涉及确定所需的分析类型；稳态、瞬态或循环，以及许多其他模拟参数。这些参数取决于您希望执行的分析类型（稳态或瞬态），并包括收敛标准以及瞬态分析的时间步长和分析持续时间。
+ </p>
+        <p>See <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+在
+ <a href="../IDH_Using_Overview.htm">
+使用 CONTAMW
+</a> 
+部分。
+</p>
+        <p class="SubHeading1">
+任务 5 回顾
+ &amp; 
+记录结果
+ </p>
+        <p>
+ContamW 允许您在屏幕上查看模拟结果并将其输出到文件，以输入到电子表格程序或其他数据分析程序，包括由 NIST 开发并可在
+ <a href="https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling">NIST&#160;
+多房间建模
+</a> 
+网站。每个流量元件处的气流和压差可以直接在 SketchPad 上查看。房间的污染物浓度也可以直接从 SketchPad 绘制为时间函数。然后，您可以决定要更仔细地检查哪些数据，并将这些数据导出到制表符分隔的文本文件，然后将其导入到电子表格中以进行进一步分析。还有一个与控制相关的功能，可以将瞬态模拟的每个时间步长的用户选择的控制节点的值报告到控制“日志”文件。
+ </p>
+        <p>See <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a> 
+在
+ <a href="../IDH_Using_Overview.htm">
+使用 CONTAMW
+</a> 
+部分和
+ <a href="../Controls/IDH_UsingControls_ControlElementTypes.htm#Report_Control">
+报告一个值
+</a> 
+在
+ <a href="../Controls/IDH_UsingControls_WorkingWithControls.htm#top" target="" title="" alt="" class="MCXref" xrefformat="Working with Controls">
+使用控件
+</a> 
+部分了解详细信息。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

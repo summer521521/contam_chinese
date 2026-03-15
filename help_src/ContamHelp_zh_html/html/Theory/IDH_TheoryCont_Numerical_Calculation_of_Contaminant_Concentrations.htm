@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Contaminant Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+污染物浓度的数值计算
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor162"></a>
+污染物浓度的数值计算
+</h3>
+        <p>
+方程（7）的几种可能的解决方案可以通过选择来表征
+ <span style="font-family: Symbol;font-style: italic;">d</span><span style="font-style: italic;">t</span> 
+以确定收益或损失的比率。 CONTAM 传统上选择
+ <span style="font-family: Symbol;font-style: italic;">d</span><span style="font-style: italic;">t</span> = <span style="font-family: Symbol; font-style: italic;">D</span><span style="font-style: italic;">t</span>
+。等式(7)变为：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory08.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(8)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+所有浓度
+
+            <img src="../../Resources/Images/Eqn13.PNG" alt="
+方程
+" /> 
+在某个时间
+ <span style="font-style: italic;">t+</span><span style="font-family: Symbol;font-style: italic;">D</span><span style="font-style: italic;">t</span> 
+也是各种其他浓度的函数
+ <span style="font-style: italic;">t+</span><span style="font-family: Symbol;font-style: italic;">D</span><span style="font-style: italic;">t</span>
+。这是
+ <span style="font-style: italic;">
+标准隐式方法
+</span>
+，并且要求必须同时求解全套方程组（8）。
+  
+        </p>
+        <p>
+方程的数量 N 等于物种数量乘以控制体积的数量。在传统的高斯消除（或 LU 分解）解决方案中，计算时间与 N 成正比<sup>3</sup>
+，使得它对于大问题来说不切实际。 CONTAM 提供了三种求解方法，它们利用矩阵稀疏性来处理具有大量方程的情况。它们是直接天际线算法、迭代双共轭梯度 (BCG) 算法和迭代连续过松弛 (SOR) 算法。 （LU 分解仅用于测试和基准测试。）skyline 算法对于中等大小的问题非常快，但对于大型问题可能很慢。 SOR 算法需要的内存要少得多，并且对于大型问题可能会更快，除非存在收敛困难。在这种情况下，请尝试 BCG 解决方案，尽管它也可能会遇到收敛困难。在进行长时间瞬态仿真之前，测试不同的方法以确定哪种方法能够提供最佳性能非常有用。
+</p>
+        <p>
+通过选择可以获得更准确的解决方案
+ <span style="font-family: Symbol;font-style: italic;">D</span><i>t</i> = <span style="font-family: Symbol;font-style: italic;">D</span><i>t</i>&#160;
+/2 表示时间步内的平均条件。这已在 CONTAM 中通过梯形积分实现，但仍需要求解全套联立方程组。
+  </p>
+        <p>
+我们还可以选择
+ <span style="font-family: Symbol;font-style: italic;">D</span><i>t</i> 
+= 0。在这种情况下，方程（7）变为：
+  </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory09.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(9)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+每个浓度
+ 
+            <img src="../../Resources/Images/Eqn13.PNG" border="0" height="25" width="22" alt="
+图片\ebx_2125051195.gif
+" /> 
+在某个时间
+ <span style="font-style: italic;">t+</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">D</span><i>t</i> 是当时各种其他已知浓度的函数
+ <span style="font-style: italic;">t</span>
+。这是
+ <span style="font-style: italic;">
+标准显式方法
+</span> 
+其具有不需要求解联立方程的计算优势。在某些情况下，这种优势会被不稳定所抵消。也就是说，连续时间步长的浓度可能与分析正确的解决方案有很大差异。稳定性由方程（7）中系数的大小决定。例如，当流入或流出 c.v. 的总流量。在一个时间步长大于 c.v. 中的空气质量时，解会变得不稳定，也就是说，连续时间步长的值开始围绕真实解振荡并最终达到不可能的值。当
+ 
+            <img src="../../Resources/Images/Eqn14.PNG" alt="
+方程
+" /> or 
+            <img src="../../Resources/Images/Eqn15.PNG" alt="
+图像\方程
+" /> 
+超过一定幅度。标准隐式方法在所有时间步长上都是稳定的。
+
+        </p>
+        <p>
+稳定性问题非常重要，因此审查建筑物正常运行的预期时间尺度非常有用。 ASHRAE 指出，在几乎所有商业应用中，房间调节和通风的空气交换率应低于每小时 12 次换气。 [ASHRAE 1999b，第 17 页3.2 表 1 - 一般设计标准] 这对应于 1/12 小时或 5 分钟显式方法的稳定性极限。在 CONTAM 中，连接点的体积是在连接点处相遇的管道段体积之和的一半。两个 2 m 长的管道段之间的连接处，其中空气以 2 m/s 的速度流动，其稳定性极限为 1 秒。由于管道段较短或速度较高，可能会出现较小的限制。  
+        </p>
+        <p>在 CONTAM 的早期版本中，预计建模过程需要的时间步长减少到大约 5 分钟。管道系统建模的稳定性限制非常短，促使 CONTAM 使用隐式解决方案，其中相对较少时间步长的执行时间少于使用显式解决方案执行许多较短时间步长的时间。最近增加的控制系统建模和跟踪快速污染物释放的需要都需要不超过几秒的时间步长。因此，我们将重新考虑使用管道的显式模型。
+
+        </p>
+        <p>
+下图显示了 CONTAM 画板，表示非常简单的建筑物及其空气处理系统的典型特征。管道图标指示正常的流动方向。管道系统由每个房间内带有终端 (R) 的回风管道、环境排气口 (X)、再循环路径、室外进气口 (OA) 以及每个房间内带有终端 (S) 的送风管道组成。
+
+        </p>
+        <p>
+            <img src="../../image/SchemDuctAHS_420x155.gif" border="0" alt="
+图像
+" style="width: 420; height: 155;" />
+        </p>
+        <p>
+图 - 基本空气处理系统示意图
+</p>
+        <p>
+当仿真时间步足够短时，
+ <span style="font-style: italic;">
+显式方法
+</span> 
+可用于计算房间中的污染物浓度。相同的时间步长可以与
+ <span style="font-style: italic;">
+隐式方法
+</span> 
+计算管道连接处的浓度，前提是计算按照正确的顺序进行，其中方程（8）沿着气流方向一次求解一个节点。下面的讨论将展示如何隐式求解管道连接处浓度，从而避免稳定性问题，并且无需求解联立方程，从而产生快速计算。
+</p>
+        <p>
+该过程首先根据当时已知的条件计算所有气流
+ <span style="font-style: italic;">t</span>
+。然后，污染物计算序列开始使用方程（9）的修改来计算浓度
+ 
+            <img src="../../Resources/Images/Eqn13.PNG" alt="
+方程
+" /> 
+在某个时间
+<span style="font-style: italic;"> <![CDATA[ ]></span><span style="font-style: italic;">t+</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic">D</span><span style="font-style: italic;">t</span> 
+在所有房间：
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory10.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(10)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+在方程（10）中，流出房间的流量分为两部分
+</p>
+        <p class="NormalIndent">
+            <img src="../../Resources/Images/Eqn17.PNG" alt="
+方程
+" />
+，流向其他房间，并且
+
+        </p>
+        <p class="NormalIndent">
+            <img src="../../Resources/Images/Eqn18.PNG" alt="
+方程
+" />
+，通过回流终端或泄漏流入管道连接处，
+
+        </p>
+        <p>
+在计算返回终端的浓度时保留污染物质量。
+  </p>
+        <p>然后使用方程 (8) 的简化形式计算返回终端（R 和 OA）中的浓度，因为源、汇和反应不是在管道中建模的，尽管将来可以添加这些功能。
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory11.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(11)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+对于终端来说，这种计算特别简单，因为只有一股气流进入每个回风终端，而另一股气流则进入管道网络。流入终端的浓度，
+ 
+            <img src="../../Resources/Images/Eqn19.PNG" alt="
+方程
+" /> 
+在某个时间
+ <span style="font-style: italic;">t+</span><span style="font-family: Symbol;">D</span><span style="font-style: italic;">t</span>
+，来自周围房间的方程（10），
+ <span style="font-style: italic;">j</span>
+。一旦计算出所有返回终端浓度，就知道在返回管道中最左侧接合点 (#1) 处相遇的两个管道的上游浓度，并且可以直接求解方程 (11)，因为方程右侧的所有浓度都是已知的。一旦计算出#1 汇合点的浓度，就知道沿返回管道右侧的下一个汇合点 (#2) 的所有上游浓度，然后可以计算其浓度。这个过程在管道系统周围持续进行，直到所有连接点和所有供应终端的浓度都被计算出来。这种对管道连接处浓度的隐式计算是无条件稳定的，因此总体稳定性由房间中的条件决定。
+  
+        </p>
+        <p>
+CONTAM 2.4 添加了这个过程，并将其称为
+ <span style="font-style: italic;">
+短时间步长
+ </span>
+方法
+<span style="font-style: italic;"></span> 
+（STS）。
+  
+        </p>
+        <p>
+反应可能包括导致显式模拟不稳定的系数。非常快的反应会产生这样的系数。因此，STS 方法通过隐式计算处理反应，仅涉及 c.v. 中的污染物。在该时间步执行了所有其他计算之后。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

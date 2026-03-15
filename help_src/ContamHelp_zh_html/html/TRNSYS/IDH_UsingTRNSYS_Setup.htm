@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with TRNSYS" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+TRNSYS-CONTAM 实用程序和设置
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+TRNSYS-CONTAM 实用程序和设置
+</h2>
+        <p>
+除了 Type98 之外，还开发了一组工具来促进 TRNSYS-CONTAM 耦合过程。这些工具支持耦合建筑模型的开发，包括 Type98 和 Type56 输入和输出之间的连接。这些工具可在 NIST 多房间建模网站 (
+<a href="https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling">
+https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling
+</a>
+）。本节介绍这些工具及其关联的输入文件，以及有关这些文件应位于 Windows 系统上的位置的说明，以便与 TRNSYS 一起使用。在下面的文件路径中，
+ <i>
+特恩系统\
+</i> 
+指 TRNSYS 的安装目录。
+</p>
+        <h3>
+软件组件和文件
+</h3>
+        <p><b>
+98型
+&lt;
+版本
+&gt;
+.dll
+</b>
+        </p>
+        <p class="NormalCW2">
+按照TRNSYS规范开发的Type98动态链接库文件。它是处理 TRNSYS 命令和数据与 ContamX 之间的通信的中间人。的“
+&lt;
+版本
+&gt;
+文件名的“部分”将取决于 TRNSYS 和 CONTAM 的版本以及编译类型的操作系统体系结构，例如，“_t18_c33-x64”表示 DLL 与 TRNSYS 版本 18、CONTAM 版本 3.3 兼容，并且是 64 位 Windows 可执行文件。
+</p>
+        <p>
+将 Type98 dll 复制到
+ <i>
+Trnsys\Userlib\ReleaseDLLs
+</i> 
+目录。
+</p>
+        <p><b>
+ContamX3.exe
+</b>
+        </p>
+        <p>
+这是 CONTAM 程序的计算引擎（求解器）。它利用套接字通信与 Type98 传输命令和数据。它安装在 CONTAM 安装文件夹中。
+ </p>
+        <p>
+将 ContamX3.exe 复制到
+ <i>
+Trnsys\Exe
+</i> 
+目录。
+</p>
+        <p><b>
+类型98.bmp
+</b>
+        </p>
+        <p>
+Type98 图标可以与在下面概述的 CONTAM-TRNSYS 耦合方法期间创建的静态-动态形式相关联。
+</p>
+        <p>
+将 Type98.bmp 复制到
+ <i>
+Trnsys\Studio\Proformas\Utility\调用外部程序\CONTAM
+</i> 
+目录。该文件并不重要，但用法将在下面的过程中描述。
+</p>
+        <p><b>
+CONTAM3DExport.exe
+</b>
+        </p>
+        <p>
+该程序可实现 TRNSYS 的耦合
+&#160;
+与 CONTAM。它可用于通过挤出已使用新方法按比例绘制的 CONTAM 项目文件来创建 Trnsys3D 文件 (.idf)
+ <i>
+伪几何
+</i> 
+ContamW 的绘图功能。该工具还生成执行耦合 TRNSYS/CONTAM 模拟所需的文件，包括：
+</p>
+        <ul>
+            <li class="CW2" style="color: #000000;" value="1"> 
+TRNSYS 输入或卡座文件 (.dck)
+ </li>
+            <li class="CW2" style="color: #000000;" value="2">
+Type98 动态静态形式 (.tpf)
+</li>
+            <li class="CW2" style="color: #000000;" value="3">
+Type56 构建文件 (.b17)
+</li>
+            <li class="CW2" style="color: #000000;" value="4">
+变量交换文件 (.vef)
+</li>
+        </ul>
+        <p>
+一个安装程序
+ <i>
+CONTAM3DExport
+</i> 
+NIST 多房间建模网站上提供。
+</p>
+        <p class="NormalCW2">
+注意：
+ <i>
+56-98型耦合器
+</i> 
+从 TRNSYS18 开始，不再需要工具进行耦合。的
+ <i>
+CONTAM3DExporter
+</i> 
+现在直接生成 TRNSYS 输入文件，其中包括 Type56 和 Type98 的输入和输出之间所需的连接。然而，如果必须修改建筑物的几何形状，例如创建倾斜的屋顶表面或添加遮阳表面，则耦合过程提供了一种解决这些修改的方法。
+     <![CDATA[ ]></p>
+        <p><b>
+Type98.log
+</b>
+        </p>
+        <p>
+这是耦合仿真期间与 TRNSYS 项目文件位于同一目录中的 Type98 日志文件。该文件将包含与 Type98 的执行相关的信息。您可以使用日志记录标志
+ <i>vef</i> 
+文件（参见
+ <a href="IDH_UsingResults_TRNSYS_Input_Files.htm#TRNSYS" title="
+TRNSYS 输入文件
+" alt="
+TRNSYS 输入文件
+">
+TRNSYS 输入文件
+</a>
+) 为将创建的 Type98.log 文件提供各种级别的详细信息。将值设置为 0（无记录）和 3（详细记录）之间的值。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

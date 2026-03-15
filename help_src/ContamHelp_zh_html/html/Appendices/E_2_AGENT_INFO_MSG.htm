@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+代理信息留言
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+AGENT_INFO_MSGTYPE
+</h3>
+        <p>
+提供与污染物相关的信息，即仅在模拟中使用的那些物种。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+代理数量；
+      <span style="color: #008100;">
+// PRJ 文件中的污染物数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+id[代理数量];
+     <span style="color: #008100;">
+// 根据 ContamX 的污染物指数
+</span></p>
+        <p class="code"><span style="color: blue;">
+字符
+ </span>
+*名称[代理数量]；
+ <span style="color: #008100;">
+// 污染物名称（空终止字符串）
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

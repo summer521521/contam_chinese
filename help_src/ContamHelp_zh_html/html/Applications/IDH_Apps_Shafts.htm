@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Special Applications of CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+轴
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="_Toc143425671"></a><a name="_Toc143425455"></a><a name="_Toc114381076"></a>
+轴
+</h2>
+        <p>
+建筑物包含多种建筑特征，这些特征对建筑物楼层之间的气流阻力非常低。这些功能包括中庭、电梯井和楼梯间。 CONTAM 提供了两种对这种低电阻路径进行建模的方法：幻像房间和低电阻（或大）开口。根据此路径与模型其余部分的交互方式选择最合适的模型。
+</p>
+        <p>
+这种相互作用可以通过使用三个串联的流阻来模拟两层之间的轴来理解。流经竖井时存在阻力，阻力代表将竖井连接到两个不同楼层的路径（门）。使用幂律关系，Q = C(
+<span style="font-family: Symbol;">D</span>P)<sup>0.5</sup>
+，并假设井道 C = 3.10，开门为 1.55，关门为 0.01，则以下等效流量系数 Ce = (
+ <span style="font-family: Symbol;font-size: 14pt;">S</span>
+1/Ci
+<span style="vertical-align: super;"></span><sup>2</sup>)<sup>-0.5</sup>
+，针对四种不同的假设进行计算：
+
+        </p>
+        <ol>
+            <li value="1">
+两扇门都关闭，忽略轴阻力：Ce = 0.007070
+
+            </li>
+            <li value="2">
+两扇门均关闭，包括轴阻力：Ce = 0.007066
+
+            </li>
+            <li value="3">
+两扇门都打开，忽略轴阻力：Ce = 1.096
+
+            </li>
+            <li value="4">
+两扇门都打开，包括轴阻力：Ce = 0.984
+
+            </li>
+        </ol>
+        <p>
+案例（1）和（2）表明，当流阻主要由关闭的门决定时，无需考虑竖井流阻。情况 (3) 和 (4) 表明，当（打开的）门处的阻力与轴阻力的量级相同时，在模型中包含轴阻力非常重要。为了快速估计相对流量系数，请记住流量系数通常大致与开口面积成正比。
+</p>
+        <h3>
+心房
+</h3>
+        <p>
+如果将中庭建模为每个楼层的单独房间，则楼层间的流阻将非常低。粗略比较层间开口面积与中庭到其他房间的所有开口的总和通常表明中庭应使用幻影房间进行建模。这是通过在中庭的最低层放置一个标准房间图标来完成的。您可以使用此区域图标来定义心房温度和总体积。  您应该忽略用于定义中庭房间的正常房间图标的地板面积。  在包含中庭部分的所有较高层放置一个幻影房间图标。  幻影房间图标表示该层墙壁内的房间实际上是该图标下方层房间的一部分。  如果中庭的不同层面需要有不同的温度或污染物浓度，那么这些层面必须建模为由具有很大开口的流路连接的正常房间。
+</p>
+        <h3>
+楼梯间
+</h3>
+        <p>
+[中提供了用等效孔口来描述楼梯间气流特性的数据。
+<a href="../IDH_References.htm#REF_Achakji">
+阿查吉和田村 1988
+</a>
+]。这种表示非常适合由 CONTAM 实现，它允许您根据楼梯间的物理特性创建幂律流元素。楼梯间特征包括楼梯间井道的横截（水平）面积、楼梯踏板的前部是开放的还是封闭的以及楼梯上的人数。  最后一项在疏散场景中可能很重要。  由于轴的等效孔口面积与其横截面积处于同一数量级，并且该面积可能小于进入楼梯间的门的面积总和，因此通常最好将楼梯间建模为​​每个层上通过开口连接的各个房间，这些开口是使用实现 Achakji/Tamura 模型的 CONTAM 楼梯间气流元件定义的。
+
+</p>
+        <h3>
+电梯井道
+</h3>
+        <p>电梯井（井道）通常位于楼梯间和心房之间的某些建模房间中。  电梯井流阻的测量数据尚未确定。 CONTAM 提供基于导管或管道的 Darcy/ Colebrook 模型的流阻的幂律流量单元。电梯井道和楼梯井之间的显着区别在于，井道和建筑物之间的门永远不会完全打开，因为当门打开时，空气必须流经电梯轿厢中的开口以在建筑物和井道之间通过。  [表6.1
+<a href="../IDH_References.htm#REF_Klote_and_Milke_2002">
+克洛特和米尔克 2002
+</a>
+] 显示了关闭的电梯门的孔口面积，与井道的横截面积相比，该孔口面积往往相当小，特别是对于具有多个轿厢的井道，因此大多数电梯井道中的气流很可能可以通过虚拟房间以足够的精度进行建模。然而，可能需要将轴分成几个部分，以在污染物传输建模中获得足够的精度。
+ 
+</p>
+        <h3>
+烟囱
+</h3>
+        <p>您可以使用管道创建简单的烟囱模型。最简单的情况是，仅涉及连接建筑物内部与外部的单个管道，并使用用于模拟烟囱流阻的 Darcy-Colebrook 管道单元。管道端点的高度必须反映烟囱的高度，并且必须在内部端点周围创建一个特殊的高温区，以便产生适当的烟囱效应。确保从该特殊房间到建筑物的其他部分有适当的低阻力路径。
+
+
+ 
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

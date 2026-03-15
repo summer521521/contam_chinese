@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types|Fan and Forced-Flow Models|Fan Performance Curve" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+风扇性能
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h6><a name="kanchor64"></a>
+风扇性能数据
+</h6>
+        <p>
+ContamW 需要四到十个数据点来拟合三次多项式以创建风扇的性能曲线。拟合曲线不得包含拐点；如果确实如此，将显示错误消息。如果显示此错误消息，则必须修改压力上升数据以消除拐点。
+</p>
+        <p class="SubHeading1">
+输入扇形曲线数据点
+</p>
+        <p>输入风扇曲线数据时，只需填写“流量”和“压力上升”数据条目。添加新数据点时，必须在“流速”编辑框中输入流速，并且必须在“压力上升”编辑框中输入压力上升。对已输入的压力升高进行更改时，请使用“修订的 dP”框。这将保留原始数据点，但在执行曲线拟合时使用修改后的值。在相应的编辑框中输入流量和压力升高后，下一步是按“
+&lt;&lt; 
+插入
+ &lt;&lt;
+“按钮。输入四个数据点后，将自动生成三次拟合并在图表上显示为一条线。
+ </p>
+        <p class="SubHeading1">
+修改风扇曲线数据点
+</p>
+        <p>
+要编辑现有数据点，请在插入、替换和删除按钮左侧的扇形曲线数据列表中突出显示要修改的数据行。该数据集中的值将出现在按钮右侧的编辑框中。
+</p>
+        <p>如果需要修改流量，在“流量”编辑框中输入新的流量，然后按“
+&lt;&lt; 
+更换
+ &lt;&lt;
+“按钮。新数据现在将取代旧数据。
+</p>
+        <p>
+如果需要修改压力上升，有两个可用选项：
+</p>
+        <ol>
+            <li value="1">
+完全替换数据点。要覆盖现有的压力上升并重新拟合风扇曲线，请通过在数据列表中突出显示要修改的数据集来选择它，然后在“压力上升”编辑框中键入新的压力上升，然后按“
+&lt;&lt; 
+更换
+ &lt;&lt;
+“按钮。
+ </li>
+            <li value="2">
+更改用于拟合三次多项式的点，但保留原始数据点的标记不变。使用此选项，如果最初输入的风扇曲线存在一些问题（例如拐点），您可以“调整”曲线。
+</li>
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

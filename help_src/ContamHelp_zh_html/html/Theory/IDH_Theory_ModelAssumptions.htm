@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模型假设
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor157"></a>
+模型假设
+</h2>
+        <p>
+CONTAM 是一款强大的工具，可以对建筑物中的气流和污染物扩散进行建模。重要的是要认识到，该工具实现了数学关系来对气流和污染物相关现象进行建模，因此包含了从建模现象的模型中简化模型的假设。以下是这些建模假设的简要描述。
+</p>
+        <p><span style="font-style: italic;">
+混合良好的房间
+</span> 
+– 此假设是指将每个房间视为单个节点，其中空气始终具有均匀（充分混合）的条件。这些条件包括温度、压力和污染物浓度。因此，不能使用 CONTAM 来解释给定房间内的局部效应。例如，如果您使用的污染物源在某个时间将大量污染物引入某个房间（突发源），则污染物将在单个时间步内被稀释到该区域的整个体积。
+</p>
+        <p><span style="font-style: italic;">
+一维对流/扩散区
+</span> 
+– 在 CONTAM 2.3 之前的版本中，所有房间都被认为是 <span style="font-style: italic;">
+充分混合
+</span>
+，即具有均匀的浓度。然而，从版本 2.3 开始，用户可以将房间预先配置为一维对流/扩散房间，其中污染物可以沿着用户定义的轴变化。当操作在
+ <span style="font-style: italic;">
+短时间步长
+ </span>
+方法
+<span style="font-style: italic;"></span> 
+ContamX 将通过编程方式将房间细分为一系列房间，从而提供在对流/扩散轴方向上出现污染物浓度梯度的能力。
+ <span style="font-style: italic;">
+充分混合
+</span> 
+沿轴的单元。
+</p>
+        <p><span style="font-style: italic;">
+管道系统
+</span> – 通常，在污染物模拟过程中，管道连接处和混合良好房间之间以及管道段和气流路径之间存在相似之处。在这种情况下，管道接合处的体积由它们所连接的管道段确定。然而，从 CONTAM 2.4 开始，可以对整个管道系统进行建模，以考虑通过系统的一维对流/扩散流。此功能作为新的选项提供
+ <span style="font-style: italic;">
+短时间步长
+ </span>
+污染物模拟方法。
+ </p>
+        <p><span style="font-style: italic;">
+质量守恒
+</span><a name="kanchor158"></a> 
+– 执行稳态模拟时，模型守恒每个房间内的空气质量。这意味着在一个房间内既不能产生也不能破坏空气。然而，在执行瞬态模拟时，CONTAM 现在提供了允许由于房间密度/压力的变化以及模拟中非痕量污染物的实施而导致房间内质量累积或减少的选项。本理论部分对此进行了进一步讨论（参见
+ <a href="IDH_TheoryAirflow_Intro.htm">
+气流分析
+</a> and <a href="IDH_TheoryCont_Intro.htm">
+污染物分析
+</a>
+），以及上一节讨论模拟设置（请参阅
+ <a href="../Simulation/IDH_UsingSIM_ParamsAirNumerics.htm">
+气流数值属性
+</a>). </p>
+        <p><span style="font-style: italic;">
+微量污染物
+</span> 
+– 痕量污染物是指含量足够低、不会影响房间内空气密度的污染物。您必须小心，不要依赖模型来处理会导致空气密度变化的污染物浓度。该计划将允许污染物达到实际上会影响密度的水平，但该计划仍会将它们视为痕量污染物。 </p>
+        <p><span style="font-style: italic;">
+无痕量污染物
+</span> – 非痕量污染物是指其含量足以影响空气密度的污染物，例如水蒸气。在 CONTAM 中，您定义建筑物内空气成分的污染物。 CONTAM 会将它们视为理想气体的混合物。
+</p>
+        <p><span style="font-style: italic;">
+热效应
+</span> 
+– 该模型本身不处理传热现象，但提供了房间温度的调度。房间温度可以是恒定的，也可以根据用户定义的温度计划在瞬态模拟期间发生变化。 CONTAM 将确定由房间（包括环境）之间的温差引起的气流和非痕量污染物质量分数（例如，由烟囱效应引起的）。您还可以使用天气文件改变瞬态模拟的室外温度。
+</p>
+        <p><span style="font-style: italic;">
+气流路径
+</span> 
+– 通过 CONTAM 提供的各种气流元件的气流是使用气流与流道上的压差之间的幂律或二次关系来建模的。这些关系本身就是模型，在实现它们以代表理想建筑中的建筑特征时应小心。有关这些模型的详细说明，请参阅气流元件。
+</p>
+        <p><span style="font-style: italic;">
+源/汇模型
+</span> 
+– CONTAM 提供了几种不同的源/汇元素或污染物生成/去除过程的表示。这些元素基于在文献中找到的模型。您应该确保使用适合您想要代表的污染物源/汇的模型。参见
+ <a href="IDH_TheoryCont_SourceSinkElements.htm">
+污染物源/汇元素
+</a>  
+有关这些模型的详细说明。
+</p>
+        <p>
+前面的假设与 CONTAM 在执行分析时使用的数学表示有关。这些假设应与您（用户）在创建称为建筑理想化的建筑模型时所做的假设区分开来（请参阅
+ <a href="../GetStarted/IDH_GetStart_UserTasks.htm">
+用户任务
+</a> 
+在
+ <a href="../GetStarted/IDH_GetStart_InstallingContamW.htm">
+开始使用
+</a> 
+部分）。您需要进行工程判断，以确保您的建筑表示足以满足您的分析目的。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+平衡管道系统
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+平衡管道系统
+</h4>
+        <p>在 CONTAM 中，您可以通过在所需位置提供平衡点（例如孔板流量元件）来自行平衡管道系统，或者您也可以让 CONTAM 为您平衡系统。 2.4 版之前的 CONTAM 版本要求您通过调整管道流元件的阻力或所需平衡点的局部损耗系数来手动平衡系统。从版本 2.4 开始，CONTAM 提供了使用 CONTAM 管道端子自动平衡管道系统的功能。参见
+ <a href="IDH_JCT_P2.htm">
+风管接头和终端 - 终端属性
+</a> and <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a>.</p>
+        <p class="SubHeading1">
+自动管道平衡程序
+&#160;</p>
+        <p>
+自动管道平衡是 ContamX 中的另一种模拟模式。当您启动平衡时，ContamW 将对 PRJ 文件执行预模拟检查，如果检查成功，则保存 PRJ 文件并执行 ContamX。 ContamX 将执行自己的一组预平衡检查，以确定是否已定义一组有效的条件。如果此检查成功，则将启动 ContamX 的自动平衡模式。如果 ContamX 预检查不成功，将显示一条错误消息，指示预检查失败的性质。
+</p>
+        <p>
+自动化程序通过首先对定义的整个建筑系统（即尚未修改的管道平衡系数）执行稳态气流模拟来建立风扇元件和管道终端之间的关系。如果系统配置没有错误，则用恒流平衡风扇替换风扇元件，将风扇流量初始化为相关终端的设计流量之和（平衡所需的最小流量），执行气流模拟，并通过将所有平衡终端的计算气流与设计气流进行比较来检查管道平衡的收敛性。如果不满足收敛，则调整平衡系数（仅增加）并重复该过程，直到收敛或执行最大迭代次数。平衡完成后，ContamX 将创建一个模拟结果文件（SIM 文件），其中包含平衡系统的计算气流结果（参见下面的第 0 项和第 1 项）。
+ </p>
+        <p>
+自动平衡程序生成一个
+ <span style="font-style: italic;">
+导管
+ </span><span style="font-style: italic;">
+平衡重新
+</span><span style="font-style: italic;">
+苏尔特
+</span><span style="font-style: italic;"> 
+文件
+</span> 
+它与项目文件同名，但扩展名为 BAL。余额报告文件的内容将根据自动余额程序的结果而有所不同（请参阅
+ <a href="../Results/IDH_UsingResults_ResultsFiles.htm">
+结果文件
+</a> 
+在
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a> 
+部分）。
+ </p>
+        <p>
+使用管道平衡功能的基本步骤概述如下：
+</p>
+        <ul>
+            <li style="font-size: 8pt;" value="1">
+                <p>
+绘制管道系统 - 定义段、终端和风扇。请务必为每个风扇使用单独的风扇流量元件，因为平衡程序可能需要单独调整流量才能达到所需的结果。为了获得尽可能现实和合理的结果，您应该提供整个系统中每个终端和连接点的已知损耗系数。否则，尽管可以实现设计流量，但平衡程序可能不会在系统内产生所需的静压。
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="2">
+                <p>
+指定平衡终端并为每个终端设置设计气流速率。
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="3">
+                <p>
+选择
+ <i>
+风管平衡
+</i> 
+气流模拟方法并运行模拟。
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="4">
+                <p>观察平衡程序的反馈。有六种可能的结果。如果获得前两个结果之一（成功或不收敛），将创建一个模拟结果文件，其中包含根据计算的平衡系数计算的气流速率。如果获得四个误差结果之一，则仿真结果用于所定义的系统的预平衡稳态计算。以下列表提供了余额的六种不同结果及其相关的完成代码，因为它将出现在第一行中
+ <span style="font-style: italic;">
+管道平衡结果文件
+</span>. </p>
+            </li>
+        </ul>
+        <p class="NormalIndent"><b>0.&#160;
+成功：
+</b> 
+平衡过程成功完成。当使用恒流风扇单元对风扇进行建模时，系统会提示您将平衡系数复制到终端并平衡流量到恒流风扇单元。响应提示后，您可以在 SketchPad 上查看余额结果。来自终端的气流速率将通过 SketchPad 结果显示方法显示。直到保存项目后，平衡系数才会被保存，因此您可以通过以新名称保存后平衡文件来保留原始的前平衡文件。</p>
+        <p class="NormalIndent">
+性能曲线风扇元件的处理方式与恒流风扇元件不同，因为它们不能直接修改以提供平衡流量。如果使用风扇曲线元素，请查阅平衡报告文件以设置风扇速度比以提供设计流量。使用报告的值通过控制信号或计划值提供速度比，以实现与风扇的平衡流量。如果报告的值为 0.0，则风扇曲线无法通过合理的风扇速度比和压力上升提供所需的流量。在这种情况下，可能应该使用不同的风扇。
+</p>
+        <p class="NormalIndent"><b>1.&#160;
+不收敛：
+</b> 平衡过程无法在预设的迭代次数内获得所有终端的所需平衡流量。您可以选择接受计算出的平衡系数，并使用修改后的系数作为初始值再次运行平衡过程。平衡报告文件将提供一个相对流量系数，该系数等于计算流量除以设计流量。
+</p>
+        <p class="NormalIndent"><b>2.&#160;
+错误：
+</b> <![CDATA[ ]>
+没有需要平衡的终端：没有终端具有
+ <span style="font-style: italic;">
+余额终端
+</span> 
+已选择选项。请务必检查
+ <span style="font-style: italic;">
+余额终端
+</span> 
+复选框指定要平衡的端子。
+</p>
+        <p class="NormalIndent"><b>3.&#160;
+错误：
+</b> 
+无效流向：当与单个风扇关联的平衡端子具有相反的设计流向时，会出现此错误。确保所有终端的设计流向与相关风扇的流向相匹配：正设计流量是从终端流出到终端所在房间，负设计流量是从该区域进入终端。用户可以通过相关风扇的管道段图标来选择风扇流动方向。
+</p>
+        <p class="NormalIndent"><b>4.&#160;
+错误：
+</b> 
+无法终止风扇处的链路：当无法通过管道系统（链路）将一个或多个平衡终端追溯到管道系统内的强制流动元件（风扇）时，会发生此错误。</p>
+        <p class="NormalIndent"><b>5.&#160;
+错误：
+</b> 
+风扇系统包括送风和回风端子：当给定风扇的上游和下游都有平衡端子时，会发生此错误。确保仅尝试平衡风扇上游或下游侧的端子。
+</p>
+        <p><b>
+管道平衡注意事项：
+</b>
+        </p>
+        <ul>
+            <li style="font-size: 8pt;" value="1">
+                <p>
+管道平衡是在考虑整个建筑系统的情况下进行的。当在平衡过程的每次迭代期间执行气流计算时，房间之间的阻力被包括在内。相对较高的区间电阻会影响平衡结果。
+ </p>
+            </li>
+            <li style="font-size: 8pt;" value="2">
+                <p>
+在管道平衡期间，所有结点温度均设置为 20 ºC。环境条件由稳态天气数据确定，但风速设置为 0 m/s。
+ </p>
+            </li>
+            <li class="CW2" value="3">
+如果您修改已平衡的风管系统，例如添加新风管或更改现有风管元件，您可能需要重新初始化
+ <i>
+平衡损失系数
+</i> 
+在重新平衡系统之前归零。这可以使用 ContamW 搜索和替换功能来完成。
+</li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

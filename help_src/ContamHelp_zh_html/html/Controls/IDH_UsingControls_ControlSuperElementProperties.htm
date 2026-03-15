@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Controls|Control Super Elements" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+控制超元件属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+控制超元件属性
+</h4>
+        <p>
+本节提供有关使用“控制超元件”对话框的信息，该对话框与超元件 SketchPad 一起使您能够管理和定义控制超元件，并通过
+ <span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">ata</span><span style="font-family: Symbol;">®</span><span style="font-weight: bold;">Co</span><span style="font-weight: bold;text-decoration: underline;">n</span><span style="font-weight: bold;">
+巨魔
+</span><span style="font-family: Symbol;">®</span><span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+上层元素...
+</span> 
+菜单项。提供了两部分信息：元素管理器和元素属性编辑器。
+
+            </p>
+        <p class="SubHeading1">
+元素管理器
+</p>
+        <p>
+这用于选择超元件以编辑和创建新元素并激活 CONTAMW 库管理器以处理超元件库文件。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+此组合框为您提供当前活动超元件的名称，该超元件的草图数据也显示在超元件 SketchPad 上。该名称还应出现在画板的左上角。您还可以从下拉列表中选择其他现有的超元件。这将更改画板上显示的超元件以及此对话框中显示的属性。
+
+            </p>
+        <p><span style="font-weight: bold;">
+检查元素：
+</span> 
+使用超元件时，您可以对其执行检查以确定是否是完全定义的超元件。如果检查通过，则认为超元件已完全定义。如果检查失败，则 ContamW 将以消息的形式提供反馈并突出显示草图中的错误。即使超元件未定义，它仍然可以以其不完整的形式保存。
+
+            </p>
+        <p>
+检查失败有几个基本原因。超元件与主 SketchPad 上的控制网络类似，因此未定义的超元件可能是由与主 SketchPad 控制网络类似的问题以及特定于超元件的问题引起的。
+</p>
+        <p>
+未定义超元件的潜在原因：
+</p>
+        <ul>
+            <li value="1">
+未定义的子节点（即未定义的草图图标）
+</li>
+            <li value="2">
+控制节点的输入数量不正确
+</li>
+            <li value="3">
+循环控制逻辑
+</li>
+            <li value="4">
+未设置输出节点
+</li>
+            <li value="5">
+输入节点的预定义输入
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+新元素：
+</span> 
+这将创建默认名称为“SE_##”的新超元件，其中 ## 将取决于现有超元件的数量。新的超元件没有草图数据，因此 SketchPad 将被清除。创建超元件后，无需保存它。您对草图和属性所做的任何修改都将自动保留，但必须通过“重命名元素”功能设置的名称除外。
+
+            </p>
+        <p><span style="font-weight: bold;">
+图书馆：
+</span> 
+使用此功能激活 CONTAMW 库管理器来创建控制库文件、将超元件复制到超元件库文件（LB5 类型）以及从当前项目文件中删除未使用的超元件。 （参见
+ <a href="../Library/IDH_UsingLibs_Working_with_Data_and_Libraries.htm">
+使用数据和库
+</a>)
+            </p>
+        <p><span style="font-weight: bold;">
+元素定义？
+</span> 
+此功能指示超元件是否已完全定义（由 ContamW 确定），这意味着它可以实例化以创建超级节点。元素定义通过“检查”来验证。当您从名称列表中切换当前显示的超元件时，或者当您关闭控制超元件对话框（即退出超元件编辑模式）时，使用上述“检查元素”功能执行检查。
+</p>
+        <p><span style="font-weight: bold;">
+超级节点引用计数：
+</span> 
+这是引用超元件的实例化超级节点的数量。除非此计数等于零，否则无法从项目文件中删除超元件。
+
+            </p>
+        <p class="SubHeading1">
+编辑元素属性
+</p>
+        <p>
+这些是除草图和控制节点之外的超元件的用户定义属性。这些属性包括名称、描述、输入节点名称和输出节点名称。</p>
+        <p><span style="font-weight: bold;">
+重命名元素：
+</span> 
+使用此功能可以为超元件输入新名称，并使用随附的按钮进行更改。在重置之前，新名称将与现有名称进行比较。
+
+            </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+提供超元件的详细描述，最多 255 个字符。此描述将显示在 CONTAMW 库管理器中。当前，在库管理器中查看超元件时，描述和超元件名称是识别超元件的唯一方法。
+
+            </p>
+        <p><span style="font-weight: bold;">
+输入节点：
+</span> The <span style="font-style: italic;">
+输入节点
+</span> 
+超元件的子节点是子节点，如果被绘制到主 SketchPad 上的实例化超级节点，该子节点将接收输入信号。这个不需要设置。如果需要，从列表中选择一个子节点作为超元件的主要输入
+ <span style="font-style: italic;">
+命名子节点
+</span>
+。请注意，您必须为要创建的子节点提供名称。
+ <span style="font-style: italic;">
+输入节点
+</span>，并且子节点的类型必须至少接受一个输入。
+
+            </p>
+        <p class="NormalIndent" style="text-decoration: underline;">
+多输入
+</p>
+        <p class="NormalIndent">
+如果你需要一个具有多个输入的超元件，你可以定义一个子节点为 type
+ <span style="font-style: italic;">
+幻影
+</span>
+。从超元件实例化超级节点后，您可以选择您想要的命名控制元素
+ <span style="font-style: italic;">
+幻象子节点
+</span> 
+以供参考。
+            </p>
+        <p><span style="font-weight: bold;">
+输出节点：
+</span> The <span style="font-style: italic;">
+输出节点
+</span> 
+超元件的子节点是子节点，信号将从该子节点提供给从实例化的输出中提取的输出。
+ <span style="font-style: italic;">
+超级节点
+</span> 
+在主 SketchPad 上。需要设置超元件才能使其成为 <span style="font-style: italic;">
+定义的
+</span>
+。请注意，实例化时，输出节点将采用超级节点的名称，以便在主 SketchPad 上引用虚拟节点。
+
+            </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

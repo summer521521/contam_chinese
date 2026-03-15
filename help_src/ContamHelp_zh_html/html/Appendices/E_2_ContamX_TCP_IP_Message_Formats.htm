@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ContamX TCP/IP 消息格式
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+ContamX TCP/IP 消息格式
+</h2>
+        <p>本节提供详细的消息和格式。目前有四类消息：
+ <i>
+项目信息
+</i>, <i>
+执行控制
+</i>, <i>
+项目修改
+</i> and <i>
+模拟结果
+</i>. <i>
+项目信息
+</i> 
+消息提供与 PRJ 文件相关的信息，以便服务器确定 CONTAM 项目中包含的构建组件的类型和数量。这些消息将在 ContamX 以桥接模式执行时立即由 ContamX 发送。
+ <i>
+执行控制
+</i> 
+消息提供了将模拟推进到选定的模拟时间直至模拟完成、通知服务器 ContamX 已准备好接收消息以及终止模拟的能力。
+ <i>
+项目修改
+</i> 
+消息是 ContamX 接收的消息，用于在模拟过程中调整建筑物的各种属性，包括房间污染物浓度、房间和管道连接处的温度、控制节点值、天气数据和下面详述的其他项目。
+ <i>
+模拟结果
+</i> 
+ContamX 发送消息以提供当前时间步的模拟结果。
+</p>
+        <p>
+在以下消息中，类型的任何值
+ <code>int</code> 
+在打包到消息中之前会被转换为网络字节顺序，但是 type 的值
+ <code>
+字符
+</code> and <code>
+浮动
+</code> 
+不会。为与 ContamX 配合使用而编写的服务器软件需要根据所涉及的计算机体系结构/操作系统来管理数据转换，但如果服务器和 ContamX 在同一台计算机上运行，​​这应该不是问题。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

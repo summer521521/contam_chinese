@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Results" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+SketchPad 结果
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor145"></a>
+SketchPad 结果
+</h3>
+        <p>
+ContamW 将显示颜色编码条，指示 SketchPad 当前级别上当前时间步长与每个气流路径、管道终端或简单空气处理系统的供应和返回相关的相对气流速率和压降。默认情况下，
+ <span style="font-weight: bold;">
+气流速率为
+ </span><span style="font-weight: bold;">
+显示为
+</span><span style="font-weight: bold;"> <![CDATA[ ]></span><span style="color: #339966;font-weight: bold;">
+格力
+</span><span style="color: #339966;font-weight: bold;">
+n 行
+</span> and <span style="font-weight: bold;">
+压力差
+ </span><span style="font-weight: bold;">
+与
+</span><span style="font-weight: bold;"> <![CDATA[ ]></span><span style="color: #ff5050;font-weight: bold;">re</span><span style="color: #ff5050;font-weight: bold;">
+d 线
+</span>
+。显示颜色可由用户选择（参见
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm">
+配置 ContamW
+</a>
+）。仅当您在“模拟参数”属性表的“输出”页面上选择了“气流”选项时，才会出现这些结果栏。如果您为给定气流路径设置了流量或压力限制（请参阅
+ <a href="../AirflowPaths/IDH_PP_PATHPARMS0.htm">
+气流路径属性
+</a>
+），并且已超出，该图标将以红色突出显示作为警告指示符。
+</p>
+        <p>
+您还可以突出显示 SketchPad 上的各个图标以显示与特定图标相关的结果。可以在 ContamW 状态栏和浮动状态栏中查看结果（请参阅文档“入门”部分中的状态栏）。以下是对每个建筑组件显示的结果的简要说明。
+</p>
+        <ul>
+            <li value="1">
+                <p>
+气流路径——压差、气流速率以及压降和气流方向
+</p>
+            </li>
+            <li value="2">
+                <p>
+管道段 - 压差、气流速率、压降和气流的速度和方向，其中速度根据管道段的面积计算
+</p>
+            </li>
+            <li value="3">
+                <p>
+简单的空气处理系统 – 室外、再循环和排气气流速率
+</p>
+            </li>
+            <li value="4">
+                <p>
+简易空气处理系统的送风和回风——风量
+</p>
+            </li>
+            <li value="5">
+                <p>
+房间——房间温度和参考压力，即该区域的绝对压力相对于该区域所在水平面高度处的环境绝对压力。在 CONTAM 2.4 之前，该压力是相对于建筑物参考标高处的环境压力而言的。所以现在这些压力更接近表压。
+</p>
+            </li>
+            <li value="6">
+                <p>
+管道结点 – 结点温度和静压相对于结点所在房间的结点高度处的压力
+</p>
+            </li>
+            <li value="7">
+                <p>
+管道终端 – 气流速率和速度基于终端自由面面积、温度和静压（相对于终端所在房间终端高度处的压力）
+</p>
+            </li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

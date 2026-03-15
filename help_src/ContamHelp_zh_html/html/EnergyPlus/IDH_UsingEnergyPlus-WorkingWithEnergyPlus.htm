@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+与 EnergyPlus 合作
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h1><a name="top"></a>
+与 EnergyPlus 合作
+</h1>
+        <p>
+从 CONTAM 3.2 开始，ContamX 可以与 EnergyPlus 结合执行组合气流和传热模拟 [
+<a href="../IDH_References.htm#REF_Dols_2016" title="
+多尔斯等人。 2016年
+" alt="
+多尔斯等人。 2016年
+">
+多尔斯等人。 2016年
+</a>
+]。这种耦合是使用 CONTAM 先前开发的进程间通信应用程序编程接口 (API) 来执行的。该 API 由一组套接字通信消息组成，可控制 ContamX 与外部进程之间的执行和数据交换。  先前已利用相同的套接字通信功能或桥接模式将 CONTAM 与 TRNSYS 耦合（
+<a href="http://www.trnsys.com/" title="
+TRNSYS 软件网站
+" alt="
+TRNSYS 软件网站
+">
+www.trnsys.com
+</a>
+）如记录在
+ <a href="../TRNSYS/IDH_UsingTRNSYS-WorkingWithTRNSYS.htm">
+与 TRNSYS 合作
+</a> 
+部分。套接字通信 API 记录在
+ <a href="../Appendices/AppE.htm">
+附录B
+</a>
+。            ContamX 和 EnergyPlus 之间的耦合是通过基于协同仿真规范版本 1.0 的功能模型接口 (FMI) 的协同仿真来完成的
+<a href="../IDH_References.htm#MODELISAR_2010">
+莫迪萨2010
+</a>
+]。 EnergyPlus 提供了控制模拟的主算法 [<a href="../IDH_References.htm#REF_DOE_2013_EPlus_ExtInt">
+美国能源部 2013
+</a>, <a href="../IDH_References.htm#REF_Nouidui_2014">
+努伊迪等人。 2014年
+</a>, <a href="../IDH_References.htm#REF_Wetter_2011">
+湿润2011
+</a>
+]，并且 NIST 开发的模块 (ContamFMU.dll) 被合并到功能模型单元 (FMU) 中以供在执行期间使用。
+ <span style="color: #800000;">
+因此，协同仿真是通过运行 EnergyPlus 以及配置为与 CONTAM 协同仿真的 IDF 文件来完成的，如本节所述。
+</span> <![CDATA[ ]></p>
+        <p>
+NIST 开发了一个模块，可以合并到功能模型单元 (FMU) 中，以便在联合仿真期间使用。该模块ContamFMU可以在Windows下作为动态链接库（ContamFMU.dll）使用，也可以在Linux下作为共享对象（ContamFMU.so）使用。
+</p>
+        <p>
+EnergyPlus根据联合仿真描述文件建立自身与从FMU之间的动态数据交换。目前，EnergyPlus 和 ContamX 之间可以交换以下数据：
+</p>
+        <ul>
+            <li value="1">
+从 EnergyPlus 到 ContamX
+
+			<ul style="list-style-type: circle;"><li value="1"><b>
+房间温度
+</b></li><li class="CW2" value="2"><b>
+房间湿度比
+</b> 
+仅用于将 ContamX 质量流量转换为 EnergyPlus 体积流量
+</li><li value="3"><b>
+通风系统风量
+</b> 
+用于房间送风和回风流量
+</li><li value="4"><b>
+室外气流分数
+</b> 
+室外气流控制器
+</li><li value="5"><b>
+排气扇风量
+</b></li><li value="6"><b>
+能量回收风机气流速率
+</b></li><li value="7"><b>
+室外环境数据
+</b> 
+包括温度、
+ <span style="color: #8b0000;">
+湿度比，
+</span> 
+从 EnergyPlus 天气 (.epw) 文件获取的气压、风速和风向
+</li><li value="8"><b>
+输出变量
+</b> 
+可能是 EnergyPlus Output:Variable 或 EnergyManagementSystem:OutputVariable 对象
+</li></ul></li>
+            <li value="2">
+从 ContamX 到 EnergyPlus
+
+			<ul style="list-style-type: circle;"><li value="1"><b>
+房间渗透气流速率
+</b></li><li value="2"><b>
+房间间气流速率
+</b> 
+通过气流路径，即不通过管道
+</li><li value="3"><b>
+控制值
+</b> 
+它可以是通过 CONTAM 控制网络中的命名“分离”型控制节点公开的任何值，例如，由于污染物水平升高而要求通风气流的信号
+</li></ul></li>
+        </ul>
+        <p>The <b>
+CONTAM3DExporter
+</b> 
+该工具由 NIST 开发，用于协助 CONTAM 和 EnergyPlus 之间的耦合。该工具读取 CONTAM PRJ 文件并创建 EnergyPlus IDF 文件，其中包含与几何形状、渗透和房间间混合流相关的对象、包括室外空气混合器和 HVAC 气流终端的空气回路以及促进动态数据交换所需的 FMI 相关实体。下表提供了 CONTAM 和 EnergyPlus 实体之间的详细映射。表中具有固定宽度字体的项目，例如，
+ <code>
+房间混合
+</code>，表示属于 CONTAM 或 EnergyPlus 中对象的实体。斜体项目表示可通过 EnergyPlus 外部接口访问的 EnergyPlus 变量名称，例如，
+ <i>
+房间平均气温
+</i>
+。注释列提供 CONTAM 和 EnergyPlus 实体之间关系的详细信息。
+</p>
+        <table>
+            <col style="width: 278px;" />
+            <col />
+            <col style="width: 266px;" />
+            <tr>
+                <td style="text-align: center;font-weight: bold;font-size: 8pt;">CONTAM</td>
+                <td style="text-align: center;font-weight: bold;font-size: 8pt;">
+能源加
+</td>
+                <td style="text-align: center;font-weight: bold;font-size: 8pt;">
+注释
+</td>
+            </tr>
+            <tr>
+                <td style="background-color: #dcdcdc;font-size: 8pt;" colspan="3">
+建筑几何
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+专区
+</span>
+                </td>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+专区
+</span>
+                </td>
+                <td style="font-size: 8pt;">
+CONTAM 气流房间映射到 EnergyPlus 热房间
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;">
+墙
+</td>
+                <td class="code" style="">
+建筑表面：详细
+</td>
+                <td style="font-size: 8pt;">
+CONTAM 房间由隐式定义的墙界定
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;background-color: #dcdcdc;" colspan="3">
+渗透和房间间气流（路径被分组为房间之间的连接，包括环境）
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+气流路径
+</span> 
+（外部）
+</td>
+                <td style="font-size: 8pt;" class="code">
+房间渗透：设计流量
+</td>
+                <td style="font-size: 8pt;">
+EnergyPlus 常数项系数设置为 1，所有其他项系数设置为 0
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+气流路径
+</span> 
+（房间间）
+</td>
+                <td style="font-size: 8pt;" class="code">
+房间混合
+</td>
+                <td style="font-size: 8pt;">
+为每个房间间连接创建两个 ZoneMishing 对象
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;background-color: #dcdcdc;" colspan="3">
+通风系统
+</td>
+            </tr>
+            <tr>
+                <td rowspan="6" class="code" style=""><span style="font-family: &#x27;Courier New&#x27;;">
+简单的空气处理系统
+</span> 
+（AHS）
+</td>
+                <td style="font-size: 8pt;" class="code">
+空气循环暖通空调
+</td>
+                <td style="font-size: 8pt;">
+房间供气和回水必须成对存在，以满足 EnergyPlus 空气回路要求
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+风扇：恒定音量
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+AirLoopHVAC:ZoneSplitter
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+AirLoopHVAC：ZoneMixer
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+AirLoopHVAC：室外空气系统
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+分公司
+</span> and <span style="font-family: &#x27;Courier New&#x27;;">
+节点
+</span></td>
+                <td style="font-size: 8pt;">
+室外空气、供给侧、需求侧等
+</td>
+            </tr>
+            <tr>
+                <td rowspan="3" class="code" style="">
+AHS 供应
+</td>
+                <td style="font-size: 8pt;" class="code">
+航站楼：单风管：不受控制</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+AirLoopHVAC：供应路径
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+节点
+</td>
+                <td style="font-size: 8pt;">
+房间送风
+</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="code" style="">
+AHS 返回
+</td>
+                <td style="font-size: 8pt;" class="code">
+AirLoopHVAC：返回路径
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+节点
+</td>
+                <td style="font-size: 8pt;">
+房间回风
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;background-color: #dcdcdc;" colspan="3">
+FMI相关外部接口
+</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="code" style="background-color: #dcdcdc;">
+外部接口：FunctionalMockupUnitImport：来自：变量
+ <span style="font-family: &#x27;Times New Roman&#x27;;">
+（值从 EnergyPlus 传递到 ContamX）
+</span></td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;">&#160;</td>
+                <td style="font-size: 8pt;"><b>
+输出：变量索引键名称
+</b>
+                </td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;">
+环境
+</td>
+                <td style="font-size: 8pt;"><i>
+干球温度
+</i>, <i>
+气压
+</i>, <i>
+风速
+</i>, <i>
+风向
+</i>
+, 和
+ <i style="color: #8b0000;">
+湿度比
+</i></td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+专区
+</td>
+                <td style="font-size: 8pt;"><i>
+房间平均气温
+</i> and <i style="color: #8b0000;">
+房间平均空气湿度比
+</i></td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+送风节点
+</td>
+                <td style="font-size: 8pt;font-style: italic;">
+系统节点质量流量
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">
+回风节点
+</td>
+                <td style="font-size: 8pt;font-style: italic;">
+系统节点质量流量
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;" class="code">AHS</td>
+                <td style="font-size: 8pt;font-style: italic;">
+空气系统室外空气流量分数
+</td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+控制
+</span> 
+（常数型）
+</td>
+                <td style="font-size: 8pt;">
+（用户定义）
+</td>
+                <td style="font-size: 8pt;">
+用户必须在导出后定义连接
+</td>
+            </tr>
+            <tr>
+                <td class="code" style="background-color: #dcdcdc;" colspan="3">
+外部接口：FunctionalMockupUnit 导入：至：执行器
+ <span style="font-family: &#x27;Times New Roman&#x27;;">
+（值从 ContamX 传递到 EnergyPlus）
+</span></td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;">&#160;</td>
+                <td style="font-size: 8pt;"><b>
+驱动元件类型
+</b>
+                </td>
+                <td style="font-size: 8pt;">&#160;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+气流路径
+</span> 
+（外部）
+</td>
+                <td style="font-size: 8pt;"><i>
+房间渗透
+</i>
+                </td>
+                <td style="font-size: 8pt;">
+一个房间的多个外部气流路径被分组到一个连接中
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+气流路径
+</span> 
+（房间间）
+</td>
+                <td style="font-size: 8pt;"><i>
+房间混合
+</i>
+                </td>
+                <td style="font-size: 8pt;">
+一对房间的多个房间间气流路径组合在一起形成一个连接
+</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8pt;"><span style="font-family: &#x27;Courier New&#x27;;">
+控制
+</span> 
+（信号分离型）
+</td>
+                <td style="font-size: 8pt;">
+（用户定义）
+</td>
+                <td style="font-size: 8pt;">
+用户必须在导出后定义连接
+</td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

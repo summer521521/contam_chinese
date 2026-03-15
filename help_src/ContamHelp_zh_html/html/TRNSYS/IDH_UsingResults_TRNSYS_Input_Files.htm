@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with TRNSYS" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+TRNSYS 输入文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="TRNSYS"></a><a name="kanchor156"></a>
+TRNSYS 输入文件
+</h4>
+        <p>
+您可以使用 ContamW 生成 TRNSYS 气流模块 Type97 的输入数据
+ <span style="font-weight: bold;">
+创建
+ </span><span style="font-weight: bold;text-decoration: underline;">T</span><span style="font-weight: bold;">
+RNSYS（Type97）输入文件
+</span> 
+选择的
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单生成 ain AIR 文件。数据将写入与当前项目同名的文件，但 PRJ 扩展名将替换为 AIR 扩展名。  Type98 专为直接与 ContamX 配合使用而开发。 Type98 使用 VEF（变量交换文件）而不是 AIR 文件。 VEF 文件由 CONTAM 3D Exporter 实用程序生成，如
+ <a href="IDH_UsingTRNSYS_CouplingProcess.htm">
+TRNSYS CONTAM 耦合过程
+</a> <![CDATA[ ]><span style="color: #8b0000;"></span>
+部分
+<span style="color: #8b0000;">.</span></p>
+        <p>
+以下材料简要描述了各个变量。单位在括号 [ ] 内表示。变量的类型在括号中。
+
+</p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">(I)</span> <![CDATA[ ]>
+= 整数值，
+</p>
+        <p><![CDATA[ ]><span style="font-family: &#x27;Courier New&#x27;;">(R)</span> <![CDATA[ ]>
+= 实数/小数值，
+ </p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">
+（字符）
+</span> 
+= 单个字符
+</p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">
+（字符串）
+</span> 
+= 字符串
+</p>
+        <p class="SubHeading1"><b>
+98 型 VEF 文件
+</b>
+        </p>
+        <p>
+这个
+ <i>
+变量交换文件
+</i> Type98 使用它来协调模拟开始时的数据交换信息。该文件将包含协同仿真期间要交换的变量列表。变量的数量和类型将取决于 CONTAM 项目文件的内容。
+ </p>
+        <p><b>
+文件格式：
+</b>
+        </p>
+        <p class="NormalItalic">第一行是文件头，指示文件类型、版本和日志标志：
+</p>
+        <p class="codeindent">
+变量交换文件 1.0 trnsys 0
+ <span style="color: #008000;">
+// 设置日志记录标志 0 - 3 来控制日志记录
+</span> <![CDATA[ ]></p>
+        <p class="NormalItalic">
+第二行提供了正在交换的变量的数量：
+</p>
+        <p class="codeindent">
+NV（一）
+</p>
+        <p class="NormalItalic"><i><i>
+每行将提供与联合仿真期间要交换的单个变量相关的信息：
+&#160;</i></i>
+        </p>
+        <p class="codeindent">io&#160;&#160;&#160;&#160; <span style="color: #008000;">
+//（字符）“I”或“O”用于 ContamX 的输入/输出。
+</span></p>
+        <p class="codeindent">
+变量id
+ <span style="color: #008000;">
+//（字符串）- 该标识符将是输入或输出的名称
+<br /> &#160;&#160;&#160;&#160;&#160;&#160;
+// 在耦合过程中写入动态/静态形式。
+</span><br style="color: #008000;" /><span style="color: #008000;"></span></p>
+        <p class="codeindent"><code>
+变量类型
+ <span style="color: #008000;">
+// （字符串）三个字符的缩写，指示类型
+</span><br style="color: #008000;"></br><span style="color: #008000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 后面的数据。
+</span></code> <![CDATA[ ]></p>
+        <p class="codeindent"><code>
+变量数据
+</code> <![CDATA[ ]><span style="color: #008000;">
+// 该信息取决于
+ </span><code style="color: #008000;">
+类型</code><span style="color: #008000;"> 
+如下所述。
+</span></p>
+        <p class="NormalItalic">&#160;</p>
+        <p class="NormalItalic">输入字符串和相关数据：
+</p>
+        <ul>
+            <li value="1"><code>cti</code> – <i>
+控制输入
+</i><i></i>. <code>
+CTRL_I_
+&lt;
+姓名
+&gt; &lt;
+姓名
+&gt;</code></li>
+            <li value="2"><code>cto</code> – <i>
+控制输出
+</i>. <code>
+CTRL_O_
+&lt;
+姓名
+&gt; &lt;
+姓名
+&gt;</code></li>
+            <li value="3"><code>zti</code> – <i>
+房间温度输入 [C]
+</i><i></i>, <code>TAIR_&lt;
+等级编号
+&gt;_&lt;
+房间编号
+&gt; 
+lev_nr 房间名称
+</code></li>
+            <li value="4"><code>wat</code> – <i>
+环境温度 [C]
+</i>. <code>
+WTH_环境温度
+</code></li>
+            <li value="5"><code>wbp</code> – <i>
+大气压 [Pa]
+</i><i></i>. <code>
+WTH_气压
+</code></li>
+            <li value="6"><code>wws</code> – <i>
+风速[米/秒]
+</i>. <code>
+WTH_风速
+</code></li>
+            <li value="7"><code>wwd</code> – <i>
+风向[度]
+</i>. <code>
+WTH_WindDirection
+</code></li>
+            <li class="CW2" value="8"><code>whr</code> – <i>
+湿度比[千克/千克]
+</i>. <code>
+WTH_湿度比
+</code> 
+（目前Type98未使用）
+</li>
+            <li value="9"><code>mix</code> – <i>
+区间气流速率 [kg/h]
+</i>. <code>MIX_&lt;
+lev_nr_from
+&gt;_&lt;
+房间编号来自
+&gt;_&lt;
+升压至
+&gt;_&lt;
+房间号至
+&gt; 
+lev_nr_from zone_name_from lev_nr_to zone_name_to
+</code></li>
+            <li value="10"><code>inf</code> – <i>
+渗透气流速度[1/h]
+</i>. <code>INFIL_&lt;
+等级编号
+&gt;_&lt;
+房间编号
+&gt; 
+lev_nr 房间名称
+</code></li>
+            <li value="11"><code>exf</code> – <i>
+渗出气流速率 [kg/h]
+</i>. <code>EXFIL_&lt;
+等级编号
+&gt;_&lt;
+房间编号
+&gt; &lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt;</code></li>
+            <li value="12"><code>sup</code> – <i>
+空气处理系统供风流量 [kg/h]</i> 
+（ContamX 的输出）。
+ <code>
+AHS_供应_
+&lt;
+路径号
+&gt; 
+路径号
+</code></li>
+            <li value="13"><code>trm</code> – <i>
+管道末端气流速率 [kg/h]
+</i>. <code>TERM_&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+交汇处编号
+</code></li>
+            <li value="14"><code>dlk</code> – <i>
+管道泄漏气流速率 [kg/h]
+</i>. <code>LEAK_&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+交汇处编号
+</code></li>
+        </ul>
+        <p><b>
+96/97型.AIR
+&#160;
+文件
+</b>
+        </p>
+        <p>
+创建 TRNSYS 输入文件时当前支持以下 CONTAM 气流元件。如果当前项目中存在任何其他元素，您将收到来自 ContamW 的警告消息，表明项目中存在不受支持的气流元件。
+</p>
+        <p>
+幂律模型：
+&#160;&#160;&#160;&#160;</p>
+        <ul>
+            <li value="1">
+Q = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>P)<span style="vertical-align: super;">n</span></li>
+            <li value="2">
+F = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>P)<span style="vertical-align: super;">n</span></li>
+            <li value="3">
+泄漏面积数据
+</li>
+            <li value="4">
+连接 (ASCOS) 数据
+</li>
+            <li value="5">
+孔口面积数据
+</li>
+            <li value="6">
+裂纹描述
+</li>
+            <li value="7">
+测试数据（1分）
+</li>
+            <li value="8">
+测试数据（2分）
+</li>
+            <li value="9">
+楼梯间
+</li>
+            <li value="10">
+轴
+</li>
+        </ul>
+        <p>
+双向流模型：
+</p>
+        <ul>
+            <li value="1">
+两开型号
+</li>
+        </ul>
+        <p>
+此外，还包括与简单空气处理系统模型相关的供气和返回路径。 AHS 隐式路径 <span style="font-family: &#x27;Courier New&#x27;;">-</span> 
+再循环、排气和外部空气
+ <span style="font-family: &#x27;Courier New&#x27;;">-</span> 
+不包括在内。包括所有 CONTAM 建筑房间、AHS 供应和返回节点以及环境房间。 .AIR 文件末尾列出了 TYPE96 子例程的输入和输出的完整列表。
+</p>
+        <p>
+从 TRNSYS 到 TYPE96 的输入是：
+</p>
+        <ul>
+            <li value="1">
+所有房间的温度，包括环境温度 [C]
+</li>
+            <li value="2">
+绝对大气压 [Pa]
+</li>
+            <li value="3">
+建筑物参考标高处的风速 [m/s]
+</li>
+            <li value="4">
+风向 [从北向顺时针旋转度数]
+</li>
+            <li value="5">
+所有 AHS 供应和回流 [kg/s]
+</li>
+            <li value="6">
+任何其他指定的质量流量 [kg/s]
+</li>
+            <li value="7">
+任何可变开口的相对面积
+</li>
+        </ul>
+        <p>
+所有流量和相对面积输入必须大于零。</p>
+        <p>
+TYPE96 子程序到 TRNSYS 的输出是房间间气流，包括流入和流出环境的气流。任意两个房间之间最多报告两个流量
+ <span style="font-family: &#x27;Courier New&#x27;;">-</span> 
+从房间 1 到房间 2 的所有流量的总和以及从房间 2 到 1 的所有流量的总和。任意两个房间之间可能存在多条路径。
+</p>
+        <p class="SubHeading1">
+文件格式：
+</p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">I</span> 
+表示一个整数值并且
+ <span style="font-family: &#x27;Courier New&#x27;;">R</span> 
+表示一个四字节实数
+</p>
+        <p class="code">
+标题数据：
+</p>
+        <p class="code">
+第 1 行：调试控制
+</p>
+        <p class="code">  
+I LIST - 非零值启动数据转储。
+&#160;</p>
+        <p class="code">
+第 2 行：计数
+</p>
+        <p class="code">  
+I NWPP 风压剖面数。
+&#160;</p>
+        <p class="code">  
+I NZONE 房间/联立方程数。
+&#160;</p>
+        <p class="code">  
+I NPATH 气流路径数。
+&#160;</p>
+        <p class="code">  
+I NELMT 气流元件数量。
+&#160;</p>
+        <p class="code">
+第3行：运行控制
+</p>
+        <p class="code">  
+I ITMAX - 最大迭代次数。
+&#160;</p>
+        <p class="code">  
+R RELAX——下松弛系数。
+&#160;</p>
+        <p class="code">  
+R ACNVG1 - 相对气流收敛因子。
+&#160;</p>
+        <p class="code">  
+R ACNVG2 - 绝对气流收敛因子。
+&#160;</p>
+        <p class="code">  
+I TADJ——非零做温度调整。
+&#160;</p>
+        <p class="code">
+第4行：天气数据
+</p>
+        <p class="code">  
+R PBAR 绝对大气压力 [Pa]。
+&#160;</p>
+        <p class="code">  
+R WSPD 风速 [m/s]。
+&#160;</p>
+        <p class="code">  
+R WDIR 风向 [deg]，从北顺时针方向。
+&#160;</p>
+        <p class="code">
+第 5 行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 -999
+&#160;</p>
+        <p class="code">&#160;</p>
+        <p class="code">
+风压分布：
+</p>
+        <p class="code">
+每个风压剖面一条线，包括
+</p>
+        <p class="code">  
+I NR - 配置文件编号，从 1 开始。
+&#160;</p>
+        <p class="code">  
+I TYPE - 配置文件类型。
+&#160;</p>
+        <p class="code">  
+I NPTS - 数据点的数量。
+&#160;</p>
+        <p class="code">  
+接下来是一行，每个数据点有 5 个实际值。
+&#160;</p>
+        <p class="code">
+最后一行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 -999
+&#160;</p>
+        <p class="code">&#160;</p>
+        <p class="code">
+气流元件：
+</p>
+        <p class="code">
+一行包含每个流量元素的 3 个实际值。</p>
+        <p class="code">
+最后一行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 -999
+&#160;</p>
+        <p class="code">&#160;</p>
+        <p class="code">
+房间数据：
+</p>
+        <p class="code">
+每个房间一行由以下部分组成
+</p>
+        <p class="code">  
+I NR - 防区编号，从 1 开始。
+&#160;</p>
+        <p class="code">  
+I CP-1表示恒压区。
+</p>
+        <p class="code">  
+R TZ - 初始区温度[K]。
+&#160;</p>
+        <p class="code">  
+R PZ - 初始房间压力[Pa]。
+&#160;</p>
+        <p class="code">  
+R VOL - 房间体积 [m^3]。
+&#160;</p>
+        <p class="code">  
+R HT - 房间高程 [m]。
+&#160;</p>
+        <p class="code">
+最后一行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 -999
+&#160;</p>
+        <p class="code">&#160;</p>
+        <p class="code">
+路径数据：
+</p>
+        <p class="code">
+每个气流路径一条线，包括
+</p>
+        <p class="code">  
+I NR - 路径号，从 1 开始。
+&#160;</p>
+        <p class="code">  
+I NZ - 房间气流的数量（为正值）。
+&#160;</p>
+        <p class="code">  
+I MZ——空气流向房间的数量。
+&#160;</p>
+        <p class="code">  
+R HT - 路径高程 [m]。
+&#160;</p>
+        <p class="code">  
+I TYPE - 路径类型：0=流、1=PLR、2=QCN、3=FCN。
+&#160;</p>
+        <p class="code">  I NE - 气流元件的编号。
+&#160;</p>
+        <p class="code">  
+R MULT - 路径倍增器。
+&#160;</p>
+        <p class="code">  
+I XIN - 指数 (
+&gt;
+0) XIN 输入值（类型 0）。
+&#160;</p>
+        <p class="code">  
+I PWP - 指数 (
+&gt;
+0) 风压剖面。
+&#160;</p>
+        <p class="code">  
+R WIND - 风压调节器。
+&#160;</p>
+        <p class="code">  
+R AZM——表面方位角。
+&#160;</p>
+        <p class="code">  
+R CTRL - 流量或控制值取决于类型。
+&#160;</p>
+        <p class="code">
+最后一行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 -999
+&#160;</p>
+        <p class="code">&#160;</p>
+        <p class="code">INPUT &amp; 
+输出数据：
+</p>
+        <p class="code">
+第一行：
+</p>
+        <p class="code">  
+I NIN 个输入变量。
+&#160;</p>
+        <p class="code">  
+I NOUT 输出变量的数量。
+&#160;</p>
+        <p class="code">
+每个输出变量占一行，包括
+</p>
+        <p class="code">  
+I NR - 输出编号（XOUT 的索引）。
+&#160;</p>
+        <p class="code">  
+I NZ - 空气流出的房间编号。
+&#160;</p>
+        <p class="code">  
+I MZ - 空气流向的房间数。&#160;</p>
+        <p class="code">
+最后一行：节结束指示器
+</p>
+        <p class="code">  
+I J - 应等于 –999
+&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

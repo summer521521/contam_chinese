@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts|Defining Ducts|Duct Segment Properties|Duct Flow Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+风扇型号 - 性能曲线
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5><a name="kanchor83"></a>
+风扇型号：性能曲线
+</h5>
+        <p>
+该气流元件允许您根据风扇性能曲线创建风扇。您为 ContamW 提供一组压力上升和气流速率数据点，并且 ContamW 对数据点执行多项式曲线拟合。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识风管流元素的唯一名称。该元素将保存在当前项目中，并且可以与多个风管段关联。
+</p>
+        <p><span style="font-weight: bold;">
+风扇关闭条件：
+</span> 
+这些值指定当风扇速度不足以提供流量时如何对风扇进行建模。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+截止比：
+</span> The <span style="font-style: italic;">
+风扇转速比
+</span> 
+是风扇的实际速度 (RPM) 除以风扇的额定速度（风扇的定义速度比为 1.0）。当风机转速比低于规定值时 <i>
+截止比
+</i> 
+根据为此风扇元件定义的“等效孔口”，将风扇建模为简单孔口。在模拟过程中，ContamX 从应用于该风扇元件相关气流路径的控制值（以计划或控制信号的形式）获取实际比率，并将其与
+ <span style="font-style: italic;">
+截止比
+</span>
+。请参阅第 18 章风扇 [
+<a href="../IDH_References.htm#REF_ASHRAE_2004">
+2004年美国采暖及制冷工程师协会
+</a>].</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+等效孔口：
+</span> 
+当计划或控制值低于指定的截止比率时，用于对风扇打开进行建模的孔口尺寸。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定气流元件的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+风扇性能数据：
+</span> 
+单击“编辑风扇曲线数据”以输入/修改该管道流单元的风扇曲线。该数据的详细解释在
+ <a href="../AirflowPaths/IDH_AFE_FAN_DATA.htm">
+风扇性能数据
+</a> 
+下的部分
+ <a href="../AirflowPaths/IDH_UsingPaths_WorkingWithAirflowPaths.htm">
+使用气流路径
+</a>.</p>
+        <p><span style="font-weight: bold;">
+形状尺寸和泄漏：
+</span> 
+您必须输入数据来物理描述每个管道气流元件。您在
+ <a href="IDH_PP_AFE_DCTSHAPE.htm">
+形状尺寸和泄漏量
+</a> 
+与每个管道气流元件关联的属性页。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

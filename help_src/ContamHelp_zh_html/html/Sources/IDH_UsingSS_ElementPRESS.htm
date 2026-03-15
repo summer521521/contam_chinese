@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源汇元件压力驱动模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇元件：压力驱动模型
+</h5>
+        <p>
+压力源/汇模型旨在模拟由内部和外部房间之间的压差控制的污染物源，例如氡气或土壤气体进入。
+&#160; 
+单位以默认计算单位提供。
+</p>
+        <p class="NormalIndent"><i>S<span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span></i>(<i>t</i>)<i></i> = <i></i>
+多
+<i><sub style="font-style: italic;"></sub></i>
+·ctrl·
+<i>G </i><span style="font-family: Symbol;">(D</span><i>P)</i><sup style="font-style: italic;">n</sup></p>
+        <p class="NormalIndent"><span style="font-style: italic;">S</span>&#160;&#160;&#160; 
+= 某时刻污染物源强度
+ <i>t</i><br /><span style="font-style: italic;">G</span>&#160;&#160; 
+= 发电率系数 [kg
+<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/Pa<sup>n</sup>
+·s]
+<br /><span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span> 
+= 压差（环境压力 - 房间压力）[Pa]
+<br /><span style="font-style: italic;">n</span>&#160;&#160;&#160; 
+= 压力指数
+        [无单位]</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+</p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+        </p>
+        <p><span style="font-weight: bold;">
+发电率：
+</span> 
+该系数描述了污染物进入该区域的速率，作为压差的函数。
+        </p>
+        <p><span style="font-weight: bold;">
+压力指数：
+</span> 
+用于描述污染物进入压力的依赖性。
+
+        </p>
+        <p><span style="font-weight: bold;">
+品种：
+</span> 
+从下拉框中选择先前定义的物种。
+
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定接收器/源元件的更详细描述的字段。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

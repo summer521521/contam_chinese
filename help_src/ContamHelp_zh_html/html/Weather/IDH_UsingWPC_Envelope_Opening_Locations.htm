@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with WPC Files" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+信封打开地点
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+信封打开地点
+</h3>
+        <p>
+使用 WPC 文件时，您必须输入连接到环境的每个开口的坐标，包括：气流路径、管道终端和简单空气处理系统的室外进气口。坐标数据通过这些建筑组件的风压属性页输入。位置信息将用于创建 PLD 文件，该文件又用于在执行模拟之前验证 WPC 文件中是否存在匹配信息。
+
+
+</p>
+        <p><b>
+注意：</b> 
+尽管在使用 WPC 文件时连接到环境的每个开口都需要位置数据，但它们不需要是唯一的。它们必须与 WPC 文件中的位置匹配。
+
+</p>
+        <p class="SubHeading1">
+气流路径和管道终端
+
+</p>
+        <p>
+输入每个气流路径和管道终端的 X 和 Y 坐标及单位。 Z 坐标将通过 ContamW 计算为相对高程加上路径或终点站所在建筑物标高的高程。
+
+</p>
+        <p class="SubHeading1">
+简单空气处理系统的室外进气口
+
+</p>
+        <p>
+输入每个 Simple AHS 的室外进气口的 X、Y 和 Z 坐标和单位。输入 Z 坐标作为室外进气口中点相对于建筑物参考高度的高度。
+
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

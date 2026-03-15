@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用 SketchPad
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor1"></a>
+使用 SketchPad
+</h2>
+        <p>
+SketchPad 是 ContamW 屏幕的房间，您可以在其中绘制要分析的建筑物的示意图。这种表示形式是一组简化的平面图，代表建筑物的楼层。 SketchPad 由不可见的单元格数组组成，您可以在其中放置各种图标以形成建筑物的示意图。 SketchPad 用于建立相关建筑特征的几何关系，不一定用于生成建筑物的比例表示。它应用于创建一个简化的模型，其中墙壁、房间和气流路径在拓扑上与实际建筑物相似。
+ </p>
+        <p class="SubHeading1">
+伪几何
+</p>
+        <p>
+虽然 ContamW 不要求您按比例绘制建筑平面图，但 SketchPad 确实提供了将比例值分配给 SketchPad 单元格的功能。您可以选择显示这个所谓的
+ <i>
+伪几何
+</i> <![CDATA[ ]>
+通过
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm#ConfigContamW_ProjectOptions">
+项目选项
+</a>&#160;
+ContamW 配置的。当您在 SketchPad 上绘图时，这将在状态栏中提供尺寸。它还将为您提供墙壁、房间和管道的缩放信息。当您突出显示墙壁图标时，它将提供墙壁房间，这在定义与墙壁关联的气流路径图标的乘数时非常有用。当伪几何模式被激活时，将为房间体积（基于缩放的地板面积）和管道长度提供默认值。为了区分伪几何值和保存在 prj 文件中的实际值，在 SketchPad 中出现时，缩放值将包含在“{}”中
+ <a href="../GetStarted/IDH_GetStart_OverviewOfGUI.htm#StatusBar">
+状态栏
+</a>。此功能旨在简化与能量分析软件（例如 TRNSYS 和 EnergyPlus）的耦合，这些软件需要几何信息才能执行能量相关计算（请参阅
+ <a href="../TRNSYS/IDH_UsingTRNSYS-WorkingWithTRNSYS.htm">
+与 TRNSYS 合作
+</a>).</p>
+        <p class="SubHeading1">
+插入符号
+</p>
+        <p>
+使用 ContamW 时，您会注意到 SketchPad 上有一个闪烁的方块。这就是所谓的系统
+ <span style="font-style: italic;">
+插入符</span>
+，它是单个 SketchPad 单元格的大小。这个
+ <span style="font-style: italic;">
+插入符</span> 
+与许多文字处理应用程序中常见的闪烁垂直条是同一回事。的
+ <span style="font-style: italic;">
+插入符</span> 指示 SketchPad 中当前选定的单元格。状态栏中出现的任何与图标相关的信息都与该图标的位置相关联。
+ <span style="font-style: italic;">
+插入符</span>. </p>
+        <p class="SubHeading1">
+移动插入符号
+</p>
+        <p class="Normal">
+要移动 <span style="font-style: italic;">
+插入符</span> 
+在 SketchPad 周围，您可以使用键盘箭头键，也可以用鼠标移动系统光标并单击
+ <span style="font-style: italic;">
+鼠标左键
+</span> 
+设置插入符位置。您还可以将箭头键与
+ <span style="font-weight: bold;">
+转变
+</span> and <span style="font-weight: bold;">
+控制键
+</span> 
+键来移动
+ <span style="font-style: italic;">
+插入符</span> 
+更快。
+</p>
+        <p class="Normal"><span style="font-weight: bold;">
+Shift + 箭头键
+</span> 
+移动
+ <span style="font-style: italic;">
+插入符</span> 
+沿箭头方向 10 个单元格。可以在 ContamW 配置中修改要移动的单元格数量（请参阅
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm">
+单元格/图标大小
+</a> 
+在
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm">
+配置 ContamW
+</a> 
+部分）。
+</p>
+        <p class="Normal"><span style="font-weight: bold;">
+Ctrl + 箭头键
+</span> 
+移动
+ <span style="font-style: italic;">
+插入符</span> 
+到箭头方向的下一个图标
+</p>
+        <p class="SubHeading1">
+SketchPad 操作
+</p>
+        <p>
+您将使用 SketchPad 执行的具体操作如下：
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_UsingSketchPad_DrawingWallsandDucts.htm">
+绘制墙壁、管道和控件
+</a>
+                </p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_UsingSketchPad_DrawingBuildingComponents.htm">
+绘制建筑构件图标
+</a>
+                </p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_UsingSketchPad_DefiningBuildingComponentIcons.htm">
+定义建筑组件图标
+</a>
+                </p>
+            </li>
+            <li value="4">
+                <p><a href="IDH_UsingSketchPad_ViewingResultsOnSketchPad.htm">
+查看结果
+</a>
+                </p>
+            </li>
+            <li value="5">
+                <p><a href="IDH_UsingSketchPad_ViewingEnvelopeWindPressureDifferentials.htm">
+查看由于风的影响而产生的包络压差
+</a>
+                </p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+SketchPad 模式
+</p>
+        <p>
+SketchPad 共有三种基本模式：
+ <span style="font-style: italic;font-weight: bold;">
+正常
+</span>, <span style="font-style: italic;font-weight: bold;">
+结果
+</span> and <span style="font-style: italic;font-weight: bold;">
+风压
+</span>
+。 SketchPad 模式基本上指的是 SketchPad 上显示的信息类型。您可以通过查看中的项目来判断程序处于什么模式
+ <span style="font-weight: bold;">
+查看
+</span> 
+菜单以查看哪一个旁边有标记。
+</p>
+        <ul>
+            <li value="1">
+在
+ <span style="font-style: italic;">
+正常
+</span> 模式 ContamW 仅显示建筑组件图标。在此模式下您可以添加、删除、复制和移动图标。
+</li>
+            <li value="2">
+在
+ <span style="font-style: italic;">
+结果
+</span> 
+模式下，ContamW 在 SketchPad 上显示模拟结果。
+ <b>
+在此模式下，您将无法在 SketchPad 上添加、删除、复制和移动图标
+</b> 
+（参见
+ <a href="../Results/IDH_UsingResults_Viewing.htm">
+查看结果
+</a>). </li>
+            <li value="3">The <span style="font-style: italic;">
+风压
+</span> 
+提供模式以在 SketchPad 上直观地验证风速和风向信息（请参阅
+ <a href="../Weather/IDH_UsingWTH_Defining_Steady_State_Weather_and_Wind.htm#IDM_CheckingWind">
+检查风压数据
+</a>).</li>
+        </ul>
+        <p class="SubHeading1">
+控制超元件/超级节点SketchPad
+
+</p>
+        <p>
+随着新的控制超元件的出现，出现了 SketchPad 的另一种用途来创建和编辑超元件和超级节点（请参阅
+ <a href="../Controls/IDH_UsingControls_ControlSuperElements.htm">
+控制超元件
+</a> 
+在
+ <a href="../Controls/IDH_UsingControls_WorkingWithControls.htm">
+使用控件
+</a> 
+部分）。使用超元件时，仅启用控件绘图工具以及定义控制网络图标的功能。此 SketchPad 通过以下方式激活
+ <b>
+数据
+&#8594;
+控制
+&#8594;
+超元件...
+</b> 
+菜单项。当超元件 SketchPad 处于活动状态时，SketchPad 的左上角将显示“超元件：”，后跟当前显示在 SketchPad 上的超元件的名称。使用超元件时，还将显示“控制超元件”对话框。
+超级节点 SketchPad 只能修改现有控制子节点图标，因此控制绘图工具将被禁用，删除控制网络图标的功能也将被禁用。超级节点 SketchPad 通过实例化现有控制超元件或双击超级节点图标来激活。当超级节点 SketchPad 处于活动状态时，SketchPad 的左上角将显示“Super Node:”，后跟当前显示在 SketchPad 上的超级节点的名称。使用超级节点时，还将显示“超级节点数据”对话框（请参阅控制超级节点）。
+
+</p>
+        <p class="SubHeading1">
+缩放 SketchPad
+</p>
+        <p>
+您可以更改 SketchPad 上显示图标的单元格的大小，以便在 SketchPad 上放大和缩小平面图。屏幕上显示的信息量取决于分辨率和单元格大小。可以使用工具栏上的两个缩放按钮及其关联的键盘快捷键（如下所示）来完成缩放，或者更改“项目配置属性”对话框的“单元格/图标大小”页面上的“当前单元格/图标大小”，可通过
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew&#8594;</span><span style="font-weight: bold;text-decoration: underline;">O</span><span style="font-weight: bold;">
+选项...
+</span> 
+菜单选择（参见
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm">
+单元格/图标大小
+</a>).</p>
+        <p class="NormalIndent">
+            <img src="../../image/BtnZoom.gif" border="0" height="24" width="48" alt="
+图像\BtnZoom.gif
+" />
+        </p>
+        <p class="Normal">
+键盘快捷键：
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+Ctrl + 向上翻页
+</span> 
+增加单元大小
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+Ctrl + 向下翻页
+</span>&#160;
+减小单元尺寸
+</p>
+        <p class="SubHeading1"><a name="Printing_the_SketchPad"></a><a name="kanchor2"></a>
+打印 SketchPad 图像
+</p>
+        <p>
+您可以获得 SketchPad 绘图的图像，以便使用 Windows 打印屏幕功能进行打印或编辑。为此，请调整 ContamW 窗口的大小并按
+ <span style="font-weight: bold;">
+Alt+打印屏幕
+</span> 
+键盘上的 将当前窗口复制到 Windows 剪贴板。然后您可以立即将图像粘贴到所需的程序中。例如，您可以将图像粘贴到 Windows 画图程序中进行编辑或直接粘贴到文字处理程序中。然后，您可以从这些程序中的任何一个打印图像。
+</p>
+        <p class="SubHeading1"><a name="PCX_Graphics_Files"></a>
+导出 .BMP SketchPad 文件
+</p>
+        <p>
+您可以使用以下命令将当前显示关卡的 SketchPad 图像保存到 Windows 位图 (.BMP) 文件：
+ <span style="font-weight: bold;">
+文件
+&#8594;
+将 SketchPad 保存到 .BMP 文件...
+</span> 
+菜单项。将出现“另存为”对话框，允许您为文件命名。该文件将包含基于当前单元格/图标大小和颜色设置的整个 SketchPad。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

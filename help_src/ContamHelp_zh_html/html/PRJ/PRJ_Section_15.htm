@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 15 节：初始房间浓度
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 15 节：初始房间浓度
+</h5>
+        <p>
+初始房间污染物质量分数由zone_read()函数读取并由zone_save()函数保存。质量分数存储在 contam.h 中为 ContamW 定义的 ZONE_DSC 结构中，并且它们存储在 ContamX 中的数组中。
+</p>
+        <p class="NormalItalic">
+房间污染物部分开始于：
+ </p>
+        <p class="code">
+nn // 后面的质量分数数 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+nn 应等于 _nzone * _nctm。
+  </p>
+        <p class="NormalItalic">
+接下来是 _nzone 行，按从 1 到 _nzone 的顺序排列。
+</p>
+        <p class="NormalItalic">
+每个数据行包含按污染物顺序排列的 _nctm 质量分数 (R4)。
+ </p>
+        <p class="codeindent">nr&#160;&#160;&#160;
+// 房间编号 (
+<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+CC0[i][1] // 房间 i 污染物 1 的初始质量分数 (R4)
+ </p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC0[i][_nctm] // 房间 i 的初始质量分数（R4），污染物 _nctm
+</p>
+        <p class="NormalItalic">
+初始房间浓度部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

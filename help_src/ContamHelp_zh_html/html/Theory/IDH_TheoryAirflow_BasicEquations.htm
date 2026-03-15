@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+基本方程
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+基本方程
+</h3>
+        <p>
+从 j 区到 i 区的空气流量，
+ <span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;"><span style="font-size: 10pt;vertical-align: sub;">j,i</span></span><span style="font-style: italic;"></span>
+[kg/s]，是沿流路的压降的函数，
+&#160; <span style="font-style: italic;">P</span><span style="font-style: italic;font-size: 10pt;vertical-align: sub;">j</span> - <span style="font-style: italic;">P</span><span style="font-style: italic;font-size: 10pt;vertical-align: sub;">i</span>:</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008A.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(1)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+空气质量，
+ <span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;">i</span> 
+[kg]，在 i 区由理想气体定律给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008B.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(2)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">V<sub>i</sub></span> 
+= 房间体积 [m
+<sup>3</sup>],<br /><span style="font-style: italic;">P<sub>i</sub></span>
+= 房间压力 [Pa],
+<br /><span style="font-style: italic;">T<sub>i</sub></span><span style="font-style: italic;vertical-align: sub;"></span>
+= 房间温度 [K]，以及
+<br /><span style="font-style: italic;">R</span>
+= 287.055 [焦耳/公斤<span style="font-family: Symbol;">×</span>
+K]（空气的气体常数）。
+</p>
+        <p>
+对于瞬态解，质量守恒定律指出：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008C.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(3)</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008D.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(4)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;">i</span>
+= i 区的空气质量，
+ 
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;">j,i</span>
+= j 区和 i 区之间的气流速率 [kg/s]：
+&#160; 
+正值表示从 j 到 i 的流量，负值表示从 i 到 j 的流量，并且
+
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;">i</span>&gt;
+= 可能会在该区域添加或去除大量空气的非流动过程。
+
+        </p>
+        <p>
+CONTAM 1.0 没有规定此类非流动过程，并且通过假设准稳态条件来评估流动，得出以下方程
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008E.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(5)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+CONTAM 现在可以通过在执行瞬态模拟时允许密度在时间步长内变化来提供此类非流动过程。 </p>
+        <p>
+您可以使用以下命令激活此选项
+ <span style="font-style: italic;">
+在时间步长内改变密度
+</span> 
+设置下的
+ <a href="../Simulation/IDH_UsingSIM_ParamsAirNumerics.htm">
+气流数值模拟参数
+</a>
+。如果设置了该参数，则进行气流计算时执行式3；否则使用方程 5。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

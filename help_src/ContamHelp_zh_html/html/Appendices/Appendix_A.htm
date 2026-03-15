@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+附录 A - PRJ 文件格式
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <p class="h1_NoNumber">
+附录 A - PRJ 文件格式
+</p>
+        <p>
+CONTAM 由两个独立的程序组成： ContamW 提供图形界面，用于描述构建和查看模拟结果； ContamX 执行模拟。 “项目”文件（.PRJ 扩展名）为 ContamW 和 ContamX 提供输入。项目文件由 ContamW 中的文件 prjsave.c 中的函数创建，并由 ContamW 和 ContamX 中的文件 prjread.c 中的函数读取。项目文件包含一些仅由 ContamW 使用而不是 ContamX 使用的信息，例如输入单位和 SketchPad 显示数据。当宏名 CTMW 定义为 1 时读取这些数据，定义为 0 时不读取这些数据。
+  </p>
+        <p>
+大多数数据被读入在 ContamW 文件 contam.h 和 celmts.h 以及 ContamX 文件 simdat.h 和 selmts.h 中定义的结构。一些数据被读入在 ContamW 的 cglob.h 和 cxtrn.h 以及 ContamX 的 sglob.h 和 sxtrn.h 中定义的全局变量。这些变量由其名称中的前导下划线 _ 表示。
+  </p>
+        <p>
+项目文件的一项重要特征是存储的数据种类繁多。它被分为多个部分，将类似类型的数据或对象分组在一起。每个部分都以特殊值 –999 结尾，用于检查某些读取错误。每个部分中通常有多个对象，每个对象都存储在一个单独的结构中。这样的部分从对象的数量开始，并以用于检查读取错误的序列号开始每个对象的数据。当总数恒定时，这些对象可以排列为数组，或者排列为链表以允许数量变化。
+  </p>
+        <p>
+下面简要描述各个变量。单位在括号 [ ] 内表示。变量的类型位于括号中（与包含文件 types.h 中的定义匹配）。
+</p>
+        <p>&#160;
+I1 – 一字节有符号整数（C 类型“char”）
+</p>
+        <p>&#160;
+I2 – 一个两字节有符号整数（C 类型“short”）
+</p>
+        <p>&#160;
+I4 – 四字节有符号整数（C 类型“long”）
+</p>
+        <p>&#160;
+IX – 默认长度有符号整数（C 类型“int”）
+</p>
+        <p>&#160;
+UX – 默认长度无符号整数（C 类型“无符号”）
+</p>
+        <p>&#160;
+R4 – 四字节实数（C 类型“浮点数”）
+</p>
+        <p>
+仅由 ContamW 使用的变量由 {W} 指示。出现在的项目
+ <span style="color: #a52a2a;">red</span> 是最近修改的项目，包括数据大小已从 2 字节增加到 4 字节以允许增加构建组件数量的项目。此更改发生在版本 2.3 和 2.4 之间。
+</p>
+        <p>
+注释包含在项目文件中，以使其具有一定的可读性。感叹号，“
+<span style="font-family: &#x27;Courier New&#x27;;">!</span>" 用作注释字符。感叹号之后到行尾的任何内容都不会被输入处理器读取。当使用 ContamW 保存文件时，不会保留 PRJ 文件中的任何用户定义注释。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

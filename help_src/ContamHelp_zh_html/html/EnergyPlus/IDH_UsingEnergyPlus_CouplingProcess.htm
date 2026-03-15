@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with EnergyPlus" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+EnergyPlus-CONTAM 耦合过程
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+EnergyPlus-CONTAM 耦合过程
+</h2>
+        <p>
+以下概述描述了将 CONTAM 项目与 EnergyPlus 耦合的过程。它涵盖了基本方法，但并未涵盖所有可能的耦合场景所需的所有细节。  该过程利用了
+ <i>
+CONTAM3DExport
+</i> 
+用于从 CONTAM PRJ 文件生成 EnergyPlus IDF 文件的工具。
+ </p>
+        <p>
+开发耦合项目并不是绝对需要遵循此过程。人们可以开发一个 CONTAM 项目，该项目具有与现有 EnergyPlus IDF 相对应的热房间，使用 CONTAM3DExport 工具生成 IDF 文件，并将生成的 IDF 文件的部分内容合并到 EnergyPlus IDF 文件中。但是，如果不执行此过程进行耦合，则需要小心提供地下以包含关联的 CONTAM 项目的各个流动路径。此外，还需要协调生成的 EnergyPlus IDF 文件的空气回路和节点。
+</p>
+        <p class="SubHeading1"><b>
+使用 ContamW 创建 CONTAM 项目
+</b>
+        </p>
+        <p>
+创建与 EnergyPlus 结合使用的 CONTAM 项目时，请遵循以下准则。表中的
+ <a href="IDH_UsingEnergyPlus-WorkingWithEnergyPlus.htm">
+与 EnergyPlus 合作
+</a> 
+部分显示在 EnergyPlus 模型中创建的对象和相应的 CONTAM 实体。
+</p>
+        <p><b>
+几何
+</b>
+        </p>
+        <p>
+利用
+ <i>
+伪几何
+</i> 
+ContamW 模式，以便 CONTAM3DExport 生成 EnergyPlus 模型所需的几何形状。对于 CONTAM 模型中的每个房间，将在 EnergyPlus 模型中创建一个热房间。
+ </p>
+        <p><b>
+气流路径
+</b>
+        </p>
+        <p>
+气流路径将被分组以形成 EnergyPlus 模型中的房间间混合和渗透气流速率。
+</p>
+        <p><b>
+窗户
+</b>
+        </p>
+        <p>
+要通过 EnergyPlus 创建用于热建模的窗口，请在 CONTAM 项目中定义气流路径，该项目使用名称包含字符串“wind”（不区分大小写）的双向气流元件。将气流路径图标放置在您希望窗户中心所在的墙壁上。通过气流路径参考标高定义窗口底部的标高，并通过气流元件属性定义窗口的高度和宽度。如果您不希望在耦合模拟期间有任何气流通过窗口，请将路径乘数设置为零。导出时，将根据这些属性在 IDF 文件中创建窗口。您必须确保窗户完全包含在墙内并且不会相互重叠。
+</p>
+        <p><b>
+简单的空气处理系统
+</b>
+        </p>
+        <p>
+将在 EnergyPlus 模型中为 CONTAM 模型中的每个简单空气处理系统 (AHS) 创建一个空气回路，但下文所述的纯排气和热回收通风机 (HRV) 系统除外。为了遵守 EnergyPlus 空气环路范例，空气环路服务的每个热房间都应具有相应的送风和回风终端，由 CONTAM 建筑模型中关联的“正常”简单 AHS 提供服务。一个房间只能由一个空气环路提供服务，因此 CONTAM 中的一个房间不应有超过一个正常的 AHS 提供服务。然而，一个房间可以由每种类型的 AHS 之一提供服务：正常、仅排气和 HRV；如下所述。
+</p>
+        <p>
+CONTAM 中的简单 AHS 可以对应于 EnergyPlus 中的仅排气系统和能量回收系统。简单的 AHS 的名称用于触发
+ <i>
+CONTAM3DExport
+</i> 
+创建这些系统以及系统特定的供应和返回终端要求。仅排气系统名称必须包含“exh”（不区分大小写），并且不应有任何与之关联的送风终端。能量回收系统名称应包含“hrv”（不区分大小写）。
+ <i>
+CONTAM3DExport
+</i> 
+将根据这些要求对 PRJ 文件执行检查。仅排气和 HRV 简单 AHS 在 EnergyPlus 中没有与其关联的相应空气回路。相反，HRV 系统将生成
+ <code>
+暖通空调区：能量回收通风机
+</code> 
+以及 IDF 文件中的关联对象，仅排气系统将生成
+ <code>
+风扇：房间排气
+</code> 
+以及 IDF 文件中的关联对象。
+</p>
+        <p class="NormalCW2"><i>
+Contam3D导出
+</i> 
+提供了一个选项，可以提供与简单 AHS 相关的空气回路，该简单 AHS 仅包含一个风扇以将空气移动通过回路，或者将两种类型的热调节系统之一与空气回路合并。用户可以选择包括
+ <i>
+AirLoopHVAC：UnitaryHeatCool
+</i> or <i>
+AirLoopHVAC：一体式热泵：AirToAir
+</i> 每个空气循环。这将提供必要的组件来调节与每个空气回路相关的热房间。可能需要对导出的 IDF 进行修改才能完成加热/冷却系统的定义。修改包括设置单一系统的控制区或恒温器位置、设置
+ <code>
+房间渗透：设计流量
+</code> 
+以及系统大小调整的关联房间列表，以及所需系统性能所需的导出系统的任何其他属性。
+</p>
+        <p><b>
+管道
+</b>
+        </p>
+        <p>
+与 EnergyPlus 耦合时目前不支持管道。 CONTAM3DExport 不会对此执行检查。
+ </p>
+        <p><b>
+控制
+</b>
+        </p>
+        <p class="NormalCW2">
+控件可用于在 CONTAM 和 EnergyPlus 之间传递数据。这允许在两个程序之间共享几乎任何信息，并且由用户定义在 CONTAM 控制网络和 EnergyPlus 能源管理系统 (EMS) 中使用哪些数据以及如何使用这些数据。
+ <i>
+CONTAM3DExport
+</i> 
+将提供如下定义的数据传输发生的基础。
+</p>
+        <p>
+在 CONTAM 中
+ <i>
+常数
+</i> (or <i>Set</i>
+) 具有名称的类型控件用于接收来自 EnergyPlus 的输入控制信号。
+  <i>
+斯普利特
+</i> (or <i>
+通行证
+</i>
+) 具有名称的类型控件用于将输出信号从 CONTAM 发送到 EnergyPlus。在使用具有控件的项目执行模拟之前，请确保仅运行 CONTAM 模拟，或者至少通过模拟运行完整的构建检查
+&gt;
+运行 Building Check 菜单项以确保控件按顺序排列。将任何新控件添加到项目后，必须遵循此过程，并且还必须在控件排序后保存项目。
+</p>
+        <p class="NormalCW2">An <code>
+外部接口：FunctionalMockupUnitImport：来自：变量
+</code> 
+将为命名创建对象
+ <i>
+常数
+</i> 
+类型控件，以及
+ <code>
+外部接口:FunctionalMockupUnitImport:To:Schedule
+</code> 
+将为命名创建对象
+ <i>
+斯普利特
+</i> 
+类型控件。以下示例 IDF 部分演示了为每种类型的控件之一创建的对象：
+ <i>
+常数
+</i> 
+控件命名
+ <i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i> 
+和一个
+ <i>
+斯普利特
+</i> 
+控件命名
+ <code style="font-style: italic; color: #808080;">
+污染VarB
+</code>
+。这些对象集启用了导出的 EnergyPlus 模型，包括
+ <code>
+能源管理系统：程序
+</code> 
+可以很容易地修改它以获得模拟过程中所需的结果。例如，可以从 CONTAM 向 EnergyPlus 提供污染物值，或者可以将 EMS 值发送到 CONTAM 以协调两个程序之间的控制。
+</p>
+        <h6>
+对于恒定控制：
+</h6>
+        <div>
+            <p class="codeCW2">
+外部接口：FunctionalMockupUnitImport：来自：变量，
+</p>
+            <p class="codeindentCW2">
+特快专递、
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 输出：变量索引键名称
+</p>
+            <p class="codeindentCW2"><i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 输出：变量名称
+</p>
+            <p class="codeindentCW2">
+CONTAMFMU.fmu,
+ &#160;&#160;&#160;
+!- FMU 文件名
+</p>
+            <p class="codeindentCW2">
+CONTAMFMU，
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- FMU 实例名称
+</p>
+            <p class="codeindentCW2">
+CTRL_I_
+<i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>;&#160;
+!- FMU 变量名称
+</p>
+            <p class="codeindentCW2">&#160;</p>
+            <p class="codeCW2">
+输出：变量，
+</p>
+            <p class="codeindentCW2">*,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 关键值
+</p>
+            <p class="codeindentCW2"><i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>,&#160;&#160;
+!- 变量名
+</p>
+            <p class="codeindentCW2">
+时间步长；
+&#160;&#160;&#160;
+!- 报告频率
+</p>
+            <p class="codeindentCW2">&#160;</p>
+            <p class="codeCW2">
+能源管理系统：输出变量，
+</p>
+            <p class="codeindentCW2"><i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>,&#160;&#160;&#160;&#160;&#160;
+!- 名字
+</p>
+            <p class="codeindentCW2">g_<i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>,&#160;&#160;&#160;
+!- EMS 变量名称
+</p>
+            <p class="codeindentCW2">
+平均，
+ &#160;&#160;&#160;&#160;&#160;
+!- 变量中的数据类型
+</p>
+            <p class="codeindentCW2">
+房间时间步长；
+ &#160;
+!- 更新频率
+</p>
+            <p class="codeindentCW2">&#160;</p>
+            <p class="codeCW2">
+能源管理系统：GlobalVariable，
+</p>
+            <p class="codeindentCW2">g_<i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i>;&#160;&#160;
+!- Erl 变量 1 名称
+</p>
+            <p class="codeindentCW2">&#160;</p>
+            <p class="codeCW2">
+能源管理系统：程序，
+</p>
+            <p class="codeindentCW2">
+prog_eplus_to_contamVars, !- 名称
+</p>
+            <p class="codeindentCW2">
+设置g_
+<i><code style="font-style: italic; color: #00bfff;">
+eplusVar1
+</code></i> = 1.0; &#160;&#160;&#160;
+!- 程序第 1 行
+</p>
+            <p class="codeindentCW2">&#160;</p>
+        </div>
+        <h6>
+对于分割控件：
+</h6>
+        <p class="codeCW2">&#160;</p>
+        <p class="codeCW2">
+外部接口：FunctionalMockupUnitImport：至：Schedule，
+</p>
+        <p class="codeindentCW2">
+FmuSched_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;
+!- 名字
+</p>
+        <p class="codeindentCW2">
+任意数字，
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 计划类型限制名称
+</p>
+        <p class="codeindentCW2">
+CONTAMFMU.fmu,
+ &#160;&#160;&#160;&#160;&#160;&#160;
+!- FMU 文件名
+</p>
+        <p class="codeindentCW2">
+CONTAMFMU，
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- FMU 实例名称
+</p>
+        <p class="codeindentCW2">
+CTRL_O_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;&#160;&#160;
+!- FMU 变量名称
+</p>
+        <p class="codeindentCW2">0;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 初始值
+</p>
+        <p class="codeCW2">&#160;</p>
+        <p class="codeCW2">
+输出：变量，
+</p>
+        <p class="codeindentCW2">*,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 关键值
+</p>
+        <p class="codeindentCW2"><code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;
+!- 变量名
+</p>
+        <p class="codeindentCW2">
+时间步长；
+&#160;&#160;&#160;
+!- 报告频率
+</p>
+        <p class="codeCW2">&#160;</p>
+        <p class="codeCW2">
+能源管理系统：输出变量，
+</p>
+        <p class="codeindentCW2"><code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 名字
+</p>
+        <p class="codeindentCW2">
+传感器_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;
+!- EMS 变量名称
+</p>
+        <p class="codeindentCW2">
+平均，
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+!- 变量中的数据类型
+</p>
+        <p class="codeindentCW2">
+房间时间步长；
+&#160;&#160;&#160;&#160;&#160;&#160;
+!- 更新频率
+</p>
+        <p class="codeCW2">&#160;</p>
+        <p class="codeCW2">
+能源管理系统：传感器，
+</p>
+        <p class="codeindentCW2">
+传感器_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;&#160;&#160;
+!- 名字
+</p>
+        <p class="codeindentCW2">
+FmuSched_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>,&#160;
+!- 输出：变量或输出：仪表索引键名称
+</p>
+        <p class="codeindentCW2">
+附表价值；
+&#160;&#160;&#160;&#160; &#160;
+!- 输出：变量或输出：仪表名称
+</p>
+        <p class="codeindentCW2">&#160;</p>
+        <p class="codeCW2">
+能源管理系统：程序，
+</p>
+        <p class="codeindentCW2">
+prog_contamVars_to_eplus，
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;
+!- 名字
+</p>
+        <p class="codeindentCW2">
+设置本地_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code> 
+= 传感器_
+<code style="font-style: italic; color: #808080;">
+污染VarB
+</code>;&#160;
+!- 程序第 1 行
+</p>
+        <p class="codeindentCW2">&#160;</p>
+        <h6>运行 CONTAM3DExport
+</h6>
+        <p class="SubHeading1">
+使用以下命令创建 EnergyPlus IDF 文件
+ <i>
+CONTAM3DExport
+</i></p>
+        <ol>
+            <li value="1">Run <i>
+CONTAM3DExport
+</i> 
+并选择 PRJ 文件以转换为 EnergyPlus。
+ </li>
+            <li value="2">
+选择包含以下内容的现有 IDF 文件
+ <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-family: &#x27;Times New Roman&#x27;;"></span>
+材质
+</span> and <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-family: &#x27;Times New Roman&#x27;;"></span>
+建筑工程
+</span> 
+您想要合并到新 IDF 文件中的对象。
+ </li>
+            <p class="NormalIndentCW2">
+注意： <i>
+CONTAM3DExport
+</i> 
+将为地板、天花板和内墙创建相邻表面，因此，如果在两侧使用相同的结构，则对于这些类型的表面或对称层具有反向层的结构有利于耦合过程。
+ <i>
+CONTAM3DExporter
+</i> 
+创造
+ <code>
+建筑表面：详细
+</code> 
+对这些表面使用表面类型外部边界条件的对象。
+</p>
+            <li value="3">
+选择要与每个表面类别关联的构造。
+</li>
+            <li value="4">
+选择
+ <i>
+与 CONTAM 相结合的建筑
+</i>&#160;&#160;
+导出选项。
+</li>
+            <li class="CW2" value="5">
+选择所需的空气循环选项。此选项将应用于 CONTAM 项目中的每个简单空气处理系统 (AHS)，除非定义为排气或热回收 AHS。
+<ol style="list-style-type: lower-alpha;"><li class="CW2" value="1">
+仅限粉丝 - 创建
+ <code>
+空气循环暖通空调
+</code> <![CDATA[ ]>
+有风扇但没有加热或冷却组件。
+</li><li class="CW2" value="2">
+一体式热冷 - 包括
+ <code>
+AirLoopHVAC：UnitaryHeatCool
+</code> 
+空间调节系统。
+</li><li class="CW2" value="3">
+空气对空气热泵 - 包括
+ <code>
+一体式热泵：AirToAir
+</code> 
+空间调节系统。
+</li></ol></li>
+            <li value="6">
+单击保存 EnergyPlus IDF 按钮。导出完成后将会提示您。
+</li>
+        </ol>
+        <p class="SubHeading1">
+文件创建者
+ <i>
+CONTAM3DExport
+</i></p>
+        <ul>
+            <li value="1"><b>
+IDF文件
+</b> 
+- 包含几何结构、空气回路、排气扇和 FMU 相关对象。</li>
+            <li value="2"><b>
+CONTAMFMU.fmu
+</b> 
+- 一个压缩的 zip 文件，将由 EnergyPlus 解压并在耦合的 EnergyPlus/CONTAM 模拟期间使用。它包含以下文件：
+
+			<ul style="list-style-type: circle;"><li value="1"><b>
+模型描述.xml
+</b> 
+- EnergyPlus FMI 联合仿真主算法使用它来获取数据交换参数。
+</li><li value="2"><b>
+污染源
+</b> - <b>V</b>
+可变的
+ <b>E</b>
+交换
+ <b>F</b>
+ContamX 使用该文件来获取数据交换参数。
+</li><li value="3"><b>
+污染项目
+</b> 
+- CONTAM 项目文件，用于生成相应的 EnergyPlus IDF 文件并由 ContamX 在联合仿真期间使用。
+</li><li value="4"><b>
+ContamFMU.dll
+</b> 
+- EnergyPlus主算法利用动态链接库来实现基于FMI的程序控制以及与ContamX的数据交换。
+</li><li value="5"><b>
+contamx3.exe
+</b> 
+- CONTAM 仿真引擎由 EnergyPlus FMI 联合仿真主算法通过 ContamFMU.dll 控制。
+</li></ul></li>
+        </ul>
+        <p class="SubHeading1">
+修改IDF文件
+</p>
+        <p class="NormalCW2">
+生成的IDF文件
+ <i>
+CONTAM3DExport
+</i> 
+包含如上所述的建筑几何形状、表面材料和结构、空气回路、排气扇和外部接口对象。该文件还将包括与产生或消除能量相关的 HVAC 组件，例如加热/冷却盘管。虽然耦合仿真应按导出方式运行，但它不太可能按预期执行。它不包括内部增益、接地耦合或与水相关的项目，并且 HVAC 系统可能不会包含所有所需的组件、所创建组件的所需尺寸（例如线圈和风扇），并且应根据需要修改恒温设定点。
+</p>
+        <p class="NormalCW2">现在可以使用 IDF 编辑器或其他基于文本的编辑器来编辑 IDF 文件，以添加或修改所需的组件。还可以使用 OpenStudio 或其关联的 Sketchup 插件等工具查看和编辑 IDF 文件
+<a href="../IDH_References.htm#REF_Guglielmetti_2011">
+古列梅蒂 2011
+</a>, <a href="../IDH_References.htm#NREL_2015">
+国家可再生能源实验室2015
+</a>
+]。例如，可以将 IDF 文件导入 OpenStudio，并且可以使用几何查看器来验证导出的 IDF 的几何形状、表面标识符和结构以及对文件所做的任何修改。这对于验证由以下命令创建的矩形元素的修改特别有用
+ <i>
+CONTAM3DExport
+</i>
+，包括必须修改为具有倾斜表面并向建筑物添加遮阳组件的屋顶。</p>
+        <p class="SubHeading1">
+运行模拟
+</p>
+        <p>
+IDF 文件和 ContamFMU.fmu 文件必须位于同一目录中。可以使用 zip 文件解压缩程序提取并重新打包 ContamFMU.fmu 文件中打包的文件。这可能是修改 contam.prj 文件的运行控制参数所必需的，如下所述。</p>
+        <ol>
+            <li value="1">
+在 contam.prj 文件和 IDF 文件中将时间步长以及开始日期和结束日期设置为相同。
+ </li>
+            <li class="CW2" value="2">如果需要，可以进行耦合模拟以利用重新启动文件。这可能有利于获得 CONTAM 模型内的初始气流和温度，但对于污染物汇和过滤器的加载可能是不利的。可以通过文本编辑器修改 contam.prj 的以下行，将重新启动标志设置为 1，并将日期设置为耦合模拟的第一天，从而使用重新启动文件进行模拟。在设置重启功能之前，不再需要通过 ContamW 运行仿真，但这仍然是一种有效的方法。修改 contam.prj 文件后，您必须替换压缩的 Contam.FMU 文件中现有的 PRJ 文件。
+<br /></li>
+            <p class="codeCW2">
+！重新启动
+&#160;&#160;
+日期
+&#160;&#160;
+时间
+</p>
+            <p class="codeCW2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;1&#160;
+1月1日
+&#160;&#160;24:00:00</p>
+            <li value="3">Use <i>
+EP启动
+</i> 选择 IDF 文件和所需的 EnergyPlus 天气 (EPW) 文件并运行模拟。
+ </li>
+            <li value="4">
+模拟完成后，ContamW 可用于查看/绘制 contam.prj 的结果，包括温度。
+</li>
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

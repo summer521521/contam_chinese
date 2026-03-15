@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟运行控制属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="_Ref119727171"></a>
+模拟 – 运行控制属性
+</h4>
+        <p class="SubHeading1"><span style="font-weight: bold;">
+模拟法
+</span>
+        </p>
+        <p>
+通过选中相应的单选按钮来设置您希望对气流和污染物执行的模拟类型。请参阅“使用模拟”部分，了解允许的模拟方法设置组合表。
+
+        </p>
+        <p><span style="font-weight: bold;">
+气流：
+</span> 
+您可以使用以下气流计算方法之一。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+稳定：
+</span> 
+稳态模拟将利用通过按“运行控制”属性页上的“编辑天气”按钮设置的天气。这将计算一组气流。如果任何建筑组件具有与其关联的明细表，则明细表值将由 <span style="font-style: italic;">
+日间类型
+</span> 
+设置在
+ <span style="font-style: italic;">
+稳态天气数据
+</span> 
+（见
+ <a href="../Weather/IDH_PP_WTH_SS.htm">
+天气属性
+</a> 
+下
+ <a href="../Weather/IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a>
+）和
+ <span style="font-style: italic;">
+稳定模拟时间
+</span>.</li>
+            <li value="2"><span style="font-weight: bold;">
+瞬态：
+</span> 
+瞬态模拟在用户定义的时间段内以固定的时间间隔（称为计算时间步长）执行计算。执行瞬态模拟时，CONTAM 可以使用稳态天气数据或定义模拟时间段内天气和环境污染物浓度的天气和污染物文件。有关更多详细信息，请参阅“使用天气和风”部分中的定义瞬态天气和风。
+
+        </li>
+            <li value="3"><span style="font-weight: bold;">
+管道平衡：
+</span> 
+使用详细的管道系统时使用此功能可以 CONTAM 调整终端管道平衡系数，以在管道终端提供用户定义的气流速率。请参阅使用管道。
+
+            </li>
+            <li value="4"><span style="font-weight: bold;">
+建筑气流测试：
+</span> The <span style="font-style: italic;">
+建筑气流测试
+</span> 方法执行有助于验证建筑模型数据输入的计算。在对建筑模型进行分析之前使用此测试来验证系统和每个房间的总气流速率、房间温度和整个建筑的换气速率。当您运行此测试时，您必须仅在模拟中使用一种污染物集，并且它必须是痕量污染物。测试结果将写入与项目文件同名且扩展名为 .val 的验证文件中（请参阅
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a>).&#160; 
+每次执行此操作时，该文件都会被覆盖
+ <span style="font-style: italic;">
+建筑气流测试
+</span> or <span style="font-style: italic;">
+建筑耐压测试
+</span> 
+被执行。
+</li>
+            <li value="5">
+                <p><span style="font-weight: bold;">
+建筑耐压测试：
+</span> 
+建筑增压方法执行自动化的整栋建筑风扇增压测试（参见
+ <a href="../Applications/IDH_Apps.htm">
+CONTAM 的特殊应用
+</a>
+）以确定理想测试条件下建筑围护结构的气密性。有关建筑加压测试的详细讨论，请参阅 CONTAM 的特殊应用部分。
+<br />
+ContamX 将临时设置建筑增压计算持续时间的条件如下：
+</p>
+                <ul style="list-style-type: circle;">
+                    <li value="1">
+无风
+</li>
+                    <li value="2">
+环境压力设置为稳态大气压
+</li>
+                    <li value="3">
+环境和内部房间设置为 20 ℃
+</li>
+                    <li value="4">
+调节房间（包含在建筑体积中）设置为恒定测试压力
+<br />
+注意：这将消除建筑房间之间气流的影响，如 CONTAM 部分的特殊应用中所述。
+ 
+                </li>
+                    <li value="5">
+无空调房间（不包括在建筑体积中）设置为可变压力
+</li>
+                    <li value="6">
+“关闭”所有管道终端和管道泄漏
+
+                </li>
+                    <li value="7">
+                        <p>
+“关闭”所有强制流动元件
+</p>
+                        <p class="BulletAfter2">
+当您使用此方法执行模拟时，ContamX 将在上述条件下执行稳态气流计算，并计算项目的调节房间和非调节房间之间的总气流速率。测试结果将写入与项目文件同名且扩展名为 .val 的验证文件中（请参阅
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a>
+）。每次执行此操作时，该文件都会被覆盖 <span style="font-style: italic;">
+建筑气流测试
+</span> or <span style="font-style: italic;">
+建筑耐压测试
+</span> 
+被执行。
+</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p><span style="font-weight: bold;">
+污染物：
+</span> 
+您可以选择以下污染物模拟选项之一：
+       </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+无：
+</span> 
+不进行污染物分析，仅进行气流分析。
+
+        </li>
+            <li value="2"><span style="font-weight: bold;">
+稳定：
+</span> 
+稳定污染物选项只能与稳定气流结合使用，并且将运行直到系统达到平衡。污染物源被建模为具有恒定生成率的连续源。
+&#160; 
+如果任何源具有与其关联的计划，则计划值将由
+ <span style="font-style: italic;">
+日间类型
+</span> 
+设置在
+ <span style="font-style: italic;">
+稳态天气数据
+</span> 
+（见
+ <a href="../Weather/IDH_PP_WTH_SS.htm">
+天气属性
+</a> 
+下
+ <a href="../Weather/IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a>
+）和
+ <span style="font-style: italic;">
+稳定模拟时间
+</span>
+。突发源将被忽略。环境污染物浓度为
+ <span style="font-style: italic;">
+默认浓度
+</span> 
+每种污染物的值。</li>
+            <li value="3"><span style="font-weight: bold;">
+瞬态：
+</span> 
+瞬态模拟在用户定义的时间段内以固定的时间间隔（称为
+ <span style="font-style: italic;">
+计算时间步长
+</span>
+。执行瞬态模拟时，CONTAM 可以使用默认污染物浓度给出的恒定环境浓度或外部污染物文件中的动态浓度。请参阅污染物文件和使用 WPC 文件。
+
+            </li>
+            <li value="4"><span style="font-weight: bold;">
+循环：
+</span> 
+循环模拟重复 24 小时循环，直到达到稳定周期条件。与瞬态模拟一样，循环模拟可以实现稳态或动态天气和污染物数据。如果使用动态天气或污染物数据文件（CTM 和 WTH），将从文件中获取以下日期的数据：
+ <span style="font-style: italic;">
+稳定
+ &amp; 
+循环模拟
+</span> 
+日期。
+
+          </li>
+        </ul>
+        <p><span style="font-weight: bold;">
+瞬态积分法：
+</span> 
+从可用选项中选择要执行的瞬态或循环仿真的类型。更详细的选项可通过
+ <a href="IDH_UsingSIM_ParamsContNumerics.htm">
+污染数值
+</a> 
+模拟参数。
+</p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+默认求解器（隐式欧拉）：
+</span> 
+这是传统的固定时间步长求解器。
+</li>
+        </ul>
+        <ul>
+            <li value="1"><b>
+短时间步长（显式欧拉）：
+</b> 
+您可以将此方法与瞬态或循环污染物模拟方法结合使用。需要此方法来执行一维对流扩散房间和/或管道的模拟。请参阅污染物数值属性以了解应用该方法时的具体控制
+ <i>
+短时间步长
+</i> 
+一维管道和一维房间的方法。
+<br />注意：这是一种显式求解方法，仅适用于短时间步长，因此执行一些检查有助于避免已知的稳定性问题。 ContamX 将在气流模拟期间检查房间气流速率（具有非零体积的所有房间），以确保每个时间步的换气次数不超过一次。如果任何房间超出此限制，则模拟将终止，并显示一条错误消息，指示违规房间。该问题还可能会出现一条错误消息，指示由于计算负绝对压力而计算出无效的房间密度。
+</li>
+            <li value="2"><b>
+视频编码：
+</b> 
+这是一个可变时间步常微分方程求解器 [
+<a href="../IDH_References.htm#REF_Hindmarsh_CVODE_2012">
+兴德马什和塞尔维亚 2012
+</a>
+]。它可以提供更准确的解决方案，特别是在污染物传输系统僵硬的情况下。刚性系统是指系统动力学变化较大的系统，例如换气率或动力学反应[
+<a href="../IDH_References.htm#REF_Lorenzetti_2013">
+洛伦泽蒂 2013
+</a>].<br />
+注意：此解算器目前受到限制，因为它无法处理包含 1D 房间、CFD 房间、人员暴露、突发源或体积为零的房间（节点）的项目。此外，CVODE 求解器不支持桥接模式（套接字通信功能）。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+将初始污染物浓度重置为……：
+</span> 
+在运行模拟之前，使用此功能重置所有房间的初始污染物浓度，包括简单空气处理系统的隐式供应和返回房间。您可以将初始浓度重置为
+ <span style="font-style: italic;">
+零
+</span>, <span style="font-style: italic;">
+环境
+</span> or <span style="font-style: italic;">
+当前结果浓度
+</span>
+。如果您不选中这些框之一，ContamX 将使用每个房间的污染物属性页面上指示的初始浓度（请参阅
+ <a href="../Zones/IDH_PP_ZONEPARMS1.htm">
+污染物数据
+</a> 
+根据
+ <a href="../Zones/IDH_UsingZones_WorkingWithZones.htm">
+使用房间
+</a> 
+部分）。选中这些框之一会导致每个房间的初始浓度值被覆盖。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+零：
+</span> 
+此选项将初始污染物浓度设置为零。
+        </li>
+            <li value="2"><span style="font-weight: bold;">
+环境浓度：
+</span> 
+此选项将初始污染物浓度设置为定义项目物种时设置的默认污染物浓度（请参阅
+ <a href="../Contaminants/IDH_UsingContaminants_SpeciesProperties.htm">
+物种特性
+</a>).     </li>
+            <li value="3"><span style="font-weight: bold;">
+当前结果浓度：
+</span> 此选项将初始污染物浓度设置为与 ContamW 当前在 SketchPad 上显示结果的时间步长处每个房间中的浓度相同。您必须处于结果查看模式才能使用此功能。当前时间步显示在状态栏的中间窗格中（请参见
+ <a href="../GetStarted/IDH_GetStart_OverviewOfGUI.htm#StatusBar">
+状态栏
+</a> 
+部分）。此选项对于循环仿真特别有用，您可以继续在收敛之前中断的仿真，以更严格的收敛标准继续仿真，或者创建一个项目文件进行存档，该文件可以作为一日瞬态仿真重新运行，以快速计算循环结果。
+
+        </li>
+        </ul>
+        <blockquote>
+            <ul style="list-style-type: circle;">
+            </ul>
+        </blockquote>
+        <p class="SubHeading1"><span style="font-weight: bold;">
+模拟日期和时间
+</span>
+        </p>
+        <p>
+这些日期和时间用于设置稳态模拟结果上的日期和时间标签，并通过允许您设置开始和停止日期和时间来控制瞬态模拟的持续时间。根据选择的模拟方法，将启用或禁用不同的模拟“日期和时间”字段。
+ 
+        </p>
+        <ul>
+            <li value="1">
+                <p><span style="font-weight: bold;">
+稳定
+ &amp; 
+循环模拟：
+</span> For <span style="font-style: italic;">
+稳定模拟
+</span>
+，日期字段仅用于标记模拟结果，但是，时间字段用于根据模拟设置使用的日期类型从日期计划中获取计划值。您设置了
+ <span style="font-style: italic;">D</span><span style="font-style: italic;">ay </span><span style="font-style: italic;">T</span><span style="font-style: italic;">ype</span> 
+通过稳态天气和风参数属性表（参见
+ <a href="../Weather/IDH_PP_WTH_SS.htm">
+天气属性
+</a> 
+下
+ <a href="../Weather/IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a>
+）。然后 ContamX 将利用
+ <span style="font-style: italic;">D</span><span style="font-style: italic;">ay </span><span style="font-style: italic;">T</span><span style="font-style: italic;">ype</span> 
+以及为具有与其关联的计划的项目选择计划值的时间。的价值
+ <span style="font-style: italic;">
+日间类型
+</span> 
+范围为 1 到 12，用于从与模拟期间使用的每周计划相关的 12 天计划中进行选择。</p>
+                <p class="BulletAfter1">For <span style="font-style: italic;">
+循环模拟
+</span> 
+气流稳定时，日期字段仅用于标注模拟结果，
+ <span style="font-style: italic;">
+日间型
+</span> 稳态数据的一部分用于确定调度值。对于瞬态气流的循环模拟，数据字段用于确定计划值并从天气和污染物文件中获取数据（如果使用），否则使用稳态数据。循环模拟始终在时间 00:00:00 开始，在时间 24:00:00 结束，因此时间字段无关。
+</p>
+            </li>
+            <li value="2">
+                <p><span style="font-weight: bold;">
+瞬态模拟、启动和停止：
+</span> 
+这些日期和时间字段用于设置瞬态模拟的开始和停止日期和时间。您应该确保仅使用天气和环境污染物文件中可用的日期。这些文件中的可用日期将显示在下面的瞬态天气数据和瞬态污染物数据部分中。 WTH 文件的每一天都包含一个“日类型”字段，该字段将用于确定每周计划的 12 天计划中的哪一个应用于模拟的每一天。
+</p>
+                <p class="BulletAfter1">
+注意：如果使用稳态天气进行瞬态模拟，模拟将从
+ <span style="font-style: italic;">D</span><span style="font-style: italic;">ay </span><span style="font-style: italic;">T</span><span style="font-style: italic;">ype </span>
+如果模拟超过一天，则设置稳定状态天气并循环执行前 7 天的时间表。
+</p>
+                <p class="BulletAfter1"><b>
+使用重启文件：
+</b> 
+每个瞬态和循环模拟都会生成一个重新启动文件，其中包含模拟每天午夜的模拟状态，以及模拟的最后一个时间步（如果模拟未在午夜结束）的状态。重新启动文件将与 PRJ 文件同名，但具有 RST 扩展名。如果存在与项目文件同名的重启文件，则重启数据可用的日期将在“使用重启文件”复选框下方列为“从 ___ 到 ___ 的重启数据”。在标有“重新启动数据开始”的编辑框中输入日期。如果在模拟中使用重启文件，现有的重启文件将被覆盖。
+</p>
+                <p class="BulletAfter1">
+当运行长时间的多日模拟时，此功能非常有用，并且可能会生成不切实际的大型详细模拟结果文件。您可以通过运行仅输出摘要数据文件的多日模拟来避免生成大型结果文件，检查结果以确定感兴趣的天数（例如最高浓度），然后使用重新启动文件重新运行感兴趣的天数的模拟并输出详细结果。
+</p>
+                <p class="BulletAfter1">
+您还可以使用此功能来加载 <i>
+边界层
+</i> and <i>
+沉积/再悬浮源/汇
+</i> 
+首先运行一天的循环模拟，然后使用重新启动文件在所需的时间段内运行瞬态模拟。
+</p>
+            </li>
+        </ul>
+        <p class="SubHeading1"><span style="font-weight: bold;"><a name="SIM_TimeStepAnalysis"></a>
+模拟时间步长
+</span>
+        </p>
+        <p>
+这些是 CONTAM 在执行瞬态和循环模拟时使用的时间增量。
+
+            </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+计算：
+</span> The <span style="font-style: italic;">
+计算时间步长
+</span> 
+是 ContamX 在执行瞬态和循环模拟的瞬态气流和污染物计算时使用的。较短的时间步长可以提供更高的结果准确性，但需要更多的计算时间。必须有整数个
+ <span style="font-style: italic;">
+计算时间步长
+</span> 一小时内。允许的最小时间步长为 1 秒，最大允许时间步长为 1 小时。
+<br />
+选择时间步长也会影响捕获预定事件的能力。 CONTAM 提供了通过日/周时间表和多个基于时间的输入文件（包括 WTH、CTM、WPC、CVF 和 DVF 文件）来安排事件的方法。您可以通过选择 ContamW 帮助您选择此时间步长
+ <b>
+时间步长A
+<u>n</u>
+分析...
+</b> 
+从
+ <b><u>S</u>
+模拟
+</b> 菜单。 ContamW 将审查所有计划和输入文件，以确定捕获所有计划事件所需的最大建议时间步长。这将显示一个对话框，其中为您提供日程表和输入文件的列表，以及每个限制时间步长和总体限制时间步长。
+</li>
+            <li value="2"><span style="font-weight: bold;">
+输出：
+</span> 
+仿真结果写入结果文件（参见
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a>
+）在
+ <span style="font-style: italic;">
+输出时间步长
+</span> 
+它必须是偶数倍
+ <span style="font-style: italic;">
+计算时间步长
+</span>
+。较短的时间步长可以让您更详细地查看结果，但也可以创建更大的结果文件。利用一个
+ <span style="font-style: italic;">
+输出时间步长
+</span> 
+比
+ <span style="font-style: italic;">
+计算时间步长
+</span> 
+在减小结果文件大小的同时仍能保持较高的精度。使用这些参数，您可以优化模拟周期，以在需要时提供详细的模拟结果。
+
+            </li>
+            <li value="3"><span style="font-weight: bold;">
+状态：
+</span> 
+CONTAM 使用
+ <span style="font-style: italic;">
+状态时间步长
+</span> 
+确定 CONTAMX 模拟控制对话框中模拟进度的更新频率。的
+ <span style="font-style: italic;">
+状态时间步长
+</span> 
+必须是的倍数
+ <span style="font-style: italic;">
+计算时间步长
+</span>.
+            </li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源汇元件常数系数模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇元件：常数系数模型
+</h5>
+        <p>
+这是一个通用的源/汇元件，可直接输入污染物的产生和去除率。单位以默认计算单位提供。
+</p>
+        <p class="NormalIndent"><i>S</i><span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>) = <sub style="font-style: italic;"></sub><i></i>
+多
+<sub style="font-style: italic;"></sub>
+·ctrl·
+<i>G</i> - <i></i>
+多
+<i><sub style="font-style: italic;"></sub></i>
+·ctrl·
+<i>R</i> C<span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>)</p>
+        <p style="font-style: normal;"><i></i>
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">G</span> 
+= 生成率 [kg
+<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">R</span> 
+= 有效去除率 [kg
+<sub>air</sub>/s]
+        </p>
+        <p class="NormalIndent2">
+通过将污染物的一阶去除率 [1/s] 乘以空气密度 [kg] 来确定<sub>air</sub>/m<sup>3</sup>
+] 和体积 [m
+<sup>3</sup>
+] 源所在的房间。
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">C<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></span>(<span style="font-style: italic;">t</span>)<span style="font-style: italic;"></span> 
+= 污染物浓度
+ <span style="font-family: Symbol;">a</span> 
+在房间 [kg
+<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/kg<sub>air</sub>]
+</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+</p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+        </p>
+        <p><span style="font-weight: bold;">
+发电率：
+</span> 
+污染物进入该区域的速率。
+
+        </p>
+        <p><span style="font-weight: bold;">
+去除率：
+</span> 
+从房间中去除污染物的速率。
+
+        </p>
+        <p><span style="font-weight: bold;">
+品种：
+</span> 
+从下拉框中选择先前定义的物种。
+
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定接收器/源元件的更详细描述的字段。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

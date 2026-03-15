@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源宿元件类型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇元件类型
+</h5>
+        <p>
+这些是您可以使用 CONTAM 实现的源/汇元素类型或模型。请参阅每个特定型号的相关信息以获取其详细说明。对于所谓的表面单元，可以生成表面结果文件，该文件将为每种表面类型提供瞬态载荷（请参阅
+ <a href="../Results/IDH_UsingResults_ResultsFiles.htm">
+结果文件
+</a> in <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a>).</p>
+        <p><b>
+CONTAM 元素：</b>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">常数系数模型：
+</span> 
+一般的源/汇模型允许恒定的污染物产生和沉积速率。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+压力驱动型号：
+</span> 
+该模型适用于受房间间压力差控制的污染物源。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+截止浓度模型：
+</span> 
+当实施该模型的房间内的浓度接近指定的截止浓度时，该模型将减少排放。该模型可能适用于某些挥发性有机化合物 (VOC) 来源。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+衰变源模型：
+</span> 
+该模型提供了一个源，该源将根据用户定义的时间常数随时间呈指数衰减。该模型也可能适用于某些 VOC 源。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+边界层扩散模型：
+</span> 
+用于模拟污染物通过材料表面的气相边界层的可逆扩散以及污染物吸附到具有线性吸附等温线的水槽中。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+突发源模型：
+</span> 
+用于模拟房间内大量污染物的瞬时释放。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+沉积速度汇模型：
+</span> 
+用于模拟污染物在表面上的沉积（如指定的那样）
+ <span style="font-style: italic;">
+沉积速度
+</span>.</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+沉积速率汇模型：
+</span> 
+用于模拟污染物在表面上的沉积（如指定的那样）
+ <span style="font-style: italic;">
+沉积率
+</span>.</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+重悬浮模型沉积：
+</span> 
+用于模拟污染物在表面的沉积和再悬浮。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+超级源/汇元件
+</span>
+：超元件允许将其他类型的多个元素组合成单个元素。通过允许多个源由 SketchPad 上的单个图标表示，可以减少在整个建筑物中创建多个源所需的重复工作。
+</p>
+        <p><span style="font-weight: bold;">
+NRCC 要素：
+</span> 
+提供这些来源是为了与加拿大国家研究委员会 (NRCC) 开发的材料排放数据库兼容，该数据库主要基于材料排放测试室数据 [
+<a href="../IDH_References.htm#REF_Howard-Reed_2004">
+霍华德-里德 2004
+</a> and <a href="../IDH_References.htm#REF_Howard-Reed_2006">2006</a>]. </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+幂律模型
+</span>
+：在指定时间之前发射速率恒定，此后发射速率根据幂律关系衰减。</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+峰值模型
+</span>：恒定发射率，直到获得峰值发射率的指定时间，之后发射率根据峰值模型关系衰减。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

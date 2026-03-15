@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Zones" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+创建房间
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+创建房间
+</h3>
+        <p>
+您可以通过在 SketchPad 上绘制墙壁来创建房间。墙壁绘制操作的描述见
+ <a href="../SketchPad/IDH_UsingWalls_DrawingWalls.htm">
+绘制墙壁
+</a> 
+本手册的部分。 SketchPad 上绘制的房间的形状和大小不会为底层模型提供任何缩放信息。然而，封闭房间彼此接壤的方式很重要。您希望在其之间提供直接连接（通过气流路径）的任何房间都必须共享一面公共墙
+ <span style="color: #8b0000;">
+或地板和天花板
+</span>
+。因此，在绘制建筑平面图时，应尽量保持实际平面图的总体拓扑结构。
+ </p>
+        <p class="NormalCW2">
+虽然缩放绘图不是必需的，但 ContamW 确实为您提供了 SketchPad 坐标，可以在布局项目时为您提供帮助。提供的方法使您能够按比例绘制建筑平面图（请参阅在
+ <a href="../Config/IDH_CONFIGPARMS_ALL.htm#ConfigContamW_ProjectOptions" title="
+项目配置属性
+" alt="
+项目配置属性
+">
+项目配置属性
+</a>
+）并导入绘图，您可以在绘制构成建筑房间轮廓的墙壁时跟踪这些绘图（请参阅
+ <a href="../SketchPad/IDH_UsingWalls_Working_with_Walls.htm#Working" title="
+使用墙壁
+" alt="
+使用墙壁
+">
+使用墙壁
+</a>
+）。如果在定义房间之前设置“显示伪几何”，则 ContamW 将根据缩放因子和房间壁封闭的 SketchPad 单元格数量计算房间面积。
+</p>
+        <p>
+房间的尺寸是在您定义房间时确定的。如果更改 SketchPad 上包含房间图标的房间的形状或大小，则尺寸不会根据模型发生变化，除非您实际修改关联房间图标的属性。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟天气属性</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="_Ref134340045"></a>
+模拟 – 天气属性
+</h4>
+        <p><span style="font-weight: bold;">
+稳态天气数据：
+</span> 
+这是稳态天气数据设置的摘要。您可以通过按“编辑天气数据...”按钮来更改此数据，该按钮将显示天气和风相关的属性表（请参阅
+ <a href="../Weather/IDH_UsingWTH_Defining_Steady_State_Weather_and_Wind.htm">
+定义稳态天气和风
+</a>
+）。您可以让 CONTAM 使用稳态天气数据进行稳态和瞬态模拟。请注意，使用稳态天气或 WPC 文件的瞬态模拟仍将在前 7 天循环。
+ <span style="font-style: italic;">
+时间表
+</span> 
+开始于
+ <span style="font-style: italic;">
+日间型
+</span> 
+由稳态天气数据提供。
+</p>
+        <p><span style="font-weight: bold;">
+瞬态天气数据：
+</span> 
+动态天气数据可以采用以下形式：
+ <span style="font-style: italic;">
+CONTAM 天气文件
+</span> 
+（WTH 文件）或
+ <span style="font-style: italic;">
+风压和污染物档案
+</span> 
+（WPC 文件）。
+</p>
+        <p>通过按关联的“使用 WTH
+&#160;
+文件...”按钮，找到您想要在模拟过程中使用的文件。选择天气文件后，特定文件的日期范围将显示在从 ___ 到 ___ 的天气数据字段中。您还可以选中“使用稳态”按钮来重置模拟以使用稳态数据而不是瞬态天气文件。请注意，如果正在使用 WTH 文件，则
+ <span style="font-style: italic;">
+时间表
+</span> 
+值由确定
+ <span style="font-style: italic;">
+日间型
+</span> 
+WTH 文件中提供的数据。
+</p>
+        <p><span style="font-weight: bold;">
+瞬时污染物数据：
+</span> 
+动态污染物数据可以采用以下形式：
+ <span style="font-style: italic;">
+CONTAM 污染物文件
+</span> 
+（CTM 文件）。
+</p>
+        <p>
+通过按“使用 CTM 文件...”按钮并找到您想要在模拟过程中使用的文件来选择要使用的环境污染物文件。选择污染物文件后，特定文件的日期范围将显示在污染物数据从 ___ 到 ___ 字段中。您还可以选中“使用稳态”按钮来重置模拟以使用稳态数据而不是瞬态污染物文件。
+ </p>
+        <p><span style="font-weight: bold;">
+风压和污染物 (WPC) 数据：
+</span> <![CDATA[ ]>
+瞬态天气和污染物数据也可以采用
+ <span style="font-style: italic;"></span>
+WPC 文件。单击“使用 WPC 文件...”浏览并选择现有的 WPC 文件（请参阅
+ <a href="../Weather/IDH_UsingWPC_WorkingWithWPCFiles.htm">
+使用 WPC 文件
+</a>).&#160; </p>
+        <p>
+提供了一个复选框“
+<span style="font-weight: bold;">
+只允许
+</span><span style="font-weight: bold;"> 用于触发气流计算的 WPC 和 DVF 文件
+</span>
+通常，当使用 WPC 文件时，如果 WPC 文件中的条目时间与模拟时间步长不匹配，ContamX 会在 WPC 文件的条目之间进行插值。这种插值通常会导致建筑围护结构上的风压从一个模拟时间步长到下一个模拟时间步长发生变化。
+&#160; 这反过来会导致重新计算建筑压力和气流，即使插值的 WPC 压力与前一个时间步骤仅略有不同。如果处理非常大的项目文件，这可能非常耗时。选中此框将允许仅在 WPC 文件中存在与 WPC 文件先前使用的条目不同的相应条目的时间步长触发气流计算。以类似的方式，DVF 文件中的条目可用于触发气流计算。在这种触发气流计算的方法下，除非触发气流计算，否则将忽略计划和控制值。本质上，气流在 WPC 和 DVF 条目之间保持稳定状态。
+</p>
+        <p><span style="font-weight: bold;">NOTE</span><span style="font-weight: bold;">
+S 关于使用 WPC 文件
+</span>
+            <br />
+请注意，在模拟过程中，可以将 WPC 文件与瞬态天气和瞬态污染物文件结合使用，如下所示：
+ </p>
+        <ul>
+            <li value="1">
+如果使用 WPC 文件中的风压，则不能使用 WTH 文件。
+ </li>
+            <li value="2">
+如果使用 WPC 文件中的污染物浓度，则不得使用 CTM 文件。
+</li>
+        </ul>
+        <p>
+如果模拟设置为使用 WPC 文件，则
+ <span style="font-style: italic;">
+时间表
+</span> 
+值将通过循环查看从 开始的前 7 天的时间表来获得
+ <span style="font-style: italic;">
+日间型
+</span> 
+由稳态天气数据提供。
+</p>
+        <p>
+执行循环模拟并使用 WPC 文件时，WPC 文件必须仅包含与指定的日期相同的一天
+ <span style="font-style: italic;">
+稳定
+ &amp; 
+循环模拟
+</span>.</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

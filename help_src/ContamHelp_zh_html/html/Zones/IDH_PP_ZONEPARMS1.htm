@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Zones|Defining Zones|Zone Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+污染物数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor28"></a>
+房间 – 污染物特性
+</h4>
+        <p>
+这些是房间与污染物相关的属性。在定义房间的污染物数据之前必须定义污染物。要定义污染物，请选择
+ <span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">ata</span> 
+那么
+ <span style="font-weight: bold;text-decoration: underline;">C</span><span style="font-weight: bold;">
+污染物…
+</span> 
+从主程序菜单。
+</p>
+        <p><span style="font-weight: bold;">
+房间名称：</span> 
+这是在“房间数据”属性页上输入的房间的符号名称。
+</p>
+        <p><span style="font-weight: bold;">
+污染物浓度：
+</span> 
+选择
+ <span style="font-style: italic;">
+变量
+</span> or <span style="font-style: italic;">
+常数
+</span>
+。通常您会将其设置为
+ <span style="font-style: italic;">
+变量
+</span> 
+并允许 ContamX 在模拟过程中计算房间内的污染物浓度。但是，您可能希望将其设置为
+ <span style="font-style: italic;">
+常数
+</span> 
+作为在房间内创建简单污染源的一种手段。如果您将其设置为
+ <span style="font-style: italic;">
+常数
+</span><a name="kanchor29"></a>
+，房间浓度将开始并保持在您为
+ <i>
+初始浓度
+</i> 
+下面。
+</p>
+        <p><span style="font-weight: bold;">
+初始浓度：
+</span> 
+从列表中选择污染物并输入
+ <span style="font-style: italic;"><a name="kanchor30"></a>
+所选污染物的初始浓度
+</span> 
+用于动态（瞬态）模拟。请注意，只有您选择作为污染物的物种（在模拟期间使用）才会出现在列表中。如果您希望为其设置初始浓度的物种未出现在列表中，则必须将相应物种的“用于模拟”属性设置为 true（请参阅
+ <a href="../Contaminants/IDH_UsingContaminants_Creating_Contaminants.htm">
+创建物种和污染物
+</a>
+）。您可以通过运行控制属性来重置这些初始值
+ <a href="../Simulation/IDH_UsingSIM_Simulation_Parameters.htm">
+仿真参数
+</a>.</p>
+        <p><span style="font-weight: bold;">
+重要：
+</span> 改变污染物的数量，即模拟中使用的那些种类，将重置
+ <span style="font-style: italic;">
+初始浓度
+</span> 
+所有房间的默认浓度通过定义
+ <a href="../Contaminants/IDH_UsingContaminants_SpeciesProperties.htm" title="
+物种特性
+" alt="
+物种特性
+">
+物种特性
+</a>
+。您可以通过上述运行控制属性或此处单独重置所有这些浓度。
+</p>
+        <p><span style="font-weight: bold;">
+非痕量初始浓度之和：
+</span> 
+提供此值作为检查，以确保您在使用时输入一组合理的初始值
+ <span style="font-style: italic;"><a name="kanchor31"></a>
+非痕量污染物
+</span>
+。该值应接近 1.0。
+</p>
+        <p><span style="font-weight: bold;">
+动力学反应：
+</span> 
+如果之前有定义
+ <a href="../Contaminants/IDH_KINETIC_REACTION.htm">
+动力学反应
+</a> 
+在当前项目中，您可以从名称列表中选择一个。单击“新反应”按钮定义新的动力学反应。要查看或修改现有的动力学反应数据，请单击“编辑反应”按钮。将此字段设置为
+ &lt;
+无
+&gt; 
+表明该区域没有反应。您还可以从与污染物相关的库文件导入动力学反应（请参阅
+ <a href="../Library/IDH_UsingLibs_Working_with_Data_and_Libraries.htm">
+使用数据和库
+</a>).</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

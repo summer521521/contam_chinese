@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with WPC Files" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+WPC 文件格式
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+WPC 文件格式
+</h3>
+        <p>
+该文件提供连接到环境的每个流路的环境压力和污染物浓度值。
+</p>
+        <p>
+WPC 文件有两个版本 2.1 和 2.4。对于版本 2.1，压力必须以绝对压力的形式输入，单位为 Pa。风压将根据 WPC 文件中每个时间间隔提供的环境压力和密度以及每个流路的绝对压力和高程计算得出，如下所示：
+</p>
+        <p>P<font style="vertical-align:sub; ">wind</font> = P<font style="vertical-align:sub; ">path</font> - P<font style="vertical-align:sub; ">ambt</font> + <font style="font-family:&#x27;Symbol&#x27;; ">r</font>
+•g•Z<font style="vertical-align:sub; ">path</font></p>
+        <p>&#160;</p>
+        <p>
+对于 2.4 版本文件，WPC 文件中的压力将为风压本身，单位为 Pa。
+</p>
+        <p>
+污染物浓度必须以每千克空气中污染物千克数为单位提供。参见
+ <a href="../Contaminants/IDH_UsingContaminants_Contaminant_Files.htm#IDMID_ConcentrationConversions">
+浓度换算
+</a> 
+在
+ <a href="../Contaminants/IDH_UsingContaminants_Contaminant_Files.htm">
+污染物文件
+</a> 
+的小节
+ <a href="../Contaminants/IDH_UsingContams_WorkingWithContaminants.htm">
+处理物种和污染物
+</a> 
+换算系数部分。
+</p>
+        <p>-----</p>
+        <p class="NormalItalic">
+WPC 文件的第一行用于标识文件的类型。对于 2.1 格式的 WPC 文件，它完全是：
+ </p>
+        <p class="code">
+WPC文件 ContamW 2.1
+</p>
+        <p class="NormalItalic">
+或者对于 2.4 格式的 WPC 文件，它正是：
+ </p>
+        <p class="code">
+WPC文件 ContamW 2.4
+</p>
+        <p class="NormalItalic">
+第二行是用户输入的文件的描述：
+</p>
+        <p class="code">
+desc[] // 文件描述 (I1) {W};可能为空
+</p>
+        <p class="NormalItalic">
+后续行包含：
+</p>
+        <p class="code">
+nPath // 流路数 (I2)
+</p>
+        <p class="code">
+nCtm // 污染物数量（种类）(I2) [0 可能]
+</p>
+        <p class="code">
+UsePres // 1 = 使用压力，0 = 不使用 (I2)
+</p>
+        <p class="code">
+dtmin // 最小时间步长 (I2)（ContamX 未使用）
+</p>
+        <p class="code">
+StartDate // WPC 数据的第一个日期 (mm/dd
+ &#8594; IX)</p>
+        <p class="code">
+EndDate // WPC 数据的最后日期 (mm/dd
+ &#8594; IX)</p>
+        <p class="code">
+I1 Name[1] // 污染物 1 的名称（I1 - 最多 16 个字符）
+</p>
+        <p class="code">
+I1 Name[2] // 污染物 2 的名称 (I1)
+</p>
+        <p class="code">...</p>
+        <p class="code">
+Name[nCtm] // 污染物名称 NumCont (I1)
+</p>
+        <p class="NormalItalic">
+接下来的 NumPath 行描述了每个流路径：
+</p>
+        <p class="codeindent">
+number // 序列号 (I2)
+</p>
+        <p class="codeindent">
+X // X 坐标 (R4)
+</p>
+        <p class="codeindent">
+Y // X 坐标 (R4)
+</p>
+        <p class="codeindent">
+Z // Z 坐标 (R4)
+</p>
+        <p class="codeindent">
+map // 映射 [0 = 确定; 1 = 错误] (I2)
+</p>
+        <p class="NormalIndentItalic">
+对于每天的 StartDate 到 EndDate：</p>
+        <p class="NormalIndentItalic">
+对于每个日期的每个时间 00:00:00 到 24:00:00：
+</p>
+        <p class="NormalIndentItalic">
+第一行：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ &#8594; IX)</p>
+        <p class="codeindent">
+time // 一天中的时间 (hh:mm:ss
+ &#8594; I4)</p>
+        <p class="codeindent">
+Pamb // 环境压力 [Pa] (R4)（如果使用压力）
+</p>
+        <p class="codeindent">
+dens // 空气密度 [kg/m3] (R4)（如果使用压力）
+</p>
+        <p class="NormalIndentItalic">
+第二行：（如果使用压力）
+</p>
+        <p class="codeindent">
+P[1] // 路径[1] 处的压力 [Pa] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+P[nPath] // 路径[nPath] 处的压力 [Pa](R4)
+</p>
+        <p class="NormalIndentItalic">
+第三行（对于第一种污染物，如果
+ <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-size: 10pt;vertical-align: baseline;"><span style="font-size: 12pt;">n</span></span></span><span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;vertical-align: baseline;"><span style="font-size: 12pt;">Ctm</span></span><font style="font-family:&#x27;Courier New&#x27;; font-size:10pt; "> &gt; 1</font>):</p>
+        <p class="codeindent">
+C[1] // 路径[1] 处的浓度 [kg/kg 空气] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+C[nPath] // 路径 [nPath] 处的浓度 [kg/kg 空气] (R4)
+</p>
+        <p class="NormalIndentItalic">
+第四行（针对第二种污染物，如果需要）：
+</p>
+        <p class="codeindent">...</p>
+        <p class="NormalIndentItalic">
+最后一行（污染物
+ <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-size: 10pt;vertical-align: baseline;"><span style="font-size: 12pt;">n</span></span></span><span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;vertical-align: baseline;"><span style="font-size: 12pt;">Ctm</span></span>
+，如果需要）：
+</p>
+        <p class="codeindent">
+C[1] // 路径[1] 处的浓度 [kg/kg 空气] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+C[nPath] // 路径 [nPath] 处的浓度 [kg/kg 空气] (R4)
+</p>
+        <p class="code">&#160;</p>
+        <p>
+文件描述不能以“开头
+<font style="font-family:&#x27;Courier New&#x27;; ">!</font>
+StartDate和EndDate用于验证文件数据是否涵盖了要模拟的整个时间段。StartDate不能晚于EndDate。
+  </p>
+        <p>数据必须在 StartDate 的时间 00:00:00 开始，并在 EndDate 的 24:00:00 结束。  时间必须是连续的，但连续时间之间的差值不必是恒定的。
+  </p>
+        <h6>
+示例：
+</h6>
+        <p class="code">
+WPC文件 ContamW 2.1
+</p>
+        <p class="code">
+对于 WPCtest3.prj
+</p>
+        <p class="code">
+2！流路
+</p>
+        <p class="code">
+1！污染物
+</p>
+        <p class="code">
+1！使用压力标志
+</p>
+        <p class="code">
+0！时间步长
+</p>
+        <p class="code">
+01/01 ！开始日期
+</p>
+        <p class="code">
+01/01 ！结束日期
+</p>
+        <p class="code">C1</p>
+        <p class="code">
+!nr X Y Z 地图
+</p>
+        <p class="code">1 0.000 4.000 1.500 0</p>
+        <p class="code">2 8.000 4.000 1.500 0</p>
+        <p class="code">01/01 00:00:00 101325 1.204</p>
+        <p class="code">101308.30 101306.30</p>
+        <p class="code">
+0.0 1.0e-6
+</p>
+        <p class="code">01/01 24:00:00 101325 1.2041</p>
+        <p class="code">101308.30 101306.30</p>
+        <p class="code">
+0.0 1.5e-6
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

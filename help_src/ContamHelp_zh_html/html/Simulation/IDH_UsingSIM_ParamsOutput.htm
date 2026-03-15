@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟输出属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="_Ref134950263"></a>
+模拟 – 输出属性
+</h4>
+        <p>
+运行模拟时，结果会随着模拟的进行而保存到文件中。气流和/或房间污染物浓度的详细结果将保存到每次运行模拟时创建的 SIM 文件中。 SIM 文件是一个二进制文件，与人类可读的文本文件不同，它不是“人类可读的”。 ContamW 将使用 SIM 文件中的数据在 SketchPad 上显示气流结果，在结果显示窗口中显示污染物浓度，创建导出和报告文件，以及生成瞬态模拟结果图表。输出是在每个
+ <span style="font-style: italic;">
+输出时间步长
+</span>
+。较短
+ <span style="font-style: italic;">
+时间步长
+</span> 
+允许您更详细地查看结果，但会导致更大的模拟结果文件。除 SIM 文件外，ContamX 还可以创建多个结果文件（请参阅
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a>
+），并且您可以使用以下参数控制模拟期间将保存的数据。
+ 
+        </p>
+        <p>
+在大多数情况下，ContamX 可以生成
+ <span style="font-weight: bold;">
+详细的
+</span> 
+和/或
+ <span style="font-weight: bold;">
+盒须
+</span> 
+结果。每次的详细结果都会写入相应的文件
+ <span style="font-style: italic;">
+输出时间步长
+</span>
+。盒须结果包括日平均值、标准差、最大值和最小值。最大值和最小值还伴随着每日结果中它们出现的时间，或者模拟汇总结果中它们出现的日期。请注意，盒须数据基于在
+ <span style="font-style: italic;">
+计算时间步长
+</span> 但需要的存储空间要少得多。当执行长时间模拟以查找特别感兴趣的日期和时间时，它们可以很有用，然后可以结合更详细的模拟
+ <span style="font-style: italic;">
+重新启动
+</span> 
+(RST) 文件。
+
+            </p>
+        <p><span style="font-weight: bold;">
+气流模拟结果：
+</span> 
+这些是与气流计算相关的可用结果。
+
+            </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+气流速率：
+ </span>
+将通过每个流动链路（气流路径、管道段、管道泄漏路径、气流终端和简单空气处理器供应和返回）的气流和压差输出到 SIM 文件。此数据对于显示或导出气流和压力结果（包括以 SketchPad 结果和图表形式呈现的结果）是必需的。
+您还可以将这些结果写入 SQLite 数据库文件。</li>
+            <li value="2"><span style="font-weight: bold;">
+建筑换气率：
+ </span>
+将整个建筑的换气率输出到ACH文件中。选择
+ <span style="font-weight: bold;">
+使用标准密度
+</span> 
+让 ContamX 在空气变化率计算中使用标准空气密度来计算室外进入空气，否则室外空气密度将基于室外温度。
+</li>
+            <li value="3"><span style="font-weight: bold;">
+空气时代：
+ </span>
+将每个房间的空气年龄输出到 AGE 文件。
+<br />
+警告：此计算涉及流量矩阵的求逆，对于涉及大量房间的项目可能对计算资源要求很高。
+
+            </li>
+        </ul>
+        <p><span style="font-weight: bold;">
+污染物模拟结果：
+</span> 
+这些是与污染物计算相关的可用结果。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+污染物浓度：
+</span> 将每个污染物节点（房间和管道连接处）的污染物浓度输出到 SIM 文件。该数据对于显示或导出污染物浓度结果是必要的，包括以 SketchPad 结果和图表形式呈现的结果。您还可以将这些结果写入 SQLite 数据库文件。对于 1D 房间，所有子单元的平均浓度将保存到 SIM 文件中。要获得一维房间中特定位置的浓度时间历史记录，您可以使用房间传感器和报告控制节点将数据输出到
+ <span style="font-style: italic;">
+控制日志文件
+</span> 
+（见
+ <a href="../Results/IDH_UsingResults_ResultsFiles.htm">
+结果文件
+</a>).</li>
+            <li value="2"><span style="font-weight: bold;">
+乘员暴露：
+</span> 
+将乘员暴露数据输出到 EBW 文件。当您突出显示暴露图标时，需要此数据来显示乘员暴露摘要信息。如果没有此摘要信息，您仍然可以绘制瞬态暴露数据。
+
+            </li>
+            <li value="3"><b>
+污染物渗漏：
+</b> 
+这些文件提供了传输到环境中的污染物质量。可以创建两种类型的文件。 “基本”文件提供每个时间步期间传输到环境的总质量。 “详细”选项为每种污染物创建一个文件，并提供通过每个单独的连接传输到环境的污染物的质量。基本文件将仅具有 CEX 扩展名，而详细文件将在 PRJ 文件名后附加污染物名称，后跟 CEX 扩展名。
+</li>
+            <li value="4"><b>
+表面文件：
+</b> 
+SRF 文件包含包含可逆存储节点的源/汇的污染物浓度。与大多数源/汇不同，它们为污染物方程系统提供了污染物节点。目前有两种类型：边界层扩散和沉积/再悬浮。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+短时间步长结果：
+</span> 
+这些是使用时的结果
+ <span style="font-style: italic;">
+短时间圣
+</span><span style="font-style: italic;">ep</span> 
+污染物模拟方法和项目包含一维对流扩散区（参见
+ <a href="../Zones/IDH_UsingZones_WorkingWithZones.htm">
+使用房间
+</a>
+）。可以创建四个结果文件，每个文件与 PRJ 文件具有相同的名称，但具有不同的扩展名。这些文件都是二进制文件。 NIST 提供了两个可用于“查看”这些文件的实用程序：ContamRV 和 1DZRead。 ContamRV 是结果查看器，可以提供房间内污染物浓度的彩色视图，包括一维对流/扩散房间内的浓度变化，而 1DZRead 是一个命令行程序，可以将一维结果文件转换为制表符分隔文件。使用结果部分提供了文件格式。
+</p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+RXR 文件：
+</span> 
+这是一个交叉引用文件，只要创建至少一个其他文件，就会创建该文件。
+</li>
+            <li value="2"><span style="font-weight: bold;">RZF </span><span style="font-weight: bold;">
+文件：
+</span> 
+该文件包含房间的温度、表压和密度。
+</li>
+            <li value="3"><span style="font-weight: bold;">RZM</span><span style="font-weight: bold;"> 
+文件：
+</span> 
+该文件包含每个房间中每种污染物的平均质量分数。
+</li>
+            <li value="4"><span style="font-weight: bold;">RZ1</span><span style="font-weight: bold;"> 
+文件：
+</span> 
+该文件包含每个一维房间的每个单元中每种污染物的质量分数。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+建筑气流测试结果：
+</span> 
+这些选项控制运行时将哪些数据部分写入 VAL 文件
+ <span style="font-style: italic;">
+建筑气流测试
+</span> 
+模拟模式。有关 VAL 文件的详细说明，请参阅“使用仿真结果”部分中的“结果文件”部分。
+</p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+房间：
+</span> 
+将提供每个房间的各种换气率的“房间”部分写入 VAL 文件。
+</li>
+            <li value="2"><span style="font-weight: bold;">
+管道：
+</span> 
+将提供与管道连接点和终端相关的信息的“连接点”部分写入 VAL 文件。
+ </li>
+            <li value="3"><span style="font-weight: bold;">
+分类流程：
+</span> 
+将“分类房间气流”部分写入 VAL 文件。本节提供了按各种类型气流源（例如管道系统、室外空气等）分类的所有房间的详细质量流量。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+CONTAMX 显示和记录选项：
+</span> 
+这些属性控制模拟引擎 ContamX 在执行期间出现的方式以及写入到的数据量。
+ <span style="font-style: italic;">&lt;
+项目名称
+&gt;.XLOG</span> 
+模拟期间的文件。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+CONTAMX 显示模式：
+</span> 
+选择是否要通过 Windows 对话框或控制台窗口（DOS 窗口）与 ContamX 交互。对话框方法是典型的选择，但如果您在 ContamX 正确执行时遇到问题（特别是对于大型项目文件），您可能希望在控制台窗口中运行它。
+ </li>
+            <li value="2"><span style="font-weight: bold;">
+CONTAMX 日志模式：
+</span> 
+选择输出到 XLOG 文件的详细程度。这主要是为了在仿真过程中出现问题时进行诊断（针对程序开发人员）（参见
+ <a href="../IDH_UsingHLP_Getting_Help.htm">
+寻求帮助
+</a>).</li>
+            <li value="3"><span style="font-weight: bold;">
+回显 .PRJ 读取到 .LOG：
+</span> 
+选中此框可将项目文件输出到 XLOG 文件。这主要是为了诊断目的而提供的。
+</li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

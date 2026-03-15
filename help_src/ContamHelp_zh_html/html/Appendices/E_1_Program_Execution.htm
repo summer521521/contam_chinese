@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+程序执行
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+程序执行
+</h2>
+        <p>
+为了激活 ContamX 的套接字通信功能，必须使用以下命令行结构运行程序。 Type98 和 ContamFMU.dll 都调用
+ <code>
+污染x3
+</code> 
+使用适当的命令行选项。
+</p>
+        <p class="code"><span style="font-weight: bold;"><span style="color: #a52a2a;">
+污染x3
+ &lt;
+PRJ 文件名
+&gt; 
+–b [地址:端口] [-w] [-f]
+</span> <![CDATA[ ]></span>
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code"><span style="font-size: 11pt;font-weight: bold;">
+污染x3
+</span>&#160;
+程序可执行文件
+</p>
+        <p class="code"><span style="font-size: 11pt;font-weight: bold;">&lt;
+项目
+&gt;</span>&#160;
+CONTAM 项目文件的名称
+</p>
+        <p class="code"><span style="font-size: 11pt;font-weight: bold;">-b</span>&#160;
+在桥接模式下运行 ContamX（必需）
+</p>
+        <p class="codeindentCW2"><span style="color: #8b0000;">
+以下选项（如果提供）必须紧跟在“-b”之后
+</span>:</p>
+        <p class="codeindent"><span style="font-size: 11pt;font-weight: bold;">
+地址
+</span>&#160;
+将控制此 ContamX 实例（客户端）的进程（服务器）的 IP 地址
+</p>
+        <p class="codeindent"><span style="font-size: 11pt;font-weight: bold;">
+港口
+</span>&#160;套接字（即侦听套接字）的端口号，用于建立连接。监听套接字由服务器创建，例如 ContamFMU。然后，ContamX（客户端）创建另一个套接字，通过该套接字进行通信，即通过 connect() 函数。一旦服务器建立连接，即通过accept()函数，监听套接字就会关闭。然而，通信套接字保持打开状态。
+</p>
+        <p class="code"><b style="color: #a52a2a;">-w</b> 
+ContamX 计算
+ <b style="color: #a52a2a;">w</b><span style="color: #a52a2a;">
+工业压力
+</span> 
+使用 PRJ 文件确定的传统方法（无、常量或变量）。应通过 ADJ_WTH_MSGTYPE 消息向 ContamX 提供可变压力流路的风速和风向。如果未使用此命令行选项，则必须通过 ADJ_WPC_MSGTYPE 消息提供风压和环境污染物。
+</p>
+        <p class="code"><b style="color: #a52a2a;">-f</b> 
+contamx 套接字消息提供气流速率
+ <span style="color: #a52a2a;">
+体积
+ </span><b style="color: #a52a2a;">f</b><span style="color: #a52a2a;">low</span> 
+单位 [米
+<sup>3</sup>
+/s]，而不是默认的 [kg/s]。
+</p>
+        <p>&#160;</p>
+        <p>
+ContamX启动后，它将尝试与控制应用程序（即服务器）联系，并建立套接字连接。一旦建立连接，ContamX 将发送
+ <span style="font-family: &#x27;Courier New&#x27;;">
+_INFO_MSGTYPE
+</span> 
+向服务器发送消息以提供有关项目文件内容的信息。这些项目信息消息将按数字顺序发送。然后，ContamX 将执行稳态初始化计算并发送所有
+ <i>
+模拟结果
+</i> 
+消息（
+<span style="font-family: &#x27;Courier New&#x27;;">
+_UPDATE_MSGTYPE
+</span>
+）随后是
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_READY_MSGTYPE
+</span>
+。此时，服务器可以开始通过桥接模式与 ContamX 交互
+ <i>
+执行控制
+</i> and <i>
+项目修改
+</i> 
+消息详述如下。  ContamX 将响应请求
+<span style="font-family: &#x27;Courier New&#x27;;"> 
+_UPDATE_MSGTYPE
+</span>  
+消息并通过发送来指示何时准备好接收更多消息
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_READY_MSGTYPE
+</span> 
+消息。
+</p>
+        <p><b>
+注意：</b> 
+设置
+ <span style="font-family: &#x27;Courier New&#x27;;">
+_回声
+</span> 
+PRJ 文件中的值大于 1，以便将桥消息信息写入 XLOG 文件。这可以提供对桥执行行为的深入了解。
+ </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

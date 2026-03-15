@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+运行实用程序
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+运行实用程序
+</h2>
+        <p class="NormalCW2">
+这些实用程序随 ContamW 作为 Windows 操作系统的 32 位版本提供。它们还可以在 NIST 多房间建模网站上获得，适用于 Windows 和 Linux 操作系统的 64 位版本。在命令提示符下键入以下命令，分别获取每个程序的使用信息：
+</p>
+        <p class="SubHeading1">
+模拟读
+</p>
+        <p class="codeCW2">
+$ 模拟读取
+</p>
+        <p class="SubHeading1">
+模拟计算
+</p>
+        <p class="codeCW2">
+$ 模拟计算
+</p>
+        <p class="NormalCW2">
+配置文件（
+<code>
+simcomp.cfg
+</code>
+）也可用于覆盖与比较相关的默认不确定性。如果使用，配置文件必须位于
+ <i>
+模拟计算
+</i> 
+可执行的。下面的例子是
+ <code>
+simcomp.cfg
+</code> 
+文件提供默认的不确定性值。
+</p>
+        <p class="codeindentCW2">
+1.00e-04 ！ epsdP – 连接压力差的相对误差
+</p>
+        <p class="codeindentCW2">
+1.00e-04 ！ epsF – 链路流量的相对误差
+</p>
+        <p class="codeindentCW2">1.00e-03 ！ epsT – 节点温度的绝对误差
+</p>
+        <p class="codeindentCW2">
+1.00e-04 ！ epsPg – 节点表压的相对误差
+</p>
+        <p class="codeindentCW2">
+1.00e-05 ！ epsD – 节点空气密度的绝对误差
+</p>
+        <p class="codeindentCW2">
+1.00e-04 ！ epsMf – 节点质量分数的相对误差
+</p>
+        <p class="codeindentCW2">
+1.00e-20 ! epsMa – 节点质量分数的绝对误差
+</p>
+        <p class="codeindentCW2">
+100！ nmax – 报告的最大失败次数
+</p>
+        <p class="NormalCW2">
+哪里，
+</p>
+        <p class="NormalIndentCW2"><span style="font-family: Symbol;">e</span><span style="vertical-align: sub;">rel</span> 
+= |v1-v2|/|v1+v2|
+</p>
+        <p class="NormalIndentCW2"><span style="font-family: Symbol;">e</span><span style="vertical-align: sub;">abs</span> 
+= |v1-v2|
+</p>
+        <p class="SubHeading1">
+普茹普
+</p>
+        <p class="codeCW2">
+$ prjup -h
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

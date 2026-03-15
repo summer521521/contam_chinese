@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+污染物分析
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor159"></a>
+污染物分析
+</h2>
+        <p>
+CONTAM 污染物扩散模型是 Axley 方法的实现 [
+<a href="../IDH_References.htm#REF_Axley_1987">
+阿克斯利 1987
+</a> and <a href="../IDH_References.htm#REF_Axley_1988">1988</a>
+]。他指出：“室内空气质量分析的核心问题是预测建筑物中空气污染物的扩散。空气污染物以复杂的方式在整个建筑物中扩散，这取决于建筑物系统内空气流动的性质；供暖、通风和空调 (HVAC) 系统的影响；通过过滤去除污染物的可能性，或通过生成污染物的贡献；以及化学反应、放射性化学衰变、沉降或沉积的可能性。在室内空气质量分析中，我们寻求对所有这些现象进行全面建模。”
+  </p>
+        <p>
+污染物扩散分析的基础是应用控制体积 (c.v.) 中所有物种的质量守恒。简历是空气体积，可能对应于单个房间、房间的一部分或几个耦合良好的房间（CONTAM
+ <span style="font-style: italic;">
+区
+</span>
+）或管道系统（其中
+ <span style="font-style: italic;">
+交界处
+</span>
+，在充分混合的假设下，具有每个相邻管道段的体积的一半）。将建筑空间表示为 CONTAM 房间是工程判断的问题。
+  </p>
+        <p style="color: #a52a2a;">
+CONTAM 2.3 添加了对管道系统和用户选择房间中的对流扩散进行建模的功能，而不是将它们视为
+ <span style="font-style: italic;">
+充分混合
+ </span>
+控制音量。在 CONTAM 中，这是用新的
+ <span style="font-style: italic;">
+短时间步长
+ </span>
+方法
+<span style="font-style: italic;"></span>
+，它利用显式欧拉公式。
+</p>
+        <p style="color: #a52a2a;">
+CONTAM 3.2 在CVODE的基础上添加了可变时间步求解器[
+<a href="../IDH_References.htm#REF_Hindmarsh_CVODE_2012">
+欣德马什 2012
+</a>
+]，这是求解常微分方程的通用代码。虽然本节的其余部分提供了有关污染物传输方程和原始求解技术的详细信息，但 CVODE 求解方法在 Lorenzetti [
+<a href="../IDH_References.htm#REF_Lorenzetti_2013">2013</a>].</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 12a 节：控制超元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 12a 节：控制超元件
+</h5>
+        <p>
+控制超元件数据由 ctrlse_read( ) 函数读取并由 ctrlse_save( ) 函数保存在 ContamW 中。数据存储在 contam.h 中为 ContamW 定义的 CTRLSE_DAT 结构中。 ContamX 不会读入超元件数据，ContamX 只会读入从控制超元件实例化的节点，如以下第 12b 节所述。
+ </p>
+        <p class="NormalItalic">
+超元件部分开头为：
+ </p>
+        <p class="code">
+_nselmt // 超元件的数量 (IX)
+</p>
+        <p class="NormalItalic">
+接下来是所有 _nselmt 超元件的数据。
+</p>
+        <p class="NormalItalic">
+对于每个超元件，第一数据行包括：
+</p>
+        <p class="codeindent">
+nr // 元素编号 (IX);按从 1 到 _nselemt 的顺序
+</p>
+        <p class="codeindent">
+旗帜
+&#160;&#160; 
+// 如果（标志
+ &amp; 
+CF_DEF ) 超元件已定义 (U2)
+</p>
+        <p class="codeindent">&#160;&#160;&#160; 
+// 如果（标志
+ &amp; 
+CF_SNS ) 超元件是传感器
+</p>
+        <p class="codeindent">
+in // 输入节点号 (IX)
+</p>
+        <p class="codeindent">
+out // 输出节点号（IX）
+</p>
+        <p class="codeindent">
+nn // 子节点数量（IX）
+</p>
+        <p class="codeindent">
+ni // 草图图标的数量 (IX)
+</p>
+        <p class="codeindent">
+name[] // 元素名称 (I1)
+</p>
+        <p class="NormalItalic">
+第二行有：
+&#160;</p>
+        <p class="codeindent">
+desc[] // 元素描述（I1）可以为空
+</p>
+        <p class="NormalItalic">接下来的部分包含超元件的子节点数据。这与项目文件的“控制节点：”部分（参见下面的第 12b 节）非常相似，并且在第 12b 节中为从超元件实例化的每个超级节点重复。然而，实例化的超级节点的实际参数可能与超元件子节点的参数不同。
+</p>
+        <p class="NormalItalic">
+接下来是包含超元件草图的 SketchPad 图标参数的数据行，并将遵循“
+<span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+级别加上图标数据：
+</span>
+”部分，但仅适用于表示超元件子节点图标的单个“级别”数据（请参阅第 3 节）。
+</p>
+        <p class="NormalItalic">
+超元件部分结束于：
+</p>
+        <p class="code">-999</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

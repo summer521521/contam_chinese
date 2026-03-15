@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Kinetic Reactions" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+动力学反应数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+动力学反应数据
+</h3>
+        <p>
+动力学反应元件由源/产物物种对组成。您可以为每个元素定义任意数量的对。当您执行模拟时，只会考虑您选择作为污染物的那些物种。这些是描述动力学反应的属性。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别反应基质的唯一名称。您将使用此名称将此元素与项目内的房间相关联。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用它来提供动力学反应的更详细的描述。
+</p>
+        <p><span style="font-weight: bold;">
+反应物
+</span>&#8594;<span style="font-weight: bold;">
+产品对：
+ </span>
+这是当前为当前动力学反应元素定义的反应物/产物对及其相关反应系数的列表。
+</p>
+        <p><span style="font-weight: bold;">
+编辑反应物
+</span>&#8594;<span style="font-weight: bold;">
+产品对：
+</span> 
+使用此部分编辑突出显示的反应物
+<span style="font-family: &#x27;Symbol&#x27;;">®</span>
+产品配对或创建新产品。相应地使用添加、替换和删除按钮。
+ </p>
+        <p><span style="font-weight: bold;">
+反应物种类：
+</span><span style="font-size: 12pt;"> 
+这是当前项目或库文件中所有物种的列表，具体取决于访问此对话框的方式。选择一个物种作为 R 中的反应物
+</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 12pt;font-weight: bold;">®</span><span style="font-size: 12pt;">
+P 对。
+</span>
+        </p>
+        <p><span style="font-weight: bold;">
+产品种类：
+</span><span style="font-size: 12pt;"> 
+这是当前项目或库文件中所有物种的列表，具体取决于访问此对话框的方式。选择一个物种作为 R 中的产品
+</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 12pt;font-weight: bold;">®</span><span style="font-size: 12pt;">
+P 对。
+</span>
+        </p>
+        <p><span style="font-weight: bold;">
+反应系数：
+</span><span style="font-size: 12pt;"> 
+使用此编辑字段设置当前突出显示的 R 的反应系数
+</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 12pt;font-weight: bold;">®</span><span style="font-size: 12pt;">
+P 对。系数的单位是 s
+</span><span style="font-size: 12pt;vertical-align: super;">-1</span><span style="font-size: 12pt;">.</span>
+        </p>
+        <h5>
+示例
+</h5>
+        <p>
+以下是在 CONTAMW 中实现的动力学反应的示例。
+</p>
+        <p class="SubHeading1">
+动力学反应实施例1
+</p>
+        <p>
+要模拟物质的一阶衰变，您可以设置反应物的系数
+&#8594;
+产品对与反应速率的负值（以 1/s 为单位）。
+</p>
+        <p class="footnote-text">
+            <img src="../../image/ebx_-1364897423.gif" border="0" alt="
+图片\ebx_-1364897423.gif
+" />
+        </p>
+        <p>
+该图显示了两种物质反应的动力学反应系数，这些反应将根据以下方程产生每种物质的指数衰减：
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_KRDecay.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里，
+</p>
+        <p class="EqnParams"><i>C<sub style="font-size: 9pt;">j</sub></i>(<i>t</i>)&#160;=&#160;
+产品污染物浓度
+ <i>j</i> 
+在某个时间
+ <i>t</i></p>
+        <p class="EqnParams"><i>C</i><i><sub style="font-size: 9pt;">i</sub></i>(0)&#160;=&#160;
+反应物污染物的初始浓度
+ <i>i</i> 
+在时间 0</p>
+        <p class="EqnParams"><i>K</i><i><sub style="font-size: 9pt;">ji</sub></i> &#160;= 产物之间的反应速率系数
+ <i>j</i> 
+和反应物
+ <i>i</i> 
+（时间常数）
+</p>
+        <p>
+在上例中，反应速率系数如下：
+</p>
+        <p class="NormalIndent"><i>K<sub style="font-size: 9pt;">11</sub></i>&#160;
+= -0.0001388/秒
+<br /><i>K<sub style="font-size: 9pt;">22</sub></i>&#160;
+= -0.00003472/秒
+ </p>
+        <p>
+如果反应是去除物质的唯一方法，即没有气流引起的稀释，则物质 C1 将以以下速率衰减：
+ </p>
+        <p class="NormalIndent">
+0.0001388 * 3600 = 0.5/小时，
+</p>
+        <p>
+C2 将以以下速率衰减
+</p>
+        <p class="NormalIndent">
+0.00003472 * 3600 = 0.125/小时。
+</p>
+        <p class="SubHeading1">
+动力学反应实施例2
+</p>
+        <p>
+此示例说明了物种 C1（反应物和产物）的一阶衰减以及基于 C1（反应物）的另一物种 C2（产物）的一阶累积。
+</p>
+        <p class="footnote-text">
+            <img src="../../image/ebx_1414453937.gif" border="0" alt="
+图片\ebx_1414453937.gif
+" />
+        </p>
+        <p>上图显示了“kr1”动力学反应元件的参数。该元素提供两个反应，根据方程式产生污染物 C1 的指数衰减
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_KR1.PNG" border="0" height="24" width="109" alt="
+方程
+" />, </p>
+        <p>
+以及污染物 C2 的积累
+ </p>
+        <p>
+            <img src="../../Resources/Images/Eqn_KR2.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+在上例中，反应速率系数如下：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;"></span><i>K<sub style="font-size: 9pt;">11</sub></i> 
+= -0.0001389/秒
+  <br /><i>K<sub style="font-size: 9pt;">21</sub></i> 
+= 0.0001389/秒
+<span style="vertical-align: super;font-size: 10pt;"> <![CDATA[ ]></span></p>
+        <p>
+请注意，衰减和累积都取决于 C1 的种类。
+</p>
+        <p class="SubHeading1">
+动力学反应实施例3
+</p>
+        <p>
+您还可以使用动力学反应来模拟连续的一级反应系列。 （氡气的放射性衰变链就是此类反应的一个例子。）
+</p>
+        <p>
+每一步涉及单一反应物的两步连续反应系列表示为
+</p>
+        <p>C1 <span style="font-family: &#x27;Symbol&#x27;;">®</span> C2<br />C2 <span style="font-family: &#x27;Symbol&#x27;;">®</span> 
+产品
+</p>
+        <p>
+您可以通过输入基于放射性反应物半衰期的系数来对该反应链进行建模。转换半衰期
+ <span style="font-family: &#x27;Symbol&#x27;;">t</span><i><sub style="font-size: 9pt;">1/2</sub></i><span style="font-size: 9pt;vertical-align: sub;">&#160;</span> 
+为一级反应系数，
+ <span style="font-style: italic;"><i><i>K<sub style="font-size: 9pt;">21</sub></i></i></span>
+，使用以下等式：
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_KR3.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+在 CONTAM 中，您需要两种物质 C1 和 C2（如果对污染物 C2 感兴趣），并且三个反应物/产物对具有以下反应系数特征：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;"></span><i>K<sub style="font-size: 9pt;">11</sub></i> 
+将具有负非零值（C1 衰减）
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;"><span style="font-style: italic;"></span></span><i>K<sub style="font-size: 9pt;">21</sub></i> 
+将具有非零正值（从 C1 累积 C2）
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;"><span style="font-style: italic;"></span><i>K<sub style="font-size: 9pt;">22</sub></i></span> 
+将具有负非零值（C2 衰减）
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

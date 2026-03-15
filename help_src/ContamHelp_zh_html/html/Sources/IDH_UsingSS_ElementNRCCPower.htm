@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+NRCC – 幂律模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+NRCC – 幂律模型
+</h5>
+        <p style="">
+这是一个基于经验的模型，旨在与 NRCC 材料排放数据库兼容 [
+<a href="../IDH_References.htm#REF_Howard-Reed_2004">
+霍华德-里德 2004
+</a> and <a href="../IDH_References.htm#REF_Howard-Reed_2006">2006</a>].&#160; </p>
+        <p>For <span style="font-style: italic;">t </span><span style="font-family: Symbol;">£</span><span style="font-style: italic;"> t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span> 
+初始排放因子为
+
+</p>
+        <p class="NormalIndent"><i>S<sub>o</sub></i>(<i>t</i>) = <i></i>
+多
+<i>
+·一个
+</i> <![CDATA[ ]><i>t</i><sub style="font-style: italic;">p</sub><sup>-<i style="vertical-align: super;">b</i></sup></p>
+        <p>
+并为
+ <span style="font-style: italic;">t</span> &gt; <span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span></p>
+        <p class="NormalIndent"><i>S</i>(<i>t</i>
+) = 乘数
+<i>·</i><i>a</i> <![CDATA[ ]><i>t</i><sub style="font-style: italic;">&#160;</sub><sup>-<i style="vertical-align: super;">b</i></sup></p>
+        <p><span style="font-family: Arial;font-weight: bold;font-size: 11pt;">
+注意：</span> 每次模拟只能触发一次此类源。如果使用计划，第一个非零计划值将触发源，否则它将立即开始发射。
+
+        </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+        </p>
+        <p><span style="font-weight: bold;">
+初始排放因子：
+ </span>
+输入初始排放因子
+ <span style="font-style: italic;">S<sub>0</sub></span> 
+及其单位 [kg/s]。
+ 
+        </p>
+        <p><span style="font-weight: bold;">
+系数：
+ </span>
+这对应于
+ <span style="font-style: italic;">a</span> 
+在上面的等式中。它将根据
+ <span style="font-style: italic;">S<sub>0</sub></span>, <span style="font-style: italic;">t<sub>p</sub></span> and <span style="font-style: italic;">b</span>
+。的价值
+ <span style="font-style: italic;">a</span> 将由 NRCC 数据库提供并由 CONTAM 存储，但提供初始排放因子作为定义模型的更直观方法。
+
+        </p>
+        <p><span style="font-weight: bold;">
+指数：
+ </span>
+输入指数值
+ <span style="font-style: italic;">b</span> 
+在上面的等式中。
+
+        </p>
+        <p><span style="font-weight: bold;">
+PL 模型时间：
+ </span>
+输入时间
+ <span style="font-style: italic;">t<sub>p</sub></span> 
+在此之前，初始排放率适用。
+
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+ </span>
+用于输入特定接收器/源元件的更详细描述的字段。
+
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

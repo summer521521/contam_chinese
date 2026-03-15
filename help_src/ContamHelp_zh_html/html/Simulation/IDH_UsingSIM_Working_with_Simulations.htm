@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用模拟
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+使用模拟
+</h2>
+        <p>
+CONTAM 允许您执行多种类型的模拟。您希望执行的模拟类型取决于您的分析目标。您可以执行模拟来确定房间间的气流速率和压力差，也可以使用 CONTAM 求解建筑物每个房间内的污染物浓度。 CONTAM 能够对气流和污染物扩散进行稳态、瞬态和循环模拟的多种组合。
+ </p>
+        <p>
+下表显示了可以使用 CONTAM 应用的模拟方法的不同组合。
+</p>
+        <div align="center">
+            <table class="center">
+                <col />
+                <col />
+                <col />
+                <tr>
+                    <td class="SmallCenter" style="font-weight: bold;">
+气流模拟
+</td>
+                    <td class="SmallCenter" style="font-weight: bold;">
+污染物
+<br />
+模拟
+</td>
+                    <td class="SmallCenter" style="font-weight: bold;">
+目的
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+无
+</td>
+                    <td class="Small">
+用于获取恒定建筑系统和/或天气条件下的气流速率和压差。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+用于在稳定气流条件下获得平衡污染物浓度。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+用于获取稳定气流条件下污染物浓度的时间历史。这与前面的表条目类似，但允许您观察最终时间步骤之前每个时间步骤的污染物浓度。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+循环
+</td>
+                    <td class="Small">
+当初始污染物浓度与稳定气流条件下的最终浓度相匹配非常重要时使用。这提供了一种通过仅模拟代表性时间段（例如一天）来模拟典型操作模式的方法。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+无
+</td>
+                    <td class="Small">
+用于获取不断变化的建筑系统和/或天气条件下气流速率和压差的时间历史。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+稳态
+</td>
+                    <td class="Small">
+不允许
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+用于获取不断变化的建筑系统和/或天气条件下气流速率、压差和污染物浓度的时间历史。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+瞬态
+</td>
+                    <td class="Small">
+循环
+</td>
+                    <td class="Small">
+当初始污染物浓度与瞬态气流条件下的最终浓度相匹配非常重要时使用。这提供了一种通过仅模拟代表性时间段（例如一天）来模拟典型操作模式的方法。</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+稳态
+<br />OR<br />
+瞬态
+</td>
+                    <td class="Small">
+短时间步长方法（瞬态或循环）
+</td>
+                    <td class="Small">The <i>
+短时间步长
+</i> 
+从 2.4 版开始提供污染物解决方案方法。当对需要短时间步长捕获的快速变化条件感兴趣时，这是一种非常有用的显式求解方法。使用一维房间和管道模型时需要它。
+</td>
+                </tr>
+                <tr>
+                    <td style="color: #8b0000;" class="Small"><span><span style="color: #000000;">
+稳态
+</span></span>
+                        <br style="color: #000000;" /><span><span style="color: #000000;">OR</span></span>
+                        <br style="color: #000000;" /><span><span style="color: #000000;">
+瞬态
+</span></span>
+                    </td>
+                    <td class="Small" style="color: #8b0000;"><span style="color: #000000;">CVODE</span>
+                        <br style="color: #000000;" /><span style="color: #000000;">
+（仅限瞬态）
+</span>
+                    </td>
+                    <td style="color: #8b0000;" class="Small"><span style="color: #000000;">
+这种可变时间步常微分方程求解器可以提供更准确的解，特别是在污染物传输系统刚性的情况下。刚性系统是指系统动力学变化较大的系统，例如换气率或动力学反应。
+</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Small">
+风管平衡
+</td>
+                    <td class="Small">n/a</td>
+                    <td class="Small">
+使用此功能可让 ContamX 调整风道终端平衡系数，以在每个平衡终端提供用户定义的设计气流速率。这并不执行模拟；它为即将到来的模拟平衡系统。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+建筑气流测试
+</td>
+                    <td class="Small">n/a</td>
+                    <td class="Small">
+生成一组数据，主要与建筑通风相关，使您能够检查建筑模型和输入值的合理性。
+</td>
+                </tr>
+                <tr>
+                    <td class="Small">
+加压测试
+</td>
+                    <td class="Small">n/a</td>
+                    <td class="Small">
+执行自动化、理想化的风扇加压测试，以确定建筑模型的建筑围护结构密封性。
+</td>
+                </tr>
+            </table>
+        </div>
+        <p style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p>
+要执行模拟，您
+ <span style="font-style: italic;">
+设置模拟参数
+</span>, <span style="font-style: italic;">
+运行模拟
+</span>
+, 和
+ <span style="font-style: italic;">
+查看模拟结果
+</span>
+。仿真参数分类为
+ <span style="font-style: italic;">
+运行控制
+</span>, <span style="font-style: italic;">
+数字
+</span>
+, 和
+ <span style="font-style: italic;">
+输出属性
+</span>. <span style="font-style: italic;">
+运行控制
+</span> 
+属性包括模拟方法、模拟日期和时间、要使用的天气类型（稳定或瞬态）以及模拟时间步长。
+ <span style="font-style: italic;">
+输出属性
+</span> 
+用于设置您希望发送到模拟结果文件的数据类型和数量。
+ <span style="font-style: italic;">
+数值属性
+</span> 
+包括气流和污染物方程求解器的收敛标准、最大迭代次数和松弛系数。 ContamW 提供这些参数的默认设置。但是，您可能会更多地使用 r
+<span style="font-style: italic;">un </span><span style="font-style: italic;">c</span><span style="font-style: italic;">
+控制
+</span> and <span style="font-style: italic;">o</span><span style="font-style: italic;">
+输出参数
+</span> 
+比
+ <span style="font-style: italic;">
+数字参数
+</span>.</p>
+        <p class="SubHeading1">
+设置仿真参数
+</p>
+        <p>
+要设置模拟参数，您可以使用
+ <span style="font-weight: bold;">
+设置模拟
+ </span><span style="font-weight: bold;text-decoration: underline;">P</span><span style="font-weight: bold;">
+参数…
+</span> 
+选择的
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单或
+ <span style="font-weight: bold;">F4</span> 
+键盘快捷键。这将显示“模拟参数”属性表。  所有模拟属性的详细描述在
+ <a href="IDH_UsingSIM_Simulation_Parameters.htm">
+仿真参数
+</a> 
+本文档的部分。
+</p>
+        <p class="SubHeading1">
+通过 ContamW 运行模拟
+</p>
+        <p>
+设置好仿真参数后，就可以运行仿真了。要运行模拟，请选择
+ <span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> 
+从
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单。这实际上启动了一个单独的程序 ContamX，该程序依次显示“CONTAMX 模拟控制”对话框。
+</p>
+        <p>
+虽然有很多因素会影响 ContamX 快速成功获得解决方案的能力（
+<span style="font-style: italic;">
+收敛
+</span>
+），有些情况可能会导致模拟不收敛或收敛速度非常慢。流量系数的相对大小对 ContamX 非线性方程求解器的收敛性有一定影响 [<a href="../IDH_References.htm#REF_Wray_1993">
+雷和尤尔 1993
+</a>
+]。包含阻力相差多个数量级的路径的气流网络通常比具有相似阻力的路径的网络需要更多的迭代。将松弛系数从默认值 0.75 减小到接近二分之一的值通常可以帮助收敛这些更困难的情况。最大迭代次数也可以增加。然而，改善收敛的最有效方法是删除那些不太可能影响计算的气流速率的极低阻力路径。例如，当模拟轴时（参见
+ <a href="../Applications/IDH_Apps_Shafts.htm">
+轴
+</a>
+），表示使用虚拟房间的轴，而不是使用相邻层房间之间具有大横截面积的气流元件。
+</p>
+        <p class="SubHeading1">
+通过命令行运行模拟
+</p>
+        <p>
+CONTAM 利用 ContamX 独立模拟引擎，
+ <code>
+contamx3.exe
+</code>
+。 ContamX 使用您使用 ContamW 创建的相同 .PRJ 文件。使用 ContamX 程序，您可以执行批处理模式操作来处理多个项目文件。或者，您可以创建自己的文件处理器来修改项目文件，例如通过在改变所需构建参数的同时执行多次运行来执行敏感性分析。如果您希望以这种方式修改 .PRJ 文件，您应该熟悉 .PRJ 文件格式，该格式现在用注释行进行注释，以提高文件的易读性。 （见
+ <a href="../Appendices/Appendix_A.htm">
+附录 A - PRJ 文件格式
+</a>)</p>
+        <p>要获取 PRJ 文件以供命令行使用，您只需使用 ContamW 以常规方式创建并保存项目即可。要检查项目是否“格式良好”，您可以使用 ContamW 使用该文件运行模拟，或者使用
+ <b>
+润C栋
+<u>h</u>eck</b> 
+选择的
+ <b><u>S</u>
+模拟
+</b> 
+菜单。如果已将新控件添加到项目中，这一点尤其重要，因为 ContamW 必须确定控件的正确评估顺序。序列值将保存到每个控件的项目文件中。
+</p>
+        <p class="NormalCW2">
+有关从命令行运行 ContamX 的详细信息，您可以运行
+ <code>
+污染x3
+ </code>
+从带有帮助选项的命令提示符，如下所示：
+</p>
+        <p class="codeindentCW2">CP\&gt;
+contamx3-h
+</p>
+        <p class="SubHeading1">
+建筑检查
+</p>
+        <p>请注意，此构建检查也是在通过 ContamW 内启动模拟之前执行的
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+ </span>&#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> 
+菜单命令。如果在期间 <span style="font-style: italic;">
+建筑物检查
+</span> 
+例程 ContamW 检测您的项目的问题，它将为您提供反馈以帮助您纠正问题。该反馈将通过显示
+ <b>
+建筑检查
+</b> 
+对话框将显示发现的问题列表，并允许您根据需要突出显示 SketchPad 上的有问题的图标。
+</p>
+        <p class="SubHeading1">
+查看仿真结果
+</p>
+        <p>
+成功运行模拟后，您可以使用 ContamW 查看模拟结果或创建可导入电子表格的文件。这些功能在
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a> 
+部分。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

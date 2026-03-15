@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+CX_READY_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+CX_READY_MSGTYPE
+</h3>
+        <p>
+该消息将由 ContamX 发送以表明它位于
+ <i>
+就绪模式
+</i> 
+并准备通过网桥接收消息。  这将在 ContamX 完成发送所有数据后首次发生
+ <i>
+项目信息消息
+</i>
+，进行稳态初始化计算并发送
+ <b>all</b> 
+的
+ <i>
+模拟结果消息
+</i> (<span style="font-family: &#x27;Courier New&#x27;;">
+_UPDATE_MSGTYPE
+</span>
+）。每次之后都会再次发送
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_ADVANCE_MSGTYPE
+</span> 
+已经处理完毕并且
+ <i>
+模拟结果消息
+</i> 
+已按要求通过
+ <span style="font-family: &#x27;Courier New&#x27;;">
+选项
+</span> 
+的旗帜
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_ADVANCE_MSGTYPE
+</span>.</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+时间；
+       <span style="color: #008100;">
+// ContamX 执行最近一次计算的时间（以秒为单位）
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

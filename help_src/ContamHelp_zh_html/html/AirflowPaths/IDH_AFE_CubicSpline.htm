@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+三次样条模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5><a name="kanchor65"></a>
+三次样条模型
+</h5>
+        <p>
+三次样条模型使您能够根据与用户定义的数据点集的曲线拟合来创建气流元件。用于生成曲线的三次样条拟合保证了 CONTAM 求解器所需的流量和压力之间的一阶可微关系。在模拟过程中，压力差的符号将基于
+ <span style="font-style: italic;">P</span><span style="font-style: italic;">
+积极的 </span><span style="font-style: italic;">F</span><span style="font-style: italic;">low </span><span style="font-style: italic;">D</span><span style="font-style: italic;">
+指示
+</span> 
+为与样条线元素关联的流动路径定义。例如，正流方向上的压力下降（即
+ <i>
+来自房间
+</i> 
+– 压力
+ <i>
+到房间
+</i> &gt; 
+0) 将利用样条数据的正压力。
+</p>
+        <p>
+每个元素都有一些基本要求。它们至少需要四个数据点，因此在输入最小数量的点之前不会显示曲线。所有模型都要求曲线拟合的所有段的斜率都大于零。如果单击“确定”按钮时曲线拟合出现错误，将显示一条错误消息，指示曲线的违规部分以及错误原因。段的编号从零到数据点的数量减一。例如——“
+<span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+段 0：y
+</span><span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">’</span><span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;"> &lt;</span><span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">= 0</span>
+如果前两个数据点之间的线段的斜率小于或等于零，将显示“。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别气流元件的名称。
+ </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定气流元件的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+曲线数据：
+</span> 
+创建和编辑数据点列表以定义气流元件的曲线。您正在编辑的三次样条元素的类型决定了曲线的自变量和因变量。列表的标签、数据输入字段和关联的单位将相应更改，绘图的轴也会相应更改。使用数据输入字段和“添加”按钮来创建新数据点和编辑现有数据点。使用“删除”按钮从列表中删除当前选定的数据点。
+</p>
+        <p><span style="font-weight: bold;">
+图标：
+</span> 根据特定气流元件选择小或大开口图标。该图标对模拟没有影响。
+</p>
+        <p class="SubHeading1">
+三次样条：F 与 P
+</p>
+        <p>
+质量流量与元件压降的函数关系。
+</p>
+        <p class="SubHeading1">
+三次样条：Q 与 P
+</p>
+        <p>
+体积流量与元件压降的函数关系。
+</p>
+        <p class="SubHeading1">
+三次样条：P 与 F
+</p>
+        <p>
+压降是通过元件的质量流量的函数。
+</p>
+        <p class="SubHeading1">
+三次样条：P 与 Q
+</p>
+        <p>
+压降是通过元件的体积流量的函数。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

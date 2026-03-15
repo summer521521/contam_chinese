@@ -1,0 +1,210 @@
+ï»¿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="" madcap:lastblockdepth="2" madcap:lastheight="828" madcap:lastwidth="762" madcap:conditions="Primary.3.1">
+    <head><title>
+消息头和消息 ID
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h3>
+消息头和消息 ID
+</h3>
+        <p>
+消息头是每条消息的第一部分。它提供了建立要遵循的特定信息的一致方法。具体情况将取决于
+ <span style="font-family: &#x27;Courier New&#x27;;">
+类型</span> 
+消息的字段。的 <span style="font-family: &#x27;Courier New&#x27;;">
+长度
+</span> 
+字段包括标头的长度和随后的消息的特定部分。的
+ <span style="font-family: &#x27;Courier New&#x27;;">
+版本
+</span> 
+提供字段是为了使利用 ContamX 的套接字通信功能的程序能够确保符合由于方法的修改/增强而发展的消息传递要求。
+</p>
+        <p class="code"><span style="color: blue;">
+字符
+ </span>
+模式[8]；
+ <span style="color: #008100;">
+// 用于验证标头“ACATMSG”的字符串。
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+长度；
+ <span style="color: #008100;">
+// 整个消息的长度（以字节为单位）
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+类型；
+ <span style="color: #008100;">
+// 消息类型（见下表。）
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+版本；
+ <span style="color: #008100;">
+// 当前消息版本 # =
+ </span><span style="font-weight: bold; color: #8b0000;">10</span></p>
+        <p class="code">&#160;</p>
+        <h4>
+消息类型定义
+</h4>
+        <p>
+每个ID后面的值指示引入或修改消息的消息版本。消息版本必须与 ContamX 版本匹配，否则会出现错误。
+</p>
+        <h5>
+项目信息消息：
+</h5>
+        <p class="codeindent">
+BLDG_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1</p>
+        <p class="codeindent">
+SIMPARM_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;2 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+AGENT_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3</p>
+        <p class="codeindent">
+ELEMENT_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;4</p>
+        <p class="codeindent">
+INPUT_CTRL_INFO_MSGTYPE
+&#160;&#160;&#160;5</p>
+        <p class="codeindent">
+OUTPUT_CTRL_INFO_MSGTYPE&#160;&#160;6 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+AHSP_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;7 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+ZONE_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;8</p>
+        <p class="codeindent">
+PATH_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;9</p>
+        <p class="codeindent">
+JCT_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;10 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+TERM_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;11 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+LEAK_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;12 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+DUCT_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;13 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+AHS_INFO_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;14 <span style="color: #006400;">
+// v9
+</span></p>
+        <h5>
+执行控制消息：
+</h5>
+        <p class="codeindent">
+CX_READY_MSGTYPE
+<b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0</p>
+        <p class="codeindent">
+CX_ADVANCE_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;20</p>
+        <p class="codeindent">
+CX_ERROR_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;200</p>
+        <h5>
+项目修改消息：
+</h5>
+        <p class="codeindent">
+ADJ_ZONE_CONC_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;30 <span style="color: #006400;">
+// v7
+</span><span style="font-weight: bold;"></span></p>
+        <p class="codeindent">
+ADJ_ZONE_TEMP_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;40 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+ADJ_JCT_TEMP_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;50 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+ADJ_ELEMENT_MSGTYPE
+&#160;&#160; &#160;&#160;&#160;&#160;60</p>
+        <p class="codeindent">
+ADJ_CONTROL_NODE_MSGTYPE
+&#160;&#160;70</p>
+        <p class="codeindentCW2">
+ADJ_WTH_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;80 <span style="color: #006400;">
+// v8、v10
+</span></p>
+        <p class="codeindent">
+ADJ_WPC_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;90</p>
+        <p class="codeindent">
+ADJ_AHSP_FLOWS_MSGTYPE
+&#160;&#160;&#160;100 <span style="color: #006400;">
+// v9
+</span></p>
+        <p class="codeindent">
+ADJ_AHS_POA_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;110 <span style="color: #006400;">
+// v9
+</span></p>
+        <p class="codeindentCW2">
+ADJ_ZONE_HR_MSGTYPE
+&#160;&#160;&#160;&#160;&#160;&#160;190 <span style="color: #006400;">
+// v10
+</span></p>
+        <h5>
+模拟结果消息：
+</h5>
+        <p class="codeindent">
+CONC_UPDATE_MSGTYPE
+&#160; &#160;&#160;&#160;&#160;120</p>
+        <p class="codeindent">
+PATH_FLOW_UPDATE_MSGTYPE 130
+<span style="color: #006400;"> 
+// v8
+</span></p>
+        <p class="codeindent">
+TERM_FLOW_UPDATE_MSGTYPE
+&#160;140 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+AHSP_FLOW_UPDATE_MSGTYPE
+&#160;150 <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+DUCT_FLOW_UPDATE_MSGTYPE 160
+ <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+LEAK_FLOW_UPDATE_MSGTYPE 170
+ <span style="color: #006400;">
+// v8
+</span></p>
+        <p class="codeindent">
+CTRL_NODE_UPDATE_MSGTYPE 180
+ <span style="color: #006400;">
+// v8
+</span></p>
+    </body>
+</html>

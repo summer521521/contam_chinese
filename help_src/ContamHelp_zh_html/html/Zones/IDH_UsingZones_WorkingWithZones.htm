@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用房间
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor21"></a>
+使用房间
+</h2>
+        <p>A <span style="font-style: italic;">
+区
+</span> 
+是通过墙壁、地板和天花板与其他空气体积分开的空气体积。一般来说，房间的特征是具有均匀的温度和压力（流体静力变化）和污染物浓度。然而，用户选择的房间内的浓度可以在一维上变化（参见
+ <a href="IDH_PP_ZONEPARMS2_CFD.htm">
+一维房间数据属性
+</a> 
+在本节中）通过一维对流/扩散模型（参见
+ <a href="../Theory/IDH_Theory_Background.htm">
+理论背景
+</a> 
+部分）。此外，还有三种不同类型的房间图标：
+ <span style="font-style: italic;">
+正常
+</span>, <span style="font-style: italic;">
+幻影
+ </span>and <span style="font-style: italic;">
+环境
+</span>. A <span style="font-style: italic;">
+正常
+</span> 
+房间图标表示与下面的房间相隔一层的房间。一个
+ <span style="font-style: italic;">
+幻影
+ </span>
+房间用于指示给定层上的封闭房间下方没有楼层。也就是说，该层上的房间实际上是下层房间的一部分，并且具有相同的温度和污染物浓度。安
+ <span style="font-style: italic;">
+环境
+</span> 
+房间图标代表室外空气。默认情况下，建筑物周围的环境房间已通过 SketchPad 左上角的图标进行标识。
+</p>
+        <p>
+您可以在 SketchPad 上创建房间，方法是首先绘制包围房间的墙壁，在包围的房间内放置单个房间图标，然后定义房间图标。最终，每个房间必须通过任何一组路径直接或间接连接到环境房间或恒压房间，以防止该区域被
+ <span style="font-style: italic;">
+孤立的
+</span> 
+来自“已知”压力的房间。
+ <b style="color: #8b0000;">
+注意：</b><span style="color: #8b0000;"> 如果未能建立这些连接以避免隔离房间，则会在尝试执行模拟时导致错误。
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

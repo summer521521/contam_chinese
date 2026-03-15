@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+定义管道
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor74"></a>
+定义管道
+</h3>
+        <p>
+绘制风管后，必须定义每个风管段、交汇点和终点。每个风管组件均使用图标定义过程进行定义（请参阅
+ <a href="../SketchPad/IDH_UsingSketchPad_DefiningBuildingComponentIcons.htm">
+定义建筑组件图标
+</a>
+) 显示和编辑组件的属性。
+</p>
+        <p class="SubHeading1">
+定义风管段
+</p>
+        <p>您可以通过在未定义的风管段的任何部分上使用图标定义过程来定义每个风管段。这将显示“风管段属性”属性表。所有管道段属性的详细描述在
+ <a href="IDH_UsingDucts_Duct_Segment_Properties.htm">
+风管段属性
+</a> 
+本手册的部分。定义风管段的属性后，将显示一个特殊图标，指示风管段的正流向（请参见 <a href="#IDM_DuctSegIcons">
+定向风管段图标
+</a>
+）。从现在开始，您可以使用此图标访问风管段的属性。
+</p>
+        <p>定义风管段时，必须将该段与风管流元素关联。 CONTAM 将管道流量元素数据与段特定数据（例如长度和动态损失）相结合，以确定特定管道段的摩擦阻力、体积和泄漏性。
+ </p>
+        <p>
+您还可以定义风管段的污染物过滤属性。您可以为 CONTAM 项目中包含的每种污染物定义一个过滤器。例如，可以使用管道过滤器来模拟颗粒在管道内表面上的沉积。
+</p>
+        <p>
+如前所述，管道流元素包含管道泄漏信息。 CONTAM 模型实现了管道段的连接处和终端处的所有泄漏。这意味着与管道段相关的泄漏的一半发生在该段的每一端。接合处和接合处所在房间之间的泄漏（根据 SketchPad 确定）是管道元件泄漏特性以及接合处和房间之间压差的函数。在考虑穿过多个房间的管道泄漏时，应考虑此泄漏模型。您应该在要考虑管道泄漏的每个房间中放置至少一个接头（或终端）。
+</p>
+        <p class="SubHeading1"><a name="IDM_DuctSegIcons"></a>
+定向风管段图标
+</p>
+        <p>
+这些图标指示已定义的管道段。小箭头指向的方向表示管道段的正流向。
+</p>
+        <p>
+            <img src="../../image/Icon_DuctSegDir.gif" border="0" height="23" width="88" alt="
+图像\Icon_DuctSegDir.gif
+" />
+        </p>
+        <p class="SubHeading1">
+定义风管接头和终端
+</p>
+        <p>
+您可以使用风管接合处或终端图标上的图标定义过程来定义每个风管接合处和终端。这将显示“管道连接属性”属性表。如果终端图标位于环境房间中，将显示风压属性页面，以允许您考虑风压对外部终端的影响。对于位于非环境房间内的交汇点和终端图标，将不会显示“风压”属性页。管道连接属性的详细描述在 <a href="IDH_UsingDucts_DuctJunctionAndTerminalProperties.htm">
+风管接头和终端属性
+</a> 
+本手册的部分。定义风管连接点的属性后，将显示一个特殊图标，指示您选择的特定连接点类型（请参阅以下列表）。从现在开始，您可以使用此图标访问风管连接处的属性。
+</p>
+        <p class="SubHeading1"><a name="Junction_and_Terminal_Icons"></a>
+连接点和终端图标
+</p>
+        <table width="90%">
+            <tr>
+                <td class="IconLeft"><b>
+图标
+</b>
+                </td>
+                <td class="IconRight"><b>
+描述
+</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_JuncA.gif" border="0" height="23" width="23" alt="
+图像\Icon_JuncA.gif
+" />
+                </td>
+                <td class="IconRight">
+连接至同一层管道的接头
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_JuncB.gif" border="0" height="23" width="23" alt="
+图像\Icon_JuncB.gif
+" />
+                </td>
+                <td class="IconRight">
+连接至上层交汇处垂直管道的交汇处
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_JuncC.gif" border="0" height="23" width="23" alt="
+图像\Icon_JuncC.gif
+" />
+                </td>
+                <td class="IconRight">
+连接至下方水平连接处的连接处和向下垂直管道
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_JuncD.gif" border="0" height="23" width="23" alt="
+图像\Icon_JuncD.gif
+" />
+                </td>
+                <td class="IconRight">
+连接到下层连接点的连接点和向下垂直管道，并连接到上层连接点的垂直管道
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_TerminalA.gif" border="0" height="23" width="23" alt="
+图像\Icon_TerminalA.gif
+" />
+                </td>
+                <td class="IconRight">
+连接到同一层管道的终端
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_TerminalB.gif" border="0" height="23" width="23" alt="
+图像\Icon_TerminalB.gif
+" />
+                </td>
+                <td class="IconRight">
+连接到上层交叉口垂直管道的终端
+</td>
+            </tr>
+            <tr>
+                <td class="IconLeft">
+                    <img src="../../image/Icon_TerminalC.gif" border="0" height="23" width="23" alt="
+图像\Icon_TerminalC.gif
+" />
+                </td>
+                <td class="IconRight">
+终端和向下的垂直管道连接到下层的连接点
+</td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

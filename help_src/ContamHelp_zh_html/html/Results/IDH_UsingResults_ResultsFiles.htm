@@ -1,0 +1,3989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Results" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+结果文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+结果文件
+</h3>
+        <p>
+当 ContamX 执行模拟时，它会在存储项目文件的同一目录中创建一组结果文件。这些结果文件与项目文件具有相同的文件名，并附加不同的扩展名以指示结果文件的类型。下表列出了不同的文件扩展名并给出了文件的简要说明。下表提供了每个文件的详细信息。
+</p>
+        <div align="center">
+            <table class="center">
+                <col />
+                <col />
+                <col />
+                <tr>
+                    <td class="HeadCenterBold">
+扩展
+</td>
+                    <td class="HeadCenterBold">
+类型
+</td>
+                    <td class="HeadCenterBold">
+文件说明
+</td>
+                </tr>
+                <tr>
+                    <td class="center">ACH</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+整个建筑换气率——分解为气流路径和通风系统组成部分的综合值。该文件可以包含每个时间步的结果和/或每日盒须结果。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">AGE</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+空气年龄 - 每个时间步长的每个房间的空气年龄结果和/或每日盒须结果。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">BAL</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+平衡 - 管道平衡计算的结果。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">CBW</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+污染物盒须结果 - 仅针对每日盒须结果创建。
+</td>
+                </tr>
+                <tr>
+                    <td class="center" style="color: #a52a2a;"><span style="color: #000000;">CEX</span>
+                    </td>
+                    <td class="center" style="color: #a52a2a;"><span style="color: #000000;">
+文字
+</span>
+                    </td>
+                    <td style="color: #a52a2a;"><span style="color: #000000;">
+污染物渗漏结果。
+</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">CSM</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+污染物源/汇总和 - 模拟期间由源/汇和过滤器生成和/或累积的污染物的总质量。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">EBW</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+乘员暴露结果 - 每个乘员在每个时间步长对每种污染物的平均暴露和/或每日盒须结果。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">LOG</td>
+                    <td class="center">
+文字
+</td>
+                    <td>控制日志文件 - 包含所有报告控制节点的输出。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">RST</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+模拟重新启动文件 - 仅供 ContamX 在模拟中间几天开始时用于重新启动模拟。
+</td>
+                </tr>
+                <tr>
+                    <td class="center">RXR</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+短时间步仿真结果交叉参考数据
+</td>
+                </tr>
+                <tr>
+                    <td class="center">RZF</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+短时间步长模拟结果房间环境特性
+</td>
+                </tr>
+                <tr>
+                    <td class="center">RZM</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+短时间步长模拟结果房间质量分数
+</td>
+                </tr>
+                <tr>
+                    <td class="center">RZ1</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+短时间步长模拟结果一维房间单元质量分数
+</td>
+                </tr>
+                <tr>
+                    <td class="center">SIM</td>
+                    <td class="center">
+二进制
+</td>
+                    <td>
+详细的模拟结果 - 流路的气流速率和压差、气流节点的参考压力和温度以及每个时间步污染物节点的污染物浓度。这是使用 ContamW 生成和显示 SketchPad 结果和图表的文件。它也是可以生成导出和报告文件的文件。
+</td>
+                </tr>
+                <tr>
+                    <td class="center" style="color: #8b0000;"><span style="color: #000000;">
+SQLITE3
+</span>
+                    </td>
+                    <td class="center" style="color: #8b0000;"><span style="color: #000000;">
+二进制
+</span>
+                    </td>
+                    <td style="color: #8b0000;"><span style="color: #000000;">
+SQLite 数据库文件包含与 SIM 文件相同的数据。
+</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center" style="color: #8b0000;"><span style="color: #000000;">SRF</span>
+                    </td>
+                    <td class="center" style="color: #8b0000;"><span style="color: #000000;">
+文字
+</span>
+                    </td>
+                    <td style="color: #8b0000;"><span style="color: #000000;">
+表面结果文件 - 包含源/汇的污染物浓度，其中包括可逆存储节点。
+</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">VAL</td>
+                    <td class="center">
+文字
+</td>
+                    <td>
+模型“验证”测试结果文件 - 包含建筑气流测试或建筑增压测试气流模拟方法的结果。
+</td>
+                </tr>
+            </table>
+        </div>
+        <p>&#160;</p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.ACH - 整栋建筑换气率
+</p>
+        <p>
+换气率是根据从环境房间进入室内的气流速率的总和来计算的。
+ <span style="font-style: italic;">
+空调空间
+</span> 
+建筑物的内部结构，包括管道和简单的空气处理器。结果是根据进入机械系统（管道和简单的AHS）的总流量、气流路径和所有流量的总量来呈现的。的
+ <span style="font-style: italic;">
+空调空间
+</span> 
+包括所有机械系统音量以及您选择的那些房间的音量
+ <span style="font-style: italic;">
+包含在建筑体积中
+</span> 
+（参见
+ <a href="../Zones/IDH_PP_ZONEPARMS0.htm">
+房间数据
+</a> 
+在
+ <a href="../Zones/IDH_UsingZones_WorkingWithZones.htm">
+使用房间
+</a> 
+部分）。
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_ACR.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">ACR</span>&#160;
+= 整栋建筑换气率 [h
+<span style="vertical-align: super;font-size: 10pt;">-1</span>]</p>
+        <p class="EqnParams">
+            <img src="../../image/mdot_17x18.png" border="0" alt="
+图片\ebx_593217281.gif
+" style="width: 17; height: 18;" />&#160;&#160;
+= 进入调节空间的质量流量 [kg/s]
+
+        </p>
+        <p class="EqnParams"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span>&#160;&#160;
+= 进入空气的密度 [kg/m
+<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="EqnParams"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">
+大楼
+</span> &#160;
+= 调节空间的体积 [m
+<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="EqnParams" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p>如果任何气流房间存在质量不平衡，ContamX 将生成一条警告消息，指示有问题的房间。
+</p>
+        <p><span style="font-weight: bold;">
+文件格式
+</span><span style="font-weight: bold;"> 
+（制表符分隔的文本）
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="NormalItalic">
+ACH 文件的第一行包含：
+ </p>
+        <p class="code">
+StartDate // 模拟的第一个日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+EndDate // 模拟的最后日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+SimStep // 模拟时间步长[s](IX)
+
+        </p>
+        <p class="code">
+achsave // 保存详细结果标志 [0/1] (IX)
+
+        </p>
+        <p class="code">
+abwsave // 保存盒须结果标志 [0/1] (IX)
+
+        </p>
+        <p class="code">
+Vcond // 条件空间的体积 [m^3] (R4)
+
+        </p>
+        <p class="NormalItalic">
+如果 achsave 为 1，则为详细数据写入标题行：
+ </p>
+        <p class="code">
+“日
+ &#160;
+时间
+ &#160;
+路径
+ &#160;
+导管
+ &#160;
+总计”
+
+        </p>
+        <p class="NormalItalic">
+如果 abwsave 为 1，则为每日盒须数据写入标题行：
+</p>
+        <p class="code">
+“日间平均值 dev 最小值 最小值 最大值 最大值”
+</p>
+        <p class="NormalItalic">
+然后对于每一天
+ </p>
+        <p class="NormalIndentItalic">
+如果 achsave 为 1，则为一天的每个输出时间步写入一行数据：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)</p>
+        <p class="codeindent">
+时间 // 时间（时:分:秒 <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)</p>
+        <p class="codeindent">
+ACRpath // 通过流路的换气率 (R4)
+</p>
+        <p class="codeindent">
+ACRduct // 通过管道的换气率 (R4)
+</p>
+        <p class="codeindent">
+ACRtotal // ACRpath + ACRduct (R4)
+</p>
+        <p class="NormalIndentItalic">
+如果 abwsave 为 1，则写入三行每日盒须数据 - 一行分别用于路径、管道和总计。每行包含：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)</p>
+        <p class="codeindent">输入//“路径”“管道”或“总计”
+</p>
+        <p class="codeindent">
+avg // 日平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // 标准差 (R4)
+</p>
+        <p class="codeindent">
+tmin // min 发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)</p>
+        <p class="codeindent">
+min // 当天的最小值 (R4)
+</p>
+        <p class="codeindent">
+tmax // 最大值发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)</p>
+        <p class="codeindent">
+max // 一天的最大值 (R4)
+</p>
+        <p class="NormalIndentItalic">
+最后：
+</p>
+        <p class="NormalIndentItalic">
+如果 abwsave 为 1，则整个模拟的三行摘要盒须数据 - 一行分别用于路径、管道和总计。每行包含：
+</p>
+        <p class="codeindent">
+“最终”
+</p>
+        <p class="codeindent">输入//“路径”“管道”或“总计”
+</p>
+        <p class="codeindent">
+avg // 模拟平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // sim 的标准偏差 (R4)
+</p>
+        <p class="codeindent">
+dmin // min 发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 12pt;">®</span> IX)</p>
+        <p class="codeindent">
+min // 模拟的最小值 (R4)
+</p>
+        <p class="codeindent">
+dmax // 最大值发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 12pt;">®</span> IX)</p>
+        <p class="codeindent">
+max // 模拟的最大值 (R4)
+</p>
+        <p>&#160;</p>
+        <p><span style="font-weight: bold;">
+示例
+</span><span style="font-weight: bold;"> 
+文件
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="code">1/1 &#160;1/1 &#160;3600 &#160;1 &#160;0 &#160;847.44
+        </p>
+        <p class="code">day &#160;
+时间
+ &#160;
+路径
+ &#160;
+导管
+ &#160;
+总计
+
+        </p>
+        <p class="code">1/1 &#160;01:00:00 &#160;2.911 &#160;0.010 &#160;2.921
+        </p>
+        <p class="code">1/1 &#160;02:00:00 &#160;2.932 &#160;0.098 &#160;3.030
+        </p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.AGE——空气时代
+</p>
+        <p>
+房间空气的平均年龄是空气在房间内停留时间的指示。 ContamX 可以计算项目中所有房间的这些值，并以详细形式或盒须形式提供。 ContamX 使用 AIVC Technical 34 [ 中提出的方法计算这些值<a href="../IDH_References.htm#REF_AIVC_1991">
+1991年国际创业投资大会
+</a>].</p>
+        <p><span style="font-weight: bold;">
+文件格式
+</span><span style="font-weight: bold;"> 
+（制表符分隔的文本）
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="NormalItalic">
+AGE 文件的第一行包含：
+ </p>
+        <p class="code">
+StartDate // 模拟的第一个日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+EndDate // 模拟的最后日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+SimStep // 模拟时间步长[s](IX)
+
+        </p>
+        <p class="code">
+zaasave // 保存详细的房间空气年龄结果标志 [0/1] (IX)
+
+        </p>
+        <p class="code">
+zbwsave // 保存盒须结果标志 [0/1] (IX)
+
+        </p>
+        <p class="NormalItalic">
+如果 zaasave 为 1，则为详细数据写入标题行：
+ </p>
+        <p class="code">
+“白天”
+ &#160;
+zone[] // …房间编号列表
+
+        </p>
+        <p class="NormalItalic">
+如果 zbwsave 为 1，则为每日盒须数据写入标题行：
+</p>
+        <p class="code">
+“日
+ &#160;
+区
+ &#160;avg &#160;dev &#160;min &#160;min &#160;max &#160;
+最大”
+
+        </p>
+        <p class="NormalItalic">
+然后对于每一天
+ </p>
+        <p class="NormalIndentItalic">
+如果zaasave为1，则一天的每个输出时间步写入一行数据：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">
+时间 // 时间（时:分:秒 <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent" style="color: #a52a2a;">
+Age[] // 每个房间的空气年龄 [h]
+</p>
+        <p class="NormalIndentItalic">
+如果 zbwsave 为 1，则为每个房间写入一行每日盒须数据。每行包含：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">
+房间 // 房间编号 (IX)
+</p>
+        <p class="codeindent">
+avg // 日平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // 标准差 (R4)
+</p>
+        <p class="codeindent">
+tmin // min 发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent">
+min // 当天的最小值 (R4)
+</p>
+        <p class="codeindent">
+tmax // 最大值发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent">
+max // 一天的最大值 (R4)
+</p>
+        <p class="NormalItalic">
+最后：
+</p>
+        <p class="NormalItalic">
+如果 zbwsave 为 1，则为整个模拟的每个房间写入一行摘要盒须数据。每行包含：
+</p>
+        <p class="code">
+“最终”
+
+        </p>
+        <p class="code">
+房间 // 房间编号 (IX)
+</p>
+        <p class="code">
+avg // 模拟平均值 (R4)
+
+        </p>
+        <p class="code">
+dev // sim 的标准偏差 (R4)
+
+        </p>
+        <p class="code">
+dmin // min 发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+min // 模拟的最小值 (R4)
+
+        </p>
+        <p class="code">
+dmax // 最大值发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+max // 模拟的最大值 (R4)
+
+        </p>
+        <p class="code">&#160;</p>
+        <p><span style="font-weight: bold;">
+示例文件：
+</span>
+        </p>
+        <p class="code">3&#160;1/1&#160;1/1&#160;300&#160;0&#160;1
+        </p>
+        <p class="code">day&#160;
+区
+&#160;avg&#160;dev&#160;min&#160;min&#160;max&#160;max
+        </p>
+        <p class="code">1/1&#160;1&#160;1.000&#160;0.000&#160;00:05:00&#160;1.000&#160;00:05:00&#160;1.000
+        </p>
+        <p class="code">1/1&#160;2&#160;2.000&#160;0.000&#160;00:05:00&#160;2.000&#160;00:05:00&#160;2.000
+        </p>
+        <p class="code">1/1&#160;3&#160;3.000&#160;0.000&#160;00:05:00&#160;3.000&#160;00:05:00&#160;3.000
+        </p>
+        <p class="code">
+决赛
+&#160;1&#160;1.000&#160;0.000&#160;1/1&#160;1.000&#160;1/1&#160;1.000
+        </p>
+        <p class="code">
+决赛
+&#160;2&#160;2.000&#160;0.000&#160;1/1&#160;2.000&#160;1/1&#160;2.000
+        </p>
+        <p class="code">
+决赛
+&#160;3&#160;3.000&#160;0.000&#160;1/1&#160;3.000&#160;1/1&#160;3.000
+        </p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.BAL - 管道平衡结果文件
+</p>
+        <p>
+该文件包含由 ContamX 执行的管道平衡操作的结果。它包含天平操作的状态以及详细结果和错误跟踪信息（如果需要）。
+</p>
+        <p><span style="font-weight: bold;">
+文件格式
+</span><span style="font-weight: bold;"> 
+（制表符分隔的文本）
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="NormalItalic">
+BAL 文件的第一行包含平衡过程的状态：
+ </p>
+        <p class="code">
+code //余额完成代码[0-5]（九）
+
+        </p>
+        <p class="code">
+!Message[] // 包含完成消息的注释 (I1)
+
+        </p>
+        <p class="NormalItalic">
+接下来的两行是风扇和终端数据的标题：
+</p>
+        <p class="code">
+!风机管道 # 流量 [kg/s] 奖品 [Pa] RPMratio
+
+        </p>
+        <p class="code">
+!trm jctn # 相对流 [-] Cb [-]
+
+        </p>
+        <p class="NormalItalic">
+然后对于每个平衡终端和关联的风扇：
+</p>
+        <p class="NormalItalic">    
+如果终端：
+&#160;</p>
+        <p class="code">  
+"trm" //表示终端数据
+
+        </p>
+        <p class="code">  
+junc // 终点站的路口号 (IX)
+
+        </p>
+        <p class="code">  
+rflow // 相对流量 Fbal/Fdes (R4)
+
+        </p>
+        <p class="code">  
+Cb //平衡系数(R4)
+
+        </p>
+        <p class="NormalItalic">    
+如果是风扇：
+&#160;</p>
+        <p class="code">  
+"fan" //表示风扇数据
+
+        </p>
+        <p class="code">  
+风道 // 风机风道段数(IX)
+
+        </p>
+        <p class="code">  
+流量
+         &#160;
+// 总粉丝数
+ &#160;
+流量（R4）
+
+        </p>
+        <p class="code"> &#160;
+奖品 // 风扇压力升高 (R4)
+
+        </p>
+        <p class="NormalItalic">    
+若风机性能曲线风机：
+&#160;</p>
+        <p class="code">  
+frpm // 达到平衡所需的转速比
+ &#160;
+        </p>
+        <p class="code">               
+// 设计风扇的流量 (R4)
+
+        </p>
+        <p class="NormalItalic">
+最后一行正是：
+</p>
+        <p class="code">end
+        </p>
+        <p class="code">&#160;</p>
+        <p><span style="font-weight: bold;">
+示例
+</span><span style="font-weight: bold;"> 
+文件
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="code">
+0！流量平衡迭代收敛
+
+        </p>
+        <p class="code">
+!风机管道 # 流量 [kg/s] 奖品 [Pa] RPMratio
+
+        </p>
+        <p class="code">
+!trm jctn # 相对流 [-] Cb [-]
+
+        </p>
+        <p class="code">
+风扇 4 0.334472 68.0745
+
+        </p>
+        <p class="code">
+trm 1 1.000025 4.38419
+
+        </p>
+        <p class="code">
+trm 2 0.999974 4.2013
+
+        </p>
+        <p class="code">
+风扇 8 0.334472 107.938 0.78357
+
+        </p>
+        <p class="code">
+trm 11 1.000007 7.76847
+
+        </p>
+        <p class="code">
+12号
+     &#160;0.999991        7.58544
+        </p>
+        <p class="code">end
+        </p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.CBW - 污染物盒晶须
+</p>
+        <p>
+该文件包含污染物的每日盒须结果和整个模拟期间的盒须结果摘要。显示项目文件中所有房间以及模拟的每种污染物的结果。
+</p>
+        <p><span style="font-weight: bold;">
+文件格式
+</span><span style="font-weight: bold;"> (</span><span style="font-weight: bold;">
+制表符分隔
+ </span><span style="font-weight: bold;">
+文本）
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="NormalItalic">
+CBW 文件的第一行是描述文件中数据量的标头：
+ </p>
+        <p class="code">
+NumZones // 房间数量 (IX)
+
+        </p>
+        <p class="code">
+NumCont // 污染物数量 (IX)
+
+        </p>
+        <p class="code">
+StartDate // 模拟的第一个日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+EndDate // 模拟的最后日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="NormalItalic">
+第二行是标题：
+</p>
+        <p class="code">
+“日
+ &#160;
+区
+ &#160;ctm &#160;avg &#160;dev &#160;min &#160;min &#160;max &#160;
+最大”
+
+        </p>
+        <p class="NormaItalic">
+然后每天的盒须结果
+<br />&#160;&#160;
+对于每个房间
+ <br />&#160;&#160;&#160;&#160;
+对于每种污染物：
+
+        </p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">
+房间 // 房间编号 (IX)
+</p>
+        <p class="codeindent">
+ctm // 污染物编号 (IX)
+</p>
+        <p class="codeindent">
+avg // 日平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // 标准差 (R4)
+</p>
+        <p class="codeindent">
+min // 当天的最小值 (R4)
+</p>
+        <p class="codeindent">
+tmin // min 发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent">
+max // 一天的最大值 (R4)
+</p>
+        <p class="codeindent">
+tmax // 最大值发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="NormalItalic">
+在所有每日值之后是整个模拟的摘要
+<br />    
+对于每个房间
+ <br />       
+对于每种污染物：
+</p>
+        <p class="codeindent">
+“最终”
+</p>
+        <p class="codeindent">
+房间 // 房间编号 (IX)
+</p>
+        <p class="codeindent">
+ctm // 污染物编号 (IX)
+</p>
+        <p class="codeindent">
+avg // 模拟平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // sim 的标准偏差 (R4)
+</p>
+        <p class="codeindent">
+min // 模拟的最小值 (R4)
+</p>
+        <p class="codeindent">
+dmin // min 发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">
+max // 模拟的最大值 (R4)
+</p>
+        <p class="codeindent">
+dmax // 最大值发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p><span style="font-weight: bold;">
+示例
+</span><span style="font-weight: bold;"> 
+文件
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="code">2 &#160;1 &#160;1/1 &#160;1/1
+        </p>
+        <p class="code">day &#160;
+区
+ &#160;ctm &#160;avg &#160;dev &#160;min &#160;min &#160;max &#160;max
+        </p>
+        <p class="code">1/1 &#160;0 &#160;1 &#160;
+0.000e+000 0.000e+000 00:05:00 0.000e+000 00:05:00 0.000e+000
+
+        </p>
+        <p class="code">1/1 &#160;1 &#160;1 &#160;
+1.036e-004 0.000e+000 00:05:00 1.036e-004 00:05:00 1.036e-004
+
+        </p>
+        <p class="code">1/1 2 &#160;1 &#160;
+6.839e-005
+ &#160;
+4.049e-005
+ &#160;00:05:00 &#160;
+0.000e+000
+ &#160;24:00:00 &#160;
+1.019e-004
+
+        </p>
+        <p class="code">
+决赛
+ &#160;0 &#160;1 &#160;
+0.000e+000
+ &#160;
+0.000e+000
+ &#160;1/1 &#160;
+0.000e+000
+ &#160;1/1 &#160;
+0.000e+000
+
+        </p>
+        <p class="code">
+决赛 1 1
+ &#160;
+1.036e-004
+ &#160;
+0.000e+000
+ &#160;1/1 &#160;
+1.036e-004
+ &#160;1/1 &#160;
+1.036e-004
+
+        </p>
+        <p class="code">
+决赛 2 1
+ &#160;
+6.839e-005
+ &#160;
+4.049e-005
+ &#160;1/1 &#160;
+0.000e+000
+ &#160;1/1 &#160;
+1.019e-004
+
+        </p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="SubHeading1" style="color: #000000;"><a name="CEX_Files"></a><span>&lt;
+项目名称
+&gt;
+.CEX - 污染物渗漏
+</span>
+        </p>
+        <p>
+该文件包含在每个模拟时间步长期间离开建筑物的每种污染物的质量。
+</p>
+        <p style="font-weight: bold;">
+文件格式（制表符分隔文本）：
+</p>
+        <p class="NormalItalic">
+第一行提供项目的名称。
+</p>
+        <p class="code">
+“项目：”项目名称[]
+</p>
+        <p class="NormalItalic">
+下一行提供标题。
+</p>
+        <p class="code">
+“NCTM 单位”
+</p>
+        <p class="NormalItalic">
+下一行提供污染物的数量和质量单位。
+</p>
+        <p class="code">
+nc // 污染物数量 (I4)
+</p>
+        <p class="code">“kg” // 质量单位，千克
+</p>
+        <p class="NormalItalic">
+下一行是标题行。
+</p>
+        <p class="code">
+“日期时间”
+</p>
+        <p class="code">
+Continental_name[nc] // 每种污染物的名称 (I1)
+</p>
+        <p class="NormalItalic">
+对于每个时间步，输出一行包含：
+</p>
+        <p class="code">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)</p>
+        <p class="code">
+时间 // 时间（时:分:秒 <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)</p>
+        <p class="NormalItalic">
+对于每种污染物：
+</p>
+        <p class="code">
+Mass // 在时间步长 (R4) 期间离开环境的质量
+</p>
+        <p class="NormalItalic">
+最后一行提供了模拟期间离开建筑物的每种污染物的总质量。
+</p>
+        <p class="code">
+TotalMass[nc] // 整个模拟周期 (R4)
+</p>
+        <p class="code">&#160;</p>
+        <p><b>
+示例文件：
+</b>
+        </p>
+        <p class="code">
+项目：test-cex-a
+</p>
+        <p class="code">
+NCTM 单位
+</p>
+        <p class="code">
+2公斤
+</p>
+        <p class="code">
+日期时间 CTM1 第 1 部分
+</p>
+        <p class="code">
+1/1 01:00:00 3.00001e-001 1.49983e-010
+</p>
+        <p class="code">
+1/1 02:00:00 3.00001e-001 1.49983e-010
+</p>
+        <p class="code">. . .</p>
+        <p class="code">
+1/1 24:00:00 3.00001e-001 1.49983e-010
+</p>
+        <p class="code">
+总和 7.20003e+000 3.59958e-009
+</p>
+        <p>&#160;</p>
+        <p class="SubHeading1" style="color: #a52a2a;"><span style="color: #000000;">&lt;
+项目名称
+&gt;_&lt;
+污染物名称
+&gt;
+.CEX – 详细的污染物渗漏
+</span>
+        </p>
+        <p>
+这些文件提供了通过单独的流动路径、管道终端和连接到环境的管道泄漏以及每个简单的空气处理系统排气离开建筑物的单一污染物的量。为每种模拟污染物生成一个文件。
+</p>
+        <p style="color: #a52a2a;"><b style="color: #000000;">
+文件格式（制表符分隔文本）：
+</b>
+        </p>
+        <p class="NormalItalic">
+CEX 文件的第一行包含项目的名称。
+</p>
+        <p class="code">
+项目名称[]
+</p>
+        <p class="NormalItalic">
+下一行是标题行。
+</p>
+        <p class="code">
+“日期时间”
+</p>
+        <p class="code">
+Continental_name[nc] // 每种污染物的名称 (I1)
+</p>
+        <p class="NormalItalic">
+文件的下一行提供一般文件信息。
+</p>
+        <p class="code">
+npath // 环境连接数
+</p>
+        <p class="code">
+cont_name // 该文件中污染物的名称
+</p>
+        <p class="code">
+“kg”//质量单位</p>
+        <p class="NormalItalic">
+下一行是标题行。  第一列标题是日期/时间，后跟环境连接列表。连接由类型字符提供，后跟根据项目文件的项目编号。类型字符为：“p”= 气流路径，“t”= 风管终端，“l”= 风管泄漏，“a”= 空气处理系统排气（例如，p5 = SketchPad 上的气流路径 5）。
+</p>
+        <p class="code">
+“日期时间”
+</p>
+        <p class="code">
+connection[nconn] // 每个环境连接的标识符
+</p>
+        <p class="NormalItalic">
+对于每个时间步，输出一行包含：
+</p>
+        <p class="code">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)</p>
+        <p class="code">
+时间 // 时间（时:分:秒 <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)</p>
+        <p class="NormalItalic">
+对于每个连接：
+</p>
+        <p class="code">
+Mass // 在时间步 (R4) 期间通过给定连接退出的质量
+</p>
+        <p style="font-weight: bold;color: #000000;">
+示例文件：
+</p>
+        <p class="code">
+项目：test-cex-a
+</p>
+        <p class="code">
+npath ctm_name 单位
+</p>
+        <p class="code">
+4 CTM1 公斤
+</p>
+        <p class="code">
+日期时间 p1 p2 a1 t2
+</p>
+        <p class="code">
+1/1 01:00:00 0.00000e+000 1.00000e-001 1.00000e-001 1.00000e-001
+</p>
+        <p class="code">
+1/1 02:00:00 0.00000e+000 1.00000e-001 1.00000e-001 1.00000e-001
+</p>
+        <p class="code">. . .</p>
+        <p class="code">
+1/1 24:00:00 0.00000e+000 1.00000e-001 1.00000e-001 1.00000e-001
+</p>
+        <p class="SubHeading1"><a name="CSMfile">&lt;
+项目名称
+&gt;
+.CSM - 污染物源/汇总和
+</a>
+        </p>
+        <p>
+该文件包含与污染物模拟相关的摘要数据。每当执行瞬态污染物模拟时，ContamX 都会自动创建此文件。提供源/汇、过滤器和房间编号以供参考ContamW。该文件由六个部分组成：
+ </p>
+        <p><span style="font-style: italic;">
+污染物源/汇汇总
+</span> 
+- 本节提供模拟期间每个源/汇产生、去除和存储的污染物的质量。
+</p>
+        <p><span style="font-style: italic;">
+过滤器挑战总结
+</span> 
+- 本节提供模拟期间每个过滤器暴露的污染物质量（上游挑战）。
+</p>
+        <p><span style="font-style: italic;">
+过滤器加载摘要
+</span> 
+- 本节提供模拟期间“加载”到每个过滤器上的污染物质量（不包括初始加载）。
+</p>
+        <p><span style="font-style: italic;">
+过滤器突破总结
+</span> - 本节提供过滤器突破是否适用的指示。如果突破适用并发生，则提供突破发生的日期和时间以及突破效率，否则提供模拟结束时的效率。突破仅适用于提供非零突破效率的简单气体过滤器。
+</p>
+        <p><span style="font-style: italic;">
+与环境的相互作用
+</span> 
+- 本节提供了进入和离开建筑体积的每种污染物的质量，即那些被设置为包含在建筑体积中的污染物的质量。
+ </p>
+        <p><span style="font-style: italic;">
+模拟时间
+</span> 
+- 本节提供有关模拟持续时间的信息。
+</p>
+        <p><span style="font-weight: bold;">
+文件格式
+</span><span style="font-weight: bold;"> 
+（制表符分隔的文本）
+</span><span style="font-weight: bold;">:</span>
+        </p>
+        <p class="NormalItalic">
+CSM 文件的前两行显示 PRJ 文件名以及运行模拟的日期和时间：
+ </p>
+        <p class="code">
+“项目：”
+&#160; 
+文件路径[]
+&#160;&#160;
+// PRJ 文件的完整路径 (I1)
+</p>
+        <p class="code">
+“时间：”
+&#160;&#160;&#160;&#160; 
+模拟时间[]
+&#160;&#160; 
+// 模拟开始的 PC 时间 (I1)
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+接下来是模拟的污染物数量。
+
+        </p>
+        <p class="code">
+NumCont“污染物”
+&#160;
+// 污染物数量 (I4)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+接下来是
+ <span style="font-weight: bold;">
+污染物源/汇摘要部分
+</span>.<br />
+注意：仅当 PRJ 文件中存在源/汇时，才会显示以下部分。
+</p>
+        <p class="NormalItalic">
+源/汇部分的第一行是标题：
+</p>
+        <p>
+“污染物源/汇摘要。”
+
+        </p>
+        <p class="NormalItalic">
+下一行包含源/汇的数量：</p>
+        <p class="code">
+NumSS "source/sinks" // 源/汇数量(IX)
+
+        </p>
+        <p class="NormalItalic">
+下一行是标题：
+</p>
+        <p class="code">
+秒/秒#
+ &#160;zn# &#160;
+物种 &#160;
+释放
+ &#160;
+已删除
+ &#160;
+已存储
+ &#160;
+[公斤]
+
+        </p>
+        <p class="NormalIndentItalic">
+然后每个源/汇的一行数据：
+</p>
+        <p class="codeindent">
+SS号
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 源/汇编号 (IX)
+</p>
+        <p class="codeindent">
+类型[]
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;
+// 源/汇类型 (I1)
+</p>
+        <p class="codeindent">
+姓名[]
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 污染物名称 (I1)
+</p>
+        <p class="codeindent">
+房间编号
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 房间编号 (IX)
+</p>
+        <p class="codeindent">As&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;
+// 沉积元件的表面积 [m^2] (R4)
+</p>
+        <p class="codeindent">
+多
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 乘数 (R4)
+</p>
+        <p class="codeindent">
+最小
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 位置坐标[m] (R4)
+</p>
+        <p class="codeindent">
+最大X值
+</p>
+        <p class="codeindent">
+伊敏
+</p>
+        <p class="codeindent">
+最大Y值
+</p>
+        <p class="codeindent">
+兹敏
+</p>
+        <p class="codeindent">
+最大Z值
+<br /></p>
+        <p class="codeindent">
+质量相对值
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 质量释放(R4)
+</p>
+        <p class="codeindent">
+大众雷姆
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 移除的质量 [kg] (R4)
+</p>
+        <p class="codeindent">
+麻省理工学院
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 累积质量，包括之前的存储 (R4)
+</p>
+        <p class="code">
+-- 空行 ---
+
+        </p>
+        <p class="NormalItalic">
+接下来是
+ <b>
+过滤挑战部分
+</b>.<br />
+注意：仅当 PRJ 文件中存在过滤器时，才会显示此部分。
+</p>
+        <p class="NormalItalic">
+该部分的第一行是标题：
+</p>
+        <p class="code">
+“过滤器挑战摘要。”
+
+        </p>
+        <p class="NormalItalic">
+下一行包含过滤器的数量：
+</p>
+        <p class="code">
+NumFilt“过滤器”
+&#160;
+// 过滤器数量 (IX)
+
+        </p>
+        <p class="NormalItalic">
+下一行是标题：
+</p>
+        <p class="codeindent">
+"path" Ctm[nc] "element" // Ctm[nc] 是污染物列表
+ </p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">                       
+// 其中 nc 是污染物数量。
+&#160;</p>
+        <p class="NormalIndentItalic">
+然后每个过滤器有两行数据：
+<br />
+第一行是：
+</p>
+        <p class="codeindent">
+总编号
+ &#160;&#160;&#160;&#160;
+// 包含过滤器的流组件的数量
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">&#160;&#160;&#160;&#160;&#160;//&#160;
+和指示类型的字母（p：路径，d：管道，t：术语）</p>
+        <p class="codeindent">
+MassUp[nc]
+&#160;
+// 每种污染物的挑战质量 [kg] (R4)
+</p>
+        <p class="codeindent">
+姓名[]
+&#160;&#160;&#160;&#160;&#160;
+// 过滤器元素名称 (I1)
+</p>
+        <p class="NormalIndentItalic">
+第二行是：
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"--"&#160;&#160;&#160; 
+// 表示与之前的过滤器相同
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+MassDown[nc] // 每种污染物的未过滤质量 [kg] (R4)
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+“下游”//表示下游质量
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+接下来是
+ <b>
+过滤器装载部分
+</b>.<br />
+注意：仅当 PRJ 文件中存在过滤器时，才会显示此部分。
+</p>
+        <p class="NormalItalic">
+该部分的第一行是标题：
+</p>
+        <p class="code">
+“过滤器加载摘要。”
+
+        </p>
+        <p class="NormalItalic">
+下一行包含过滤器的数量：
+</p>
+        <p class="code">
+NumFilt // 过滤器数量 (IX)
+
+        </p>
+        <p class="NormalItalic">
+下一行是标题：
+</p>
+        <p class="codeindent">
+“路径” Ctm[nc] “元素 ns”
+&#160;
+// Ctm[nc] 是污染物列表
+</p>
+        <p class="codeindent">&#160;&#160;&#160;&#160;&#160;
+// nc 是污染物的数量。
+</p>
+        <p class="NormalIndentItalic">
+然后是每个过滤器的一行数据：
+</p>
+        <p class="codeindent">
+总编号
+&#160;
+// 包含过滤器的流组件的数量
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">&#160;//&#160;和指示类型的字母（p：路径，d：管道，t：终端）
+</p>
+        <p class="codeindent">
+MassLoad[nc] // 模拟期间过滤的质量 [kg] (R4)
+</p>
+        <p class="codeindent">
+Name[] // 过滤器元素名称（I1）
+</p>
+        <p class="codeindent">ns&#160;&#160; &#160;&#160;
+// 子元素数量，ns
+&gt;
+0 表示超级过滤器 (I4)
+</p>
+        <p class="NormalIndentItalic">If <span style="font-style: normal;">ns</span>&gt;
+0，然后是超级过滤器的每个子过滤器的一行数据：
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"--"&#160;&#160;&#160; 
+//表示子过滤器
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+MassLoad[nc] // 模拟期间过滤的质量 [kg] (R4)
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+姓名[]
+&#160;&#160;
+// 过滤器元素名称 (I1)
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"0"&#160;&#160;&#160; &#160; // 零子元素 (I4)
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+接下来是
+ <b>
+过滤突破部分
+</b>.<br />
+注意：仅当 PRJ 文件中存在过滤器时，才会显示此部分。
+</p>
+        <p class="NormalItalic">
+该部分的第一行是标题：
+</p>
+        <p class="code">
+《过滤器突破总结》
+
+        </p>
+        <p class="NormalItalic">
+下一行包含过滤器的数量：
+</p>
+        <p class="code" style="margin-left: 144.00pt;text-indent: -144.00pt;">
+NumFilt“过滤器”
+ &#160;
+// 过滤器的数量 for which for
+ 
+        </p>
+        <p class="code" style="margin-left: 144.00pt;text-indent: -144.00pt;">&#160;&#160;&#160;&#160; 
+// 突破
+ &#160;
+是可能的，目前在 Simple
+
+        </p>
+        <p class="code" style="margin-left: 144.00pt;text-indent: -144.00pt;">&#160;&#160;&#160;&#160; 
+// 气体类型 (IX)
+
+        </p>
+        <p class="NormalItalic">
+接下来的两行是标题：
+</p>
+        <p class="code">
+“路径元素”
+
+        </p>
+        <p class="code">
+“污染物日期时间效率”
+
+        </p>
+        <p class="NormalIndentItalic">
+然后是每个过滤器的一行数据：
+</p>
+        <p class="codeindent">
+总编号
+&#160;&#160;
+// 包含过滤器的流组件的数量
+<br />&#160;&#160;&#160;&#160;&#160;&#160; &#160; &#160;&#160;//&#160;和指示类型的字母（p：路径，d：管道，t：终端）
+</p>
+        <p class="codeindent">
+姓名[]
+&#160;&#160;
+// 过滤器元素名称 (I1)
+</p>
+        <p class="codeindent">nc&#160;&#160;&#160;&#160;&#160;&#160;
+// 污染物数量 (I4)
+</p>
+        <p class="NormalIndentItalic">
+然后是指定突破的每种污染物的一行数据。
+</p>
+        <p class="NormalIndentItalic">
+每行包含：
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"--"&#160;
+// 表示继续过滤
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+澳门电信[]
+ &#160;
+// 污染物名称 (I1)
+</p>
+        <p class="NormalIndentItalic">
+如果发生突破：
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+Date[] // 突破发生的日期 (MMMDD
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+时间
+&#160; 
+// 突破发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">
+贝凯夫
+&#160; 
+//突破效率
+</p>
+        <p class="NormalIndentItalic">
+如果没有发生突破：
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"--"&#160; 
+// 表示没有突破日期
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">"--"&#160; 
+// 表示没有突破时间
+</p>
+        <p class="codeindent" style="text-indent: 36.00pt;">eff&#160; 
+// 模拟结束时的效率
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+接下来是
+ <b>
+与环境部分的交互
+</b>.<br />
+该节的接下来两行是标题。他们正是：
+</p>
+        <p class="code">
+“与环境的相互作用。”
+
+        </p>
+        <p class="code">
+“从流量到 [kg] 的污染物流量”
+
+        </p>
+        <p class="NormalIndentItalic">
+然后是每种污染物的一行数据：
+</p>
+        <p class="codeindent">
+澳门电信[]
+&#160;&#160;
+// 污染物名称 (I1)
+</p>
+        <p class="codeindent">
+质量来自
+&#160;&#160;&#160;&#160;&#160;&#160; 
+// 从环境房间进入的总质量 [kg] (R4)
+</p>
+        <p class="codeindent">
+质量至
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 离开环境房间的总质量 [kg] (R4)
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+最后一部分是
+ <b>
+模拟时间段
+</b>:</p>
+        <p class="NormalItalic">
+它包含一个标题和三行数据：
+</p>
+        <p class="codeindent">
+“模拟时间：”
+</p>
+        <p class="codeindent">
+tsec“秒”
+&#160;
+// 模拟时间，以秒为单位 [s] (IX)
+</p>
+        <p class="codeindent">thr&#160; 
+“小时”，
+&#160;&#160;
+// 模拟时间，以小时为单位 [h] (R4)
+</p>
+        <p class="codeindent">
+tday “天”
+&#160;&#160;&#160;&#160;
+// 模拟时间，以天为单位 [days] (R4)
+</p>
+        <p class="code">&#160;</p>
+        <p><b>
+示例文件：
+</b>
+        </p>
+        <p class="code">
+项目：C:\CONTAM96\samples\.4\Filters\TestBK3.prj
+
+        </p>
+        <p class="code">
+时间：2005年7月18日星期一10:17:22
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">5&#160;
+污染物
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+污染物源/汇摘要。
+
+        </p>
+        <p class="code">4&#160;
+源/汇
+
+        </p>
+        <p class="code">
+s/s# 类型物种 zn# As mult Xmin Xmax Ymin Ymax Zmin Zmax 释放 移除 储存 [kg]
+
+        </p>
+        <p class="code">
+1ccf CO 3 0 1 0 0 0 0 0 0 7.20E-01 0.00E+00 0
+
+        </p>
+        <p class="code">
+2 兄弟 Cl2 3 0 1 0 0 0 0 0 0 1.00E-04 0.00E+00 0
+
+        </p>
+        <p class="code">
+4 drs Cl2 4 0 1 0 0 0 0 0 0 0.00E+00 1.04E-01 0
+
+        </p>
+        <p class="code">
+3 组 Cl2 4 1 1 0 0 0 0 0 0 8.66E-03 8.67E-03 1.23E-05
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+过滤器挑战摘要。
+
+        </p>
+        <p class="code">3&#160;
+过滤器
+
+        </p>
+        <p class="code">
+路径
+&#160;CO&#160;&#160;CO2&#160;Cl2&#160;
+第0.10部分
+&#160;
+第1部分.00
+&#160;
+元素
+
+        </p>
+        <p class="code">6p&#160;
+1.164e-001
+&#160;
+1.829e+000
+&#160;
+2.361e-001
+&#160;
+1.204e-001
+&#160;
+1.204e-001
+&#160;
+两者都
+
+        </p>
+        <p class="code">--&#160;
+6.215e-002
+&#160;
+1.829e+000
+&#160;
+1.079e-001
+&#160;
+1.039e-001
+&#160;
+7.389e-002
+&#160;
+下游
+
+        </p>
+        <p class="code">1d&#160;
+1.164e-001
+&#160;
+1.829e+000
+&#160;
+2.361e-001
+&#160;
+1.204e-001
+&#160;
+1.204e-001
+&#160;MERV10
+        </p>
+        <p class="code">--&#160;
+1.164e-001
+&#160;
+1.829e+000
+&#160;
+2.361e-001
+&#160;
+1.039e-001
+&#160;
+7.389e-002
+&#160;
+下游
+
+        </p>
+        <p class="code">2t&#160;
+1.164e-001
+&#160;
+1.829e+000
+&#160;
+2.361e-001
+&#160;
+1.039e-001
+&#160;
+7.388e-002
+&#160;GF0
+        </p>
+        <p class="code">--&#160;
+6.213e-002
+&#160;
+1.829e+000
+&#160;
+1.079e-001
+&#160;
+1.039e-001
+&#160;
+7.388e-002
+&#160;
+下游
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+过滤器加载摘要。
+
+        </p>
+        <p class="code">3&#160;
+过滤器
+
+        </p>
+        <p class="code">
+路径
+&#160;CO&#160;CO2&#160;Cl2&#160;
+第0.10部分
+&#160;
+第1部分.00
+&#160;
+元素
+&#160;ns
+        </p>
+        <p class="code">6p&#160;
+5.427e-002
+&#160;
+0.000e+000
+&#160;
+1.282e-001
+&#160;
+1.649e-002
+&#160;
+4.652e-002
+&#160;
+两者都
+&#160;2
+        </p>
+        <p class="code">--&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;
+1.649e-002
+&#160;
+4.652e-002
+&#160;MERV10&#160;0
+        </p>
+        <p class="code">--&#160;
+5.427e-002
+&#160;
+0.000e+000
+&#160;
+1.282e-001
+&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;GF0&#160;0
+        </p>
+        <p class="code">1d&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;
+1.648e-002
+&#160;
+4.651e-002
+&#160;MERV10&#160;0
+        </p>
+        <p class="code">2t&#160;
+5.427e-002
+&#160;
+0.000e+000
+&#160;
+1.282e-001
+&#160;
+0.000e+000
+&#160;
+0.000e+000
+&#160;GF0&#160;0
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+过滤器突破总结。
+
+        </p>
+        <p class="code">2&#160;
+过滤器
+
+        </p>
+        <p class="code">
+路径
+&#160;
+元素
+&#160;nc
+        </p>
+        <p class="code">&#160;
+污染物
+&#160;
+日期
+&#160;
+时间
+&#160;
+效率
+
+        </p>
+        <p class="code">6p&#160;
+两者都
+&#160;2
+        </p>
+        <p class="code">--&#160;CO&#160;
+1月1日
+&#160;01:01:00&#160;0.3
+        </p>
+        <p class="code">--&#160;Cl2&#160;
+1月1日
+&#160;00:58:00&#160;0.5
+        </p>
+        <p class="code">2t&#160;GF0&#160;2
+        </p>
+        <p class="code">--&#160;CO&#160;
+1月1日
+&#160;01:01:00&#160;0.3
+        </p>
+        <p class="code">--&#160;Cl2&#160;
+1月1日
+&#160;00:58:00&#160;0.5
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+与环境的相互作用。
+
+        </p>
+        <p class="code">
+污染物
+&#160;
+质量来自
+&#160;
+质量至 [kg]
+
+        </p>
+        <p class="code">CO&#160;
+0.000e+000
+&#160;
+2.067e-001
+
+        </p>
+        <p class="code">CO2&#160;
+0.000e+000
+&#160;
+4.938e+000
+
+        </p>
+        <p class="code">Cl2&#160;
+0.000e+000
+&#160;
+3.011e-001
+
+        </p>
+        <p class="code">
+第0.10部分
+&#160;
+0.000e+000
+&#160;
+2.954e-001
+
+        </p>
+        <p class="code">
+第1部分.00
+&#160;
+0.000e+000
+&#160;
+2.414e-001
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+模拟时间：
+
+        </p>
+        <p class="code">7200&#160;
+秒
+
+        </p>
+        <p class="code">2&#160;
+小时
+
+        </p>
+        <p class="code">0.0833333&#160;
+天
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.EBW - 乘员暴露
+</p>
+        <p>
+只能针对瞬态污染物模拟计算乘员暴露量。乘员暴露量是根据房间（或使用 1D 房间时的房间单元）内的污染物浓度计算的
+ <i>
+短时间步长
+</i> 
+方法）由每个占用者占用。这些房间（或小区）是根据相关的占用时间表确定的。使用每个模拟时间步长期间乘员所暴露的污染物浓度的平均值，通过对浓度与时间进行积分来确定暴露程度。将所得积分除以输出时间步长，然后以 kg_cont/kg_air 为单位写入文件。
+</p>
+        <p><b>
+文件格式（制表符分隔文本）：
+</b>
+        </p>
+        <p class="NormalItalic">
+EBW 文件的第一行是描述文件中数据的标头：
+ </p>
+        <p class="code">
+NumExps // 曝光图标数量 (IX)
+
+        </p>
+        <p class="code">
+NumCont // 污染物数量 (IX)
+
+        </p>
+        <p class="code">
+StartDate // 模拟的第一个日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+EndDate // 模拟的最后日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+SimStep // 模拟时间步长[s](IX)
+</p>
+        <p class="code">
+expsave //保存详细结果标志[0/1] (IX)
+
+        </p>
+        <p class="code">
+ebwsave // 保存盒须结果标志 [0/1] (IX)
+
+        </p>
+        <p class="NormalItalic">If <span style="font-style: normal;">
+扩展保存
+</span> 
+为1，则为详细数据写入标题行：
+ </p>
+        <p class="code">
+“日
+ &#160;
+时间
+ &#160;
+澳门电信”
+ &#160;
+指数[]
+ &#160;
+// exp[] 是曝光图标编号的列表
+
+        </p>
+        <p class="NormalItalic">If <span style="font-style: normal;">
+保存
+ </span>
+为 1，则为每日盒须数据写入标题行：
+</p>
+        <p class="code">
+“日
+ &#160;
+经验值
+ &#160;ctm &#160;avg &#160;dev &#160;min &#160;min &#160;max &#160;
+最大”
+
+        </p>
+        <p class="NormalItalic">
+然后对于每一天
+</p>
+        <p class="NormalIndentItalic">If <span style="font-style: normal;">
+扩展保存
+</span> 
+为 1，则为每种污染物写入一行数据并输出一天的时间步长：
+</p>
+        <p class="code">
+日期
+&#160;
+// 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="code">
+时间
+&#160;
+// 时间（时:分:秒
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="code">
+指数[]
+&#160;
+// 每个exp图标的时间步长曝光[kg/kg]
+</p>
+        <p class="NormalIndentItalic">If <span style="font-style: normal;">
+保存
+</span> 
+为1，则为每个曝光图标写入一行每日盒须数据：
+</p>
+        <p class="codeindent">
+日期 // 日期（月/日
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">
+exp // 曝光图标编号 (IX)
+</p>
+        <p class="codeindent">
+ctm // 污染物编号 (IX)
+</p>
+        <p class="codeindent">
+avg // 日平均值 (R4)
+</p>
+        <p class="codeindent">
+dev // 标准差 (R4)
+</p>
+        <p class="codeindent">
+tmin // min 发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent">
+min // 当天的最小值 (R4)
+</p>
+        <p class="codeindent">
+tmax // 最大值发生的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> I4)
+        </p>
+        <p class="codeindent">
+max // 一天的最大值 (R4)
+</p>
+        <p class="NormalItalic">
+最后：
+</p>
+        <p class="NormalItalic">If <span style="font-style: normal;">
+保存
+</span> 
+为 1 时，将为整个模拟的每个暴露图标和每种污染物写入一行总结盒须数据。每行包含：
+</p>
+        <p class="codeindent">
+“最终”
+
+        </p>
+        <p class="codeindent">exp&#160;
+// 曝光图标编号 (IX)
+</p>
+        <p class="codeindent">ctm&#160;
+// 污染物数量 (IX)
+</p>
+        <p class="codeindent">avg&#160;
+// 模拟平均值 (R4)
+
+        </p>
+        <p class="codeindent">dev&#160;
+// sim 的标准差 (R4)
+
+        </p>
+        <p class="codeindent">
+最小
+&#160;
+// min 发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">min&#160;
+// 模拟的最小值 (R4)
+
+        </p>
+        <p class="codeindent">
+最大直径
+&#160;
+// 最大值发生的日期 (mm/dd
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> IX)
+        </p>
+        <p class="codeindent">max&#160;
+// 模拟最大值 (R4)
+
+        </p>
+        <p class="code">&#160;</p>
+        <p><span style="font-weight: bold;">
+示例文件：
+</span>
+        </p>
+        <p class="code">1 &#160;2 &#160;1/1 &#160;1/1 &#160;300 &#160;1 &#160;1
+        </p>
+        <p class="code">day &#160;
+时间
+ &#160;ctm &#160;1
+        </p>
+        <p class="code">day &#160;
+经验值
+ &#160;ctm &#160;avg &#160;dev &#160;min &#160;min &#160;max &#160;max
+        </p>
+        <p class="code">1/1 &#160;01:00:00 &#160;1 &#160;
+2.811e-007
+
+        </p>
+        <p class="code">1/1 &#160;01:00:00 &#160;2 &#160;
+9.970e-008
+
+        </p>
+        <p class="code">1/1 &#160;02:00:00 &#160;1 &#160;
+2.571e-007
+
+        </p>
+        <p class="code">1/1 &#160;02:00:00 &#160;
+2 6.109e-008
+
+        </p>
+        <p class="code">1/1 &#160;1 &#160;1 &#160;
+3.021e-007
+ &#160;
+0.000e+000
+ &#160;02:00:00 &#160;
+2.571e-007
+ &#160;00:05:00 &#160;
+3.592e-007
+
+        </p>
+        <p class="code">1/1  1 &#160;2 &#160;
+1.061e-007
+ &#160;
+1.945e-008
+ &#160;02:00:00 &#160;
+6.109e-008
+ &#160;00:05:00 &#160;
+1.562e-007
+
+        </p>
+        <p class="code">
+决赛
+ &#160;1 &#160;1 &#160;
+3.021e-007
+ &#160;
+0.000e+000
+ &#160;1/1 &#160;
+2.571e-007
+ &#160;1/1 &#160;
+3.592e-007
+
+        </p>
+        <p class="code">
+决赛
+ &#160;1 &#160;2 &#160;
+1.061e-007
+ &#160;
+1.945e-008
+ &#160;1/1 &#160;
+6.109e-008
+ &#160;1/1 &#160;
+1.562e-007
+
+        </p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;.LOG</p>
+        <p>
+如果您执行瞬态仿真并实施
+ <span style="font-style: italic;">
+报告控制元素
+</span>
+，ContamX 将在与项目文件相同的目录中创建一个文件，并附加项目文件的名称和 .LOG 扩展名（请参阅控制元素类型：报告值）。该文件将在每个 o 处包含一行数据
+<span style="font-style: italic;">
+输出时间步长
+</span> 
+以及每个信号值的列
+ <span style="font-style: italic;">
+报告控制元素
+</span>.</p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.RST - 模拟重启文件
+</p>
+        <p>
+重新启动是模拟正常初始化的替代方法。它包含所有气流和污染物节点的状态、所有流路的流速和压差、汇的污染物存储条件以及各种控制节点类型的信号值。状态数据将在模拟的所有日期的 24:00:00 存储。
+ </p>
+        <p><span style="font-weight: bold;">
+文件格式（二进制）：
+</span>
+        </p>
+        <p class="NormalItalic">
+标头数据：
+</p>
+        <p class="code"> 
+m[0] = 0L； /* TURBO C++ 弄乱了写入的第一个字节； */
+&#160;</p>
+        <p class="code"> 
+m[1] = (I4)_nzone; /* 因此，发送 4 个未使用的字节。 */
+&#160;</p>
+        <p class="code"> 
+m[2] = (I4)_npath;
+</p>
+        <p class="code"> 
+m[3] = (I4)_nctm;
+</p>
+        <p class="code"> 
+m[4] = (I4)_njct;
+</p>
+        <p class="code"> 
+m[5] = (I4)_ndct;
+</p>
+        <p class="code"> 
+m[6] = (I4)_ncss;
+</p>
+        <p class="code"> 
+m[7] = (I4)_nctrl;
+</p>
+        <p class="code"> 
+m[8] = (I4)_rcdat.date_0;
+</p>
+        <p class="code"> 
+m[9] = (I4)_rcdat.date_1;
+</p>
+        <p class="code"> 
+m[10] = (I4)_rSizeData;
+</p>
+        <p class="code"> 
+m[11] =（未设置）
+</p>
+        <p class="code">
+m[1] 到 m[7] 允许 ContamW 检查项目中的某些更改。
+<br />
+m[8] 和 m[9] 是向用户显示的日期限制。
+<br />
+m[11] 将允许读取文件中的所有日期——可用于创建可用日期的选择框。
+</p>
+        <p class="NormalItalic">
+重启数据：
+</p>
+        <p class="NormalItalic">
+对于所有 AF_NODE：
+</p>
+        <p class="code">
+R8 T——温度
+</p>
+        <p class="code">
+R8 P——压力
+</p>
+        <p class="code">
+R8 M——质量
+</p>
+        <p class="code">
+R4 Mf[_nctm] - 质量分数
+</p>
+        <p class="code">  
+对于所有 AF_PATH：
+</p>
+        <p class="code">
+R8 Flow[0] - 主流量
+</p>
+        <p class="code">
+R8 流量[1] - 二次流量
+</p>
+        <p class="code">
+R8 dP——压降
+</p>
+        <p class="NormalItalic">  
+对于CSS_DSC：
+</p>
+        <p class="code">
+CSE_EDS (I4)pss-
+&gt;
+local（存储为R4，仿真时转换为I4）
+</p>
+        <p class="code">
+CSE_BLS (R4)pss-
+&gt;
+本地的
+</p>
+        <p class="NormalItalic">  
+对于 CT_NODE：
+</p>
+        <p class="code">
+SNSDAT：R4 旧签名
+</p>
+        <p class="code">
+PICDAT：R4 oldsig、R4 oldr
+</p>
+        <p class="code">
+HYSDAT：R4 旧签名
+</p>
+        <p class="SubHeading1">
+一维仿真结果（RXR、RZF、RZM 和 RZ1）
+</p>
+        <p>
+RXR 文件提供读取其他三个一维模拟结果文件所需的污染物、房间和单元的数量。可以使用 NIST 提供的实用程序分别显示一维模拟结果并将其转换为制表符分隔的文件：ContamRV 和 1DZRead。
+</p>
+        <p>
+这些文件要求使用不大于 4 字节的成员对齐（在 Visual C++ 下）来编译 ContamW 和 ContamX 中的结构。如果使用默认结构成员对齐方式（8 字节），则该文件不可读。
+  </p>
+        <p>
+提供了日期和时间值，以便读取这些文件的程序可以确保它从正确的位置读取。 RXR 文件提供读取其他三个文件所需的污染物、房间和单元格的数量。
+ </p>
+        <h5>
+RXR 文件格式（二进制）
+
+        </h5>
+        <p class="NormalItalic">
+该文件的第一部分是：
+</p>
+        <p class="code">
+24 // 标识符（对于 ContamX 2.4）(I4)
+</p>
+        <p class="code">
+_time_list // 列出时间步长 [s](I4)
+</p>
+        <p class="code">
+_date_0 // 模拟开始 - 一年中的某一天 (I4)
+</p>
+        <p class="code">
+_time_0 // 模拟开始 - 一天中的时间 [s] (I4)
+</p>
+        <p class="code">
+_date_1 // 模拟结束 - 一年中的某一天 (I4)
+</p>
+        <p class="code">
+_time_1 // 模拟结束 - 一天中的时间 [s] (I4)
+</p>
+        <p class="code">_urzf // 如果为 true，则创建 RZF 文件 (I4)
+</p>
+        <p class="code">
+_urzm // 如果为 true，则创建 RZM 文件 (I4)
+</p>
+        <p class="code">
+_urz1 // 如果为 true，则创建 RZ1 文件 (I4)</p>
+        <p class="code">
+_nctm // 污染物数量 (I4)
+</p>
+        <p class="code">
+_nzone // 房间数量（不包括环境）(I4)
+</p>
+        <p class="code">
+_nZ1D // 一维房间的数量 (I4)
+</p>
+        <p class="code">
+_nC1D // 一维房间 (I4) 中的单元总数
+ </p>
+        <p class="NormalItalic">
+如果_nZ1D
+ &gt; 
+0，则为每个一维房间写入以下数据：
+</p>
+        <p class="code">nr&#160;
+// ContamW 防区编号 (I4)
+</p>
+        <p class="code">nc&#160;
+// 房间中的单元格数量 (I4)
+</p>
+        <p class="code">X1&#160;
+// 轴原点的 x 坐标 [m] (R4)
+</p>
+        <p class="code">Y1&#160;
+// 轴原点的 y 坐标 [m] (R4)
+</p>
+        <p class="code">Z1&#160;
+// 轴原点的 z 坐标 [m] (R4)
+</p>
+        <p class="code">X2&#160;
+// 轴末端的 x 坐标 [m] (R4)
+</p>
+        <p class="code">Y2&#160;
+// 轴末端的 y 坐标 [m] (R4)
+</p>
+        <p class="code">Z2&#160;
+// 轴末端的 z 坐标 [m] (R4)
+</p>
+        <h5>
+RZF 文件格式（二进制）
+</h5>
+        <p class="NormalItalic">
+对于每个时间步：
+</p>
+        <p class="code">
+_dayofy // 一年中的第几天 [1 到 365] (I4)
+</p>
+        <p class="code">
+_sim_time // 时间值 [s] [0 到 86400] (I4)
+</p>
+        <p class="code">
+对于每个房间：
+</p>
+        <p class="code">
+T // 温度 [K] (R4)
+</p>
+        <p class="code">
+P // 表压 [Pa] (R4)
+</p>
+        <p class="code">
+D // 密度 [kg/m3
+<span style="vertical-align: super;font-size: 10pt;">3</span>
+]（R4）
+</p>
+        <h5>
+RZM 文件格式（二进制）
+
+        </h5>
+        <p class="NormalItalic">
+对于每个时间步：
+</p>
+        <p class="code">
+_dayofy // 一年中的第几天 [1 到 365] (I4)
+</p>
+        <p class="code">
+_sim_time // 时间值 [s] [0 到 86400] (I4)
+</p>
+        <p class="NormalIndentItalic">&#160;
+对于每个房间：
+</p>
+        <p class="codeindent">
+CC[0] // 物质 0 的质量分数 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC[n] // 物质的质量分数 n [kg/kg] (R4)
+</p>
+        <h5>
+RZ1 文件格式（二进制）
+
+        </h5>
+        <p class="NormalItalic">
+对于每个时间步：
+</p>
+        <p class="code">
+_dayofy // 一年中的第几天 [1 到 365] (I4)
+</p>
+        <p class="code">
+_sim_time // 时间值 [s] [0 到 86400] (I4)
+</p>
+        <p class="NormalItalic">
+对于每个一维房间单元：
+</p>
+        <p class="codeindent">
+CC[0] // 物质 0 的质量分数 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC[n] // 物质的质量分数 n [kg/kg] (R4)
+</p>
+        <p class="SubHeading1">&lt;
+项目名称
+&gt;
+.SIM - 详细的仿真结果
+</p>
+        <p>
+SIM 文件是 ContamX 的主要结果文件，包含详细的气流和污染物结果。 ContamW 使用 SIM 文件中的数据在 SketchPad 上显示气流结果，在结果显示窗口中显示污染物浓度，创建导出和报告文件，以及生成瞬态模拟结果图表。输出是在每个
+ <span style="font-style: italic;">
+输出时间步长
+</span>
+。较短
+ <span style="font-style: italic;">
+输出时间步长
+</span> 
+允许您更详细地查看结果，但会导致模拟结果文件更大。
+</p>
+        <p>
+该文件的格式与以前的版本相比略有修改，以适应更多的建筑组件（房间、路径、管道等）。这反映在从 I2 更改为 I4 的“nr”字段中。它仍然是一个二进制文件（与文本文件不同，不是“人类可读的”），与文本文件相比，它提供更快的访问速度和更小的文件大小。
+</p>
+        <p class="NormalCW2">
+几个后处理器程序可用
+ <b style="font-style: italic;">
+软件
+&#160;
+工具
+</b> 
+的部分
+ <b style="font-style: italic;"></b><a href="https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling">
+NIST 多房间建模网站
+</a> 
+可用于读取 .SIM 文件并从中生成各种形式的输出。
+ </p>
+        <h5>
+文件格式（二进制）：
+</h5>
+        <p class="NormalItalic">
+仿真结果文件的前 16 行包含数据（32 位整数），以帮助确保结果适用于当前位于 ContamW 中的项目文件，并设置处理结果所需的数组大小。</p>
+        <p class="code">
+24 // CONTAM 版本号
+ &#160;
+编号 (I4)
+
+        </p>
+        <p class="code">
+_nzone // 气流房间数量（不包括环境）(I4)
+</p>
+        <p class="code">
+_npath // 气流路径数 (I4)
+</p>
+        <p class="code">
+_nctm // 污染物数量 (I4)
+</p>
+        <p class="code">
+_njct // 路口和终端数量 (I4)
+</p>
+        <p class="code">
+_ndct // 管道段数 (I4)
+</p>
+        <p class="code">
+_time_list // 列出时间步长 [s](I4)
+</p>
+        <p class="code">
+_date_0 // 模拟开始 - 一年中的某一天 (I4)
+</p>
+        <p class="code">
+_time_0 // 模拟开始 - 一天中的时间 (I4)
+</p>
+        <p class="code">
+_date_1 // 模拟结束 - 一年中的某一天 (I4)
+</p>
+        <p class="code">
+_time_1 // 模拟结束 - 一天中的时间 (I4)
+</p>
+        <p class="code">
+_pfsave // 如果为 true，则写入路径流结果 (I4)
+</p>
+        <p class="code">
+_zfsave // 如果为 true，则写入房间流结果 (I4)
+</p>
+        <p class="code">
+_zcsave // 如果为 true，则写入房间污染结果 (I4)
+</p>
+        <p class="code">
+_nafnd // 气流节点数（房间+交叉点）(I4)
+</p>
+        <p class="code">
+_nccnd // 污染物节点数（房间+交叉点）(I4)
+</p>
+        <p class="code">
+_nafpt // 气流路径数（路径+管道）(I4)
+</p>
+        <p class="NormalItalic">
+接下来是气流节点交叉引用数据的 _nafnd 行：
+</p>
+        <p class="codeindent">
+typ // 节点源 [房间、交汇点或终点站] (I4)
+</p>
+        <p class="codeindent">
+nr // 房间、交叉口或航站楼编号 (I4)
+</p>
+        <p class="NormalItalic">
+接下来的 _nafnd 行给出了污染物节点交叉引用数据：
+</p>
+        <p class="codeindent">
+typ // 节点源 [房间或交汇处] (I4)
+</p>
+        <p class="codeindent">
+nr // 房间、交叉口或航站楼编号 (I4)
+</p>
+        <p class="NormalItalic">
+接下来的 _nafpt 行给出了气流路径交叉引用数据：
+</p>
+        <p class="codeindent">
+typ // 路径源 [路径、管道或泄漏] (I4)
+</p>
+        <p class="codeindent">
+nr // 路径、管道或泄漏编号 (I4)
+</p>
+        <p class="NormalItalic">
+每天的模拟结果包括：
+ </p>
+        <p class="NormalIndentItalic">每个时间步长的结果包括：
+</p>
+        <p class="NormalIndentItalic">
+一行时间和环境数据：
+</p>
+        <p class="codeindent">
+dayofy // 一年中的第几天 [1 到 365] (I2)
+</p>
+        <p class="codeindent">
+daytyp // 日期类型 [1 到 12] (I2)
+</p>
+        <p class="codeindent">
+sim_time // 时间值 [s] [0 到 86400] (I4)
+</p>
+        <p class="codeindent">
+Tambt // 环境温度 [k] (R4)
+</p>
+        <p class="codeindent">
+P // 大气压 [Pa] (R4)
+</p>
+        <p class="codeindent">
+Ws // 风速[米/秒] (R4)
+</p>
+        <p class="codeindent">
+Wd // 风角 [度] (R4)
+</p>
+        <p class="codeindent">
+CC[0] // 物质的环境质量分数 0 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC[n] // 物质的环境质量分数 n [kg/kg] (R4)
+</p>
+        <p class="NormalIndentItalic">
+每个气流路径的一行数据：
+</p>
+        <p class="codeindent">
+nr // 路径号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+dP // 路径上的压降 [Pa] (R4)
+</p>
+        <p class="codeindent">
+Flow0 //一次流量值[kg/s](R4)
+</p>
+        <p class="codeindent">
+Flow1 // 替代流量值 [kg/s] (R4)
+</p>
+        <p class="NormalIndentItalic">
+每个气流节点的一行数据（不包括环境）：
+</p>
+        <p class="codeindent">
+nr // 节点号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+T // 节点温度[K] (R4)
+</p>
+        <p class="codeindent">
+P // 节点参考压力[Pa] (R4)
+</p>
+        <p class="codeindent">
+D //节点空气密度[kg/m^3](R4)
+</p>
+        <p class="NormalIndentItalic">
+每个污染物节点的一行数据（不包括环境）：
+</p>
+        <p class="codeindent">
+nr // 节点号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+CC[0] // 物质 0 的质量分数 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC[n] // 物质的质量分数 n [kg/kg] (R4)
+</p>
+        <p class="NormalIndentItalic">
+时间步数据后面是当天的摘要数据。
+  </p>
+        <p class="NormalIndentItalic">
+它以以下一行环境数据开始：
+</p>
+        <p class="codeindent">
+dayofy // 一年中的第几天 [1 到 365] (I2)
+</p>
+        <p class="codeindent">
+daytyp // 日期类型 [1 到 12] (I2)
+</p>
+        <p class="codeindent">
+Tamax // 最高环境温度 [k] (R4)
+</p>
+        <p class="codeindent">
+Tamin // 最低环境温度 [k] (R4)
+</p>
+        <p class="codeindent">
+Pavg // 平均气压 [Pa] (R4)
+</p>
+        <p class="codeindent">
+Wsmax //最大风速[米/秒](R4)
+</p>
+        <p class="codeindent">
+Wsavg // 平均风速[米/秒] (R4)
+</p>
+        <p class="codeindent">
+CC[0] // 物质 0 的最大环境质量分数 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CC[n] // 物质 n 的最大环境质量分数 [kg/kg] (R4)
+</p>
+        <p class="NormalIndentItalic">
+每个气流路径的一行数据：
+</p>
+        <p class="codeindent">
+nr // 路径号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+dPmax // 路径上的最大压降 [Pa] (R4)
+</p>
+        <p class="codeindent">
+Flowmax //最大一次流量值[kg/s](R4)
+</p>
+        <p class="codeindent">
+0.0 // 占位符 (R4)
+</p>
+        <p class="NormalIndentItalic">
+每个气流节点的一行数据（不包括环境）：
+</p>
+        <p class="codeindent">
+nr // 节点号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+T // 节点温度[K] (R4)
+</p>
+        <p class="codeindent">
+P // 节点参考压力[Pa] (R4)
+</p>
+        <p class="codeindent">
+D //节点空气密度[kg/m^3](R4)
+</p>
+        <p class="NormalIndentItalic">
+每个污染物节点的一行数据（不包括环境）：
+</p>
+        <p class="codeindent">
+nr // 节点号；用作支票 (I4)
+</p>
+        <p class="codeindent">
+CCmax[0] // 物质 0 的最大质量分数 [kg/kg] (R4)
+</p>
+        <p class="codeindent">...</p>
+        <p class="codeindent">
+CCmax[n] // 物质 n 的最大质量分数 [kg/kg]
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">
+        </p>
+        <p><span style="font-weight: bold;">
+程序员注意事项：
+</span> 该文件要求 ContamW 和 ContamX 中的结构使用不大于 2 字节的成员对齐方式进行编译（在 Visual C++ 下）。如果使用默认的结构成员对齐方式，则该文件不可读。
+  </p>
+        <p class="SubHeading1">&lt;
+项目文件
+&gt;
+.SQLITE3
+</p>
+        <p>SQLITE3 文件包含与 SIM 文件相同的信息，但采用 SQLite3 数据库格式，由以下表组成：SimInfo、Time、AmbientConditions、NodeZoneFlowData、NodeZoneCcData、NodeDuctFlowData、NodeDuctCcData、LinkPathData、LinkDuctInfo、LinkDuctData。可以使用类似的工具浏览和查询该文件
+ <i>
+SQLite 数据库浏览器
+</i>.</p>
+        <p class="SubHeading1">&lt;
+项目文件
+&gt;.SRF</p>
+        <p>
+SRF 文件包含包含可逆存储节点的源/汇的污染物浓度。与大多数源/汇不同，它们为污染物方程系统提供了污染物节点。目前有两种类型：边界层扩散（BLS）和沉积/再悬浮（DVR）。 BLS 节点的单位为 kg 污染物/kg 表面，DVR 节点的单位为 kg/m
+<sup>2</sup>.</p>
+        <p><span style="font-weight: bold;">
+表面结果文件 -
+ </span><span style="font-weight: bold;">
+文件格式（制表符分隔文本）：
+</span>
+        </p>
+        <p class="NormalItalic">
+文件的第一行是提供 PRJ 文件名称的标头：
+ </p>
+        <p class="code">
+“项目：”文件[]
+&#160;
+// PRJ 文件名 (I1)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+然后是标题行：
+ </p>
+        <p class="code">
+“nr 房间类型物种单位 痕量/非痕量”
+
+       </p>
+        <p class="NormalItalic">
+然后对于每个表面节点：
+ </p>
+        <p class="codeindent">
+来源
+ &#160;&#160;&#160;
+// 源/汇的数量 (IX)
+</p>
+        <p class="codeindent">
+区
+ &#160;&#160;&#160;&#160;&#160;
+// 源所在房间的数量 (IX)
+</p>
+        <p class="codeindent">
+类型[]
+&#160;&#160;&#160;&#160;
+// 源/汇类型 ("bls", "dvr") (I1)
+</p>
+        <p class="codeindent">
+species[] // 与源/汇相关的物种名称 (I1)
+</p>
+        <p class="codeindent">
+单位[]
+ &#160;&#160;
+// 结果单位 (I1)
+</p>
+        <p class="codeindent">
+追踪[]
+ &#160;&#160;
+// 源类型：“trace”、“non-trace”、“inactive”(I1)
+</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+然后是标题行：
+ </p>
+        <p class="code">
+“日期时间”
+ &lt;
+类型+编号
+&gt; 
+对于每个源/汇
+</p>
+        <p class="NormalItalic">
+然后是每个列表时间步长的一行数据：
+</p>
+        <p class="codeindent">
+日期
+ &#160;&#160;
+// 日期（月/日）
+</p>
+        <p class="codeindent">
+时间
+ &#160;&#160;
+// 时间（时:分:秒）
+</p>
+        <p class="codeindent">
+conc[] // 每个表面节点的表面浓度 (R4)
+</p>
+        <p class="SubHeading1">&lt;
+项目文件
+&gt;.VAL</p>
+        <p>
+VAL 文件包含建筑气流测试或建筑加压测试气流模拟方法的结果。每次对项目文件执行这些测试之一时，都会创建或覆盖该文件，因此请务必重命名或复制要保留的任何文件。 </p>
+        <p>
+如果您执行
+ <span style="font-weight: bold;">
+建筑气流测试
+ </span>
+计算时，写入该文件的数据将分为五个部分：建筑信息和 ACH、房间、交汇处、分类流量和体积。第一个和最后一个部分始终被写入，但其他三个部分由气流测试模拟方法的模拟输出参数控制。
+</p>
+        <p><span style="font-weight: bold;">
+建筑气流测试 -
+ </span><span style="font-weight: bold;">
+文件格式（制表符分隔文本）：
+</span>
+        </p>
+        <p class="NormalItalic">
+文件的第一行是提供 PRJ 文件名称的标头：
+ </p>
+        <p class="code">
+“气流摘要”文件[]
+&#160;
+// PRJ 文件名 (I1)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+天气状况部分：
+ </p>
+        <p class="code">
+“环境温度：”
+&#160;
+坦姆布特
+&#160;
+“C”
+&#160;&#160;
+// 环境温度[C] (R4)
+
+        </p>
+        <p class="code">
+“压力：”
+&#160;
+巴巴
+&#160;
+“啪”
+&#160;&#160;
+// 大气压 [Pa] (R4)
+
+        </p>
+        <p class="code">
+“风速：”
+&#160;
+瓦斯帕德
+&#160;
+“米/秒”
+&#160;
+// 风速 [米/秒] (R4)
+
+        </p>
+        <p class="code">
+“风向：”
+&#160;
+目录
+&#160;
+“度”
+&#160;
+// 风向 [度] (R4)
+
+        </p>
+        <p>
+“时间：”
+&#160;&#160;
+时间
+&#160;
+日[]
+&#160;
+// 模拟时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;">®</span> 
+I4) 星期几 (I1)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+整个建筑换气率 - 从空调房间到非空调房间的总流量除以空调房间的总体积。换气率的计算公式为 ACH = F * 3600/(ZoneDensity * ZoneVol)。 ACH 可以根据分类流部分提供的数据计算：
+</p>
+        <p class="code">
+“ACH 大楼：”
+&#160;ach&#160;&#160;&#160;
+// 建筑换气率 [1/小时] (R4)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+房间部分：
+</p>
+        <p class="NormalItalic">
+仅当模拟输出参数 BldgFlowZ 等于 1 时，此部分才会写入文件。
+</p>
+        <p class="code">
+"Zones: nZones "flows [ACH]"// 房间数 (I4) 加标头
+
+        </p>
+        <p class="NormalItalic">
+数据头：
+</p>
+        <p class="code">
+房间 C/U 供应 Ret/Exh OA 系统 OA 总循环总 P [Pa] T [C] 体积 [m^3]
+ 
+        </p>
+        <p class="NormalItalic">
+每个房间的一行数据（不包括简单空气处理系统的隐式房间，即 cu
+&#160;=&#160;
+S) - 所有流量均以每小时换气次数提供，ACH [1/小时]：
+</p>
+        <p class="codeindent">nr&#160;&#160;
+// 防区编号 (I4)
+
+        </p>
+        <p class="codeindent">cu&#160;&#160;
+// C：有条件的，U：无条件的，A：ambt，S：AHS
+
+        </p>
+        <p class="codeindent">Qs&#160;&#160;
+// 从系统到房间的总送风量。
+
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;
+// 包括来自以下的流量：终端、简单 ahs、管道泄漏
+ 
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;
+// 和强制流动路径
+
+        </p>
+        <p class="codeindent">
+奎雷克斯
+&#160;
+// 从房间到系统的总回风+排气流量。
+
+        </p>
+        <p class="codeindent">&#160;&#160;&#160;&#160;&#160;
+// 包括流向：终端、简单啊、管道泄漏
+ 
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;&#160;
+// 和强制流动路径
+
+        </p>
+        <p class="codeindent">
+夸西斯
+&#160;
+// 从系统到房间的室外总气流。
+
+        </p>
+        <p class="codeindent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 包括来自以下的流量：终端、简单 ahs、管道泄漏
+ 
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;&#160;&#160;&#160;
+// 和连接到 Ambt 的强制流动路径
+
+        </p>
+        <p class="codeindent">
+夸托特
+&#160;
+// 室外总进气量，包括所有路径（非强制流）
+
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;&#160;&#160; &#160;&#160;
+// 连接到环境：Qoasys + 直接渗透
+
+        </p>
+        <p class="codeindent">
+环路
+&#160;
+//“循环流量”所有流出房间的流量之和
+
+        </p>
+        <p class="codeindent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 包括流向：终端、简单啊、管道泄漏、
+ 
+        </p>
+        <p class="codeindent"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 条件房间、非条件房间和 Ambt
+
+        </p>
+        <p class="codeindent">P&#160;&#160;
+// 房间压力 = 绝对房间压力减去环境压力
+
+        </p>
+        <p class="codeindent"> &#160;&#160;
+// 参考标高处的压力
+ 
+        </p>
+        <p class="codeindent">&#160;&#160;&#160;
+// 该区域位于哪个房间 [Pa]
+</p>
+        <p class="codeindent">T&#160;&#160;
+// 房间温度 [C]
+
+        </p>
+        <p class="codeindent">V&#160;&#160;
+// 房间体积 [m
+<span style="font-size: 9pt;vertical-align: super;">3</span>]
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+交汇处部分：
+</p>
+        <p class="NormalItalic">仅当模拟输出参数 BldgFlowD 等于 1 时，此部分才会写入文件。
+</p>
+        <p class="code"> 
+“交汇处：”
+&#160;
+结直肠
+&#160;
+// 路口数量 (I4)
+
+        </p>
+        <p class="NormalItalic">
+数据头：
+</p>
+        <p class="code">
+交界处J/T
+&#160; 
+OA [%] 流量 [kg/s] P [Pa] T [C] 体积 [m^3]
+ 
+        </p>
+        <p class="NormalItalic">
+每个路口的一行数据：
+</p>
+        <p class="codeindent">nr&#160;&#160;
+// 结点号 (I4)
+</p>
+        <p class="codeindent">jt&#160;&#160;
+// J：路口，T：终点站
+</p>
+        <p class="codeindent">poa&#160;
+// 室外空气百分比[%]
+</p>
+        <p class="codeindent">w&#160;&#160;&#160;
+// 气流速率 [kg/s]</p>
+        <p class="codeindent">P&#160;&#160;&#160;
+// 结压 [Pa]
+</p>
+        <p class="codeindent">T&#160;&#160;&#160;
+// 结温[C]
+</p>
+        <p class="codeindent">V&#160;&#160;&#160;
+// 结点体积 [m
+<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+流量分类部分：
+</p>
+        <p class="NormalItalic">
+仅当模拟输出参数 BldgFlowC 等于 1 时，此部分才会写入文件。</p>
+        <p class="code"> 
+“文件[]”.prj 的分类房间气流”
+&#160;
+// PRJ 文件名 (I1)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“房间：”nZones“流量[kg/s]”
+&#160;
+// 房间数 (I4) 加上标头
+
+        </p>
+        <p class="NormalItalic">
+数据头：
+</p>
+        <p class="code">
+“房间 C/U 体积 [m^3] 密度 [kg/m^3] fmTerm fmLeak fmAHS fmFan fmCzone fmUzone fmAmbt toTerm toLeak toAHS toFan toCzone toUzone toAmbt oaTerm oaLeak oaAHS oaFan"
+
+        </p>
+        <p class="NormalItalic">
+每个房间的一行数据（不包括简单空气处理系统的隐式房间，即 cu
+&#160;=&#160;
+S) - 所有流量均以 kg/s 为单位：
+</p>
+        <p class="codeindent">nr&#160;&#160;
+// 防区编号 (I4)
+
+        </p>
+        <p class="codeindent">cu&#160;&#160;
+// C：有条件的，U：无条件的，A：ambt，S：AHS
+
+        </p>
+        <p class="codeindent">V&#160;&#160;&#160;
+// 房间体积（A 的体积是总条件体积
+<br />&#160;&#160;&#160;&#160;
+// 包括房间、管道和简单 AHS) [m3]
+
+        </p>
+        <p class="codeindent">
+巢穴
+&#160;&#160;&#160;&#160;
+// 房间密度 [kg/m3]
+
+        </p>
+        <p class="codeindent">
+弗姆特姆
+&#160;&#160;
+// 从终端进入房间的气流速率
+
+        </p>
+        <p class="codeindent">
+FFM泄漏
+&#160;
+// 从管道泄漏进入房间的气流速率
+
+        </p>
+        <p class="codeindent">
+FfmAHS
+&#160;&#160;
+// 从简单的 AHS 进入房间的气流速率
+
+        </p>
+        <p class="codeindent">
+范范
+&#160;&#160;
+// 从强制流元件进入房间的气流速率
+
+        </p>
+        <p class="codeindent">
+碳化锌
+&#160;&#160;
+// 从调节房间进入房间的气流速率
+
+        </p>
+        <p class="codeindent">
+锌铀
+&#160;&#160;
+// 从无条件房间进入房间的气流速率（Ambt 除外）
+
+        </p>
+        <p class="codeindent">
+FFMAMBT
+&#160;// 从环境进入房间的气流速率（强制流除外）
+
+        </p>
+        <p class="codeindent">
+至特姆
+&#160;&#160;
+// 房间外到终端的气流速率
+
+        </p>
+        <p class="codeindent">
+漏泄
+&#160;
+// 管道泄漏房间外的气流速率
+
+        </p>
+        <p class="codeindent">
+FtoAHS
+&#160;&#160;
+// 超出房间的气流速率为简单 AHS
+
+        </p>
+        <p class="codeindent">
+飞凡
+&#160;&#160;
+// 离开房间到强制流动元件的气流速率
+
+        </p>
+        <p class="codeindent">
+碳化锌
+&#160;&#160;
+// 从房间到调节房间的气流速率
+
+        </p>
+        <p class="codeindent">
+FtoZnU
+&#160;&#160;
+// 从房间到无条件房间的气流速率（Ambt 除外）
+
+        </p>
+        <p class="codeindent">
+至安布特
+&#160;
+// 离开房间至 Ambt 的气流速率
+
+        </p>
+        <p class="codeindent">
+福阿特姆
+&#160;&#160;
+// 从终端进入房间的室外气流速率
+
+        </p>
+        <p class="codeindent">
+泡沫泄漏
+&#160;
+// 从管道泄漏进入房间的室外气流速率
+
+        </p>
+        <p class="codeindent">
+福阿AHS
+&#160;&#160;
+// 从简单的 AHS 进入房间的室外气流速率
+
+        </p>
+        <p class="codeindent">
+福范
+&#160;&#160;
+// 从强制流动元件进入房间的室外气流速率
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="NormalItalic">
+音量部分：
+</p>
+        <p class="code">
+“卷：”
+
+        </p>
+        <p class="code">
+“条件区”
+
+        </p>
+        <p class="code">
+VZCm“m^3”
+&#160;&#160;
+// 调节区总体积 [m3]
+
+        </p>
+        <p class="code">
+VZCft“切割”
+&#160;
+// 调节房间总体积 [ft3]
+
+        </p>
+        <p class="code">
+“管道
+ &amp; 
+AHS（有条件）”
+
+        </p>
+        <p class="code">
+VDCm“m^3”
+&#160;&#160;
+// 系统总体积 [m3]
+
+        </p>
+        <p class="code">
+VDCft“cuft”
+&#160;
+// 系统总体积 [ft3]
+
+        </p>
+        <p class="code">
+“无条件房间”
+
+        </p>
+        <p class="code">
+VZUm“m^3”
+&#160;&#160;
+// 未调节房间总体积 [m3]
+
+        </p>
+        <p class="code">
+VZUft“cuft”
+&#160;
+// 未调节房间总体积 [ft3]
+
+        </p>
+        <p class="code">&#160;</p>
+        <p><b>
+示例文件：
+</b>
+        </p>
+        <p class="code">
+DEMO7_AirflowTest.prj 的气流摘要
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+环境温度：
+&#160;20.00&#160;C
+        </p>
+        <p class="code">
+压力：
+ &#160;101325.00&#160;Pa
+        </p>
+        <p class="code">
+风速：
+ &#160;0.00&#160;m/s
+        </p>
+        <p class="code">
+风向：
+ &#160;0.00&#160;deg
+        </p>
+        <p class="code">
+时间：
+ &#160;00:00:00&#160;
+周日
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+ACH 大楼：
+&#160;0.450
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+房间：
+&#160;5&#160;&#160; 
+流量 [ACH]
+
+        </p>
+        <p class="code">
+区
+&#160;C/U&#160;
+供应
+&#160;
+回气/排气
+&#160;
+办公自动化系统
+&#160;
+总OA
+&#160;
+循环
+&#160;
+压力[帕]
+&#160;
+温度 [C]
+&#160;
+体积 [m^3]
+
+        </p>
+        <p class="code">1&#160;C&#160;0.78505&#160;0&#160;0.18038&#160;0.18038&#160;0.79&#160;949.0&#160;20.0&#160;216.0
+        </p>
+        <p class="code">2&#160;C&#160;3.1401&#160;0&#160;0.7215&#160;0.7215&#160;3.14&#160;949.0&#160;20.0&#160;54.0
+        </p>
+        <p class="code">3&#160;C&#160;1.5702&#160;6.0457&#160;0.36079&#160;0.36079&#160;7.85&#160;949.0&#160;20.0&#160;108.0
+        </p>
+        <p class="code">4&#160;C&#160;9.4165&#160;0&#160;2.1636&#160;2.1636&#160;9.42&#160;949.0&#160;20.0&#160;18.0
+        </p>
+        <p class="code">5&#160;C&#160;4.7083&#160;0&#160;1.0818&#160;1.0818&#160;4.71&#160;949.0&#160;20.0&#160;36.0
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+路口：
+&#160;12
+        </p>
+        <p class="code">
+交界处
+&#160;J/T&#160;
+OA[%]
+&#160;
+流量[千克/秒]
+&#160;
+压力[帕]
+&#160;
+温度 [C]
+&#160;
+体积 [m^3]
+
+        </p>
+        <p class="code">1&#160;T&#160;23.0&#160; 0.056717&#160;78.0&#160;20.0&#160;0.00
+        </p>
+        <p class="code">2&#160;T&#160;23.0&#160; 0.056715&#160;63.3&#160;20.0&#160;0.01
+        </p>
+        <p class="code">3&#160;T&#160;23.0&#160; 0.056721&#160;20.3&#160;20.0&#160;0.01
+        </p>
+        <p class="code">4&#160;T&#160;23.0&#160; 0.056692&#160;0.0&#160;20.0&#160;0.01
+        </p>
+        <p class="code">5&#160;T&#160;100.0&#160; 0.065148&#160;-0.0&#160;20.0&#160;0.00
+        </p>
+        <p class="code">6&#160;J&#160;23.0&#160; 0.28354&#160;-0.2&#160;20.0&#160;0.11
+        </p>
+        <p class="code">7&#160;J&#160;23.0&#160; 0.28354&#160;79.3&#160;20.0&#160;0.05
+        </p>
+        <p class="code">8&#160;J&#160;23.0&#160; 0.22682&#160;64.5&#160;20.0&#160;0.06
+        </p>
+        <p class="code">9&#160;J&#160;23.0&#160; 0.17011&#160;21.4&#160;20.0&#160;0.09
+        </p>
+        <p class="code">10&#160;J&#160;23.0&#160; 0.11338&#160;1.1&#160;20.0&#160;0.07
+        </p>
+        <p class="code">11&#160;T&#160;0.0&#160; 0.21839&#160;-880.2&#160;20.0&#160;0.04
+        </p>
+        <p class="code">12&#160;T&#160;23.0&#160; 0.056692&#160;0.0&#160;20.0&#160;0.01
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+DEMO7 的分类房间气流_AirflowTest.prj
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+房间：
+&#160;6&#160;&#160; 
+流量 [千克/秒]
+
+        </p>
+        <p class="code">
+区
+&#160;C/U&#160;
+体积 [m^3]
+&#160;
+密度 [kg/m^3]
+&#160;
+术语
+&#160;
+泄漏
+&#160;
+fmAHS
+&#160;
+。 。 。漏水
+&#160;
+oaAHS
+&#160;
+阿凡
+
+        </p>
+        <p class="code">0&#160;A&#160;432.45&#160;1.2041&#160;0&#160;0&#160;0&#160;. . .&#160;0&#160;0&#160;0
+        </p>
+        <p class="code">1&#160;C&#160;216&#160;1.2041&#160;0.056717&#160;0&#160;0&#160;. . .&#160;0&#160;0&#160;0
+        </p>
+        <p class="code">2&#160;C&#160;54&#160;1.2041&#160;0.056715&#160;0&#160;0&#160;. . .&#160;0&#160;0&#160;0
+        </p>
+        <p class="code">3&#160;C&#160;108&#160;1.2041&#160;0.056721&#160;0&#160;0&#160;. . .&#160;0&#160;0&#160;0
+        </p>
+        <p class="code">4&#160;C&#160;18&#160;1.2041&#160;0.056692&#160;0&#160;0&#160;. . .&#160;0&#160;0&#160;0
+        </p>
+        <p class="code">5&#160;C&#160;36&#160;1.2041&#160;0.056692&#160;0&#160;0&#160;. . . &#160;0&#160;0&#160;0
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+卷：
+
+        </p>
+        <p class="code">
+调节区
+
+        </p>
+        <p class="code">432.00&#160;m^3
+        </p>
+        <p class="code">15255.9&#160;
+库夫特
+
+        </p>
+        <p class="code">
+管道
+ &amp; 
+AHS（有条件的）
+
+        </p>
+        <p class="code">0.45&#160;m^3
+        </p>
+        <p class="code">15.8&#160;
+库夫特
+
+        </p>
+        <p class="code">
+无条件房间
+
+        </p>
+        <p class="code">0.00&#160;m^3
+        </p>
+        <p class="code">0.0&#160;
+库夫特
+
+        </p>
+        <p class="code">&#160;</p>
+        <p><b>
+建筑加压测试 - 文件格式（制表符分隔文本）：
+</b>
+        </p>
+        <p class="NormalItalic">
+文件的第一行是提供 PRJ 文件名称的标头：
+ </p>
+        <p class="code">
+“建筑加压测试”文件[]
+&#160;
+// PRJ 文件名 (I1)
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“加压：”
+
+        </p>
+        <p class="code">
+测试
+&#160;
+“啪”
+&#160;&#160;
+// 测试压力（R4）
+ &#160;
+        </p>
+        <p class="code">
+测试
+&#160;
+“在H20”
+ &#160;
+// 正数 =
+&gt; 
+加压
+
+        </p>
+        <p class="code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 负数=
+&gt; 
+减压
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“质量流量：”
+
+        </p>
+        <p class="code">F&#160;&#160;
+“公斤/秒”
+&#160;
+// 获得测试压力（R4）所需的流量
+
+        </p>
+        <p class="code">F&#160;&#160;
+“公斤/小时”
+ 
+        </p>
+        <p class="code">F&#160;&#160;
+“短链FM”
+ 
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“体积流量：”
+
+        </p>
+        <p class="code">Q&#160;&#160;
+“升/秒”
+&#160;&#160;
+// 获得测试压力（R4）所需的流量
+
+        </p>
+        <p class="code">Q&#160;&#160;
+“米^3/小时”
+ 
+        </p>
+        <p class="code">Q&#160;&#160;
+“cfm”
+ 
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“环境条件：”
+
+        </p>
+        <p class="code">
+“压力”
+
+        </p>
+        <p class="code">
+帕姆布特&#160;
+“啪”
+&#160;&#160;
+// 气压 (R4)
+ 
+        </p>
+        <p class="code">
+帕姆布特&#160;
+“在.H2O”
+ 
+        </p>
+        <p class="code">
+「温度」
+
+        </p>
+        <p class="code">
+坦姆布特
+&#160;
+“C”
+&#160;&#160;
+// 室外温度（R4）
+ 
+        </p>
+        <p class="code">
+坦姆布特
+&#160;
+“F”
+ 
+        </p>
+        <p class="code">
+「空气密度」
+
+        </p>
+        <p class="code">
+达姆布特
+&#160;
+“公斤/米^3”
+&#160;
+// 室外空气密度（R4）
+ 
+        </p>
+        <p class="code">
+达姆布特
+&#160;
+“磅/英尺^3”
+ 
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“卷：”
+
+        </p>
+        <p class="code">
+“条件区”
+
+        </p>
+        <p class="code">VZC&#160;
+“米^3”
+&#160;
+// 调节房间的总体积
+
+        </p>
+        <p class="code">VZC&#160;
+“卡夫特”
+
+        </p>
+        <p class="code">
+“管道
+ &amp; 
+AHS（有条件）”
+
+        </p>
+        <p class="code">VD&#160;&#160;
+“米^3”
+&#160;
+// 管道和 AHS 的总体积
+ 
+        </p>
+        <p class="code">VD&#160;&#160;
+“卡夫特”
+
+        </p>
+        <p class="code">
+“无条件房间”
+
+        </p>
+        <p class="code">VZU&#160;
+“米^3”
+&#160;
+// 调节房间的总体积
+
+        </p>
+        <p class="code">VZU&#160;
+“卡夫特”
+
+        </p>
+        <p class="code">
+-- 空行 --
+
+        </p>
+        <p class="code">
+“气流详细信息：”
+
+        </p>
+        <p class="code">
+“路径 Czone Uzone dP [Pa] [in.H2O] F [kg/s] [kg/h] [scfm] Q [L/s] [m^3/h] [cfm]”
+
+        </p>
+        <p class="NormalItalic">
+每个流路的一行数据包含气流详细信息。所有流量和压差均为绝对值。如果测试是加压测试，则所有流量都是从调节房间流向非调节房间。如果是减压测试，则流量从未调节房间流向调节房间。
+</p>
+        <p class="codeindent">nr&#160;&#160;
+// 路径号
+</p>
+        <p class="codeindent">
+乔内
+&#160;&#160;&#160;
+// 条件房间的数量
+</p>
+        <p class="codeindent">
+乌佐尼
+&#160;&#160;&#160;
+// 无条件房间的数量
+</p>
+        <p class="codeindent">
+dP_Pa
+&#160;&#160;&#160;
+// 路径上的压力差 [Pa]
+</p>
+        <p class="codeindent">
+dP_iH20
+&#160;
+// [in.H20]
+</p>
+        <p class="codeindent">
+F_kgs
+&#160;&#160;&#160;
+// 通过路径的质量流量 [kg/s]
+</p>
+        <p class="codeindent">
+F_kgh
+&#160;&#160;&#160;
+// [公斤/小时]
+</p>
+        <p class="codeindent">
+F_scfm
+&#160;&#160;
+// [scfm]
+</p>
+        <p class="codeindent">
+Q_Ls
+&#160;&#160;&#160;&#160;
+// 通过路径的体积流量 [L/s]
+</p>
+        <p class="codeindent">
+Q_m3h
+&#160;&#160;&#160;
+// [米^3/小时]
+</p>
+        <p class="codeindent">
+Q_cfm
+&#160;&#160;&#160;
+// [cfm]
+</p>
+        <p class="code">&#160;</p>
+        <p><span style="font-weight: bold;">
+示例文件：
+</span>
+        </p>
+        <p class="code">
+Test2_BldgPress_Auto.prj 建筑加压测试
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+加压：
+
+        </p>
+        <p class="code">50.0&#160;Pa
+        </p>
+        <p class="code">0.201&#160;
+水分子
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+质量流量：
+
+        </p>
+        <p class="code">0.4674&#160;
+公斤/秒
+
+        </p>
+        <p class="code">1683&#160;
+公斤/小时
+
+        </p>
+        <p class="code">822.6&#160;
+短链FM
+
+        </p>
+        <p class="code">
+体积流量：
+
+        </p>
+        <p class="code">388.2&#160;L/s
+        </p>
+        <p class="code">1398&#160;
+米^3/小时
+
+        </p>
+        <p class="code">822.6&#160;cfm
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+环境条件：
+
+        </p>
+        <p class="code">
+压力
+
+        </p>
+        <p class="code">101320&#160;Pa
+        </p>
+        <p class="code">29.920&#160;
+水分子
+
+        </p>
+        <p class="code">
+温度
+
+        </p>
+        <p class="code">20&#160;C
+        </p>
+        <p class="code">68&#160;F
+        </p>
+        <p class="code">
+空气密度
+
+        </p>
+        <p class="code">1.2040&#160;
+公斤/米^3
+
+        </p>
+        <p class="code">0.07517&#160;
+磅/英尺^3
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+卷：
+
+        </p>
+        <p class="code">
+调节区
+
+        </p>
+        <p class="code">445.44&#160;m^3
+        </p>
+        <p class="code">15730.6&#160;
+库夫特
+
+        </p>
+        <p class="code">
+管道
+ &amp; 
+AHS（有条件的）
+
+        </p>
+        <p class="code">17.11&#160;m^3
+        </p>
+        <p class="code">604.3&#160;
+库夫特
+
+        </p>
+        <p class="code">
+无条件房间
+
+        </p>
+        <p class="code">384.89&#160;m^3
+        </p>
+        <p class="code">13592.3&#160;
+库夫特
+
+        </p>
+        <p class="code">&#160;</p>
+        <p class="code">
+气流详情：
+
+        </p>
+        <p class="code">
+路径
+&#160;
+乔内
+&#160;
+乌佐尼
+&#160;
+dP [帕]
+&#160;
+[in.H2O]
+&#160;
+F [公斤/秒]
+&#160;
+[公斤/小时]
+&#160;
+[短链FM]
+&#160;
+Q [升/秒]
+&#160;
+[米^3/小时]
+&#160;
+[cfm]
+
+        </p>
+        <p class="code">3&#160;4&#160;1&#160;49.95&#160;0.2007&#160;0.01077&#160;38.78&#160;18.95&#160;0.008946&#160;32.21&#160;18.96
+        </p>
+        <p class="code">4&#160;2&#160;1&#160;49.95&#160;0.2007&#160;0.009482&#160;34.14&#160;16.69&#160;0.007875&#160;28.35&#160;16.69
+        </p>
+        <p class="code">5&#160;3&#160;1&#160;49.95&#160;0.2007&#160;0.009482&#160;34.14&#160;16.69&#160;0.007875&#160;28.35&#160;16.69
+        </p>
+        <p class="code">. . .
+        </p>
+        <p class="code">205&#160;16&#160;0&#160;50.00&#160;0.2009&#160;0.009616&#160;34.62&#160;16.92&#160;0.007987&#160;28.75&#160;16.92
+        </p>
+        <p class="code">206&#160;16&#160;0&#160;50.00&#160;0.2009&#160;0.001923&#160;6.924&#160;3.384&#160;0.001597&#160;5.75&#160;3.385
+        </p>
+        <p class="SubHeading1"><a name="XLOGfile">&lt;
+项目名称
+&gt;
+.XLOG – ContamX 日志文件
+</a>
+        </p>
+        <p class="Normal">模拟引擎将在与 PRJ 文件相同的目录中生成基于文本的日志文件 .XLOG。该文件主要包含通常与大多数用户无关的模拟性能数据。但是，如果在模拟过程中遇到错误，该文件对于程序开发人员跟踪错误很有用。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

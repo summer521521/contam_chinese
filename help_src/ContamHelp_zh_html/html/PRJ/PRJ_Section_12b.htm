@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 12b 节：控制节点
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 12b 节：控制节点
+</h5>
+        <p>控制节点数据由ctrl_read()函数读取并由ctrl_save()函数保存。数据存储在 contam.h 中为 ContamW 定义的 CTRL_DSC 结构以及为 ContamX 定义的 simdat.h 中的 CT_NODE 结构中。
+</p>
+        <p class="NormalItalic">
+控制节点部分开始于：
+ </p>
+        <p class="code">
+_nctrl // 控制节点数量 (
+<span style="color: red;">IX</span>
+）；按从 1 到 _nctrl 的顺序
+</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _nctrl 控制节点的数据。
+</p>
+        <p class="NormalItalic">
+对于每个控制节点，第一数据线包括：
+</p>
+        <p class="codeindent">
+nr // 节点 (SketchPad) 编号 (
+<span style="color: red;">IX</span>
+）；按从 1 到 _nctrl 的顺序
+</p>
+        <p class="codeindent">
+type // 节点数据类型（字符串？I2）
+</p>
+        <p class="codeindent">
+节点类型名称按类型顺序存储在 _ctrl_names 中。
+</p>
+        <p class="codeindent">
+seqnr // 计算序列号 (
+<span style="color: red;">IX</span>
+）；在 ContamW 中设置
+ </p>
+        <p class="codeindent">
+flags // 偏移量标志
+ &amp; 
+标度、时间常数、
+ <span style="color: red;">
+和一维传感器
+</span> 
+(U2)
+</p>
+        <p class="codeindent">
+inreq // 所需输入的数量 (I2) {W}
+</p>
+        <p class="codeindent">
+n1 // SketchPad 输入节点 #1 的数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+n2 // SketchPad 输入节点 #2 的数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+name[] // 元素名称 (I1) {W}
+</p>
+        <p class="NormalItalic">
+第二行有：
+</p>
+        <p class="codeindent">
+desc[] // 控制节点描述(I1) {W} 可以为空
+ </p>
+        <p class="NormalItalic">
+根据节点类型，这后面可能还会有一行数据。
+</p>
+        <p class="NormalItalic">
+节点类型 0 [CT_SNS]“sns”存储在结构体 SENSOR {W} 或 SNSDAT {X} 中。
+</p>
+        <p class="codeindent">
+offset // 偏移值（R4）
+</p>
+        <p class="codeindent">
+scale // 比例值 (R4)
+</p>
+        <p class="codeindent">
+tau // 时间常数 (R4)
+</p>
+        <p class="codeindent">
+oldsig // 最后一个时间步的信号 - 用于重新启动 (R4)
+</p>
+        <p class="codeindent">
+source // 源索引（源在读取时未定义）(
+<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+type // 源类型：1=房间、2=路径、3=交汇处、4=管道、
+</p>
+        <p class="codeindent">          // <span style="color: red;">
+5=指数，6=期数
+</span> 
+(I2)
+</p>
+        <p class="codeindent">
+测量 // 0=污染物，1=温度，2=流量，3=dP，
+</p>
+        <p class="codeindent">          // <span style="color: red;">
+4=页数，5=房间占用率
+</span> 
+(I2)
+</p>
+        <p class="codeindent">
+X // 传感器的 X 坐标 [m] (R4)
+</p>
+        <p class="codeindent">
+Y // 传感器的 Y 坐标 [m] (R4)
+</p>
+        <p class="codeindent">
+relHt // 传感器相对高度 [m] (R4)
+</p>
+        <p class="codeindent">
+units[] // 坐标单位 {W} (I1)
+</p>
+        <p class="codeindent">
+species[] // 物种名称 [I1];转换为指针
+</p>
+        <p class="NormalItalic">
+节点类型 1 [CT_SCH]“sch”存储在结构 SCHDAT 中。
+</p>
+        <p class="codeindent">
+ps // 周日程索引 (I2);转换为指针
+</p>
+        <p class="NormalItalic">
+节点类型
+<span style="font-family: &#x27;Courier New&#x27;;"> 
+2 [CT_SET]“设置”
+ </span>
+存储在结构体中
+ <span style="font-family: &#x27;Courier New&#x27;;">
+设置日期。
+</span></p>
+        <p class="codeindent">
+value // 常数值 (R4)
+</p>
+        <p class="NormalItalic">
+节点类型 3 [CT_CVF]“cvf”存储在结构 CDVDAT 中。 {CONTAM2.1}
+</p>
+        <p class="codeindent">
+name[] // 从连续值文件 (I1) 读取的值的名称
+</p>
+        <p class="NormalItalic">
+节点类型 4 [CT_DVF]“dvf”存储在结构 CDVDAT 中。 {CONTAM2.1}
+</p>
+        <p class="codeindent">
+name[] // 从离散值文件 (I1) 读取的值的名称
+</p>
+        <p class="NormalItalic">
+节点类型 5 [CT_LOG] “日志”存储在结构 LOGDAT 中。
+</p>
+        <p class="codeindent">
+offset // 偏移值（R4）
+</p>
+        <p class="codeindent">
+scale // 比例值 (R4)
+</p>
+        <p class="codeindent">
+udef // 如果使用默认单位则为 true (I2) {W}
+</p>
+        <p class="codeindent">
+header[] // 标头字符串 (I1)
+</p>
+        <p class="codeindent">
+单位[] // 单位字符串 (I1)
+</p>
+        <p class="NormalItalic">
+节点类型 6 [CT_PAS]“pas”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 7 [CT_MOD] “mod”存储在结构体 MOD 中。
+</p>
+        <p class="codeindent">
+offset // 偏移值（R4）
+</p>
+        <p class="codeindent">
+scale // 比例值 (R4)
+</p>
+        <p class="NormalItalic">
+节点类型 8 [CT_HYS]“hys”存储在结构 HYSDAT 中。
+</p>
+        <p class="codeindent">
+松弛； // 迟滞参数 (R4)
+</p>
+        <p class="codeindent">
+斜率 // 1.0 /（1.0 - 松弛）(R4)
+</p>
+        <p class="codeindent">
+oldsig //先前的输出信号（R4）
+</p>
+        <p class="NormalItalic">
+节点类型 9 [CT_ABS]“abs”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 10 [CT_BIN]“bin”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 11 [CT_DLS]“dls”存储在结构 CDVDAT 中。 {CONTAM2.1}
+</p>
+        <p class="codeindent">
+dsincr // 增加信号的日计划编号 (I2)
+</p>
+        <p class="codeindent">
+dsdecr // 递减信号 (I2) 的日计划编号
+</p>
+        <p class="NormalItalic">
+节点类型 12 [CT_DLX]“dlx”存储在结构 CDVDAT 中。 {CONTAM2.1}
+</p>
+        <p class="codeindent">
+tauincr // 增加信号的时间常数 [s] (I4)
+</p>
+        <p class="codeindent">
+taudecr // 递减信号的时间常数 [s] (I4)
+</p>
+        <p class="NormalItalic">
+节点类型 13 [CT_INT]“int”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 14 [CT_RAV]“rav”存储在结构 CDVDAT 中。 {CONTAM2.1}
+</p>
+        <p class="codeindent">
+tspan // 运行平均值的时间跨度 [s] (I4)
+</p>
+        <p class="NormalItalic">
+节点类型 15 [CT_INV]“inv”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 16 [CT_AND]“and”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 17 [CT_OR]“od”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 18 [CT_XOR]“xor”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 19 [CT_ADD]“add”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 20 [CT_SUB]“sub”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 21 [CT_MUL]“mul”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 22 [CT_DIV]“div”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 23 [CT_SUM] “sum”存储在结构 SUMAVG 中。
+</p>
+        <p class="NormalItalic">
+节点类型 24 [CT_AVG]“avg”存储在结构 SUMAVG 中。</p>
+        <p class="NormalItalic">节点类型 25 [CT_MAX]“max”存储在结构 SUMAVG 中。
+</p>
+        <p class="NormalItalic">
+节点类型 26 [CT_MIN]“min”存储在结构 SUMAVG 中。
+</p>
+        <p class="codeindent">
+npcs // 要处理的控件数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+pc[npcs] // npc控制节点的索引（
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+节点类型 27 [CT_LLS]“lls”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 28 [CT_ULS]“uls”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 29 [CT_LBS]“lbs”存储在结构 BANDAT 中。
+</p>
+        <p class="NormalItalic">
+节点类型 30 [CT_UBS]“ubs”存储在结构 BANDAT 中。
+</p>
+        <p class="codeindent">
+band // 带宽度 (R4)
+</p>
+        <p class="NormalItalic">
+节点类型 31 [CT_LLC]“llc”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 32 [CT_ULC]“ulc”没有附加数据。
+</p>
+        <p class="NormalItalic">
+节点类型 33 [CT_PC1]“pc1”存储在结构 PCDAT 中。
+</p>
+        <p class="codeindent">
+kp //比例增益因子(R4)
+</p>
+        <p class="NormalItalic">
+节点类型 34 [CT_PI1]“pi1”存储在结构 PICDAT 中。
+</p>
+        <p class="codeindent">
+kp //比例增益因子(R4)
+</p>
+        <p class="codeindent">
+ki //积分增益因子(R4)
+</p>
+        <p class="codeindent">
+oldsig // 先前的输出信号 - 用于重新启动 (R4)
+</p>
+        <p class="codeindent">
+oldr // 之前的错误值 - 用于重新启动 (R4)
+</p>
+        <p class="NormalItalic">
+节点类型 35 [CT_SUP]“sup”存储在结构 SUPDAT 中。
+</p>
+        <p class="codeindent">
+def // 0:超元件未定义 1:已定义 (I2)
+</p>
+        <p class="codeindent">
+se // 超元件编号 (IX)
+</p>
+        <p class="codeindent">
+in // 输入子节点号(IX)
+</p>
+        <p class="codeindent">
+out // 输出子节点号（IX）
+</p>
+        <p class="NormalItalic">
+节点类型 36 [CT_SEN] 这只是与类型对话框一起使用的占位符值。
+</p>
+        <p class="NormalItalic">
+节点类型 37 [CT_SPH]“sph”没有附加数据。
+</p>
+        <p class="NormalItalic">
+控制节点部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <h6 class="code">&#160;</h6>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

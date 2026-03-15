@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Filters|Filter Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+简单的粒子过滤器
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor107"></a>
+简单的粒子过滤器
+</h4>
+        <p>The <span style="font-style: italic;">
+简单的粒子过滤器
+</span> 
+元件由单一效率与颗粒尺寸曲线组成。以这种方式，单个过滤元件可用于仅基于颗粒尺寸来过滤多种颗粒污染物。这可用于定义基于 MERV 测试数据的过滤器 [
+<a href="../IDH_References.htm#REF_ASHRAE_1999a">
+ASHRAE 1999a</a>
+]。当您执行模拟时，只有那些被视为颗粒类型且您选择为污染物的物种才会被过滤。
+ </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+您要用来识别过滤器元件的唯一名称。
+</p>
+        <p><span style="font-weight: bold;">
+面积：
+</span> 
+滤芯的面面积和单位。
+ </p>
+        <p><span style="font-weight: bold;">
+深度：
+</span> 
+滤芯沿气流轴线的深度。
+</p>
+        <p><span style="font-weight: bold;">
+密度：
+</span> 
+过滤介质的密度。
+ </p>
+        <p>目前使用面积、深度和密度来计算过滤介质的质量，仅与简单气体过滤器模型相关。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+使用此字段提供过滤器元素的更详细描述。
+</p>
+        <p><span style="font-weight: bold;">
+编辑元素数据：
+</span> 
+选择以定义过滤器元素的特定属性。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+过滤曲线数据：
+</span> 
+这是一个列表
+ <span style="font-style: italic;">
+粒径
+</span> and <span style="font-style: italic;">
+过滤效率
+</span><span style="font-style: italic;">y</span> 
+用于定义滤波器曲线的数据对。输入至少三个数据点后，ContamW 将尝试计算这些点的三次样条拟合。如果样条拟合过程中存在任何错误，您将收到通知，并且曲线的有问题部分将突出显示。
+</p>
+        <p class="NormalIndent">
+使用
+ <span style="font-weight: bold;">
+粒径
+</span> and <span style="font-weight: bold;">
+效率
+</span> 
+字段来设置和修改
+ <span style="font-style: italic;">
+过滤曲线数据
+</span> 
+列出与
+ <span style="font-weight: bold;">Add</span>, <span style="font-weight: bold;">
+更换
+</span> and <span style="font-weight: bold;">
+删除
+</span> 
+命令按钮。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+粒径
+</span><span style="font-weight: bold;">:</span> 使用它来输入要定义的颗粒尺寸和单位
+ <span style="font-style: italic;">
+过滤器
+ </span><span style="font-style: italic;">
+曲线
+</span> 
+数据点。这对应于
+ <span style="font-style: italic;">M</span><span style="font-style: italic;">
+平均直径
+ </span>
+一个物种的属性。 </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+效率：
+</span> 
+使用它来输入 <span style="font-style: italic;">
+过滤效率
+</span> 
+为相关的颗粒尺寸。过滤器效率必须介于 0.0 和 1.0 之间。
+ </p>
+        <p class="NormalIndent">
+在模拟开始时，ContamX 将使用该曲线来确定平均直径在过滤曲线范围内的每种颗粒污染物的过滤效率。
+ </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

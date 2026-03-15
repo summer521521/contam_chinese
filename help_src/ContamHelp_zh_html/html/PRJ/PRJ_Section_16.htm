@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 16 节：气流路径
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 16 节：气流路径
+</h5>
+        <p>
+路径数据由path_read()函数读取并由path_save()函数保存。数据存储在 PATH_DSC 结构中，该结构在 contam.h（对于 ContamW）和 simdat.h（对于 ContamX）中定义。
+</p>
+        <p class="NormalItalic">
+路径部分开头为：
+ </p>
+        <p class="code">
+_npath // 路径数 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _npath 路径的数据。
+</p>
+        <p class="NormalItalic">
+对于每条路径，数据线包括：
+</p>
+        <p class="codeindent">
+nr // 路径号 (
+<span style="color: red;">IX</span>）；按从 1 到 _npath 的顺序
+</p>
+        <p class="codeindent">
+flags // 气流路径标志值 (I2)</p>
+        <p class="codeindent">
+pzn // 房间 N 索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pzm // 房间 M 索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+ </p>
+        <p class="codeindent">
+pe // 流元素索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pf // 过滤器索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pw // 风系数指数 (
+<span style="color: red;">IX</span>
+）；转换为指针
+ </p>
+        <p class="codeindent">
+pa // AHS 索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+ </p>
+        <p class="codeindent">
+ps // 调度索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pc // 控制节点索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pld // 级别索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+X // 包络路径的 X 坐标 [m] (R4) {Contam 2.1}</p>
+        <p class="codeindent">
+Y // 包络路径的 Y 坐标 [m] (R4) {Contam 2.1}
+</p>
+        <p class="codeindent">
+relHt // 相对于当前水平面的高度 [m] (R4)
+</p>
+        <p class="codeindent">
+mult // 元素乘数 (R4)
+</p>
+        <p class="codeindent">
+wPset //恒定风压[Pa] (pw==NULL) (R4)
+</p>
+        <p class="codeindent">
+wPmod // 风速（？）修饰符（pw！= NULL）（R4）
+</p>
+        <p class="codeindent">
+wazm // 墙壁方位角 (pw!=NULL) (R4)
+</p>
+        <p class="codeindent">
+Fahs // AHS 路径流量 [kg/s] (pw==NULL) (R4)
+</p>
+        <p class="codeindent">
+Xmax // 流量或压力限制 - 最大值 (R4) {W}
+</p>
+        <p class="codeindent">
+Xmin // 流量或压力限制 - 最小值 (R4) {W}
+</p>
+        <p class="codeindent">
+icon // 用于表示流路的图标 (U1) {W}
+</p>
+        <p class="codeindent">
+dir // 画板上的正流向 (U1) {W}
+</p>
+        <p class="codeindentCW2">
+color // 图标颜色 (I2) {W} {CONTAM 3.3}
+</p>
+        <p class="codeindent">
+u_Ht // 高度单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_XY // X 和 Y 的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_dP // 压力差单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_F // 流量单位 (I2) {W}
+</p>
+        <p class="codeindent">
+vf_type // 0=无值文件，1=使用 cvf，2=使用 dvf (I2) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+vf_node_name[NAMELEN] // 值文件节点名称 (I1) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+cfd // cfd 路径 (0=否，1=是) (I2) {CONTAM 3.0}
+</p>
+        <p class="NormalItalic">
+如果 cfd = 1，则该行继续包含：{CONTAM 3.0}</p>
+        <p class="codeindent">
+name[] // cfd 路径 ID (I1)
+</p>
+        <p class="codeindent">
+cfd_ptype // 边界条件类型（0=质量流量，1=压力）(I2)
+</p>
+        <p class="codeindent">
+cfd_btype // 压力 bc 类型（如果 ptype = 1，0=线性，1=停滞压力）(I2)
+</p>
+        <p class="codeindent">
+cfd_capp //
+耦合方法（1=压力-压力）(I2)
+</p>
+        <p class="NormalItalic">
+路径部分以以下内容终止：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

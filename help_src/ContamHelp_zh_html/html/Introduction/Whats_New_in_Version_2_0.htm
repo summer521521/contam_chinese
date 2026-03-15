@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+2.0 版本的增强功能？</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+2.0 版本的增强功能？</h2>
+        <p>从1.0版本到2.0版本的增强
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;">·<span style="font-size: 8pt;font-family: ;">&#160;&#160;&#160;</span></span>
+建筑控制——控制包括传感器、执行器、调节器和链接。控制执行器可用于根据从传感器获得的控制信号来修改建筑组件的各种特性，甚至可以通过信号修改器进行修改。例如，传感器可用于获得房间内的污染物浓度，并且比例控制致动器可用于基于感测到的浓度来调节进入该区域的供应气流。
+ </p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;">·<span style="font-size: 8pt;font-family: ;">&#160;&#160;&#160;</span></span>
+预定房间温度 – 现在可以通过使用用户定义的时间表来改变房间温度。根据理想气体关系，这允许仅由于房间内温度的变化而导致房间压力的变化。
+</p>
+        <ul>
+            <li style="font-size: 8pt;" value="1">
+                <p>
+污染物
+</p>
+            </li>
+            <ul type="circle">
+                <li style="font-size: 8pt;" value="1">
+                    <p style="margin-left: 24.00pt;">
+非痕量污染物 – 您现在可以考虑污染物浓度对空气（例如水蒸气）密度的影响。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="2">
+                    <p style="margin-left: 24.00pt;">无限数量的污染物 – CONTAM 不再限制您可以模拟的污染物数量。之前的限制是 10。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="3">
+                    <p style="margin-left: 24.00pt;">
+污染物相关库 – 现在可以通过 CONTAM 库文件共享污染物相关元素。这些元素包括污染物种类、过滤器、源/汇和动力学反应。
+</p>
+                </li>
+            </ul>
+            <li style="font-size: 8pt;" value="2">
+                <p>
+数值
+</p>
+            </li>
+            <ul type="circle">
+                <li style="font-size: 8pt;" value="1">
+                    <p style="margin-left: 24.00pt;">
+可变空气密度 - CONTAM 现在提供了模拟非流动相关过程的能力，这些过程可能导致建筑房间内质量的积累/减少，例如，由于非痕量污染物源和房间温度变化导致的房间压力变化。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="2">
+                    <p style="margin-left: 24.00pt;">
+改进的数值求解器采用稀疏矩阵技术，大大减少大型问题的瞬态仿真时间。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="3">
+                    <p style="margin-left: 24.00pt;">
+将求解器与图形界面分开，以提供模拟的批量执行并直接利用 .PRJ 文件。
+</p>
+                </li>
+            </ul>
+            <li style="font-size: 8pt;" value="3">
+                <p>
+短暂的天气
+</p>
+            </li>
+            <ul type="circle">
+                <li style="font-size: 8pt;" value="1">
+                    <p style="margin-left: 24.00pt;">
+单独的瞬态天气和污染物文件 - 天气文件 (WTH) 不再包含污染物浓度（室外湿度比除外）。这意味着您不必根据您模拟的污染物类型创建不同的天气文件。 CONTAM 现在为您提供使用污染物文件 (CTM) 模拟瞬态环境污染物浓度的选项。</p>
+                </li>
+                <li style="font-size: 8pt;" value="2">
+                    <p style="margin-left: 24.00pt;">
+天气文件创建/转换软件 – NIST 开发了一种软件工具，可让您将现有天气文件转换为 CONTAM 2.0 兼容的天气文件。您可以转换现有的 1.0 兼容文件、TMY2 和 EnergyPlus 天气文件。
+</p>
+                </li>
+            </ul>
+            <li style="font-size: 8pt;" value="4">
+                <p>
+用户界面
+</p>
+            </li>
+            <ul type="circle">
+                <li style="font-size: 8pt;" value="1">
+                    <p style="margin-left: 24.00pt;">
+更长的房间名称 – 房间名称现在最长可达 15 个字符。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="2">
+                    <p style="margin-left: 24.00pt;">
+SketchPad 缩放功能 – 您现在可以减小 SketchPad 的图标大小，以允许在屏幕上显示更大的项目。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="3">
+                    <p style="margin-left: 24.00pt;">
+显示突出显示房间的净房间间气流结果
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="4">
+                    <p style="margin-left: 24.00pt;">
+不同的简单空气处理系统房间 – 多个简单空气处理系统的隐式房间现在可以相互区分，以便绘制各个系统房间。
+</p>
+                </li>
+                <li style="font-size: 8pt;" value="5">
+                    <p style="margin-left: 24.00pt;">
+查看气流路径结果时，气流方向指示器现在显示在状态栏中。
+</p>
+                </li>
+            </ul>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

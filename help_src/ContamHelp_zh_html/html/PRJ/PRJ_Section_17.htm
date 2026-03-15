@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 17 节：管道连接处
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 17 节：管道连接处
+</h5>
+        <p>
+连接点数据由 jct_read( ) 函数读取并由 jct_save( ) 函数保存。数据存储在 JCT_DSC 结构中，该结构在 contam.h（针对 ContamW）和 simdat.h（针对 ContamX）中定义。
+</p>
+        <p class="NormalItalic">
+连接部分开始于：
+ </p>
+        <p class="code">
+_njct // 路口数量 (I2)
+</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _njct 连接点的数据。
+</p>
+        <p class="NormalItalic">
+对于每个连接点，数据行包括：
+</p>
+        <p class="codeindent">
+nr // 路口号 (I2);按从 1 到 _njct 的顺序
+</p>
+        <p class="codeindent">
+flags // 连接标志 – contam.h (U2) 中定义的位
+</p>
+        <p class="codeindent">
+jtype // 连接类型标志：0=jct，1=term，3=term w/ Wind {Contam 2.1}
+</p>
+        <p class="codeindent">
+pzn // 周围房间索引 (I2);转换为指针
+</p>
+        <p class="codeindent">
+dnr // 管道段编号 - 在读取期间使用 (I2)
+</p>
+        <p class="codeindent">
+pk // 动力学反应指数（I2）；转换为指针
+</p>
+        <p class="codeindent">
+ps // 调度索引 (I2);转换为指针
+</p>
+        <p class="codeindent">
+pc // 控制节点索引（I2）；转换为指针
+</p>
+        <p class="codeindent">
+pld // 级别索引 (I2);转换为指针
+</p>
+        <p class="codeindent">
+X // 环境终端的 X 坐标 [m] (R4) {Contam 2.1}
+</p>
+        <p class="codeindent">
+Y // 环境终端的 Y 坐标 [m] (R4) {Contam 2.1}
+</p>
+        <p class="codeindent">
+relHt // 相对于当前水平面的高度 [m] (R4)
+</p>
+        <p class="codeindent">
+T0 // 初始结温 [K] (R4)
+</p>
+        <p class="codeindent">
+P0 // 初始结压 [Pa] (R4)
+</p>
+        <p class="codeindent">
+icon // 用于表示路口 (U1) {W} 的图标
+</p>
+        <p class="codeindent">
+color // 图标颜色 (I2) {W} {Contam 2.4}
+</p>
+        <p class="codeindent">
+u_Ht // 高度单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_XY // X 和 Y 的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_T // 温度单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_dP // 压力差单位 (I2) {W}
+</p>
+        <p class="codeindent">
+vf_type // 0=无值文件，1=使用 cvf，2=使用 dvf (I2) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+vf_node_name[NAMELEN] // 值文件节点名称 (I1) {CONTAM 3.2}
+</p>
+        <p class="NormalItalic">
+如果j类型
+ &gt; 
+0 然后该行继续：
+</p>
+        <p class="codeindent">
+"T:" // 字符串表示终端数据遵循{Contam 2.3}
+ </p>
+        <p class="codeindent">
+pf // 过滤器索引 (I2);转换为指针 {Contam 2.3}
+</p>
+        <p class="codeindent">
+pw //风系数指数(I2);转换为指针
+</p>
+        <p class="codeindent">
+wPset //恒定风压[Pa] (pw==NULL) (R4)
+</p>
+        <p class="codeindent">
+wPmod // 风速（？）修饰符（pw！= NULL）（R4）
+</p>
+        <p class="codeindent">
+wazm // 墙壁方位角 (pw!=NULL) (R4)
+</p>
+        <p class="codeindent">
+bal // 余额终端标志 (I2) {Contam 2.3}
+</p>
+        <p class="codeindent">  
+Ad // 连接到终端的管道面积 [m^2] (R4) {Contam 2.3}
+</p>
+        <p class="codeindent">  
+Af // 航站楼可用面积 [m^2] (R4) {Contam 2.3}
+</p>
+        <p class="codeindent">  
+Fdes // 设计流量[kg/s] (R4) {Contam 2.3}
+</p>
+        <p class="codeindent">  
+Ct //终端损耗系数（R4）{Contam 2.3}
+</p>
+        <p class="codeindent">  
+Cb //平衡损失系数（R4）{Contam 2.3}
+</p>
+        <p class="codeindent">  
+Cbmax // 所需的最大 Cb (R4) {Contam 2.3}
+</p>
+        <p class="codeindent">  u_A&#160; 
+// 面积单位 (I2) {Contam 2.3}
+</p>
+        <p class="codeindent">  
+u_F // 质量流量单位 (I2) {Contam 2.3}
+</p>
+        <p class="codeindent">ddir // 终端管道方向 - 显示风压 (U1) {W}
+</p>
+        <p class="codeindent">
+fdir // 正流向 - 显示流向 (U1) {W}
+</p>
+        <p class="NormalItalic">
+连接部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

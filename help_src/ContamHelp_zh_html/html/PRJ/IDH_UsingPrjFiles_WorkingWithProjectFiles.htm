@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用项目文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor8"></a>
+使用项目文件
+</h2>
+        <p>与 CONTAM 项目的布局、建筑组件和占用者信息相关的所有信息都存储在“项目”文件中。保存项目文件时，它将以“.PRJ”扩展名存储。 CONTAM 项目文件名必须符合 Windows 操作系统的文件命名约定。该项目名称显示在 ContamW 应用程序窗口的标题栏中。
+</p>
+        <p>
+所有项目文件操作都包含在
+ <span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile</span> 
+菜单。这些操作包括：
+ <span style="font-weight: bold;text-decoration: underline;">N</span><span style="font-weight: bold;">
+新项目
+</span>, <span style="font-weight: bold;text-decoration: underline;">O</span><span style="font-weight: bold;">
+钢笔项目…
+</span>, <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+ave项目
+</span>
+, 和
+ <span style="font-weight: bold;">
+保存项目
+ </span><span style="font-weight: bold;text-decoration: underline;">A</span><span style="font-weight: bold;">
+是…
+</span> 
+请注意，其中一些文件操作具有与其关联的键盘快捷键和/或工具栏按钮。
+</p>
+        <p class="SubHeading1">
+创建一个新项目
+</p>
+        <p>
+菜单命令：
+&#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;text-decoration: underline;">N</span><span style="font-weight: bold;">
+新项目
+</span><br />
+键盘快捷键：
+ &#160;
+无
+<br />
+工具栏按钮：
+&#160;<img src="../../image/BtnFileNew.gif" border="0" height="22" width="23" alt="
+图像\BtnFileNew.gif
+" /></p>
+        <p>如果您当前正在处理一个项目并且希望创建一个新项目，请使用此命令。该命令将从 ContamW 的程序存储器中清除 SketchPad 以及与当前项目相关的所有数据。如果在执行此命令之前尚未保存当前项目，系统将询问您是否希望在清除之前保存它。
+ </p>
+        <p>
+将出现一个对话框，使您可以输入项目描述（请参阅 <span style="font-weight: bold;">
+编辑项目文件描述
+</span> 
+下）
+</p>
+        <p class="SubHeading1">
+打开现有项目
+</p>
+        <p>
+菜单命令：
+&#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;text-decoration: underline;">O</span><span style="font-weight: bold;">
+钢笔项目…
+</span><br />
+键盘快捷键：
+&#160;<span style="font-weight: bold;">
+Ctrl+O
+</span><br />
+工具栏按钮：
+ &#160;<img src="../../image/BtnFileOpen.gif" border="0" height="22" width="23" alt="
+图像\BtnFileOpen.gif
+" /></p>
+        <p>OR</p>
+        <p class="Normal">
+菜单命令：
+ <span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;">
+最近
+ <u>P</u>
+项目
+</span></p>
+        <p>
+使用这些菜单项打开现有的 CONTAM 项目文件。此命令将显示 Windows 应用程序典型的“文件打开”对话框。此对话框设置为仅显示具有“.PRJ”扩展名的文件，以简化对 CONTAM 项目文件的搜索。请遵循使用 Windows 操作系统打开文件的典型过程。
+</p>
+        <p>
+“打开”对话框为您提供突出显示的项目文件的版本和说明。您可以通过以下方式编辑项目文件描述
+<span style="color: #993300;"> <![CDATA[ ]></span><span style="font-weight: bold;">
+文件
+ </span>&#8594;<span style="font-weight: bold;"> 
+项目描述...
+</span> 
+菜单项。
+</p>
+        <p>
+当 ContamW 成功读取项目文件时，会在程序目录中创建项目文件的备份副本，名称为 CONTAM.BKP。
+ </p>
+        <p class="SubHeading1"><a name="SupportFiles">
+打开项目支持文件
+</a>
+        </p>
+        <p class="Normal">
+您现在可以通过以下方式打开与当前项目相关的输入和输出文件，包括 ContamW 和 ContamX 日志文件
+ <span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> O</span><span style="font-weight: bold;">
+钢笔项目
+ <u>I</u>
+输入文件
+</span> and <span style="font-weight: bold;text-decoration: none;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> O</span><span style="font-weight: bold;">
+钢笔项目
+ <u>O</u>
+输出文件
+</span> 
+菜单命令。文件将根据 Windows 文件扩展名关联打开。
+</p>
+        <p class="SubHeading1">
+从以前的版本转换项目
+</p>
+        <p>
+菜单命令：
+ &#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile</span> <![CDATA[ ]><![CDATA[ ]>&#8594;       <![CDATA[ ]><![CDATA[ ]><span style="font-weight: bold;text-decoration: underline;">O</span><span style="font-weight: bold;">
+钢笔项目…
+</span><br />
+键盘快捷键：
+ &#160;<span style="font-weight: bold;">
+Ctrl+O
+</span></p>
+        <p>
+这与打开现有项目相同。但是，打开早期版本的项目后，该项目将无标题，因此保存时必须为项目命名。使用最新格式保存项目后，您将无法再使用早期版本的 CONTAM 打开它。
+</p>
+        <p>
+NIST 网站上还提供了一个实用程序，使您能够快速将一组项目文件更新到当前版本。例如，PrjUp24.exe 将升级到 CONTAM 2.4 格式。要使用此实用程序，请将 prjup24.exe 和所需的项目文件复制到新目录，选择要更新的项目并将其拖放到 prjup24.exe 文件上。
+ <u>
+这将用更新版本替换现有文件。
+</u></p>
+        <p class="SubHeading1">
+编辑项目文件描述
+</p>
+        <p>
+菜单命令：
+ &#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> 
+项目
+ </span><span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">
+描述…
+</span></p>
+        <p>
+使用此功能可输入项目文件描述，该描述可帮助您管理项目文件。当您从 ContamW 中打开项目文件时，此描述将可用。
+ </p>
+        <p class="SubHeading1">
+保存项目
+</p>
+        <p>
+菜单命令：
+ &#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+ave项目
+</span><br />
+键盘快捷键：
+ &#160;<span style="font-weight: bold;">
+Ctrl+S
+</span><br />
+工具栏按钮：
+&#160;<img src="../../image/BtnFileSave.gif" border="0" height="22" width="23" alt="
+图像\BtnFileSave.gif
+" /></p>
+        <p>
+此选项将建筑物描述以其当前名称保存到项目文件中。</p>
+        <p class="SubHeading1">
+重命名项目
+</p>
+        <p>
+菜单命令：
+ &#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> 
+保存项目
+ </span><span style="font-weight: bold;text-decoration: underline;">A</span><span style="font-weight: bold;">
+是…
+</span><br />
+键盘快捷键：
+ &#160;
+无
+<br />
+工具栏按钮：
+ &#160;
+无
+</p>
+        <p>
+使用此命令可以用新名称保存当前项目文件的副本。这将显示 Windows“另存为”对话框，并允许您指定项目文件的存储位置和文件名。 ContamW 会自动将“.prj”扩展名附加到文件名中，因此您不必为文件提供扩展名。如果您确实为文件提供了扩展名，则将附加“.prj”以及您提供的扩展名。如果指定现有文件的名称，则会警告您保存该文件将覆盖现有文件。如果您在命名之前尝试保存无标题或新项目文件，则会显示“另存为”对话框。
+</p>
+        <p class="SubHeading1">
+退出 ContamW
+</p>
+        <p>
+菜单命令：
+ &#160;<span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">ile </span>&#8594;<span style="font-weight: bold;"> E</span><span style="font-weight: bold;text-decoration: underline;">x</span><span style="font-weight: bold;">it</span><br />
+键盘快捷键：
+&#160;
+无
+<br />
+工具栏按钮：
+ &#160;
+无
+</p>
+        <p>
+您还可以使用位于程序窗口右上角的标准窗口关闭按钮退出程序。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

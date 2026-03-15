@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts|Defining Ducts|Duct Junction and Terminal Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+终端属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+风管接头和终端 - 终端属性
+</h5>
+        <p>
+在 CONTAM 2.4 之前，管道终端仅提供管道网络与房间的连接，并且没有与其关联的用户定义属性。从 CONTAM 2.4 开始，管道终端已被修改为更像管道流段，具有几何属性、损耗系数和流量平衡功能。 </p>
+        <p>
+终端流量由以下因素决定
+ <span style="font-style: italic;">
+有效损耗系数
+</span> (<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span>
+）的终端。
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span> 
+在仿真过程中通过终端损耗系数的组合来确定（
+<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span>
+)、平衡系数(
+<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+）和调度值或控制信号（
+<span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span>
+）。正如此处所暗示的，终端现在可以通过控制网络进行操作或安排允许
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span> 
+范围在 (
+<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> +<span style="font-style: italic;"> C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+）对于 1.0 的控制信号和一个非常大的损耗系数，对于 0.0 的控制信号来说，该系数基本上将流量减少到零。 （请参阅《气流分析》部分中的“管道”
+ <a href="../Theory/IDH_Theory_Background.htm">
+理论背景
+</a>).</p>
+        <p>
+您可以使用终端属性来定义模拟期间要使用的风管终端的损耗特性；提供几何数据，使 ContamW 能够在终端为您提供更有意义的流速；并定义风道平衡属性，CONTAM 可使用该属性在风道终端建立用户定义的设计气流速率。设置以下设计条件后，您可以通过选择运行控制属性的管道平衡气流模拟方法，让 CONTAM 执行管道平衡。
+</p>
+        <p><span style="font-weight: bold;">
+路口编号：
+</span> 
+该编号由 ContamW 自动生成，用于识别目的，并且对于每个路口都是唯一的。如果您添加或删除了任何交汇点或终端，ContamW 将在保存项目时重新编号交汇点和终端。这些图标从 SketchPad 左上角的顶层开始编号，从左到右，沿着 SketchPad 向下移动，然后以相同的方式向下遍历每个级别。
+</p>
+        <p><span style="font-weight: bold;">
+终端数据：
+</span> 
+这些属性是描述终端本身的特征数据，无论终端是否平衡。</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+终端损耗系数：
+</span> 
+终端的特性损耗系数。默认值为 0.125。参见[的第35章
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+] 和管道配件数据库 [
+<a href="../IDH_References.htm#REF_ASHRAE_2002">
+美国采暖及制冷工程师协会 2002
+</a>
+] 有关管道配件动态损失的数据。
+ </p>
+        <p class="NormalIndent">
+注意：早期版本的 CONTAM（版本 2.2 及更早版本）未在终端实现损耗系数。更新这些早期版本的 CONTAM PRJ 文件时，终端损耗系数将应用于所有终端。对于那些相邻管道段具有与其相关的损耗系数的终端，一半的段损耗系数将应用于终端，一半应用于相邻段。所有其他终端将提供 0.001 的最小允许值，从而在终端产生较小的损失，以与转换之前的终端流量结果保持一致。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+自由面部房间：</span> 
+这是空气可以通过的出气口或进气口开口的总最小面积。当在 SketchPad 上显示模拟结果时，该区域将用于根据终端处的气流速率计算速度。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+风管面积：
+</span> 端子所连接的管道房间。通常，这与供风/回风终端下游/上游的管道段的房间相同。该值在模拟过程中用于确定通过终端的气流速率。
+</p>
+        <p><span style="font-weight: bold;">
+平衡
+ </span><span style="font-weight: bold;">
+数据：
+</span> 这些属性用于 CONTAM 版本 2.4 中实现的自动管道平衡功能。此功能使您能够选择一组管道终端，为其提供设计气流速率，并让 ContamX 计算损耗系数，使关联的送风风扇能够提供设计气流速率。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+余额终端：
+</span> 
+如果您希望 ContamX 将此终端包含在管道平衡程序中，请选中此框。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计流量：
+</span> 
+提供您希望 ContamX 确定的设计气流速率
+ <span style="font-style: italic;">
+平衡损失系数
+</span>。为送风终端指定正值，即从管道系统到终端所在房间的气流，为回风终端指定负值。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+最大平衡系数：
+</span> 
+提供下面平衡损失系数的最大值。如果出现以下情况，这将用于提供警告信息： <span style="font-style: italic;">
+平衡损失系数
+</span> 
+ContamX 自动平衡程序确定的值超过了该值。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+平衡损失系数：
+</span> 
+这是通过 ContamX 自动平衡程序确定的损耗系数。您也可以“手动”修改它。如上所述，该值将用于确定有效损耗系数（
+<span style="font-style: italic;">C<span style="vertical-align: sub;font-size: 10pt;">e</span></span>
+）对于终端。
+ </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

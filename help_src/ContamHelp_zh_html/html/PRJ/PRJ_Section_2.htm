@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 2 部分：物种和污染物
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 2 部分：物种和污染物
+</h5>
+        <p>
+物种/污染物数据由 spcs_read( ) 函数读取并由 spcs_save( ) 函数保存在 ContamW 中。它们由 ContamX 中的 ctm_read( ) 读取。
+  </p>
+        <p class="NormalItalic">
+物种/污染物部分开头为：
+</p>
+        <p class="code">
+_nctm // 模拟的物种总数（=污染物）（I2）
+</p>
+        <p>
+下一行列出了被视为污染物的 _nctm 物种的数量。污染物的顺序很重要，在 ContamW 中设置。
+</p>
+        <p class="code">
+_ctm[i] // i = 0 到 nctm-1
+</p>
+        <p class="NormalItalic">
+本节第三行给出：
+</p>
+        <p class="code">
+_nspcs // 物种数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是标题行，然后是每个物种的两行数据：
+</p>
+        <p class="NormalIndentItalic">
+第一行物种数据包括：
+</p>
+        <p class="codeindent">
+nr // 物种编号 (
+<span style="color: red;">IX</span>
+)，按从 1 到 _nspcs 的顺序
+</p>
+        <p class="codeindent">
+sflag // 1 = 模拟，0 = 非模拟物种 (I2) {W}</p>
+        <p class="codeindent">
+ntflag // 1 = 非痕量，0 = 痕量物种 (I2) {W}
+</p>
+        <p class="codeindent">
+molwt // 摩尔质量 [kg/kmol] - 气体 (R4)
+</p>
+        <p class="codeindent">
+mdiam // 平均直径 – 颗粒 [m] (R4)
+</p>
+        <p class="codeindent">
+edens // 有效密度 – 粒子 [kg/m^3] (R4)
+</p>
+        <p class="codeindent">
+衰减 // 衰减常数 [1/s] (R4) {W}
+</p>
+        <p class="codeindent">
+Dm //分子扩散系数[m
+<span style="vertical-align: super;font-size: 10pt;">2</span>
+/s] (R4)
+</p>
+        <p class="codeindent">
+ccdef // 默认浓度 [kg/kg 空气] (R4)
+</p>
+        <p class="codeindent">
+Cp //（未使用）恒压比热[J/kgK] (R4)
+</p>
+        <p class="codeindent">
+Kuv // UVGI 磁化率常数 [m2/J] (R4) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+ucc // 显示浓度的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+umd // 显示平均直径的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+ued // 显示有效密度的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+udm // 显示扩散系数的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+ucp // 显示比热的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+name[] // 物种名称 (I1)
+</p>
+        <p class="NormalIndentItalic">
+第二行是：
+</p>
+        <p class="codeindent">
+desc[] // 物种描述 (I1) {W}
+</p>
+        <p class="NormalItalic">
+该部分以以下内容结束：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据（I2）中是否存在读取错误
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+幂律流动元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+幂律流动元件
+</h4>
+        <p>
+大多数渗透模型基于以下流量与建筑围护结构裂缝或开口处的压力差之间的经验（幂律）关系：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800009B.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(18)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+体积流量，
+ <span style="font-style: italic;">Q</span> [m<span style="vertical-align: super;font-size: 10pt;">3</span>
+/s]，是压降的简单函数，
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span> 
+[Pa]，穿过开口。幂律方程的常见变体是：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800009C.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(19)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+其中质量流量，
+ <span style="font-style: italic;">F</span> 
+[kg/s] 是压降的简单函数。第三种变化与孔口方程有关：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800009D.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(20)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span>
+= 流量系数，以及
+ <br /><span style="font-style: italic;">A</span>
+= 孔口开口面积。
+
+        </p>
+        <p>
+理论上，流量指数的值应该在0.5到1.0之间。大开口的特征是值非常接近 0.5，而小裂缝状开口的值接近 0.65。
+ </p>
+        <p>
+用于描述气流分量的方程 (18-20) 的主要优点是可以简单地计算联立方程的牛顿法解的偏导数：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800009E.png" alt="
+方程
+" />&#160;and&#160;
+                        <img src="../../image/0800009F.png" alt="
+方程
+" /></td>
+                    <td class="EqnNum">(21)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+方程 (21) 中的符号与
+ <span style="font-style: italic;">F</span>
+。然而，方程（21）也存在一个问题：当压降（和流量）变为零时，导数变得无界。低流量时物理发生的情况提出了避免此问题的一个简单方法：流量的物理特性（以及方程的形式）发生变化。它从湍流变为层流。方程（18-20）可以替换为
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000A0.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(22)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">k</span>
+= 层流系数，以及
+ <br /><span style="font-family: Symbol;">m</span>
+= 粘度。
+ 
+        </p>
+        <p>
+偏导数是简单常数：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000A1.png" alt="
+方程
+" />&#160;and&#160;
+                        <img src="../../image/080000A2.png" alt="
+方程
+" /></td>
+                    <td class="EqnNum">(23)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+下一节中的风道方程显示了这种层流关系的起源。这项技术已被几位研究人员独立发现和使用 [Axley 1987] 和 [Isaacs 1980]。尽管在低压降下使用方程（22）有物理原因，但其目的是确保方程在以下情况下收敛：
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span> 
+对于复杂网络中的许多流动路径之一，其趋近于零，而不是准确地表示太小而无法引起兴趣的气流。由于线性流量表达式不是用作真正的流量模型，而是用作数学技巧，因此无需调整其流量系数。考虑到估算空气流过开口（尤其是裂缝）时的温度存在不确定性，这一额外细节的有用性值得商榷。
+
+        </p>
+        <p>
+幂律元素的 CONTAM 函数使用层流和湍流模型计算流量，并选择给出较小量级流量的方法。的导数存在不连续性 <span style="font-style: italic;">F</span>(<span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span>
+) 两个方程相交的曲线。这种不连续性违反了牛顿法收敛的充分条件之一 [Conte and de Boor 1972, p. 11]。 86]。然而，作者使用小型气流网络对此时的气流进行的数值测试表明没有收敛问题。
+
+</p>
+        <p>
+        </p>
+        <h5>
+温度依赖性
+</h5>
+        <p>
+考虑系数很有用
+ <span style="font-style: italic;">C</span> 
+作为一个简单的常数，
+ <span style="font-style: italic;">C</span><span style="font-family: Symbol;vertical-align: sub;">a</span>
+，在一组特定条件下评估（
+<span style="font-family: Symbol;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span>, <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span> and <span style="font-family: Symbol;">n</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span>=<span style="font-family: Symbol;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span><span style="font-style: italic;">/</span><span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span>
+）乘以修正系数以考虑实际空气特性。方程（18-20）被转换为通用形式并以其适当的温度校正因子总结如下。
+ 
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A3.png" alt="
+标题
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A4.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+修正系数
+</td>
+                    <td class="EqnNum">&#160;</td>
+                </tr>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A5.png" alt="
+标题
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A6.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A7.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">&#160;</td>
+                </tr>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A8.png" alt="
+标题
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000A9.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000AA.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(24)</td>
+                </tr>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000AB.png" alt="
+标题
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000AC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000AD.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> 
+        
+CONTAM 使用以下公式进行计算
+ <span style="font-family: Symbol;">r</span> and <span style="font-family: Symbol;">n</span>:</p>
+        <p><span style="font-family: Symbol;">r</span> = <span style="font-style: italic;">P</span> / (287.055 <span style="font-style: italic;">T</span>)
+        </p>
+        <p><span style="font-family: Symbol;">m</span> = 3.7143<span style="font-family: Symbol;">´</span>10<span style="vertical-align: super;font-size: 10pt;">-6</span> + 4.9286<span style="font-family: Symbol;">´</span>10<span style="vertical-align: super;font-size: 10pt;">-8</span><span style="font-style: italic;">T</span></p>
+        <p><span style="font-family: Symbol;">n</span> = <span style="font-family: Symbol;">m</span> / <span style="font-family: Symbol;">r</span></p>
+        <p>
+使用参考条件为标准大气压和20
+<span style="font-family: Symbol;">°</span>
+C 给出
+ <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> 
+= 1.2041 千克/米
+<span style="vertical-align: super;font-size: 10pt;">3</span> and <span style="font-family: Symbol;">n</span><span style="vertical-align: sub;font-size: 10pt;">o</span> = 1.5083<span style="font-family: Symbol;">´</span>10<span style="vertical-align: super;font-size: 10pt;">-5</span> m<span style="vertical-align: super;font-size: 10pt;">2</span>/s.</p>
+        <h5>
+层流系数计算
+</h5>
+        <p class="NormalCW2">
+以下过程概述了 ContamW 用于计算给定过渡雷诺数下的层流系数的方法。对于以下方程：
+</p>
+        <p class="NormalIndentCW2">F<span style="vertical-align: sub;">
+反式
+</span> 
+= 空气质量流量 [kg/s]
+</p>
+        <p class="NormalIndentCW2">
+A = 开口面积 [m
+<span style="vertical-align: super;">2</span>]</p>
+        <p class="NormalIndentCW2">
+D = 水力直径 = 4 A/周长（除非另有说明）[m]
+</p>
+        <p class="NormalIndentCW2"><span style="font-family: Symbol;">&#61549;&#61472;&#61501;</span> 
+空气粘度，1.81625 x 10
+<span style="vertical-align: super;">-5</span> 
+[公斤/米·秒]
+</p>
+        <p>&#160;</p>
+        <p class="NormalCW2">
+1. 计算过渡雷诺数下的流量。雷诺数为 30，除非用户输入另外指定。
+</p>
+        <blockquote>
+            <p class="NormalCW2">F<span style="vertical-align: sub;">
+反式
+</span> = <span style="font-family: symbol;">&#61549;</span> 
+再模/数
+</p>
+        </blockquote>
+        <p class="NormalCW2">
+2.计算压差
+ <span style="font-family: symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span>在过渡流速下
+</p>
+        <blockquote>
+            <p class="NormalCW2">
+a.	对于气流元件类型 Q = C(dP)^n
+</p>
+            <blockquote>
+                <p class="NormalCW2"><span style="font-family: symbol;">&#61505;&#61472;&#61501;&#61472;&#61480;&#61554;&#61487;&#61490;&#61481;<span style="vertical-align: super;">&#61488;&#61486;&#61493;</span>&#61472;&#61480;</span> 
+℃/0.6)
+</p>
+                <p class="NormalCW2">
+D=A
+<span style="font-family: Symbol;vertical-align: super;">&#61488;&#61486;&#61493;</span></p>
+                <p class="NormalCW2"><span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span> 
+= [F/(C
+ <span style="font-family: Symbol;">&#61554;&#61481;&#61533;</span><span style="vertical-align: super;">1/n</span></p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p class="NormalCW2">
+b.	对于气流元件类型 F = C(dP)^n
+</p>
+            <blockquote>
+                <p class="NormalCW2"><span style="font-family: Symbol;">&#61505;&#61472;&#61501;&#61472;&#61480;&#61554;&#61487;&#61490;&#61481;<span style="vertical-align: super;">&#61488;&#61486;&#61493;</span>&#61472;&#61480;</span> 
+℃/0.6)
+</p>
+                <p class="NormalCW2">
+D=A
+<span style="font-family: Symbol;vertical-align: super;">&#61488;&#61486;&#61493;</span></p>
+                <p class="NormalCW2"><span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span> 
+= (F/C)
+<span style="vertical-align: super;">1/n</span></p>
+            </blockquote>
+            <p class="NormalCW2">
+c.	适用于气流孔口、泄漏和裂纹元件类型
+</p>
+            <blockquote>
+                <p class="NormalCW2">
+C = 2
+<span style="font-family: Symbol;vertical-align: super;">&#61488;&#61486;&#61493;</span> A C<span style="vertical-align: sub;">d</span></p>
+                <p class="NormalCW2"><span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span>
+= [F/(C
+ <span style="font-family: Symbol;">&#61554;&#61489;&#61487;&#61490;&#61481;&#61533;</span><span style="vertical-align: super;">1/n</span></p>
+            </blockquote>
+            <p class="NormalCW2">
+如果（
+<span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span> &lt; 10<span style="vertical-align: super;">-10</span>
+）然后
+ <span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span> = 10<span style="vertical-align: super;">-10</span></p>
+            <p class="NormalCW2">
+3. 计算层流系数
+ <span style="font-family: Symbol;">&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span></p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p class="NormalCW2">C<span style="vertical-align: sub;">k</span> = (<span style="font-family: Symbol;">&#61549;</span> 
+F）/
+ <span style="font-family: Symbol;">(&#61554;&#61472;&#61508;</span>P<span style="vertical-align: sub;">
+反式
+</span>)</p>
+            </blockquote>
+        </blockquote>
+        <p>&#160;</p>
+        <h5>
+拟合幂律系数
+&#160;</h5>
+        <p>
+可以利用实验数据来确定幂律方程的孔板形式的系数：
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000AE.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(25)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>If <span style="font-style: italic;">n</span> 
+已知或可以假设，
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+等式 (24) 中的 可以根据等式 (25) 的倒数计算
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000AF.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(26)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+当两点（
+<span style="font-style: italic;">F</span><span style="vertical-align: sub;font-size: 10pt;">1</span>, <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt;">1</span>
+) 和 (
+<span style="font-style: italic;">F</span><span style="vertical-align: sub;font-size: 10pt;">2</span>, <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt;">2</span>
+），已知，
+ <span style="font-style: italic;">n</span> 
+可以从下式计算：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B0.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(27)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+与
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span> 
+然后根据方程(26)计算。
+ 
+        </p>
+        <h5>
+泄漏房间
+</h5>
+        <p>
+幂律模型可与组件泄漏面积公式一起使用，该公式已用于表征渗透计算的开口 [ASHRAE 2001，第 14 页]。 25.18]。泄漏面积基于一系列加压测试，其中在约 10 Pa 至 75 Pa 的一系列压差下测量气流速率。有效泄漏面积基于等式 (20) 的重新排列
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B1.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(28)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">L</span>
+= 等效或有效泄漏面积 [m
+<span style="vertical-align: super;font-size: 10pt;">2</span>],<br></br><span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span>
+= 参考压差 [Pa],
+<br></br><span style="font-style: italic;">Q</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span>
+= 预测的气流速率
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span> 
+（从曲线拟合到加压测试数据）[m
+<span style="vertical-align: super;font-size: 10pt;">3</span>
+/s]，和
+<br></br><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span>
+= 流量系数。
+
+        </p>
+        <p>
+有两组常见的参考条件：
+</p>
+        <p><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span> = 1.0&#160; and <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span> 
+= 4 帕
+
+        </p>
+        <p>or</p>
+        <p><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span> = 0.6&#160; and <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span> 
+= 10 帕。
+
+        </p>
+        <p>
+泄漏面积可转换为流量系数：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B2.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(29)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+该方程需要一个值
+ <span style="font-style: italic;">n</span>
+。如果未与测试结果一起报告，则 0.6 至 0.7 之间的值是合理的。
+
+        </p>
+        <h5>
+楼梯间
+</h5>
+        <p>
+楼梯间通常被建模为一系列垂直房间，通过穿过地板的低阻力开口连接。楼梯间气流的 CONTAM 模型基于实验数据的拟合 [Achakji 和 Tamura 1988]。他们将每层楼的气流阻力表示为有效面积
+ <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span> 
+在孔口方程（20）中，流量系数为 0.6。有效面积以轴的面积表示
+ <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">S</span>
+，楼层之间的距离
+ <span style="font-style: italic;">h</span>
+，楼梯上的人密度
+ <span style="font-style: italic;">d</span>
+，以及踏板是打开还是关闭。在疏散场景中，楼梯上的大量人员会影响流动阻力。实验使用的密度为 0、1 和 2 人/平方米
+<span style="vertical-align: super;font-size: 10pt;">2</span>
+。对于开放式胎面，有效面积约为
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B3.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(30)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+以及封闭式胎面
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B4.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(31)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+幂律方程的系数为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B6.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(32)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5>
+裂纹
+</h5>
+        <p>
+[Clarke 1985，p. 11] 中提出了可以直接转换为幂律气流元件的裂缝流动关系。 204]作为：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B7.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(33)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B8.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(34)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>and</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000B9.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(35)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+与
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">W</span> 
+= 裂缝宽度（毫米），以及
+
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">a</span>&#160; 
+= 裂缝长度（米）。
+
+        </p>
+        <p>
+因此，幂律方程 (19) 中的系数由下式给出
+ <span style="font-style: italic;">n</span> 
+在方程（34）中和
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000BA.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(36)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

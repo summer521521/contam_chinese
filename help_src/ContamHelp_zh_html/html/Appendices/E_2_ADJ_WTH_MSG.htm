@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="h3" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ADJ_WTH_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+ADJ_WTH_MSGTYPE
+</h3>
+        <p>
+ContamX 可能会在任何时间收到此消息
+ <i>
+就绪模式
+</i>。每条消息均可用于设置天气条件，包括温度、气压、风速和风向，类似于 WTH 的方式
+&#160;
+使用 WPC 文件而不是通过 WPC 文件获得详细的风压信息，并且
+ <code>
+ADJ_WPC_MSGTYPE
+</code>
+。请参阅
+ <a href="E_1_Program_Execution.htm">
+程序执行
+</a> 
+部分了解与使用此消息相关的信息。
+</p>
+        <p class="NormalCW2">
+从 CONTAM 3.3 开始，此消息包括环境湿度比。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+温度；
+&#160;&#160; <span style="color: #008100;">&#160;
+// 环境干球温度 [K]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+压力；
+ &#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008100;">
+// PRJ 参考高度处的大气压 [Pa]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+风速；
+&#160;&#160;&#160;&#160; <span style="color: #008100;">
+// 风速[米/秒]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+风向；
+&#160;<span style="color: #008100;">
+// 风吹的方向[度]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span><span style="color: #8b0000;">
+湿度比
+</span>;&#160;<span style="color: #008100;">
+// 湿度比[kg/kg]
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

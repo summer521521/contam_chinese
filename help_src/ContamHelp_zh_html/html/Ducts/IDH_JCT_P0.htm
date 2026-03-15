@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts|Defining Ducts|Duct Junction and Terminal Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+结属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5><a name="kanchor89"></a>
+风管接头和终端 - 接头属性
+</h5>
+        <p><span style="font-weight: bold;">
+路口编号：
+</span> 
+该编号由 ContamW 自动生成，用于识别目的，并且对于每个路口都是唯一的。如果您添加或删除了任何交汇点或终端，ContamW 将在保存项目时重新编号交汇点和终端。这些图标从 SketchPad 左上角的顶层开始编号，从左到右，沿着 SketchPad 向下移动，然后以相同的方式向下遍历每个级别。
+</p>
+        <p><span style="font-weight: bold;">
+相对海拔 &amp; 
+温度：
+</span> 
+连接处的标高和温度用于确定管道流如何响应和影响建筑物烟囱效应。输入交汇点或终点的中点相对于当前建筑物标高的高度。输入您希望仿真期间结点或端子使用的温度。
+</p>
+        <p>
+请注意，在使用一维风管模型和短时间步长方法执行模拟时，您可以让 ContamX 计算风管温度。请参阅污染数值属性
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+部分。
+</p>
+        <p><span style="font-weight: bold;">
+交汇处：</span> 
+如果您要创建连接两个风管段的连接点，请在此处选择要创建的连接类型。项目将根据有效的连接类型启用/禁用。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+定义向下风管：
+</span> 
+您将垂直风管段定义为通过向下段顶部的风管接合处访问的向下延伸的风管。按“定义向下风管”按钮定义垂直段。连接到定义的垂直风管的 SketchPad 风管图标将发生变化，以指示与交汇点关联的垂直连接类型，即向下连接、向上连接或两者都连接（请参见
+ <a href="IDH_UsingDucts_Defining_Ducts.htm#Junction_and_Terminal_Icons">
+连接点和终端图标
+</a>).</p>
+        <p><span style="font-weight: bold;">
+航站楼：
+</span> 
+如果要在风管段的末端创建终端，请在此处选择要创建的连接类型。项目将根据有效的连接类型启用/禁用。
+</p>
+        <p><span style="font-weight: bold;">
+地点
+</span><span style="font-weight: bold;">:</span> 
+输入所选交汇点的绝对 X 和 Y 坐标及单位。 Z 坐标将被视为
+ <span style="font-style: italic;">
+相对
+ </span><span style="font-style: italic;">
+身高
+ </span>
+交汇点相对于该交汇点所在的建筑物层的位置。
+</p>
+        <p>
+这些值是必需的
+ <span style="font-style: italic;">
+终端
+</span> 
+使用时位于环境房间
+ <span style="font-style: italic;">风压和污染物 (WPC)
+</span> 
+文件（参见
+ <a href="../Weather/IDH_UsingWPC_WorkingWithWPCFiles.htm">
+使用 WPC 文件
+</a>
+）或对于
+ <span style="font-style: italic;">
+交界处
+</span><span style="font-style: italic;">s</span> and <span style="font-style: italic;">
+终端
+</span><span style="font-style: italic;">s</span> 
+位于一个
+ <span style="font-style: italic;">
+一维对流/扩散区
+</span> 
+（见
+ <a href="../Zones/IDH_PP_ZONEPARMS2_CFD.htm">
+一维房间数据
+</a>
+）。这些坐标将由 ContamW 根据 WPC 文件或交汇点或终点站所在的 1D 房间的轴进行验证。当您选择以下任一选项时，将自动执行此验证
+ <span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> or <span style="font-weight: bold;">
+创建一个Contam
+</span><span style="font-weight: bold;text-decoration: underline;">X</span><span style="font-weight: bold;"> 
+输入文件
+</span> 
+命令来自
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

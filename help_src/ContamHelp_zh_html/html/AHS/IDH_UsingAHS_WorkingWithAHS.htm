@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用简单的空气处理系统
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+使用简单的空气处理系统
+</h2>
+        <p>The <span style="font-style: italic;">
+简单的空气处理系统
+</span> 
+(AHS) 提供了一种将空气处理系统合并到建筑物中的便捷方法，而无需绘制和定义整个管道系统。每个简单的空气处理系统由两个隐式气流节点或房间组成（
+<span style="color: black;font-style: italic;">
+供应
+</span> and <span style="color: black;font-style: italic;">
+返回
+</span> 
+子系统），三个隐式流程（
+<span style="color: black;font-style: italic;">
+再循环
+</span>, <span style="color: black;font-style: italic;">
+户外
+</span>
+, 和
+ <span style="color: black;font-style: italic;">
+排气
+</span>
+），以及多个
+ <span style="color: black;font-style: italic;">
+房间供应
+</span> 
+（房间入口）和
+ <span style="color: black;font-style: italic;">
+区
+ </span><span style="color: black;font-style: italic;">
+返回
+</span><span style="color: black;font-style: italic;">s</span> 
+（房间中的插座）您可以将其放置在整个建筑物的房间内。您指定每个的气流速率
+ <span style="color: black;font-style: italic;">
+供应
+</span> and <span style="color: black;font-style: italic;">
+返回
+</span> 
+点。
+ <span style="color: black;font-style: italic;">
+简单的空气处理系统
+</span> 不要求您将房间供应和房间返回与其关联。您可以使用
+ <span style="color: black;font-style: italic;">
+简单的空气处理系统
+</span> 
+仅向建筑物供应室外（环境）空气或仅从建筑物排出空气。下图显示了一个简单的空气处理系统的示意图。
+</p>
+        <p>
+            <img src="../../image/AHS_Schematic.gif" border="0" height="344" width="592" alt="
+图像\AHS_Schematic.gif
+" />
+        </p>
+        <p class="SubHeading1">
+系统气流的测定
+</p>
+        <p>
+ContamX 根据以下算法确定与每个空气处理系统相关的气流速率。有关必须为此算法输入的值的更详细说明，请参阅
+ <a href="IDH_UsingAHS_Defining_Air_Handling_Systems.htm">
+定义空气处理系统
+</a> 
+以下部分。
+</p>
+        <p>
+首先，将所有用户定义的送风（向房间送风）和回风（从房间返回空气）气流（质量）率相加。
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span> <![CDATA[ ]><![CDATA[ ]><span style="font-family: &#x27;Symbol&#x27;;">º</span> 
+所有供给的总和
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">ret</span> <![CDATA[ ]><![CDATA[ ]><span style="font-family: &#x27;Symbol&#x27;;">º</span> 
+所有回报的总和
+</p>
+        <p>
+系统所需的室外空气量由下式确定：
+</p>
+        <p><span style="font-style: italic;">
+W'
+</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> 
+= 最大值(
+ <span style="font-style: italic;">f</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>·<span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span>
+, 分钟(
+<span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span>, <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">
+最小o_min
+</span> ) ), </p>
+        <p>
+哪里，
+&#160;<span style="font-style: italic;">f</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> <![CDATA[ ]><![CDATA[ ]><span style="font-family: &#x27;Symbol&#x27;;">º</span> 
+室外空气分数 =
+ <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>/<span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span></p>
+        <p>
+您输入此参数作为
+ <span style="font-style: italic;">
+室外航班时刻表
+</span> 一个简单的空气处理系统（请参阅空气处理系统 – AHS 属性），以及
+</p>
+        <p><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">
+最小o_min
+</span> <![CDATA[ ]><![CDATA[ ]><span style="font-family: &#x27;Symbol&#x27;;">º</span> 
+您输入的“最小室外气流”参数。
+</p>
+        <p>
+空气通过隐式再循环流路再循环的速率，
+ <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">rec</span>
+，由下式确定
+ </p>
+        <p><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">rec</span>  
+= 分钟（
+<span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">ret</span>, <span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span> - <span style="font-style: italic;">
+W'
+</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o </span>).</p>
+        <p>
+系统通过隐式室外气流路径引入室外空气的速率，
+ <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>
+，由下式确定
+</p>
+        <p><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> = <span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span><span style="vertical-align: sub;font-size: 10pt;"> <![CDATA[ ]></span>- <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">rec</span>.</p>
+        <p>
+以及废气通过隐式废气流路流向环境的速率，
+ <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">ex</span>
+，由下式确定
+</p>
+        <p><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">ex</span> = <span style="font-family: &#x27;Symbol&#x27;;">S</span><span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">ret</span> - <span style="font-style: italic;">W</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">rec</span>.</p>
+        <p>
+根据该算法系统将提供的室外空气量，
+ <span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">o</span>
+，将介于
+ <span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">
+最小o_min
+</span> and <span style="color: black;font-style: italic;">f</span><span style="color: black;font-style: italic;vertical-align: sub;">o</span>·<span style="font-family: &#x27;Symbol&#x27;;color: black;">S</span><span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">s</span> 
+只要有供应空气的需求，
+ <span style="font-family: &#x27;Symbol&#x27;;color: black;">S</span><span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">s</span>
+，足以提供该值。否则系统会提供
+ <span style="font-family: &#x27;Symbol&#x27;;color: black;">S</span><span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">s</span>
+。当供应量总和流动时，
+ <span style="font-family: &#x27;Symbol&#x27;;color: black;">S</span><span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">s</span>
+，超过返回流量的总和，
+ <span style="font-family: &#x27;Symbol&#x27;;color: black;">S</span><span style="color: black;font-style: italic;">W</span><span style="color: black;font-style: italic;vertical-align: sub;">ret</span>
+，余额由以下组成
+ <span style="color: black;font-style: italic;">
+户外
+</span> 空气。任何多余的回流空气均通过隐式排气流路排出。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

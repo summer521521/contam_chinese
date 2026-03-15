@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Controls" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+连续值文件 CVF 格式
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+连续值文件 (CVF) 格式
+</h3>
+        <p>
+您可以使用 CVF
+&#160;
+文件来实施时间表，这些时间表不限于 CONTAM 时间表等十二天类型。 CVF 值可通过具有 CVF 文件扩展名的连续值文件提供给 ContamX。 During simulation, ContamX will linearly interpolate between the values provided in the CVF
+&#160;
+文件。您可以使用外部程序根据以下格式创建文本文件。
+</p>
+        <p class="NormalItalic">
+CVF 的第一行用于标识文件的类型。正是：
+ </p>
+        <p class="code">
+ContinuousValuesFile ContamW 2.1
+</p>
+        <p class="NormalItalic">
+第二行是用户输入的文件的描述：
+</p>
+        <p class="code">
+描述[]
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 文件描述 (I1) {W};可能为空
+
+        </p>
+        <p class="NormalItalic">
+下一行定义文件涵盖的时间段：
+</p>
+        <p class="code">
+开始日期
+&#160;&#160;&#160;&#160;&#160; 
+// DEF 数据的第一个日期 (mm/dd
+ <span style="font-family: Symbol;">®</span> IX)
+        </p>
+        <p class="code">
+结束日期
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// DEF 数据的最后日期 (mm/dd
+ <span style="font-family: Symbol;">®</span> IX)
+        </p>
+        <p class="NormalItalic">
+下一部分指定控制节点名称：
+</p>
+        <p class="code">
+_nbvfn
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// CVF 节点名称的数量
+</p>
+        <p class="NormalItalic">
+接下来是由节点名称组成的 _nbvfn 行：
+</p>
+        <p class="code">
+名称[]
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;
+// 节点名称 (I1)
+</p>
+        <p class="NormalItalic">
+文件的其余部分包含从 StartDate 到 EndDate 的每个日期和时间的所有节点的数据：
+</p>
+        <p class="code"><span>
+日期
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;
+// 日期（月/日
+ </span><span style="font-family: Symbol;">®</span><span> IX)</span>
+        </p>
+        <p class="code">
+时间
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;
+// 一天中的时间 (hh:mm:ss
+ <span style="font-family: Symbol;">®</span> I4)
+        </p>
+        <p class="code">
+值[1]
+&#160;&#160;&#160;&#160; &#160;&#160;
+// 名称 [1] 的值 [?] (R4)
+</p>
+        <p class="code">...</p>
+        <p class="code">
+值[_nbvf]
+ &#160;&#160;
+// 名称 [_nbvf] 的值 [?] (R4)
+</p>
+        <p>
+节点数据必须在 StartDate 的时间 00:00:00 开始，并在 EndDate 的 24:00:00 结束。
+&#160; 
+时间必须是连续的，但连续时间之间的差值不必是恒定的。
+
+        </p>
+        <p>
+文件描述不能以“开头
+<span style="font-family: &#x27;Courier New&#x27;;font-weight: bold;font-size: 10pt;">!</span>
+”。的
+ <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+开始日期
+</span> and <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+结束日期
+</span> 
+用于验证文件数据是否覆盖了要模拟的整个时间段。的
+ <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+开始日期
+</span> 
+可能不会晚于
+ <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+结束日期
+</span>
+。单行上的数据元素由制表符分隔。数据必须按时间顺序排列。文件值必须采用控制节点创建的信号所需的单位。
+
+        </p>
+        <p>
+节点名称不得包含嵌入的空格。不在项目文件中的节点数据将被忽略。如果项目文件中的 CVF 节点名称未包含在 CVF 中，将导致致命错误。 ContamW 将通过检查节点名称来帮助用户。 ContamX 将在模拟开始之前执行名称检查。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

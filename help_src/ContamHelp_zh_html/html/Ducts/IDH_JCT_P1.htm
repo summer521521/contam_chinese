@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts|Defining Ducts|Duct Junction and Terminal Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+风压
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5><a name="kanchor90"></a>
+风管接头和终端 - 风压特性
+</h5>
+        <p>
+这组属性仅适用于
+ <span style="font-style: italic;">
+终端
+ </span>
+位于周围房间，因此可能受到风的影响。
+</p>
+        <p><span style="font-weight: bold;">
+风压选项：
+</span> 
+位于环境房间的风管终端有三种风压选项：
+ </p>
+        <ol>
+            <li value="1">
+                <p>
+无风压
+</p>
+            </li>
+            <li value="2">
+                <p>
+恒压
+</p>
+            </li>
+            <li value="3">
+                <p>
+压力取决于风速和风向
+</p>
+            </li>
+        </ol>
+        <p>
+当您选择上述选项之一时，与您选择的风压选项相对应的以下数据输入选项将可供您输入。
+</p>
+        <p><span style="font-weight: bold;">
+恒压数据：
+</span> 
+输入恒定的风压（与风速和风向无关）。
+</p>
+        <p><span style="font-weight: bold;">
+可变压力数据：
+</span> 
+可变风压由以下三个参数的乘积计算得出：
+</p>
+        <ol>
+            <li value="1">
+                <p>
+某个参考高度处的风动压力。
+<br />
+ContamX 将根据稳态风数据确定该压力（参见
+ <a href="../Weather/IDH_PP_WTH_WIND.htm">
+风属性
+</a>
+）或来自天气文件的瞬态风数据（参见
+ <a href="../Weather/IDH_UsingWTH_Defining_Transient_Weather_and_Wind.htm">
+定义瞬态天气和风
+</a>).</p>
+            </li>
+            <li value="2">
+                <p>
+考虑局部地形影响的系数（风压修改器）。
+</p>
+            </li>
+            <li value="3">
+                <p>
+考虑相对风向的压力系数（风压剖面）。
+</p>
+            </li>
+        </ol>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+风压调节器：
+</span> 
+CONTAM 使用此值来解释建筑工地的风速剖面与测量位置（例如，风速剖面）之间的差异。机场气象站（参见
+ <a href="../Weather/IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a>
+）。如果您要为气流路径实施可变风压，则 CONTAM 仅需要此值。 ContamW 将根据通过输入的数据为此提供默认值
+ <a href="../Weather/IDH_PP_WTH_WIND.htm">
+天气和风参数属性页
+</a> 
+或者您可以覆盖特定气流路径的默认值。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+墙壁方位角：
+</span> 
+输入墙的朝向（从北顺时针方向）。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+简介：
+</span> 风压剖面考虑了风向影响。您可以从名称列表中包含的风压剖面中选择先前定义的风压剖面。单击“新配置文件”按钮定义新的风压配置文件。要查看或修改风压剖面数据，请单击“编辑剖面”按钮。按“新建个人资料”或“编辑个人资料”按钮后，
+ <a href="../Weather/IDH_WIND_PROFILE.htm">
+风压剖面
+</a> 
+页面将显示配置文件的图形表示。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

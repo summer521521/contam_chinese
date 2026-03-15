@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Zones|Defining Zones|Zone Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+房间 - 明细表属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+房间 – 明细表属性
+</h4>
+        <p><a name="kanchor34"></a>
+这些是用于定义房间温度计划的属性。如果温度计划与房间相关，则恒定值将被覆盖，并且模拟运行控制应设置为在模拟期间改变建筑房间内的密度（请参阅气流数值属性中的气流数值属性）。
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+部分）。
+</p>
+        <p><span style="font-weight: bold;">
+房间名称：</span> 
+这是在“房间数据”属性页上输入的房间的符号名称。
+</p>
+        <p><span style="font-weight: bold;">
+温度表：
+</span> 
+选择您想要与该区域关联的温度计划。 （参见
+ <a href="../Schedules/IDH_UsingSchedules_Working_with_Schedules.htm">
+使用时间表
+</a>).</p>
+        <p><span style="font-weight: bold;">
+CVF/DVF 控制：</span> <![CDATA[ ]>
+可以使用 CVF 或 DVF 文件中的值代替上述时间表（请阅读有关 CVF 和 DVF 控件的信息）
+             <![CDATA[ ]><a href="../Controls/IDH_UsingControls_ControlElementTypes.htm">
+控制元件类型
+</a> 
+部分）。这使得能够使用这些控制元素类型而无需绘制/定义关联的控制网络。关联的单选按钮“都不使用”、“使用CVF”和“使用DVF”用于选择所需的控制方法。从关联的“名称”下拉框中选择标题名称，该下拉框中将根据上述单选按钮选择显示 CVF 或 DVF 文件的标题。
+ </p>
+        <p><span style="font-weight: bold;">
+控制状态：
+</span> <![CDATA[ ]>
+这将显示当前的控制方法：计划、直接CVF、直接DVF或控制网络。如果 SketchPad 上控制网络的执行器与计划项目关联，则它将优先于计划和 CVF/DVF 控制。如果选择“使用 CVF”或“使用 DVF”单选按钮，则 CVF 或 DVF 将优先于关联的计划。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with TRNSYS" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+TRNSYS-CONTAM 耦合过程
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+TRNSYS-CONTAM 耦合过程
+</h2>
+        <p><span style="color: #8b0000;">
+以下概述描述了开发耦合多房间传热、气流和污染物传输模型的过程
+ <b>
+特恩系统18
+</b> 
+和 CONTAM 使用 Type56 和 Type98。
+</span> 
+它涵盖了基本方法，但并未涵盖所有可能的耦合场景所需的所有细节。你可能需要在这两种类型之间实现调度、恒温控制等，而这些并不是由这个过程自动实现的。然而，这个过程确实提供了房间气流和温度之间的联系。在实现以下耦合过程之前，您应该确保要使用的 CONTAM 项目已完全定义，因为一旦建立耦合，修改项目的重要功能可能会有点麻烦。例如，添加/删除房间将导致重大问题并需要重复形成耦合。另一方面，更改计划、非耦合控制或调整 CONTAM 的仿真参数不应需要重新耦合。
+</p>
+        <p><b>
+自动输入 Type98
+</b>
+        </p>
+        <p>
+下面的耦合过程将自动为每个房间温度和环境条件创建 Type98 的 TRNSYS 输入：干球温度、气压、风速和风向。
+</p>
+        <p><b>
+Type98 的自动输出
+</b>
+        </p>
+        <p>
+每个
+ <i>
+连接
+</i> 
+（由气流总和组成）在两个房间之间以及房间与环境之间作为 Type98 的输出包含在内。
+</p>
+        <p><b>
+手动输入 Type98
+</b>
+        </p>
+        <p>
+要建立手动输入，请定义
+ <i>
+常数
+</i> 
+CONTAM 项目文件中的控制节点并为其命名。  这可以以多种方式使用，例如，控制供应点的设计气流率的一部分。
+</p>
+        <p><b>
+Type98 的手动输出
+</b>
+        </p>
+        <p>
+要建立手动输出，请定义
+ <i>
+信号分离
+</i> 
+CONTAM 项目中的控制节点并为其命名。
+</p>
+        <p><b>
+窗户
+</b>
+        </p>
+        <p>
+要通过 Type 56 创建用于热建模的窗口，请在 CONTAM 项目中定义气流路径，该项目使用名称中包含单词“wind”的双向气流元件。将气流路径图标放置在您希望窗户中心所在的墙壁上。通过气流路径参考标高定义窗口底部的标高，并通过气流元件属性定义窗口的高度和宽度。如果您不希望在耦合模拟期间有任何气流通过窗口，请将路径乘数设置为零。导出时，将根据这些属性在 idf 文件中创建窗口。您必须确保窗户完全包含在墙内并且不会相互重叠。
+</p>
+        <h3>
+耦合过程
+</h3>
+        <ol>
+            <!-- 1. -->
+            <li value="1">
+打开/创建项目
+ <b>
+ContamW
+</b> 
+示例项目文件名：[
+<span style="color: #e9967a;">
+测试.prj
+</span>].<br />
+应使用比例因子按比例绘制 CONTAM 模型。使用缩放因子应该会产生 3D 几何形状，从而产生相对准确的房间体积。
+</li>
+            <!-- 2. -->
+            <li value="2">
+打开
+ <b>
+CONTAM3DExport
+</b> 
+程序。
+</li>
+            <ol style="list-style-type: lower-alpha;">
+                <!-- a. -->
+                <li value="1">
+选择 TRNSYS 选项卡，然后单击
+ <i>
+选择 CONTAM 项目
+</i> 
+按钮。
+
+								<br />
+选择所需的 CONTAM 项目文件 [
+<span style="color: #e9967a;">
+测试.prj
+</span>].
+								<br />The <i>
+比例因子
+</i> 
+应该更改以显示 PRJ 文件的内容。
+</li>
+                <!-- b. -->
+                <li value="2">
+单击
+ <i>
+保存 Trnsys3D IDF
+</i> 
+按钮。
+<br />
+这将创建一个 Trnsys3d 兼容的 IDF 文件 [
+<span style="color: #7b68ee;">
+测试_T3D.idf
+</span>]<br /></li>
+                <!-- c. -->
+                <li style="color: #8b0000;" value="3">
+设置 TRNSYS 和 Type98 特定形式的位置：
+</li>
+                <ul>
+                    <li style="color: #8b0000;" value="1">
+TRNSYS 安装路径 - 对于版本 18，这通常是
+ <i>
+C:\TRNSYS18
+</i>.</li>
+                    <li style="color: #8b0000;" value="2">
+形式安装相对路径 - 通常由 TRNSYS 设置为
+ <i>
+工作室\形式
+</i>.</li>
+                    <li style="color: #8b0000;" value="3">
+项目形式相对路径 - 默认为 CONTAM 的外部程序目录的位置，即
+ <i>
+实用程序\调用外部程序\CONTAM
+</i>
+，但可以是您喜欢的任何子目录。您必须确保在选择目录之前创建该目录。
+</li>
+                </ul>
+                <!-- e. -->
+                <li style="color: #8b0000;" value="4">
+单击
+ <i>
+保存 TRNSYS 建筑和甲板文件
+</i> 
+按钮来创建和保存文件。
+ 
+								<br />
+这些文件将在与 CONTAM 项目文件相同的目录中创建
+<span style="color: #e9967a;">
+测试.prj
+</span>]</li>
+                <ul>
+                    <li style="color: #8b0000;" value="1">
+TRNSYS 输入文件 [
+<span style="color: #a9a9a9;"><span style="color: #a9a9a9;">
+测试
+</span>
+.dck
+</span>]</li>
+                    <li style="color: #8b0000;" value="2">
+Type56 建筑文件 [
+<span style="color: #2e8b57;">
+测试.b18
+</span>]</li>
+                    <li style="color: #8b0000;" value="3">
+变量交换文件[
+<span style="color: #4169e1;">
+测试.vef
+</span>]</li>
+                    <li style="color: #8b0000;" value="4">
+动态-静态形式
+ <span style="color: #ff8c00;"><span style="color: #8b0000;">[</span>
+测试.tmf
+</span>
+] 将在项目形式相对路径目录中创建。
+</li>
+                </ul>
+            </ol>
+            <!-- 3. -->
+            <li value="3">
+检查 IDF 文件的几何形状 [
+<span style="color: #7b68ee;">
+测试_T3D.idf
+</span>
+]。最好使用
+ <b>
+Trnsys3d
+</b> 
+插件
+ <b>
+草图
+</b>.<br />					
+检查模型以确保窗户完全包含在墙面内。如果模型存在问题，最好在继续之前在 CONTAM 项目文件中修复它们。
+</li>
+            <!-- 4. -->
+            <li style="color: #8b0000;" value="4">
+打开
+ <b>
+TRNSYS 仿真工作室
+</b> 
+节目
+</li>
+            <ol style="list-style-type: lower-alpha;">
+                <!-- a. -->
+                <li style="color: #8b0000;" value="1">
+选择
+ <i>
+文件
+ &#8594;  
+导入 TRNSYS 输入文件...
+</i> 
+菜单命令。
+</li>
+                <!-- b. -->
+                <li style="color: #8b0000;" value="2">
+选择由 CONTAM3DExporter 创建的 TRNSYS 输入文件 [
+<span style="color: #a9a9a9;"><span style="color: #a9a9a9;">
+测试
+</span>
+.dck
+</span>].
+							<br />
+这将创建 TRNSYS 项目 [
+<span style="color: #b8860b;">
+测试导入.tpf
+</span>
+] 在 Type56 和 Type98 之间定义并连接自动输入和输出。还应该定义和连接几个其他类型，包括 EnergyPlus (EPW) 文件的天气文件类型 15（确保选择现有的天气文件）。
+</li>
+            </ol>
+            <!-- 5. -->
+            <li style="color: #8b0000;" value="5">
+此时，您应该拥有一个功能齐全的耦合模型。
+</li>
+            <ol style="list-style-type: lower-alpha;">
+                <!-- a. -->
+                <li style="color: #8b0000;" value="1">
+选择
+ <i>
+计算
+ &#8594;  
+运行模拟
+</i> 
+菜单命令。
+</li>
+                <!-- b. -->
+                <li style="color: #8b0000;" value="2">
+这将执行耦合模拟，从而分别由 Type98 (ContamX) 和 Type56 计算气流和温度。气流将由与天气相关的边界条件和 CONTAM 中定义的 HVAC 系统气流速率驱动。您可以在ContamW中打开CONTAM项目并观察模拟结果，包括区间气流和房间温度。
+</li>
+            </ol>
+            <!-- 6. -->
+            <li style="color: #8b0000;" value="6">
+接下来的步骤取决于导出器生成的三维几何图形对于您的模拟目的是否可接受。
+</li>
+            <ol style="list-style-type: lower-alpha;">
+                <li style="color: #8b0000;" value="1">
+如果没有阴影的纯直线建筑足以满足您的分析目的，那么您可以继续合并完成模型所需的其他热系统或类型（请参阅步骤 9）。
+</li>
+                <li style="color: #8b0000;" value="2">
+如果您需要修改建筑几何形状，例如通过更改屋顶的坡度或添加遮阳组件，则关闭 <b>
+TRNSYS 仿真工作室
+</b> 
+并继续执行步骤 7。
+</li>
+            </ol>
+            <!-- 7. -->
+            <li style="color: #8b0000;" value="7">
+TRNSYS 构建文件中的几何结构 [
+<span style="color: #2e8b57;">
+测试.b18
+</span>
+] 最终必须修改。以下步骤假设您正在使用
+ <b>
+三维系统
+</b> 
+插件
+ <b>
+草图大师
+</b>.</li>
+            <ol style="list-style-type: lower-alpha;">
+                <!-- a. -->
+                <li style="color: #8b0000;" value="1">
+按照 SketchUp Trnsys3D 插件的说明打开您在上面创建的 IDF 文件 [
+<span style="color: #7b68ee;">
+测试_T3D.idf
+</span>]. 
+							<br />
+根据需要修改几何形状并保存 IDF 文件 [
+<span style="color: #0000ff;">
+测试_T3D_mod.idf
+</span>]. </li>
+                <!-- b. -->
+                <li style="color: #8b0000;" value="2">
+运行
+ <b>
+TRN构建
+</b> 
+Windows 开始菜单中 TRNSYS18 组中的程序。
+</li>
+                <!-- c. -->
+                <li style="color: #8b0000;" value="3">
+选择
+ <i>
+文件
+ &#8594;  
+导入 TRNSYS3d 文件...
+</i> 
+从菜单中，然后选择半球和要导入的 IDF 文件 [
+<span style="color: #0000ff;">
+测试_T3D_mod.idf
+</span>].</li>
+                <ul>
+                    <li style="color: #8b0000;" value="1">
+这将使用 IDF 文件的修改后的几何形状来创建新的 TRNSYS 构建文件 [
+<span style="color: #2e8b57;">
+测试_T3D_mod.b18
+</span>]. </li>
+                    <li style="color: #8b0000;" value="2">
+修改后的 B18 文件将不包括由 CONTAM3DExporter 创建的所有用户定义输入，并且可能包括不同的曲面，具体取决于您对 IDF/B18 文件所做的修改。
+ </li>
+                </ul>
+                <!-- d. -->
+                <li style="color: #8b0000;" value="4">
+最初由 CONTAM3DExporter 生成的 B18 文件 [
+<span style="color: #2e8b57;">
+测试.b18
+</span>
+] 必须使用修改后的 B18 文件的几何形状进行更新 [
+<span style="color: #2e8b57;">
+测试_T3D_mod.b18
+</span>
+]。这可以使用 diff 工具（例如 WinMerge 或 KDiff3）或简单地使用文本编辑器将修改后的文件的相关部分复制到原始文件来完成。应将以下部分从修改后的文件复制到原始文件：
+</li>
+                <ul>
+                    <li style="color: #8b0000;" value="1">
+方向 - 如果您修改了任何表面的角度，则此部分中将添加新的太阳方向。这些将被 56 型的内部太阳计算所利用。但是，与这些新角度相关的太阳辐射将不会包含在
+ <i>
+太阳能绘图仪
+</i>.</li>
+                    <li style="color: #8b0000;" value="2">
+AIRNODE - 更新每个空气节点的表面（墙壁、地板、天花板和窗户），因为它们的属性可能已更改，例如数量、面积和方向。
+<br />									
+注意：请务必保留原始 B18 文件的 REGIME 数据。
+</li>
+                    <li style="color: #8b0000;" value="3">
+_EXTENSION_BuildingGeometry_START_ - 整个部分可能都应该更新，因为修改绘图时顶点和关联的曲面定义可能会发生更改。
+</li>
+                    <li style="color: #8b0000;" value="4">
+_EXTENSION_ExternalShadingGeometry_START_ - 复制添加到修改后的建筑物的着色表面。
+</li>
+                </ul>
+                <!-- e. -->
+                <li style="color: #8b0000;" value="5">
+保存并关闭原始B18文件[
+<span style="color: #2e8b57;">
+测试.b18
+</span>
+] 您刚刚使用修改后的几何体进行了更新。
+</li>
+            </ol>
+            <!-- 8. -->
+            <li style="color: #8b0000;" value="8">
+打开
+ <b>
+TRNSYS 仿真工作室
+</b> 
+程序。
+</li>
+            <ol style="list-style-type: lower-alpha;">
+                <!-- a. -->
+                <li style="color: #8b0000;" value="1">
+选择
+ <i>
+文件-
+&gt; 
+打开...
+</i> 
+菜单命令打开之前创建的TRNSYS项目文件[
+<span style="color: #b8860b;">
+测试导入.tpf
+</span>].</li>
+                <!-- b. -->
+                <li style="color: #8b0000;" value="2">
+选择
+ <i>
+计算 -
+&gt; 
+运行模拟
+</i> 
+菜单命令使用修改后的构建文件运行模拟。
+</li>
+            </ol>
+            <!-- 9. -->
+            <li style="color: #8b0000;" value="9">
+此时，您可以根据需要修改模型，以合并完成分析所需的热系统和其他类型。以下是您可能需要考虑的选项：
+<br /></li>
+            <ol style="list-style-type: lower-alpha;">
+                <li style="color: #8b0000;" value="1">
+TRNSYS型号：
+</li>
+                <ul>
+                    <li style="color: #8b0000;" value="1">
+恒温控制供暖和空调系统（与 CONTAM HVAC 系统气流控制协调）。
+
+									<br />
+通常，HVAC 系统中的受控变量包含在热域内，例如温度，因此控制信号将源自 TRNSYS 项目的传热组件。对于气流，控制信号将调节风扇的气流。因此，控制信号应与气流域中相应的风扇协调，即 CONTAM 模型。这种协调可以使用以下方式完成
+ <i>
+控制
+</i>
+- 相关的通信消息。
+</li>
+                    <li style="color: #8b0000;" value="2">
+内部增益：居住者、照明、遮阳控制等。
+<br />								
+注：与占用者相关的内部增益应与 CONTAM 模型的占用时间表（污染物产生率和位置）相协调。
+</li>
+                </ul>
+                <li style="color: #8b0000;" value="2">
+CONTAM 模型：
+</li>
+                <ul>
+                    <li class="CW2" value="1">
+HVAC 系统气流控制（与 TRNSYS HVAC 系统控制协调）
+
+									<br />
+如上所述，HVAC 系统气流控制信号可能源自热域。此类控制信号需要引入 CONTAM 模型（通过命名控件）。然而，某些系统也可能需要控制污染物域内的变量，例如基于二氧化碳的需求控制通风系统。在这种情况下，必须协调热、气流和污染物传输域之间的逻辑。
+<br />									
+注意：每当您修改 CONTAM 控制网络时，您都必须执行
+ <i>
+模拟 -
+&gt; 
+运行建筑检查
+</i> 
+ContamW 中的命令。此外，如果您向 CONTAM 模型添加或删除任何共享控件类型（即名为 Set 或 Pass）的控件，则需要重新生成变量交换文件 (VEF)。对 PRJ 文件的此类更改应使用单独目录中的 PRJ 文件的副本来完成，并且在更新用于耦合模拟的 VEF 文件时应小心。
+</li>
+                    <li style="color: #8b0000;" value="2">
+室内污染源和污染物汇
+<br />									
+注：占用时间表应与 56 型占用相关冷负荷时间表相协调。
+</li>
+                    <li style="color: #8b0000;" value="3">
+污染物和颗粒过滤器
+</li>
+                </ul>
+            </ol>
+        </ol>
+        <p class="SubHeading1">
+更新耦合的 TRNSYS 17 项目
+</p>
+        <p class="NormalCW2">
+现有的耦合 TRNSYS 项目文件 (tpf) 可以通过使用 TRNSYS 18 Simulation Studio 打开来更新。关联的 CONTAM PRJ 文件必须更新为新版本，方法是使用 ContamW 打开该文件并保存更新的 PRJ 文件。确保 Type98 引用新的 PRJ 文件。两者的先前版本
+ <i>
+类型98.dll
+</i> and <i>
+contamx3.exe
+</i> 
+必须替换为目录中的新版本，如上一节所述。
+</p>
+        <ol>
+            <!-- End of Steps -->
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

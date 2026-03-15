@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 11 节：管道元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 11 节：管道元件
+</h5>
+        <p>管道元素由 afelmt_read( ) 函数读取，管道标志设置为 1，并由 afelmt_save( ) 函数保存。数据存储在 AFE_DAT 结构中，该结构在 contam.h（对于 ContamW）和 simdat.h（对于 ContamX）中定义。 AFE_DAT 包括指向元素特定数据结构的指针。
+</p>
+        <p>
+注意：本节中的某些元素在 CONTAM 2.1 程序文档中的记录不正确。但是，此版本的数据结构没有更改，仅更改了此处提供的文档。
+</p>
+        <p class="NormalItalic">
+风管元件部分开始于：
+ </p>
+        <p class="code">
+_ndfe // 管道流元件数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _ndfe 元素的数据。
+</p>
+        <p class="NormalItalic">
+对于每个元素，第一个数据行包括：
+</p>
+        <p class="codeindent">
+nr // 元素编号 (
+<span style="color: red;">IX</span>
+）；按从 1 到 _nafe 的顺序
+</p>
+        <p class="codeindent">
+icon // 用于表示流路的图标 ((R4) {W}
+</p>
+        <p class="codeindent">
+dtype // 元素数据类型（字符串？I2）
+</p>
+        <p class="code">             
+// 元素类型名称按 dtype 顺序存储在 _afe_dnames 中。
+&#160;</p>
+        <p class="codeindent">
+name[] // 元素名称 (I1) {W}
+</p>
+        <p class="NormalItalic">
+第二行有：
+</p>
+        <p class="codeindent">
+desc[] // 元素描述 (I1) {W} 可以为空
+</p>
+        <p class="NormalItalic">
+接下来是两行或多行数据，具体取决于元素数据类型。
+</p>
+        <p class="NormalItalic">
+接下来的介绍行给出了类型编号、定义为该编号的程序宏、来自 _afe_dnames 的类型名称以及保存数据的数据结构。数据结构在 ContamW 中的 celmts.h 和 ContamX 中的 selmts.h 中定义。只要 _afe_dnames 和相关数组中的顺序反映了该顺序，类型号就可以更改。</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 23 [DD_DWC]“dct_dwc”存储在结构 DEF_DWC 中。
+</p>
+        <p class="NormalItalic">
+Darcy-Colebrook 数据包括：
+ </p>
+        <p class="codeindent">
+rough // 粗糙度尺寸 [m] (R4)
+</p>
+        <p class="codeindent">
+lam // 每 [m] 风管的层流总损耗系数 (R4)
+ </p>
+        <p class="codeindent">
+u_R // 粗糙度单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 24 [DD_PLR]“dct_plr”存储在结构 DFE_ORF 中。
+</p>
+        <p class="NormalItalic">
+孔口数据包括：
+</p>
+        <p class="codeindent">
+lam //层流系数（R4）
+</p>
+        <p class="codeindent">
+turb // 紊流系数（R4）
+</p>
+        <p class="codeindent">
+expt // 压力指数 (R4)
+</p>
+        <p class="codeindent">
+area // 实际面积 [m^2] (R4) {X}
+</p>
+        <p class="codeindent">
+dia // 水力直径 [m] (R4) {X}</p>
+        <p class="codeindent">
+coef //流量系数(R4){X}
+</p>
+        <p class="codeindent">
+u_A // 面积单位 (I2) {X}
+</p>
+        <p class="codeindent">
+u_D // 直径单位 (I2) {X}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 26 [DD_QCN]“dct_qcn”存储在结构 DFE_QCN 中。
+</p>
+        <p class="NormalItalic">
+体积流量幂律数据包括：
+ </p>
+        <p class="codeindent">
+lam //层流系数（R4）
+</p>
+        <p class="codeindent">
+turb // 紊流系数（R4）
+</p>
+        <p class="codeindent">
+expt // 压力指数 (R4)
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 25 [DD_FCN]“dct_fcn”存储在结构 DFE_FCN 中。
+</p>
+        <p class="NormalItalic">
+质量流量幂律数据包括：
+ </p>
+        <p class="codeindent">
+lam //层流系数（R4）
+</p>
+        <p class="codeindent">
+turb // 紊流系数（R4）
+</p>
+        <p class="codeindent">
+expt // 压力指数 (R4)
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 28 [DD_CMF]“dct_cmf”存储在结构 DFE_CMF 中。
+</p>
+        <p class="NormalItalic">
+恒定质量流量风扇数据包括：
+ </p>
+        <p class="codeindent">
+流量//设计流量[kg/s] (R4)
+</p>
+        <p class="codeindent">
+u_F // 流量单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 29 [DD_CVF]“dct_cvf”存储在结构 DFE_CVF 中。
+</p>
+        <p class="NormalItalic">
+定风量风机数据包括：
+ </p>
+        <p class="codeindent">
+Flow // 设计流量[m^3/s] (R4)
+</p>
+        <p class="codeindent">
+u_F // 流量单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 27 [DD_FAN]“dct_fan”存储在结构 DFE_FAN 中。
+</p>
+        <p class="NormalItalic">
+第一行性能曲线风扇数据包括：
+ </p>
+        <p class="codeindent">
+lam //层流系数（R4）
+</p>
+        <p class="codeindent">
+turb // 紊流系数（R4）
+</p>
+        <p class="codeindent">
+expt // 压力指数 (R4)
+</p>
+        <p class="codeindent">
+rdens // 参考流体密度 [kg/m^3] {R4}
+</p>
+        <p class="codeindent">
+fdf // 自由传递流量 (prise = 0) [kg/s] {R4}
+</p>
+        <p class="codeindent">
+sop // 关闭压力（流量 = 0）[Pa] {R4}
+</p>
+        <p class="codeindent">
+off // 风扇关闭如果 (RPM/额定 RPM)
+ &lt; 
+关闭{R4}
+</p>
+        <p class="NormalItalic">
+第二行包括：
+  </p>
+        <p class="codeindent">
+fpc[4] // 风扇性能多项式系数{R4}
+</p>
+        <p class="codeindent">
+npts // 测量数据点数 (I2) {W}
+</p>
+        <p class="codeindent">
+Sarea // 截止孔面积 [m^2] {R4} {W}
+</p>
+        <p class="codeindent">
+u_Sa // 关闭面积单位 (I2) {W}
+</p>
+        <p class="NormalIndentItalic">
+接下来的 npts 行包括：
+  </p>
+        <p class="codeindent">
+mF // 测量流量 [kg/s] (R4) {W}
+</p>
+        <p class="codeindent">
+u_mF // 测量流量单位 (I2) {W}
+</p>
+        <p class="codeindent">
+dP // 测得的压力上升 [Pa] (R4) {W}
+</p>
+        <p class="codeindent">
+u_dP // 压力上升单位 (I2) {W}
+</p>
+        <p class="codeindent">
+rP // 修正后的压力上升 [Pa] (R4) {W}
+</p>
+        <p class="codeindent">
+u_rP // 修正压力单位 (I2) {W}
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="NormalItalic">
+元素类型 30 [DD_BDQ]“dct_bdq”存储在结构 DFE_BDQ 中。
+</p>
+        <p class="NormalItalic">
+体积流量幂律逆止阻尼器数据包括：
+ </p>
+        <p class="codeindent">
+lam //层流系数{R4}
+</p>
+        <p class="codeindent">
+Cp //紊流系数（dP
+ &gt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+xp // 压力指数 ( dP
+ &gt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+Cn //紊流系数(dP
+ &lt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+xn // 压力指数 ( dP
+ &lt; 
+0 ) {R4}
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="NormalItalic">
+元素类型 31 [DD_BDF]“dct_bdf”存储在结构 DFE_BDF 中。
+</p>
+        <p class="NormalItalic">
+质量流量幂律逆止阻尼器数据包括：
+ </p>
+        <p class="codeindent">
+lam //层流系数{R4}
+</p>
+        <p class="codeindent">
+Cp //紊流系数（dP
+ &gt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+xp // 压力指数 ( dP
+ &gt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+Cn //紊流系数(dP
+ &lt; 
+0 ) {R4}
+</p>
+        <p class="codeindent">
+xn // 压力指数 ( dP
+ &lt; 
+0 ) {R4}
+</p>
+        <p class="NormalItalic">
+每个元素之后是存储在结构 DUCT 中的以下几何形状和泄漏数据。</p>
+        <p class="NormalItalic">
+管道几何数据的第一行包括：
+ </p>
+        <p class="codeindent">
+hdia // 水力直径 [m] {R4}
+</p>
+        <p class="codeindent">
+perim // 周长 [m] {R4}
+</p>
+        <p class="codeindent">
+面积 // 横截面积 [m^2] {R4}
+</p>
+        <p class="codeindent">
+Major // 矩形或椭圆形风管的主要尺寸 [m] {R4}
+</p>
+        <p class="codeindent">
+minor // 矩形或椭圆形风管的次要尺寸 [m] {R4}</p>
+        <p class="codeindent">
+As // 风管段表面积 [m^2] {R4}（未使用）
+</p>
+        <p class="codeindent">
+Qr // Pr 处的管道泄漏率 [L/s/m^2] {R4}
+</p>
+        <p class="codeindent">
+Pr // dPstatic 泄漏率 [Pa] {R4}
+</p>
+        <p class="NormalItalic">
+管道几何数据的第二行包括：
+ </p>
+        <p class="codeindent">形状 // 0 = 圆形，1 = 矩形，2 = 椭圆形，3 = 其他 (I2) {W}
+</p>
+        <p class="codeindent">
+u_D // 直径单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_P // 周长单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_A // 面积单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_mj // 主要尺寸 (I2) {W} 的单位</p>
+        <p class="codeindent">u_mn // 小尺寸单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_Qr // 泄漏率单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_Pr // 标准 dP (I2) {W} 的单位
+</p>
+        <p class="NormalItalic">
+管道元件部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <h6>&#160;</h6>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Contaminant Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+空气的性质
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor160"></a>
+空气的性质
+</h3>
+        <p>
+在 CONTAM 中，空气被视为理想气体，其属性根据理想气体定律计算得出。空气的密度由下式给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn"><span style="font-family: Symbol;font-style: italic;">r</span> = <i>m</i>/<i>V</i> = <i>P</i>/(<i>RT</i>)</td>
+                    <td class="EqnNum">(1)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">m</span> &#160;
+= 空气质量
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">V</span> &#160;
+= 给定体积，
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">P</span> &#160;
+= 绝对压力，
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">R</span> &#160;
+= 空气的气体常数，以及
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">T</span> &#160;
+= 绝对温度。
+</p>
+        <p>
+c.v. 中的空气质量
+ <span style="font-style: italic;">i</span> 
+是单个污染物的质量总和，
+ <span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">a</span>
+，在简历中
+    </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/M_sumM.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(2)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+污染物浓度 <span style="font-family: &#x27;Symbol&#x27;;">a</span> 
+在简历中
+ <span style="font-style: italic;">i</span> 
+定义为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/C_mdivm.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(3)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+在 CONTAM 中
+ <span style="font-style: italic;">
+浓度
+</span> 
+除非另有说明，“质量比”指的是质量比而不是体积比。
+ </p>
+        <p>
+空气是几种不同物质的混合物。 c.v. 中空气的气体常数值。由下式给出：
+       </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/R_sumRC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(4)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <i>R</i><sub style="font-style: italic;">i</sub> 
+= 物质的气体常数
+ <span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">a</span> 
+等于通用气体常数 8 314.41 J/(kmol·K) 除以摩尔质量
+ <span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">a</span> 
+（千克/千摩尔）。同样，对于热计算（CONTAM 中的一个选项，用于在
+ <i>
+短时间步长
+</i> 
+仅方法），管道段中空气的比热由各个物种的比热的加权和给出：
+         </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/Cp_sumCpC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(5)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+在典型条件下，只有水蒸气对空气的特性有影响，甚至可以将其作为初始近似值忽略不计。物种浓度有一个标准定义
+ <span style="font-style: italic;">
+干燥空气
+</span> 
+其有效摩尔质量为28.9645 kg/kmol，气体常数为287.055 J/(kg·K)。 ASHRAE 通常指的是干燥空气
+ <span style="font-style: italic;">
+标准条件
+</span> 
+分别为 101.325 kPa 和 20 ℃，并注明此类空气的密度为 1.20 kg/m
+<span style="vertical-align: super;font-size: 10pt;">3</span> 
+[ASHRAE 2004 年第 18.4 页]。更准确地说，密度为 1.20410 kg/m3
+<span style="vertical-align: super;font-size: 10pt;">3</span> 
+由方程（1）计算。
+  </p>
+        <p><span style="font-size: 11pt;font-weight: bold;">NOTE</span><span style="font-size: 11pt;font-weight: bold;">:</span>  
+ASHRAE 将水蒸气视为
+ <span style="font-style: italic;">
+湿度比
+</span> 
+而不是质量浓度。湿度比，
+ <span style="font-style: italic;">W</span>
+，定义为体积中水蒸气的质量与干燥空气的质量之比：W =
+ <span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span><span style="font-style: italic;vertical-align: super;"> <![CDATA[ ]></span>/ <span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">da</span> [<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a> 
+第 6.8 页]。 CONTAM 质量浓度，ASHRAE 称为
+ <span style="font-style: italic;">
+比湿度
+</span>
+，是：
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span> = <span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span><span style="font-style: italic;vertical-align: super;"> <![CDATA[ ]></span>/ (<span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span><span style="font-style: italic;vertical-align: super;"> <![CDATA[ ]></span>+ <span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">da</span>
+）。湿度比与质量浓度之间的换算为
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span>&#160;=&#160;<span style="font-style: italic;">W</span>&#160;/&#160;(1+<span style="font-style: italic;">W</span>
+）和W
+&#160;=&#160;<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span><span style="font-style: italic;">&#160;</span>/&#160;(1–<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">w</span>).</p>
+        <p>
+在许多情况下，我们感兴趣的是物种浓度太小而无法显着影响空气密度（或比热）。这些被称为
+ <span style="font-style: italic;">
+痕迹
+ </span><span style="font-style: italic;">
+浓度
+</span>
+。当模拟仅涉及痕量污染物时，CONTAM 使用干燥空气来计算空气属性。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

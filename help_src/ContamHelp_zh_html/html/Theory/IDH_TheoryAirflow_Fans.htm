@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+粉丝
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+粉丝
+</h4>
+        <p>
+本节介绍如何使用 CONTAM 建模强制流单元的理论。强制流元件包括恒流风机和变流风机。恒流风机包括定体积流量和定质量流量。变流量风扇是根据风扇性能曲线的输入进行建模的，该曲线将压降与通过风扇流量元件的气流相关联。
+</p>
+        <h5>
+恒流风机
+</h5>
+        <p>一个特别简单但有用的气流元件在两个节点之间设置恒定的流量。由于流量是恒定的，因此流量相对于节点压力的偏导数必须为零。恒流元件对雅可比行列式没有贡献，[
+<span style="font-weight: bold;">A</span>
+]，但它确实添加到右侧向量，{
+<b>B</b>}.
+        </p>
+        <p>
+恒流元件不会在数学上关联相邻节点的压力。为了获得唯一的解决方案，网络中的所有节点都必须链接到恒压节点。违反此限制将导致方程解中的某处被零除。考虑以下简单网络：
+</p>
+        <p>&#160;</p>
+        <p class="code">&#160;&#160;&#160;&#160; 
+|----C1----|----F1----|----C2----|----F2----|----C3----|
+</p>
+        <p class="code">&#160;&#160;&#160;&#160; P1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P3&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P4&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P5&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P6</p>
+        <p>&#160;</p>
+        <p>
+其中 P
+<span style="vertical-align: sub;font-size: 10pt">1</span> 
+和P
+<span style="vertical-align: sub;font-size: 10pt">6</span> 
+是已知压力，F
+<span style="vertical-align: sub;font-size: 10pt">1</span> 
+和F
+<span style="vertical-align: sub;font-size: 10pt">2</span> 
+是已知的流量。由于流经C
+<span style="vertical-align: sub;font-size: 10pt">2</span> 
+由P决定
+<span style="vertical-align: sub;font-size: 10pt">3</span> - P<span style="vertical-align: sub;font-size: 10pt">4</span>
+，并且没有其他流量与这些压力相关，因此没有足够的方程来确定 P
+<span style="vertical-align: sub;font-size: 10pt">3</span><span style="font-style: italic;">and</span> P<span style="vertical-align: sub;font-size: 10pt">4</span> 
+独一无二。这是以下事实的数学表达式：F 是可能的
+<span style="vertical-align: sub;font-size: 10pt">1</span> 
+和F
+<span style="vertical-align: sub;font-size: 10pt">2</span> 
+被分配不同的流，这产生了物理上不可能的条件。
+ 
+        </p>
+        <p>
+CONTAM 提供两个恒定流量元素：
+&#160; 
+一种用于恒定质量流量，一种用于恒定体积流量。
+</p>
+        <h5>
+变流风机
+&#160;</h5>
+        <p>
+2000 年 ASHRAE HVAC 系统和设备手册第 18 章总结了风扇引起的流动理论 [
+<a href="../IDH_References.htm#REF_ASHRAE_2004">
+2004年美国采暖及制冷工程师协会
+</a>
+]。更广泛的治疗在[
+<a href="../IDH_References.htm#REF_Osborne_1977">
+奥斯本 1977
+</a>]。风机性能通常由与总压力相关的性能曲线来表征
+ <span style="font-style: italic;">
+上升
+</span> 
+给定风扇速度和空气密度下的流量。转换为另一种风扇速度或密度是根据风扇定律完成的。
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CE.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(53)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>or</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CF.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(54)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>and</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D0.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(55)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">Q </span>
+= 体积流量，
+ <br></br><span style="font-style: italic;">F</span> 
+= 质量流量，
+ <br></br><span style="font-style: italic;">P</span> 
+= 总压力上升，
+ <br></br><span style="font-family: Symbol;">r</span> 
+= 密度，
+ <br></br><span style="font-style: italic;">N</span> 
+= 转速，并且
+ <br></br>
+下标
+ <span style="font-size: 8pt;">0</span> 
+表示风扇额定条件下的值。
+
+        </p>
+        <p>
+如果两种速度下的所有流动条件相似，这些定律是有效的。特别是，它们不适用于尚未形成完全湍流条件的非常低的流量。
+ </p>
+        <p>
+在 CONTAM 中，风扇性能曲线由三次多项式表示：</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D1.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(56)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+与
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D2.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(57)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+多项式系数是根据额定条件下的空气密度和风扇速度得出的。因此，当 <span style="font-style: italic;">N</span> and <span style="font-family: Symbol;">r</span> 
+不在额定条件下，换算实际压力升
+ <span style="font-style: italic;">P</span> to <span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt">0</span>.
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D3.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(58)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+解 (56) 为
+ <span style="font-style: italic;">F</span><span style="vertical-align: sub;font-size: 10pt">0</span>
+使用迭代或解析解和（57）
+ <span style="font-style: italic;">P</span><span style="font-style: italic;">’</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">0</span>
+。将这些值转换为当前条件。
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D4.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(59)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>and</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D5.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(60)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+流量相对于压降的导数由下式给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D6.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(61)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+关于风扇性能曲线的形状，有两个重要因素需要注意。首先，通过以下形式的关系来描述 <span style="font-style: italic;">
+普(F)
+</span> 
+而不是
+ <span style="font-style: italic;">
+F(P)
+</span> 
+这更适合计算雅可比行列式的流量和偏导数。性能曲线的基本形状不能用简单的多项式很好地表示
+ <span style="font-style: italic;">P</span> 
+作为自变量。 CONTAM 使用三次多项式 (56) 的解析解来确定
+ <span style="font-style: italic;">F</span> 
+作为一个函数
+ <span style="font-style: italic;">P</span>. 
+        </p>
+        <p>
+其次，性能曲线通常包含拐点（其中
+ <span style="font-style: italic;">P</span><span style="font-family: &#x27;WP MathA&#x27;;font-style: italic;">’</span> 
+= 0) 在特定的风扇压力上升值下产生最多三种不同的流量。这会导致求解流量困难，并且存在以下问题：
+ <span style="font-style: italic;">dF</span>/<span style="font-style: italic;">dP</span> 
+趋于无穷大。然而，通常不建议风扇在拐点房间运行。因此，只要确保空气分配系统未在该区域运行，就可以使用包含弯曲的性能曲线对风扇进行建模。
+
+        </p>
+        <p>
+您可以根据多项式的系数识别交汇点。解方程（56）为 <span style="font-style: italic;">F</span> 
+给出：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000D7.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(62)</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-left: 5pt;border-collapse: collapse;">
+            <col style="width: 108pt;">
+            </col>
+            <col style="width: 329pt;">
+            </col>
+            <tr>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+                        <img src="../../image/080000D8.png" style="visibility: visible;mso-wrap-style: square;width: 88px;height: 26px;">
+                        </img>
+                    </p>
+                </td>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+真正的矛盾点有两个
+</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+                        <img src="../../image/080000D9.png" style="visibility: visible;mso-wrap-style: square;width: 88px;height: 26px;">
+                        </img>
+                    </p>
+                </td>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+有一个拐点仍然存在导数问题
+</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+                        <img src="../../image/080000DA.png" style="visibility: visible;mso-wrap-style: square;width: 86px;height: 26px;">
+                        </img>
+                    </p>
+                </td>
+                <td style="border-top-style: none;border-left-style: none;border-bottom-style: none;border-right-style: none;padding-left: 0pt;padding-right: 0pt;">
+                    <p>
+风扇性能曲线是单调的，并且在计算雅可比行列式的导数时表现良好。
+</p>
+                </td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

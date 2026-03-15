@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟污染物数值属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+模拟 – 污染数值属性
+</h4>
+        <p style="">
+这些参数可用于调整求解污染物方程的方法。通常，您不需要更改这些默认值。然而，如下所述，某些类型的问题可能会受益于使用不同的可用解决技术。
+</p>
+        <p><span style="font-weight: bold;">
+线性污染物求解器：
+</span> <![CDATA[ ]>
+默认求解器和 CVODE 求解器都需要使用线性求解方法。对线性求解器的需求在
+ <a href="../Theory/IDH_TheoryCont_Intro.htm">
+污染物分析
+</a> 部分。对于每个房间，您选择的痕量或非痕量污染物的每种污染物种类都有一个方程。非痕量污染物的质量分数在迭代循环中求解，该迭代循环也确定气流（因为非痕量污染物影响房间空气密度和压力）。计算流量后即可求解痕量污染物的质量分数（因为它们不影响房间空气密度）。这些计算需要求解联立、非对称、线性代数方程。
+ </p>
+        <p>
+提供了四种线性求解方法——两种直接法和两种迭代法。迭代算法是连续过度松弛（SOR）和双共轭梯度（BCG）。直接方法是天际线（或“轮廓”）算法和高斯 LU 分解方法。这四种方法已按内存使用增加的顺序列出。迭代方法可能比更可靠的直接方法更快，也可能不更快。在对大型项目进行长时间瞬态仿真之前，测试不同的方法以确定哪种方法可以提供最佳性能可能会很有用。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+天际线：
+</span> 
+天际线算法是最可靠的解决方案，对于小问题它非常快，但对于大问题可能很慢。
+
+            </li>
+            <li value="2"><span style="font-weight: bold;">
+卡介苗：
+</span> 
+对于具有大量 SOR 算法可能无法收敛的房间的问题，尝试使用迭代双共轭梯度算法。
+
+            </li>
+            <li value="3"><span style="font-weight: bold;">
+索：
+</span> 
+连续过度松弛算法需要更少的内存，并且比 Skyline 方法更快，除非存在收敛问题。
+
+            </li>
+            <li value="4">
+                <p><span style="font-weight: bold;">LU:</span> 
+LU 分解使用完整（非稀疏）矩阵，用于验证其他方法的解决方案，而不是一般用途。
+
+                </p>
+                <p>
+以下属性适用于线性求解器：</p>
+                <ul style="list-style-type: circle;">
+                    <li value="1"><span style="font-weight: bold;">
+最大迭代次数：
+</span> 
+用于防止迭代不收敛时无休止的计算。
+</li>
+                    <li value="2"><span style="font-weight: bold;">
+收敛因子：
+</span> 
+当连续迭代的值之间的相对差异小于相对收敛 e1 时，假定 SOR 迭代收敛。&#160; 
+当以下情况时，BCG 方法被确定已经收敛：
+ <img src="../../image/0800005F_111x26.png" style="visibility: visible; mso-wrap-style: square; width: 111; height: 26;" />.</li>
+                    <li value="3"><span style="font-weight: bold;">
+弛豫系数：
+</span> 
+最佳的过松弛系数，
+ <span style="font-family: Symbol;">w</span>
+，加速了 SOR 算法的收敛速度。
+&#160; 
+确定最佳值需要对不同值进行一些实验（通常接近 1.0 到 2.0 范围的下限）。
+</li>
+                    <li value="4"><span style="font-weight: bold;">
+梯形积分因子：
+</span> 确定微分方程解中显式项和隐式项的相对部分。这是参数
+ <span style="font-family: Symbol;">g</span> 
+理论背景的污染物分析部分介绍了这一点。
+</li>
+                    <li value="5"><span style="font-weight: bold;">
+对线性方程重新排序：
+</span> 
+默认情况下，这样做是为了通过减少解矩阵的稀疏性来加速求解。
+</li>
+                </ul>
+            </li>
+        </ul>
+        <p><b>CVODE 非线性污染物求解器：
+</b> 
+选择实现 CVODE 求解器时要使用的方法和相关参数。
+</p>
+        <ul style="color: #8b0000;">
+            <li style="color: #000000;" value="1"><b>
+后向微分公式
+</b>
+：对于刚性系统，建议使用 BDF 方法。
+</li>
+            <li style="color: #000000;" value="2"><b>
+亚当斯-莫尔顿
+</b>
+：适用于非刚性问题。
+</li>
+        </ul>
+        <p class="NormalIndent"><b>
+最大时间步长：
+</b> <![CDATA[ ]>
+CVODE 根据其精度要求限制其时间步长，并适应任何预定的事件。该值限制 CVODE 将采取的最长时间步长（默认值 0 不施加人为限制）。限制 CVODE 时间步长的原因之一是为了让控制网络能够响应污染物浓度的变化。控制元件在污染物传输求解器的步骤之间运行，因此如果 CVODE 采取很长的步骤，它可能会干扰楼宇控制系统的模拟。请注意，没有必要设置最大时间步长来确保数据写入模拟结果文件，因为 CVODE 始终插入其预测以在请求的时间提供输出。
+</p>
+        <p class="NormalIndent"><b>
+相对收敛因子：
+</b> 
+默认值为 1 x 10
+<sup>-6</sup>.</p>
+        <p class="NormalIndent"><b>
+绝对收敛因子：
+</b> 
+默认值为 1 x 10
+<sup>-13</sup> 
+公斤/公斤。
+</p>
+        <p><span style="font-weight: bold;">
+循环模拟的收敛：
+</span> 
+当峰值浓度（所有房间中的所有污染物）的相对差异小于相对收敛 e1 时，假定收敛。
+&#160; 
+绝对收敛 e2 用于防止质量分数可忽略不计的房间和污染物在解决方案中占主导地位。
+
+        </p>
+        <p class="Normal"><span style="font-weight: bold;">
+一维选项：
+</span> 
+这些选项提供对使用时可以实现的一维仿真功能的控制
+ <span style="font-style: italic;">
+短时间步长法
+</span> 
+执行污染物模拟。
+ 
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+一维房间模型：
+</span> 
+选择此方法可对已定义为一维房间的房间实施显式一维对流/扩散池求解方法。这将沿着用户指定的一维轴将房间细分为单元。
+
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+一维管道模型：
+</span> 
+选择此方法可实现管道的显式一维对流/扩散单元求解方法。这将根据通过管道段的流速将所有管道段沿其长度细分为单元。有效扩散系数将基于污染物的雷诺数和分子扩散系数。
+
+        </p>
+        <p class="NormalIndent">
+如果速度的乘积
+ <span style="font-style: italic;">u</span> 
+和时间步长
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">t</span> 
+在给定的管道段中小于
+ <span style="font-weight: bold;">
+单元尺寸
+</span> 
+参数，然后使用欧拉方法，单元大小等于
+ <span style="font-style: italic;">
+单元尺寸
+</span> 
+参数，否则采用拉格朗日方法，有效单元大小为
+ <span style="font-style: italic;">u</span><span style="font-family: Symbol;">×</span><span style="font-family: Symbol;">D</span><span style="font-style: italic;">t</span> 
+随着速度的增加，联立方程的解更少。
+
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+可变结温：
+</span> 
+使用一维管道模型时，您可以让 CONTAM 实现可变结温，以根据入口终端温度来考虑管道系统内空气的对流换热。使用此选项时，将忽略结温属性，并从它们所在的房间获取终端入口温度。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

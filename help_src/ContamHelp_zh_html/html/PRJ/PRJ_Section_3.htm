@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 3 部分：级别和图标数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 3 部分：级别和图标数据
+</h5>
+        <p>
+用于重新创建 SketchPad 的数据存储在该部分中。数据由level_read()函数读取并由level_save()函数保存。关卡数据存储在 LEV_DATA 结构中，该结构在 contam.h（对于 ContamW）和 simdat.h（对于 ContamX）中定义。  </p>
+        <p>
+图标数据存储在 ContamW 中的 ICON_DAT 结构中，并且不保存在 ContamX 中。
+  </p>
+        <p class="NormalItalic">
+级别/图标部分开头为：
+ </p>
+        <p class="code">
+nlev // 层数 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是数据标题注释行，然后是所有 nlev 级别的数据。
+</p>
+        <p class="NormalItalic">
+每个级别都有一条数据线，其中包括：
+</p>
+        <p class="codeindent">
+nr // 级别号 (
+<span style="color: red;">IX</span>
+)，按从 1 到 nlev 的顺序
+</p>
+        <p class="codeindent">
+refht // 参考标高 [m] (R4)
+</p>
+        <p class="codeindent">
+delht // 到下一级的海拔增量 [m] (R4) {W}
+</p>
+        <p class="codeindent">
+nicon // 此级别上的图标数量 (<span style="color: red;">IX</span>)</p>
+        <p class="codeindent">
+u_rfht // 参考高程单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_dlht // 增量高程单位 (I2) {W}
+</p>
+        <p class="codeindent">
+name[] // 关卡名称 (I1)
+</p>
+        <p class="NormalItalic">
+该行后面是注释行，然后是 nicon 图标的数据。
+</p>
+        <p class="NormalItalic">
+每个图标都有一条数据线，其中包括：
+</p>
+        <p class="codeindent">
+icon // 图标类型 – 请参阅 contam.h 中的“特殊符号” (I2) {W}
+</p>
+        <p class="codeindent">
+row // SketchPad 上的行位置 (I2) {W}
+</p>
+        <p class="codeindent">
+col // SketchPad 上的列位置 (I2) {W}
+</p>
+        <p class="codeindent">
+nr // 房间、路径、管道等，编号 (I2) {W}
+</p>
+        <p class="NormalItalic">
+该部分以以下内容结束：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据（I2）中是否存在读取错误
+</p>
+        <h6>&#160;</h6>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

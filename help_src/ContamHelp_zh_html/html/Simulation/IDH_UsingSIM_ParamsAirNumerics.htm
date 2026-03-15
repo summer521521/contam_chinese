@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟气流数值属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="_Ref145496172"></a>
+模拟 – 气流数值属性
+</h4>
+        <p>
+这些参数可用于调整求解气流方程的方法。通常，您不需要更改这些默认值。然而，某些类型的问题可能会受益于使用不同的可用解决方案技术。例如，由许多房间和管道连接点组成的大型项目可以受益于 PCG 线性方程求解器的使用。
+ </p>
+        <p><span style="font-weight: bold;">
+非线性方程求解器：
+</span> 
+气流的计算需要求解联立非线性方程。有两种 Newton-Raphson (N-R) 算法可用：
+ <b>SUR</b> 
+方法实现欠松弛
+ <b>
+简单信任域
+</b> 
+方法。后一种方法更加稳健，并且是默认方法。保留第一个方法是为了与早期版本的 CONTAM 兼容。非线性联立流动方程 N-R 解的收敛性由四个参数控制：
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+最大迭代次数：
+</span> 
+如果流迭代不收敛，则使用此值可以防止无休止的计算。如果松弛系数合适，这应该不是问题。
+
+        </li>
+            <li value="2"><span style="font-weight: bold;">
+弛豫系数：
+</span> 该系数修改了纯N-R方法的调整。测试发现接近 0.75 的值可以很好地工作。接近 1.0 的值可能会导致解不收敛。接近 0.5 的值可能更可靠，但求解时间更长。该系数不与简单置信域方法一起使用
+
+        </li>
+            <li value="3"><span style="font-weight: bold;">
+相对收敛因子：
+ </span>
+当所有进出房间的流量之和小于
+ <span style="font-style: italic;">
+相对收敛因子
+</span> 
+乘以这些流量的绝对值之和。
+ 
+        </li>
+            <li value="4"><span style="font-weight: bold;">
+绝对收敛因子：
+ </span>在流量非常低的情况下还提供了测试，以确保流量的绝对值之和小于基于此处输入的非常小的房间换气率的绝对收敛因子。
+
+        </li>
+        </ul>
+        <p><span style="font-weight: bold;">
+线性方程求解器：
+</span> 
+选择求解 N-R 方法生成的线性方程的方法。 ContamX 使用
+ <b>
+天际线
+</b> 
+算法（也称为轮廓法），它是方程的直接解，或预条件共轭梯度
+&#160; 
+算法（
+<b>PCG</b>），这是迭代双共轭梯度算法。天际线方法的执行时间由解矩阵的稀疏性和填充模式决定。
+
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+最大迭代次数：
+</span> 
+如果流迭代不收敛，则使用此值可以防止无休止的计算。这仅适用于 PCG 方法。
+
+        </li>
+            <li value="2"><span style="font-weight: bold;">
+相对收敛因子：
+</span> 
+当所有进出房间的流量之和小于
+ <span style="font-style: italic;">
+相对收敛因子
+</span> 
+乘以这些流量的绝对值之和。这仅适用于 PCG 方法。
+
+        </li>
+            <li value="3">
+                <p><span style="font-weight: bold;">
+对线性方程重新排序：
+</span> 
+默认情况下是对线性方程重新排序，以便通过减少解矩阵的稀疏性来加速求解。 ContamX 确定重测序是否真正改善了矩阵。重测序算法的失败并不是严重错误，因为它不会改变数值结果。重测序使用算法 582，来自 ACM 的收集算法 [
+<a href="../IDH_References.htm#REF_ACM_1982">
+1982年美国计算机协会
+</a>].</p>
+                <p><span style="font-weight: bold;">
+注意： </span>
+如果 ContamX 在执行过程中“崩溃”，如果您选择不重新排序方程或选择
+ <span style="font-style: italic;">
+控制台窗口
+</span> 
+ContamX 显示选项。
+</p>
+            </li>
+            <li value="4"><span style="font-weight: bold;">
+线性气流初始化：
+</span> 
+启动非线性方程求解器需要对压力和流量进行初始估计。
+&#160; 
+线性初始化通常比从零开始更快。
+</li>
+        </ul>
+        <p class="Normal1"><span style="font-weight: bold;">
+密度控制参数：
+ </span>
+这些参数与模拟过程中空气密度的处理有关。  考虑到房间空气密度的变化可以提供瞬态分析，而不是准稳态分析，准稳态分析不提供非流动过程的发生（参见
+ <a href="../Theory/IDH_TheoryAirflow_BasicEquations.htm">
+基本方程
+</a> 
+的
+ <a href="../Theory/IDH_Theory_Background.htm">
+理论背景
+</a> 
+部分）。当使用非痕量污染物（例如水蒸气）时，或者当系统流量相对于房间泄漏相对较大时，可以实现房间密度的变化。通常，这些参数应保留为默认值，但如果需要，它们确实允许进行一些更高级的处理。
+</p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+运行稳态初始化以收敛：
+</span>  
+稳态仿真始终在瞬态仿真开始时执行（除非使用重新启动文件）。
+&#160; 
+如果选中此框，将执行流量计算，直到气流、房间压力和密度收敛。
+&#160; 
+如果不选中，则执行气流计算时不考虑由于加压/减压而导致的房间密度变化。
+</li>
+            <li value="2">
+                <p><span style="font-weight: bold;">
+密度随房间压力变化并使用先进的流体静力方程：
+</span>  
+使用气体定律关系计算房间密度
+ <span style="font-family: Symbol;">r</span> 
+= P / R·T，默认情况下，P 是大气压。
+&#160; 
+如果选中此框，则 P 是实际房间压力，通常仅当房间压力与大气压力显着变化时才可能成为一个因素。
+</p>
+                <p>
+通常，堆栈计算基于 P 形式的不可压缩流体静力方程
+<span style="vertical-align: sub;font-size: 10pt;">s</span> = -<span style="font-family: Symbol;">r</span>
+·g·h。
+&#160; 
+高级方程还考虑了密度随局部房间参考压力的变化，其形式为 P
+<span style="vertical-align: sub;font-size: 10pt;">s</span> = P<span style="vertical-align: sub;font-size: 10pt;">ref</span>(e<span style="vertical-align: super;">-g</span><span style="vertical-align: super;">h</span><span style="vertical-align: super;">/RT</span>-1).&#160; 
+这些值针对每个气流路径（和管道段）的入口和出口进行计算，并且差值用于确定烟道压力对流道上的总压差的贡献。
+</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><span style="font-weight: bold;">
+在时间步长内改变密度：
+</span>  
+允许房间密度在瞬态模拟的每个时间步长的压力计算内变化，直到它们与压力和气流速率一起收敛。  使用时未实现此功能
+ <i>
+短时间步长
+</i> 
+方法。
+</p>
+                <p><span style="font-weight: bold;">
+最大时间步迭代：
+</span> 
+这是密度值收敛的最大迭代次数。
+</p>
+            </li>
+        </ul>
+        <p><span style="font-weight: bold;"></span>
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+调节流量元件的温度：
+</span> 
+这会修改元件流量系数，以考虑流经元件的空气的实际特性。这可能会将计算的流量改变几个百分点。
+
+        </li>
+            <li value="2"><span style="font-weight: bold;">
+在瞬态仿真中包括 dM/dt：
+</span> 
+设置此选项可考虑瞬态流动过程，该过程可导致房间内大量空气的积累或去除。
+&#160; 
+对于典型泄漏和/或时间步长大于几秒的建筑物，该术语可以忽略不计。</li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

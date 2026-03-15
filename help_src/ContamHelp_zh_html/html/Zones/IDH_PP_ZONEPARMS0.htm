@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Zones|Defining Zones|Zone Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+房间数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor23"></a>
+房间 – 房间数据属性
+</h4>
+        <p>
+这些是描述房间的基本属性。
+</p>
+        <p><span style="font-weight: bold;">
+房间名称：</span> 
+这是该区域的符号名称。输入长度最多为 15 个字符的名称。房间名称在建筑物的每个楼层内必须是唯一的。
+</p>
+        <p><span style="font-weight: bold;">
+尺寸
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+体积：
+</span> 
+房间体积用于动态污染物计算。对于幻象房间，房间音量在房间整个高度的最低级别上的标准房间图标处设置，并且包括上面级别上的幻象房间的音量。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+建筑面积：
+</span><span style="font-weight: bold;"> <![CDATA[ ]></span>
+您可以输入建筑面积，而不是体积。然后将建筑面积乘以当前建筑层的高度即可计算出体积。 CONTAM 不会将该区域用于任何其他目的。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;"><span style="font-weight: bold;">
+颜色:
+</span> <![CDATA[ ]></span>
+选择房间填充颜色以帮助您区分 SketchPad 上的房间。您必须激活
+ <span style="font-weight: bold;">
+颜色
+ </span><span style="font-weight: bold;text-decoration: underline;">Z</span><span style="font-weight: bold;">
+那些
+ </span>
+选项从
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span> 
+菜单以便在 SketchPad 上显示房间颜色。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;"><a name="kanchor24"></a><span style="font-weight: bold;">
+包含在建筑体积中：
+</span> <![CDATA[ ]></span>
+这是指整栋建筑的计算
+ <span style="font-style: italic;"><a name="kanchor25"></a>
+换气率
+</span> 
+您现在可以在模拟期间执行 CONTAM 。默认情况下会选中关联的复选框，因此如果您不希望该区域包含在整个房间中，
+ <span style="font-style: italic;">
+建筑体积
+</span> 
+您应该取消选中此框。的
+ <span style="font-style: italic;">
+换气率
+</span> and <span style="font-style: italic;"><a name="kanchor26"></a>
+建筑增压
+</span> 
+计算将计算气流的总速率
+ <span style="font-style: italic;">
+环境
+</span> 
+进入所有选中此框的房间。通常，您将包括所有
+ <span style="font-style: italic;">
+空调空间
+</span> 
+在建筑体量中；例如，您可能不想包括阁楼或爬行空间。
+</p>
+        <p><span style="font-weight: bold;">
+温度
+ &amp; 
+压力
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+温度：
+</span> 
+设置要用作房间恒温的值。每当您创建新房间时，ContamW 将使用默认值，您可以通过输入另一个值来覆盖该默认值。您可以通过以下方式设置默认房间温度
+ <span style="font-weight: bold;text-decoration: underline;">O</span><span style="font-weight: bold;">
+选项…
+</span> 
+的命令 <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span> 
+菜单。或者，您可以通过 Schedule 属性定义房间温度的 Schedule（请参阅
+ <a href="IDH_PP_ZONEPARMS3.htm">
+明细表属性
+</a> 
+对于房间温度）。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;"></span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+压力：
+</span><a name="kanchor27"></a> 
+相对于环境的房间气压可以指定为变量或常数。通常，您会将房间压力设置为可变，并允许在模拟过程中对其进行计算。该选项主要供开发人员执行CONTAM的分析测试用例。
+  </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

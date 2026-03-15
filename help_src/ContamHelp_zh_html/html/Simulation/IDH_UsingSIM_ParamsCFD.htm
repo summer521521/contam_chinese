@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simulations|Simulation Parameters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+模拟运行控制属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="_Ref119727171"></a>
+模拟 - CFD 数值
+
+        </h4>
+        <p>
+这些参数用于控制多房间/CFD 耦合方法。
+多房间/CFD 耦合方法的理论背景可参见 Wang [
+<a href="../IDH_References.htm#REF_Wang_2007">2007</a>
+]以及王和陈[
+<a href="../IDH_References.htm#REF_Wang_Chen_2007a">
+2007年a
+</a>
+]。 Wang 和 Chen 提供了进一步的背景信息，包括验证和演示案例 [
+<a href="../IDH_References.htm#REF_Wang_Chen_2007b">
+2007b
+</a>
+]、王[
+<a href="../IDH_References.htm#REF_Wang_2008">2008</a>, <a href="../IDH_References.htm#REF_Wang_2010">2010</a>
+]，和王，等人。 [
+<a href="../IDH_References.htm#REF_Wang_Dols_Chen_2010">2010</a>].</p>
+        <p><span style="font-weight: bold;">
+耦合区数量：
+</span> 
+这显示了 CFD 的数量
+&#160;
+项目中的房间。此版本的 CONTAM 仅允许一个这样的房间。
+</p>
+        <p><span style="font-weight: bold;">
+耦合方式：
+</span>
+        </p>
+        <ul>
+            <li value="1"><span style="font-weight: bold;">
+仅 CONTAM：
+</span> 
+仅执行多房间模拟 - 不会执行 CFD 计算。
+</li>
+            <li value="2"><span style="font-weight: bold;">
+CONTAM -
+&gt; 
+CFD：
+</span> <![CDATA[ ]>
+运行多房间计算，然后提供结果作为 CFD 的边界条件
+&#160;
+计算。没有信息从 CFD 计算传回多房间计算。
+
+        </li>
+            <li value="3"><span style="font-weight: bold;">
+CONTAM -
+&gt; 
+CFD -
+&gt; 
+CONTAM：
+</span> 
+与上面相同，但是 CFD
+&#160;
+结果被传回用作多房间计算的边界条件。数据在各个
+ <i>
+方向
+</i> 
+只有一次。
+
+            </li>
+            <li value="4"><span style="font-weight: bold;">CONTAM &lt;-&gt; 
+CFD：
+</span> 
+这就是全动态耦合方法。多房间和 CFD 计算在每个时间步长期间相互迭代提供边界条件，直到它们在多房间 CFD 边界处相互收敛，或者
+ <i>
+最大耦合迭代次数
+</i> 
+被超过。迭代过程以多房间计算开始和结束。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+数值参数：
+</span> <![CDATA[ ]></p>
+        <p class="NormalIndent"><b>
+最大耦合迭代次数：
+</b> 
+这是在每个时间步，多房间和 CFD 计算之间交换边界条件的最大次数。
+</p>
+        <p class="NormalIndent"><b>
+耦合结果的输出频率：
+</b> 
+控制将耦合仿真结果保存到 CMO 文件的频率。该文件对于监控耦合仿真的进度很有用。这些结果也会在仿真过程中输出到控制台。
+</p>
+        <p class="NormalIndent"><b>
+气流耦合的收敛因子：
+</b> 
+动态耦合方法的收敛准则。
+</p>
+        <p class="NormalIndent"><b>
+重新启动耦合：
+</b> 每当执行 CFD 气流模拟时，VAR 文件都会保存在与 PRJ 文件相同的位置。 VAR 文件包含执行 CFD 计算的最后一个时间步的气流结果。选中此选项可使用 VAR 文件中包含的稳定气流结果运行污染物模拟。
+</p>
+        <p class="NormalIndent" style="color: #a52a2a;">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

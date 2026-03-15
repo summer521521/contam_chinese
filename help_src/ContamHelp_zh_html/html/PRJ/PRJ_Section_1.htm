@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 1 部分：项目、天气、模拟和输出控制
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 1 部分：项目、天气、模拟和输出控制
+</h5>
+        <p>
+项目文件的初始部分由run_read()函数读取并由run_save()函数保存。
+  </p>
+        <p class="NormalItalic">
+项目文件的第一行标识源程序：
+</p>
+        <p class="code">
+_string[] // 程序名称 "ContamW" (I1)
+</p>
+        <p class="codeCW2">
+_string[] // 程序版本“3.4”(I1)
+</p>
+        <p class="code">
+_回声 //
+ &gt; 
+0 回显输入文件，
+ &gt; 
+1 将桥接消息回显到日志文件 (I2)
+</p>
+        <p class="NormalItalic">
+第二行是用户定义的项目描述：
+</p>
+        <p class="code">
+_prjdesc[] // （未使用）项目描述 (I1) {W}
+</p>
+        <p class="NormalItalic">
+下一行设置以下杂项值：
+</p>
+        <p class="code">
+_skheight // SketchPad 总高度 [单元格] (I2) {W}
+</p>
+        <p class="code">
+_skwidth // SketchPad 总宽度 [单元格] (I2) {W}
+</p>
+        <p class="code">
+_def_units // 默认单位：0 = SI，1 = US (I2) {W}
+</p>
+        <p class="code">
+_def_flows // 默认流量：0 = 质量，1 = 体积 (I2) {W}
+</p>
+        <p class="code">
+_def_T // 房间的默认温度 [K] (R4) {W}
+</p>
+        <p class="code">
+_udefT // 温度单位 (I2) {W}
+</p>
+        <p class="code">
+_rel_N // 与正北的角度（-180 到 180）[度] (R4) {W}
+</p>
+        <p class="code">
+_wind_H // 参考风速的海拔高度 [m] (R4) {W}
+</p>
+        <p class="code">
+_uwH // _wind_H (I2) {W} 的单位
+</p>
+        <p class="code">
+_wind_Ao // 局部地形常量 (R4) {W}
+</p>
+        <p class="code">
+_wind_a // 速度剖面指数 (R4) {W}
+</p>
+        <p class="NormalItalic">
+下一行提供 SketchPad 伪几何信息：{CONTAM 3.1}
+</p>
+        <p class="code">
+scale // 单元格缩放因子 (R4)
+</p>
+        <p class="code">
+uScale // 缩放因子的单位：0 = m, 1 = ft (I2)
+</p>
+        <p class="code">
+orgRow // 原点行 (I2)
+</p>
+        <p class="code">
+orgCol // 起始列 (I2)
+</p>
+        <p class="code">
+invYaxis // 0 = 原点上方为正值，1 = 原点上方为负值 (I2)
+</p>
+        <p class="code">
+showGeom // 0/1 = 在状态栏中显示伪几何信息 (I2)
+</p>
+        <p class="NormalItalic">
+下一行定义 ContamX 中稳态模拟的天气 (WTHDAT)：
+</p>
+        <p class="code">
+Tambt // 环境温度 [K] (R4)
+</p>
+        <p class="code">
+barpres // 大气压力 [Pa] 未根据海平面进行校正 (R4)
+</p>
+        <p class="code">
+Windspd // 风速 [米/秒] (R4)
+</p>
+        <p class="code">
+Winddir // 风向: 0 = N, 90 = E, 180 = S, ...; (R4)
+</p>
+        <p class="code">
+relhum // 相对湿度：0.0 至 1.0 (R4)
+</p>
+        <p class="code">
+daytyp // 日期类型 (1-12) (I2)
+</p>
+        <p class="code">
+uTa // Tambt (I2) {W} 的单位
+</p>
+        <p class="code">
+ubP // barpres (I2) {W} 的单位
+</p>
+        <p class="code">
+uws // Windspd (I2) {W} 的单位
+</p>
+        <p class="code">
+uwd // Winddir (I2) {W} 的单位
+</p>
+        <p class="NormalItalic">
+下一行定义 ContamW 中风压测试的天气数据 (WTHDAT)：
+</p>
+        <p class="code">
+Tambt // 环境温度 [K] (R4) {W}
+</p>
+        <p class="code">
+barpres // 大气压力 [Pa] 未根据海平面进行校正 (R4) {W}
+</p>
+        <p class="code">
+Windspd // 风速 [米/秒] (R4) {W}
+</p>
+        <p class="code">
+Winddir // 风向: 0 = N, 90 = E, 180 = S, ...; (R4) {W}
+</p>
+        <p class="code">
+relhum // 相对湿度：0.0 至 1.0 (R4) {W}
+</p>
+        <p class="code">
+daytyp // 日期类型 (1-12) (I2) {W}
+</p>
+        <p class="code">
+uTa // Tambt (I2) {W} 的单位
+</p>
+        <p class="code">
+ubP // barpres (I2) {W} 的单位
+</p>
+        <p class="code">
+uws // Windspd (I2) {W} 的单位
+</p>
+        <p class="code">
+uwd // Winddir (I2) {W} 的单位
+</p>
+        <p class="NormalItalic">
+接下来的四行分别定义天气、污染物和控制文件：
+</p>
+        <p class="code">
+_WTHpath[_MAX_PATH] // 天气文件全名 (I1)
+</p>
+        <p class="code">
+_CTMpath[_MAX_PATH] // 污染物文件全名 (I1)
+</p>
+        <p class="code">
+_CVFpath[_MAX_PATH] // 连续值文件的全名 (I1)
+</p>
+        <p class="code">
+_DVFpath[_MAX_PATH] // 离散值文件的全名 (I1)
+</p>
+        <p class="NormalItalic">
+以下行定义用于创建 WPC 文件的路径位置数据 (PLDDAT)：
+</p>
+        <p class="NormalItalic">
+三行文件路径和 WPC 描述：
+</p>
+        <p class="code">
+WPCfile[_MAX_PATH] // WPC 文件的全名 (I1)
+</p>
+        <p class="code">
+EWCfile[_MAX_PATH] // EWC数据源文件全名(I1) {W}
+</p>
+        <p class="code">
+WPCdesc[] // WPC 描述 (I1) {W}
+</p>
+        <p class="NormalItalic"> 
+接下来是描述参考坐标的一行：
+&#160;</p>
+        <p class="code">
+X0 // EWC 坐标中 ContamW 原点的 X 值 [m] (R4) {W}
+</p>
+        <p class="code">
+Y0 // EWC 坐标中 ContamW 原点的 Y 值 [m] (R4) {W}
+</p>
+        <p class="code">
+Z0 // EWC 坐标中 ContamW 原点的 Z 值 [m] (R4) {W}
+</p>
+        <p class="code">
+angle // ContamW 相对于 EWC 坐标 (R4) {W} 的旋转
+</p>
+        <p class="code">
+u_XYZ // 坐标单位 (I2) {W}
+</p>
+        <p class="NormalItalic">
+然后是一些 EWC 到 WPC 转换参数：
+</p>
+        <p class="code">
+epsPath // 匹配路径位置的容差 [-] (R4) {W}
+</p>
+        <p class="code">
+epsSpcs // 匹配物种的耐受性 [-] (R4) {W}
+</p>
+        <p class="code">
+tShift // EWC 数据的时间平移 {W} [s] (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> 
+九) {W}
+</p>
+        <p class="code">
+dStart // WPC 数据开始日期 (I2) {W}
+</p>
+        <p class="code">
+dEnd // WPC 数据结束日期 (I2) {W}
+</p>
+        <p class="code">
+_useWPCwp // 如果为 true，则使用 WPC 文件风压 (I2)
+</p>
+        <p class="code">
+_useWPCmf // 如果为 true，则使用 WPC 文件质量分数 (I2)
+</p>
+        <p class="code">
+wpctrig // 0/1 = 通过 WPC 数据触发气流计算 (I2) {CONTAM 3.1}
+</p>
+        <p class="NormalItalic">
+下一行定义位置 (LOCDAT)（供将来热模拟使用）：
+</p>
+        <p class="code">
+latd // 纬度（度：北+，南-）（R4）
+</p>
+        <p class="code">
+lgtd // 经度（度：东+，西-）（R4）</p>
+        <p class="code">
+Tznr // 时区（格林威治 = 0，东部 = -5 等）(R4)
+</p>
+        <p class="code">
+altd // 海拔高度 [m] (R4)
+</p>
+        <p class="code">
+Tgrnd // 地面温度 [K] (R4)
+</p>
+        <p class="code">
+utg // 地面温度单位 (I2)
+</p>
+        <p class="code">
+u_a // 高程单位 (I2)
+</p>
+        <p class="NormalItalic">
+其余数据存储在运行控制（RCDAT）结构中。在 ContamX 中，某些值在使用之前可能会转移到其他变量。接下来的两行控制气流模拟 - 首先是非线性部分：
+</p>
+        <p class="code">
+sim_af // 气流模拟：0 = 稳定，1 = 动态 (I2)
+</p>
+        <p class="code">
+afcalc // 非线性方程的 N-R 方法：0 = SUR, 1 = STR (I2)
+</p>
+        <p class="code">
+afmaxi // N-R迭代的最大次数(I2)
+</p>
+        <p class="code">
+afrcnvg //相对气流收敛因子（R4）
+</p>
+        <p class="code">
+afacnvg //绝对气流收敛因子[1/s] (R4)
+</p>
+        <p class="code">
+afrelax // 流动欠松弛系数（对于 SUR）(R4)
+</p>
+        <p class="code">
+uac2 // afacnvg (I2) 的单位
+</p>
+        <p class="code">
+普雷斯
+&#160;&#160;
+// 压力测试压力(R4) {Contam 2.4}
+</p>
+        <p class="code">
+普雷斯
+&#160;&#160;
+// Pres (I2) 的单位 {Contam 2.4}
+</p>
+        <p class="NormalItalic">
+然后是线性部分：
+</p>
+        <p class="code">
+afslae // 线性方程方法：0 = SKY，1 = PCG (I2)
+</p>
+        <p class="code">
+afrseq // 如果为 true，则对线性方程重新排序 (I2)
+</p>
+        <p class="code">
+aflmaxi // 最大迭代次数 (PCG) (I2)
+</p>
+        <p class="code">
+aflcnvg // (PCG) (R4) 的相对收敛因子
+</p>
+        <p class="code">
+aflinit // 如果为 true，则进行线性气流初始化 (I2)
+</p>
+        <p class="code">
+Tadj // 如果为 true，则使用温度调节 (I2)
+</p>
+        <p class="NormalItalic">
+接下来的四行控制用于污染物计算的线性求解器：
+</p>
+        <p class="NormalItalic">
+首先进行循环模拟：
+</p>
+        <p class="code">
+sim_mf // 质量分数（污染物）模拟：
+</p>
+        <p class="code">            
+// 0 = 无，1 = 稳定，2 = 瞬态，3 = 循环 (I2)
+&#160;</p>
+        <p class="code">
+ccmaxi // 模拟：最大循环迭代次数（I2）
+</p>
+        <p class="code">
+ccrcnvg // 相对收敛因子 (R4)
+</p>
+        <p class="code">ccacnvg // 绝对收敛因子 [kg/kg] (R4)
+</p>
+        <p class="code">
+ccrelax //（未使用）过松弛系数（R4）
+ </p>
+        <p class="code">
+uccc // cccnvg (I2) 的单位
+</p>
+        <p class="NormalItalic">
+那么对于非痕量污染物：
+</p>
+        <p class="code">
+mfnmthd // 模拟：0 = SKY、1 = BCG、2 = SOR、3 = LU (I2)
+</p>
+        <p class="code">
+mfnrseq // 如果为 true，则对线性方程重新排序 (I2)
+</p>
+        <p class="code">
+mfnmaxi // 最大迭代次数 (I2)
+</p>
+        <p class="code">
+mfnrcnvg // 所需的相对收敛 (R4)
+</p>
+        <p class="code">
+mfnacnvg // 所需的绝对收敛 (R4)
+</p>
+        <p class="code">
+mfnrelax //松弛系数(R4)
+</p>
+        <p class="code">
+mfngamma //梯形积分因子（R4）
+</p>
+        <p class="code">
+uccn // mfnacnvg (I2) 的单位
+</p>
+        <p class="NormalItalic">
+那么对于痕量污染物：
+</p>
+        <p class="code">
+mftmthd // 0 = 天空，1 = BCG，2 = SOR，3 = LU (I2)
+</p>
+        <p class="code">
+mftrseq // 如果为 true，则对线性方程重新排序 (I2)
+</p>
+        <p class="code">
+mftmaxi // 最大迭代次数 (I2)
+</p>
+        <p class="code">
+mftrcnvg // 所需的相对收敛 (R4)
+</p>
+        <p class="code">
+mftacnvg // 所需的绝对收敛 (R4)
+</p>
+        <p class="code">
+mftrelax //松弛系数(R4)
+</p>
+        <p class="code">
+mftgamma //梯形积分因子（R4）
+</p>
+        <p class="code">
+ucct // mftacnvg (I2) 的单位
+</p>
+        <p class="NormalItalic">
+然后对于 CVODE
+&#160;
+污染物求解器：{CONTAM 3.1}
+</p>
+        <p class="code">
+mfvmthd // 0 = 天空，2 = SOR，3 = LU (1 不适用) (I2)
+</p>
+        <p class="code">
+mfvrseq // 如果为 true，则对线性方程重新排序 (I2)
+</p>
+        <p class="code">
+mfvmaxi // 最大迭代次数 (I2)
+</p>
+        <p class="code">
+mfvrcnvg // 所需的相对收敛 (R4)
+</p>
+        <p class="code">
+mfvacnvg // 所需的绝对收敛 (R4)
+</p>
+        <p class="code">
+mfvrelax //松弛系数(R4)
+</p>
+        <p class="code">
+uccv // mfvacnvg (I2) 的单位
+</p>
+        <p class="NormalItalic">
+下一行设置积分方法和短时间步长污染物计算参数：
+</p>
+        <p class="code">
+mf_solver //质量分数积分法：{3.1}
+<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 0=梯形，1=STS，2=CVODE (I2)
+</p>
+        <p class="code">
+sim_1dz // 如果为 true，则使用 1D 房间 (I2)
+</p>
+        <p class="code">
+sim_1dd // 如果为真，则使用一维管道 (I2)
+</p>
+        <p class="code">
+celldx // C-D 模型的导管单元的默认长度 [m] (R4)
+</p>
+        <p class="code">
+sim_vjt // 如果为 true，则计算可变结温 (I2)
+</p>
+        <p class="code">
+udx // celldx (I2) 的单位
+</p>
+        <p class="NormalItalic">
+下一行包含 CVODE
+&#160;
+污染物求解器参数：{CONTAM 3.1}
+</p>
+        <p class="code">
+cvode_mth // 0 = am，1 = bdf (I2)
+</p>
+        <p class="code">
+cvode_rcnvg //相对收敛因子(R4)
+</p>
+        <p class="code">
+cvode_acnvg // 绝对收敛因子(R4)
+</p>
+        <p class="code">
+cvode_dtmax // 最大时间步长 (R4)
+</p>
+        <p class="NormalItalic">
+下一行包含密度控制参数：
+</p>
+        <p class="code">
+tsdens // (0/1) 在时间步 (I2) 内改变密度
+</p>
+        <p class="code">
+tsrelax //（无效）用于计算 dM/dt (R4) 的欠松弛因子
+</p>
+        <p class="code">
+tsmaxi // 密度变化的最大迭代次数 (I2)
+</p>
+        <p class="code">
+cnvgSS // (0/1) 稳态密度收敛 init (I1) {2.4b}
+</p>
+        <p class="code">
+densZP // (0/1) 密度 = f(房间压力) (I1) {2.4b, 3.1}
+</p>
+        <p class="code">
+stackD // (0/1) 密度随流体静力学变化 (I1) {2.4b, 3.1}
+</p>
+        <p class="code">
+dodMdt // (0/1) 在气流计算中包含 dM/dt (I1) {2.4b, 3.1}
+</p>
+        <p class="NormalItalic">
+下一行设置模拟的日期、时间和时间步长：
+</p>
+        <p class="code">
+date_st // 开始稳定模拟的日期 (mmmdd
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+time_st // 开始稳定模拟的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="code">
+date_0 // 开始瞬态仿真的日期 (mmmdd
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+time_0 // 开始瞬态模拟的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="code">
+date_1 // 结束瞬态模拟的日期 (mmmdd
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+time_1 // 结束瞬态模拟的时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="code">
+time_step // 模拟时间步长[s] (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+time_list // 模拟输出（结果）时间步长[s] (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+time_scrn // 模拟状态时间步长[s]（最多1天）（hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="NormalItalic">
+下一行控制重新启动文件的使用：
+</p>
+        <p class="code">
+restart // 使用重启文件 (I2)
+</p>
+        <p class="code">
+rstdate // 重新开始日期 (mmmdd
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> IX)</p>
+        <p class="code">
+rsttime // 重启时间 (hh:mm:ss
+ <span style="font-family: &#x27;Symbol&#x27;;">®</span> I4)</p>
+        <p class="NormalItalic">
+下一行控制模拟结果文件的输出。
+ </p>
+        <p class="code">
+_list // 数据转储参数 (I2)
+</p>
+        <p class="code">&#160;&#160;&#160;&#160;&#160;&#160;// &gt; 
+0 转储矩阵分析，
+&#160;</p>
+        <p class="code">&#160;&#160;&#160;&#160;&#160;&#160;
+// = 2转储SIM文件输出，
+&#160;</p>
+        <p class="code">&#160;&#160;&#160;&#160;&#160;&#160;// &gt; 
+2 转储日志注释。
+ &#160;</p>
+        <p class="code">
+_doDlg // (0/1) ContamX 将显示对话框 (I1)
+</p>
+        <p class="code">
+_pfsave // (0/1) 将路径流结果保存到 SIM 文件 (I1)
+</p>
+        <p class="code">
+_zfsave // (0/1) 将房间流量结果保存到 SIM 文件 (I1)
+</p>
+        <p class="code">
+_zcsave // (0/1) 将质量分数结果保存到 SIM 文件 (I1)
+</p>
+        <p class="code">_achvol // (0/1) ACH 基于真实交易量而不是标准交易量
+ </p>
+        <p class="code">
+_achsave // (0/1) 保存建筑空气交换率瞬态数据</p>
+        <p class="code">
+_abwsave // (0/1) 保存空气汇率盒须数据
+</p>
+        <p class="code">
+_cbwsave // (0/1) 保存污染物盒须数据
+</p>
+        <p class="code">
+_expsave // (0/1) 保存曝光瞬态数据
+</p>
+        <p class="code">
+_ebwsave // (0/1) 保存曝光盒须数据
+</p>
+        <p class="code">
+_zaasave // (0/1) 保存房间空气年龄瞬态数据
+</p>
+        <p class="code">
+_zbwsave // (0/1) 保存房间空气年龄盒须数据
+</p>
+        <p class="NormalItalic"> <![CDATA[ ]>
+下一行控制更多模拟结果文件的输出：{CONTAM 3.1}
+</p>
+        <p class="code">
+rzfsave // (0/1) 保存二进制房间流文件
+</p>
+        <p class="code">
+rzmsave //(0/1)保存二进制平均区质量分数文件
+</p>
+        <p class="code">
+rz1save //(0/1)保存二进制一维房间单元质量分数文件
+</p>
+        <p class="code">
+csmsave // (0/1) 保存文本污染物摘要文件
+</p>
+        <p class="code">
+srfsave // (0/1) 保存文本表面结果文件
+</p>
+        <p class="code">
+logsave // (0/1) 保存文本控制日志文件
+</p>
+        <p class="NormalItalic"> <![CDATA[ ]>
+下一行控制更多模拟结果文件的输出：{CONTAM 3.2}
+</p>
+        <p class="code">
+bcexsave // (0/1) 保存基本cex文件
+</p>
+        <p class="code">
+dcexsave // (0/1) 保存详细的cex文件</p>
+        <p class="code">
+pfsqlsave // (0/1) 保存路径流结果到SQL
+</p>
+        <p class="code">
+zfsqlsave // (0/1) 将房间流结果保存到 SQL
+</p>
+        <p class="code">
+zcsqlsave // (0/1) 将房间质量（污染物）结果保存到 SQL
+</p>
+        <p class="NormalItalicCW2">
+下一行提供 ContamX 使用的常量：{CONTAM 3.4}
+</p>
+        <p class="codeCW2">
+densACH //换气率的标准空气密度 (1.2041) [kg/m^3]
+</p>
+        <p class="codeCW2">
+重力
+ &#160;&#160;&#160;
+// 重力加速度 (9.8055)[m/s^2]
+</p>
+        <p class="NormalItalic"> <![CDATA[ ]>
+下一行提供了一组用于开发目的的整数：{CONTAM 3.1}
+</p>
+        <p class="code">
+保存[0-15]
+&#160;
+//（CONTAM 未使用；如有更改，恕不另行通知）(I1)
+</p>
+        <p class="NormalItalic">
+接下来的两行
+                  <![CDATA[ ]>
+包含为 PRJ 文件灵活性提供的实际值列表。它们存储在 rvals[] 向量 {CONTAM 2.4b} 中
+</p>
+        <p class="code">
+内瓦尔斯
+                  <![CDATA[ ]>
+// 向量中实数值的数量 (I2)
+</p>
+        <p class="NormalItalic" style="color: #800000;">
+接下来是一行数据，其中包含 <code>
+内瓦尔斯
+</code> 
+实际值：
+</p>
+        <p class="codeindent" style="color: #800000;">
+rvals[0], ... rvals[nrvals-1]
+</p>
+        <p class="NormalItalic">
+下一行控制哪些部分输出到 .val 文件：{CONTAM 2.4a}
+</p>
+        <p class="code">
+BldgFlowZ // 输出建筑气流测试（房间）(IX)
+</p>
+        <p class="code">
+BldgFlowD // 输出建筑气流测试（管道）(IX)
+</p>
+        <p class="code">
+BldgFlowC // 输出建筑气流测试（分类流）(IX)
+</p>
+        <p class="NormalItalic">
+下一行控制 cfd 计算和耦合：{CONTAM 3.0}
+&#160;</p>
+        <p class="code">
+cfd_ctype // (0=无 cfd, 1=后置, 2=准, 3=动态) cfd 耦合方法 (I2)
+</p>
+        <p class="code">
+cfd_convcpl // 动态耦合的收敛因子 (R4)
+</p>
+        <p class="code">
+cfd_var // (0/1) 使用.var 文件 (I2)
+</p>
+        <p class="code">
+cfd_zref // 当前未使用 (I2)
+</p>
+        <p class="code">
+cfd_imax // 最大动态耦合迭代次数 (I2)
+</p>
+        <p class="code">
+cfd_dtcmo // 输出到 .cmo 文件 (I2) 之间的迭代次数
+</p>
+        <p class="codeCW2">
+cfd_solv // 线性 cfd 求解器：0=TDMA，1=MG (I2) {CONTAM 3.4}
+</p>
+        <p class="codeCW2">
+cfd_smth // 多重网格方法更平滑：0=Gauss-Seidel, 1=TDMA (I2) {CONTAM 3.4}
+</p>
+        <p class="codeCW2">
+cfd_cvgvel // U、V、W 动量方程的收敛标准 (R4) {CONTAM 3.4}
+</p>
+        <p class="codeCW2">
+cfd_cvgt // T 的收敛标准，能量方程 (R4) {CONTAM 3.4}
+</p>
+        <p class="NormalItalic">
+运行控制部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p>
+关于输出的注意事项：_pfsave 和 _zfsave 始终具有相同的值 – 0 或 1。
+ </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

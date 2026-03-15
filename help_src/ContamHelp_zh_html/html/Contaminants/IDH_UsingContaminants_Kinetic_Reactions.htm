@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+动力学反应
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor109"></a>
+处理动力学反应
+</h2>
+        <p>CONTAM 提供了对建筑物房间内项目污染物之间的化学反应进行建模的能力，包括简单空气处理系统的隐式供应和返回节点（请参阅空气处理系统）。 CONTAM 中的动力学反应被建模为物种之间的一阶指数函数，其中包含反应物和产物污染物之间配对的一阶反应速率系数。参见
+ <a href="../IDH_References.htm#REF_Axley_1988">
+阿克斯利 [1988]
+</a> and <a href="../IDH_References.htm#REF_Axley_1995">
+阿克斯利 [1995]
+</a> 
+了解 ContamX 采用的动力学反应模拟方法的详细介绍。污染物的产生或破坏
+ <span style="font-family: &#x27;Symbol&#x27;;">a</span> 
+由下式给出
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_KRRate_128x37.png" border="0" alt="
+方程
+" style="width: 128; height: 37;" />
+        </p>
+        <p>
+哪里
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">R</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;font-style: italic;vertical-align: sub;">a</span> &#160;&#160;
+污染物的产生或破坏率
+ <span style="font-family: &#x27;Symbol&#x27;;">a</span></p>
+        <p class="EqnParams"><span style="font-style: italic;">K</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;font-style: italic;vertical-align: sub;">a</span><span style="font-size: 10pt;font-style: italic;vertical-align: sub;">,</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;font-style: italic;vertical-align: sub;">b</span> &#160;
+污染物之间的反应速率系数
+ <span style="font-family: &#x27;Symbol&#x27;;">a</span> and <span style="font-family: &#x27;Symbol&#x27;;">b</span>
+，单位为 1/s
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">C</span><span style="font-family: &#x27;Symbol&#x27;;font-size: 10pt;font-style: italic;vertical-align: sub;">b</span> &#160;&#160;
+反应物浓度
+</p>
+        <p>
+CONTAM 使用以下约定：正反应系数会增加物质浓度，负系数会降低物质浓度。浓度单位为 kg_species / kg_air（参见
+ <a href="IDH_UsingContaminants_Contaminant_Files.htm#IDMID_ConcentrationConversions">
+浓度换算
+</a>).</p>
+        <p>
+动力学反应可以发生在建筑物的房间内。要使用动力学反应，您必须为该项目至少拥有一种物种。动力学反应可以与项目中的一个或多个房间相关联。您可以通过提供动力学反应定义部分的房间（即房间和简单空气处理系统）的属性表访问动力学反应数据对话框。
+ </p>
+        <p>
+您还可以访问
+ <a href="IDH_KINETIC_REACTION.htm">
+动力学反应数据
+</a> 
+使用 CONTAMW 数据和库管理器：动力学反应创建和编辑本地项目数据或使用污染物库在 CONTAM 项目之间共享动力学反应。
+</p>
+        <p>
+当您定义构建房间时，您将能够选择当前定义的动力学反应与其关联、定义新的、修改现有的或从物种相关的 CONTAM 库文件（即 LB0 库文件）导入动力学反应。所有动力学反应均使用以下定义和修改
+ <a href="IDH_KINETIC_REACTION.htm">
+动力学反应数据
+</a> 对话框如下节所述。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

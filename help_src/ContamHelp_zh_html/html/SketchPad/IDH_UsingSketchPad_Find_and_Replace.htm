@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with the SketchPad" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+查找并替换建筑构件数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor5"></a>
+查找并替换建筑构件数据
+</h3>
+        <p>
+ContamW 提供了对建筑组件执行简单搜索以及执行查找和替换操作的能力。这两个功能都涉及使用可以与 SketchPad 同时显示的对话框，以允许 SketchPad 和对话框之间进行交互。</p>
+        <p class="SubHeading1">
+查找
+</p>
+        <p>
+使用“查找”功能可以通过其名称在 SketchPad 上找到各种建筑组件图标
+ <span style="font-style: italic;">
+数量
+</span> or <span style="font-style: italic;">
+名称
+</span> 
+属性。请注意，每当通过添加或删除组件修改每种类型组件的总数时，数字可能会发生变化。每当保存项目文件时，组件将根据其 SketchPad 位置从顶层开始重新编号，并在 SketchPad 上从左到右，然后从上到下一直到建筑物级别。
+</p>
+        <p>
+菜单命令：
+&#160;<span style="font-weight: bold;text-decoration: underline;">E</span><span style="font-weight: bold;">dit </span><span style="font-weight: bold;"></span>&#8594;<span style="font-weight: bold;"></span><span style="font-weight: bold;text-decoration: underline;"> F</span><span style="font-weight: bold;">
+工业…
+</span><br />
+键盘快捷键：
+&#160;<span style="font-weight: bold;">
+Ctrl+F
+</span></p>
+        <p>
+            <img src="../../image/Find_221x230.gif" border="0" alt="
+图片\Find.gif
+" style="width: 221; height: 230;" />
+        </p>
+        <p class="Caption">
+图 – 查找对话框
+</p>
+        <p>
+只需选择您想要查找的组件图标类型，从提供的列表中选择编号或名称，然后单击
+ <span style="font-style: italic;">
+查找
+</span> 
+按钮。该图标将在 SketchPad 上找到并突出显示。如果没有给定类型的组件，则搜索控件将被禁用。
+ </p>
+        <p>
+可搜索的项目：
+</p>
+        <ul>
+            <li style="font-size: 8pt;" value="1">
+                <p>
+空气处理系统
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="2">
+                <p>
+气流路径 - 包括简单空气处理系统的送风和回风
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="3">
+                <p>
+控制节点 - 超级节点的子节点将服从超级节点
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="4">
+                <p>
+风管接头
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="5">
+                <p>
+风管段
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="6">
+                <p>
+居住者
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="7">
+                <p>
+源/汇
+</p>
+            </li>
+            <li style="font-size: 8pt;" value="8">
+                <p>
+房间 - 包括简单空气处理系统的隐式送风和回风房间
+</p>
+            </li>
+        </ul>
+        <p class="SubHeading1">
+查找和替换
+</p>
+        <p>The <span style="font-style: italic;">
+查找和替换
+</span> 
+功能包括更先进的
+ <span style="font-style: italic;">
+找到
+</span> 
+该功能使您能够根据用户选择的属性值范围生成项目列表。然后，您可以替换找到的项目列表中的项目的参数。
+</p>
+        <p>
+菜单命令：
+&#160;<span style="font-weight: bold;text-decoration: underline;">E</span><b>dit</b>   &#8594;<span style="font-weight: bold;"> <![CDATA[ ]></span><span style="font-weight: bold;text-decoration: underline;">R</span><b>
+替换…
+</b><br style="font-weight: bold;" />
+键盘快捷键：
+&#160;<b>
+Ctrl+R
+</b></p>
+        <p class="Normal">
+            <img src="../../image/FindAndReplace_428x542.gif" border="0" alt="
+图像\查找并替换.gif
+" style="width: 428; height: 542;" />
+        </p>
+        <p class="Caption">
+图 - 查找和替换对话框
+</p>
+        <p>
+“查找和替换”对话框有两个部分：“查找”和“替换”。使用“查找”部分中的对话框控件生成与所需搜索条件匹配的项目列表。生成找到的项目列表后，请选择“替换”部分中的项目以替换列表中项目的所需参数。您不需要使用替换功能；您可以简单地使用此工具来查找项目文件中的特定项目。
+</p>
+        <p>
+每种类型的构建组件都有两组预定义的参数，可以根据这些参数执行搜索：基于列表和基于值。基于列表的搜索参数附有项目中包含的每种参数类型的列表，例如元素、计划、过滤器等。您可以从列表中选择以搜索完全匹配，也可以输入区分大小写的文本搜索字符串以匹配包含搜索字符串的所有项目。基于值的参数允许您根据所选参数的值范围搜索项目。可以使用这组参数中的任何一个或同时使用这两个参数进行搜索。使用搜索参数旁边的复选框来选择要使用的参数。
+</p>
+        <p>
+设置搜索条件后，单击
+ <span style="font-style: italic;">
+查找全部
+</span> 
+按钮启动搜索。这将生成一个列表
+ <span style="font-style: italic;">
+找到的物品
+</span>
+。然后，您可以选择列表中的项目以显示其属性摘要，或双击以在 SketchPad 上找到该项目。您还可以通过选择项目并单击
+ <span style="font-style: italic;">
+删除
+</span> 
+按钮。这使您可以细化要替换的项目集。
+</p>
+        <table width="583" cellspacing="0" cellpadding="1" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;" border="1">
+            <col style="width: 156px;" />
+            <col style="width: 152px;" />
+            <col />
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableHeading">
+建筑构件
+</p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableHeading">
+列出参数
+</p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableHeading">
+数值参数
+</p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+空气处理系统
+</p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+返回的动力学反应
+</p>
+                    <p class="TableCellSmall">
+供给动力学反应
+
+                    </p>
+                    <p class="TableCellSmall">
+室外空气过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+回风过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+室外空气时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+最小室外气流
+
+                    </p>
+                    <p class="TableCellSmall">
+返回系统体积
+
+                    </p>
+                    <p class="TableCellSmall">
+供给系统容积
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+空气处理系统供回风
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+空气处理系统
+
+                    </p>
+                    <p class="TableCellSmall">
+过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+风量
+</p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+气流路径
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+气流元件
+
+                    </p>
+                    <p class="TableCellSmall">
+过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+时间表
+
+                    </p>
+                    <p class="TableCellSmall">
+风压选项和配置文件
+</p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+方位角
+</p>
+                    <p class="TableCellSmall">
+恒定风压值
+ </p>
+                    <p class="TableCellSmall">
+乘数
+ </p>
+                    <p class="TableCellSmall">
+相对海拔
+</p>
+                    <p class="TableCellSmall">
+风速调节器
+</p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+控制节点 *
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+控制类型
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">N/A
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+风管连接处
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+颜色
+<br />
+时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+相对海拔
+
+                    </p>
+                    <p class="TableCellSmall">
+温度
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+风管段
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+颜色
+<br />
+管道流量元件
+
+                    </p>
+                    <p class="TableCellSmall">
+过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+长度
+
+                    </p>
+                    <p class="TableCellSmall">
+损耗系数
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+风管端子
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+平衡
+<br />
+颜色
+
+                    </p>
+                    <p class="TableCellSmall">
+过滤器
+
+                    </p>
+                    <p class="TableCellSmall">
+时间表
+
+                    </p>
+                    <p class="TableCellSmall">
+风压选项和配置文件
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+方位角
+
+                    </p>
+                    <p class="TableCellSmall">
+恒定风压值
+<br />
+平衡损失系数
+<br />
+设计流量
+<br />自由面部房间
+<br />
+相对海拔
+<br />
+温度
+<br />
+终端损耗系数
+
+                    </p>
+                    <p class="TableCellSmall">
+风速调节器
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+居住者
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+吸入时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+体重
+
+                    </p>
+                    <p class="TableCellSmall">
+乘数
+
+                    </p>
+                    <p class="TableCellSmall">
+峰值吸入率
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+源/汇
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+源/汇元件
+
+                    </p>
+                    <p class="TableCellSmall">
+时间表
+
+                    </p>
+                    <p class="TableCellSmall">
+物种
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+乘数
+
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+专区
+
+                    </p>
+                </td>
+                <td style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+一维区
+<br />
+颜色
+<br />
+动力学反应
+<br />
+名称
+<br />
+时间表
+
+                    </p>
+                </td>
+                <td width="33.74%" style="border-top: 0.50pt solid black;border-bottom: 0.50pt solid black;border-left: 0.50pt solid black;border-right: 0.50pt solid black;">
+                    <p class="TableCellSmall">
+占地面积
+
+                    </p>
+                    <p class="TableCellSmall">
+温度
+
+                    </p>
+                    <p class="TableCellSmall">
+体积
+
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p class="Normal"><span style="font-size: 10pt;">
+* 使用此功能无法更换控制节点
+</span>
+        </p>
+        <p class="Caption">
+表 – 查找和替换选项
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

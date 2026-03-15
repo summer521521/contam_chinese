@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Ducts" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+绘制管道
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor71"></a>
+绘制管道
+</h3>
+        <p>
+您可以使用前面介绍的风管绘图工具来绘制风管。 <a href="../SketchPad/IDH_UsingSketchPad_DrawingWallsandDucts.htm">
+使用 SketchPad
+</a> 
+部分。完成“
+<a href="../SketchPad/IDH_UsingSketchPad_DrawingWallsandDucts.htm#IDMID_UsingDrawing_FinalizeDrawingObject">
+完成绘图对象”
+</a> 
+在风管绘图阶段，完成的风管将显示为一组未定义的红色风管图标。红色表示管道尚未定义。定义风管组件后，它们将显示为蓝色。每个风管段内将显示定向风管段图标，并且每个交汇点和终端点将替换为指示您定义的交汇点或终端点类型的图标。
+</p>
+        <p class="SubHeading1">
+绘制风管段
+</p>
+        <p>
+ContamW 在绘制管道时提供某些约束，以确保绘制的管道系统符合 CONTAM 所基于的节点方程的基础模型。绘制风管时，不能跨越当前正在绘制的线。管道可以穿过墙壁，但您不能在任何其他建筑组件图标上绘制管道。绘制每个风管段后，该段的末端将自动替换为未定义的终点或连接点图标。您只能在未占用的 SketchPad 单元格或未定义的风管图标上开始或结束风管段绘图。因此，建议您在定义各个风管段之前，在给定标高上绘制整个风管系统。如果在绘制新的风管段时跨越之前绘制的风管段（无论是定义的还是未定义的），则在这两个风管段交叉的位置不会放置交汇点。
+</p>
+        <p><i>
+垂直风管段
+</i> 
+不会直接出现在 SketchPad 上，因为 SketchPad 仅显示平面图。垂直管道段与垂直连接的交汇点或终点相关联。这些垂直交汇点和终端图标提供对位于垂直交汇点或终端出现的水平下方的垂直线段的属性的访问。 </p>
+        <p class="SubHeading1">
+绘制风管连接处
+</p>
+        <p>
+完成绘制风管后，会在风管交叉点处自动绘制未定义的水平风管交汇点图标。每次在未定义的风管段、交汇点或终点上开始或结束绘制风管段时，如果交汇点位置还没有未定义的交汇点图标，ContamW 将自动提供一个未定义的交汇点图标。
+</p>
+        <p>
+所有垂直连接点都连接到位于垂直连接点所在水平面下方的垂直管道段。您可以创建与同一层上的其他管道隔离的垂直交汇处，该交汇处向上、向下或同时向上和向下连接到相邻层上的管道系统。为此，
+ <a href="../SketchPad/IDH_UsingSketchPad_DrawingWallsandDucts.htm#IDMID_UsingDrawing_FinalizeDrawingObject">
+完成绘图对象
+</a> 
+设置管道对象的初始位置后立即进行。为此，您只需按
+ <span style="font-weight: bold;">LMB</span> 
+（双击）或
+ <span style="font-family: &#x27;Symbol&#x27;;font-weight: bold;">¿</span><span style="font-weight: bold;"> <![CDATA[ ]></span>
+选择风管绘图工具后，在 SketchPad 上的所需位置双击两次。这将在 SketchPad 单元格内放置一个未定义的终点图标。您稍后可以将此未定义的终端点图标定义为您需要的特定类型的连接点，并将其与垂直风管段关联。
+</p>
+        <p class="SubHeading1">
+绘制管道端子点
+</p>
+        <p>
+未定义的水平终点图标由 ContamW 在每个风管段的末端自动绘制，该风管段不以另一个先前绘制的风管图标结束。
+
+        </p>
+        <p>
+您还可以通过在设置风管对象的初始位置后立即完成图形对象来创建与同一层上的其他风管隔离但向上或向下连接到相邻层上的管道系统的端点。为此，您只需按
+ <span style="font-weight: bold;">LMB</span> 
+（双击）或
+ <span style="font-family: &#x27;Symbol&#x27;;font-weight: bold;">¿</span> 
+选择风管绘图工具后，在 SketchPad 上的所需位置双击两次。这将在 SketchPad 单元格内放置一个未定义的终点图标。您稍后可以将此端点定义为您需要的特定类型，并将其与垂直风管段关联。
+
+        </p>
+        <p class="SubHeading1">
+着色管道系统
+</p>
+        <p>
+您可以使用
+ <i>
+管道系统着色工具
+</i> 
+自动为与管道内风扇（强制流元件）相关的管道系统部分着色。您访问
+ <i>
+管道系统着色工具
+</i> 
+通过
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span><span style="font-family: &#x27;Symbol&#x27;;font-weight: bold;"> ® </span><span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">
+着色...
+</span> 菜单命令。这将显示“管道系统着色”对话框，其中包含包含风扇（强制流元素）的所有管道段的列表。选择您想要为其管道着色的风扇。设置入口侧、出口侧和风扇段颜色，然后单击“设置颜色”按钮以使 ContamW 跟踪风扇段入口侧和出口侧的管道系统并设置颜色。
+
+        </p>
+        <p>
+使用
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span><span style="font-family: &#x27;Symbol&#x27;;font-weight: bold;"> ® </span><span style="font-weight: bold;"></span><span style="font-weight: bold;">
+颜色 D
+</span><span style="font-weight: bold;text-decoration: underline;">u</span><span style="font-weight: bold;">cts</span> 
+菜单命令可在 SketchPad 上显示的风管颜色在自定义风管颜色和默认颜色之间切换。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+AHSP_INFO_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+AHSP_INFO_MSGTYPE
+</h3>
+        <p>
+提供与简单空气处理系统气流路径相关的信息。 AHS 路径包括简单空气处理系统的返回、送风和隐式气流路径（再循环、室外空气和排气）。送风和回风气流路径将位于所有隐式气流路径之前，这些隐式气流路径将以三个为一组：每个空气处理器的再循环、室外空气和排气流路。当查看 ContamW 气流绘图对话框时，这一点很明显。的
+ <span style="font-family: &#x27;Courier New&#x27;;">
+编号[]
+</span> 
+数组提供 ContamX 通过以下方式提供气流的顺序
+ <span style="font-family: &#x27;Courier New&#x27;;">
+AHSP_FLOW_UPDATE_MSGTYPE
+</span>
+。如果
+ <span style="font-family: &#x27;Courier New&#x27;;">
+环境索引
+</span> 
+为 0，则该路径不是建筑围护结构路径。  否则，ambient_index 指定使用以下命令发送路径浓度的顺序：
+ <span style="font-family: &#x27;Courier New&#x27;;">
+ADJ_WPC_MSGTYPE
+</span>
+。只有隐式室外空气进气路径才能被视为包络路径。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+num_ahsp;
+        <span style="color: #008100;">
+// PRJ 文件中 AHS 气流路径的数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>id[<span style="color: blue;"></span>
+num_ahsp];
+       <span style="color: #008100;">
+// 每个 AHS 的索引
+&#160;
+根据 ContamX 的路径
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+环境标志[路径数]
+       <span style="color: #008100;">
+// 0 = 未连接到环境
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+x[路径数];
+                <span style="color: #008100;">
+// x坐标[米]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+y[路径数];
+<span style="color: #008100;"> 
+// y 坐标[米]</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>z[路径数]；
+<span style="color: #008100;"> 
+// 如果环境索引
+ &gt; 
+0 则为绝对高度，否则相对于水平面 [m]
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

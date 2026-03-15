@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+CX_ADVANCE_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+CX_ADVANCE_MSGTYPE
+</h3>
+        <p>
+ContamX 在任何时间都会收到此消息
+ <span style="font-weight: normal; font-style: italic;">
+就绪模式
+</span> 
+通知 ContamX 运行，直到从模拟第一天的时间 0:00:00 开始指定的以秒为单位的模拟时间（由 PRJ 文件中的模拟开始时间定义）。例如，如果模拟从 09:30:00 开始，模拟时间步长为 5 分钟，则第一个
+ <span style="font-family: &#x27;Courier New&#x27;;">
+时间
+</span> 
+发送的时间应至少为 34200 秒 + 1800 秒。的
+ <span style="font-family: &#x27;Courier New&#x27;;">
+选项
+</span> 
+字段用于指示 ContamX 应以以下形式发回的数据
+ <span style="font-style: italic;">
+更新消息
+</span> 
+达到指定时间后。
+ </p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int</span> 
+选项；
+    <span style="color: #008100;">
+// 按位标志控制 ContamX 将发送哪个 _UPDATE_MSGTYPES
+ </span></p>
+        <p class="code"><span style="color: #008100;"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 一次
+ <i>
+时间
+</i> 
+已达到
+</span>
+        </p>
+        <ul style="list-style-type: circle;">
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="1">
+bit 1：迭代提前消息（当前未使用）
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="2">
+位 2：发送 CONC_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="3">
+位 3：发送 PATH_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="4">
+位 4：发送 AHSP_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="5">
+位 5：发送 DUCT_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="6">
+位 6：发送 TERM_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="7">
+位 7：发送 LEAK_UPDATE_MSGTYPE
+</li>
+            <li style="color: #008100;font-family: &#x27;Courier New&#x27;;font-size: 10pt;" value="8">
+位 8：发送 CTRL_NODE_UPDATE_MSGTYPE
+</li>
+        </ul>
+        <p class="code"><span style="color: blue;">int </span>
+时间；
+       <span style="color: #008100;">
+// ContamX 应提前的模拟时间（以秒为单位）
+ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+// 模拟第一天的时间0:00:00
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

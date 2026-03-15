@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+二次流单元
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+二次流单元
+</h4>
+        <p>
+Baker、Sharples 和 Ward [Baker 1987] 表明渗透开口可以通过以下形式的二次关系更准确地建模
+</p>
+        <p>&#160;</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000BB.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000BC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">&#160;</td>
+                </tr>
+                <tr>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000BD.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnCenter">
+                        <img src="../../image/080000BE.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(37)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+通过求解二次方程，可以将该形式用作气流单元
+ <span style="font-style: italic;">F</span> (= <span style="font-family: Symbol;">r</span><span style="font-style: italic;">Q</span>
+）。出租
+ <span style="font-style: italic;">a</span> = <span style="font-style: italic;">A</span>/<span style="font-family: Symbol;">r</span> and <span style="font-style: italic;">b</span> = <span style="font-style: italic;">B</span>/<span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: super;">2</span> 
+允许方程（37）重写为
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000BF.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(38)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+这些二次方程解为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C0.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(39)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+偏导数由下式给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C1.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(40)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+方程（39）要求
+ <span style="font-style: italic;">b</span> 
+为非零以防止被零除，方程 (40) 要求
+ <span style="font-style: italic;">a</span> 
+为非零以防止除以零
+ <span style="font-style: italic;">F</span> 
+变为零。有相反的意见认为幂律关系更好。
+
+        </p>
+        <h5>
+温度依赖性
+</h5>
+        <p>
+将系数 a 和 b 视为在一组特定条件下评估的简单常数是有用的（
+<span style="font-family: Symbol;">m</span><span style="vertical-align: sub;font-size: 10pt;">0</span>, <span style="font-family: Symbol;">r</span><span style="vertical-align: sub;font-size: 10pt;">0</span> and <span style="font-family: Symbol;">n</span><span style="vertical-align: sub;font-size: 10pt;">0</span>=<span style="font-family: Symbol;">m</span><span style="vertical-align: sub;font-size: 10pt;">0</span>/<span style="font-family: Symbol;">r</span><span style="vertical-align: sub;font-size: 10pt;">0</span>
+）乘以修正因子以考虑实际空气特性，就像幂律方程一样。那就是&#160;</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C2.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(41)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>and</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C3.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(42)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+请注意
+ <span style="font-family: Symbol;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span>/<span style="font-family: Symbol;">r</span> = <span style="font-style: italic;">T</span>/<span style="font-style: italic;">T</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span> 
+以获得成分恒定的完美气体。
+</p>
+        <p style="text-align: justify;">
+        </p>
+        <h5>
+拟合二次系数
+</h5>
+        <p>
+二次系数也可以根据测量的流量和压力数据计算。给定两点（
+<span style="font-style: italic;">F</span><span style="vertical-align: sub;font-size: 10pt;">1</span>, <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt;">1</span>
+) 和 (
+<span style="font-style: italic;">F</span><span style="vertical-align: sub;font-size: 10pt;">2</span>, <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span><span style="vertical-align: sub;font-size: 10pt;">2</span>
+），值
+ <span style="font-style: italic;">a</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span> and <span style="font-style: italic;">b</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">0</span> 
+是：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C4.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(43)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>and</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C5.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(44)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+二次模型相对于幂律模型的主要优点是通过避免慢幂函数来实现计算速度。 （测试表明 pow(x) 比 sqrt(x) 慢四到八倍。此性能取决于硬件和软件。）
+&#160; 
+仍必须确定哪个模型是特定气流元件最准确的表示。例如，已经发现幂律模型对于平滑管道来说是更好的近似，而二次模型对于粗糙管道来说是更好的近似。然而，对于非常大的开口，导数 (40) 可能变得相当大，导致联立质量平衡方程收敛缓慢。
+</p>
+        <h5>
+裂纹描述
+&#160;</h5>
+        <p>
+二次气流单元模型的系数 A 和 B 与开口的物理特性之间的理论关系已经建立[Baker 1987]。这些是
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C6.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(45)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-family: Symbol;">m</span>
+= 粘度，
+ <br></br><span style="font-family: Symbol;">r</span>
+= 密度，
+ <br></br><span style="font-style: italic;">z</span>
+= 沿流动方向的距离，
+ <br></br><span style="font-style: italic;">d</span>
+= 裂缝宽度，
+ <br></br><span style="font-style: italic;">L</span>
+= 裂纹长度，并且
+ <br></br><span style="font-style: italic;">C</span>
+= 1.5 + 流路中的弯头数。
+ 
+        </p>
+        <p>
+对于方程 (38) 的质量流量形式，系数为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C7.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(46)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

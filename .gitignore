@@ -1,0 +1,13 @@
+# Build outputs
+*.zip
+*.log
+
+# Temporary CHM build stages
+build_assets/help_chm_stage_*/
+
+# Download cache
+tools/downloads/
+
+# Windows noise
+Thumbs.db
+Desktop.ini

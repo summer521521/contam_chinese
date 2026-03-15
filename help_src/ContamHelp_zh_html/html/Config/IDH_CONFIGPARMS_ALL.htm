@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="h2" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+配置 ContamW
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+配置 ContamW
+</h2>
+        <p>
+ContamW 的计划和项目选项可从
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span> 
+菜单。程序选项可以保存到位于 CONTAM 程序目录中的 CONTAM.CFG 文件中。启动时，ContamW 查找此文件并加载保存的设置（如果该文件存在）。这样，您可以将 ContamW 设置为每次运行程序时都以相同的默认设置启动。项目选项与当前项目文件一起保存。
+</p>
+        <p>
+注意：EWC 到 WPC 文件转换器的路径名称不会出现在配置对话框中；但是，如果在单击“保存”按钮时选择了转换器，它将被保存到 CONTAM.CFG 文件中。保存的值将是您在
+ <span style="font-weight: bold;">WPC </span><span style="font-weight: bold;text-decoration: underline;">F</span><span style="font-weight: bold;">
+伊莱……
+</span> 
+选择的
+ <span style="font-weight: bold;text-decoration: underline;">W</span><span style="font-weight: bold;">
+伊瑟
+</span> 
+菜单。要将转换器名称重置回“null”，您必须手动编辑配置文件。
+</p>
+        <h3><span style="color: #8b0000;"><a name="ConfigContamW_ProjectOptions"></a></span>
+项目配置属性
+<span style="color: #8b0000;"></span></h3>
+        <p>
+所有这些设置都保存在 CONTAM 项目文件中。
+</p>
+        <h4>
+单位
+</h4>
+        <p>
+以下参数定义了当您向程序提供输入时在整个项目中默认使用的单位和温度。您不必在整个项目中使用这些单位；但是，为了在整个项目中输入数据时方便，您应该选择主要单位集。您可以在处理项目时随时更改这些默认值，并且可以在输入各个参数时为各个参数选择不同的单位。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+单位制：
+</span> 
+您可以选择适当的单选按钮来设置您希望程序使用的单位系统。您可以选择国际单位制 (SI) 或英寸-磅 (IP) 单位制。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+流量单位：
+</span> 
+您可以为当前项目中最常用的流量单位选择适当的单选按钮。这些是状态栏中显示气流模拟结果的单位。 ContamW 将所有气流速率转换为质量流量单位 kg/s 并执行所有计算。请注意，所有体积气流速率单位均在标准温度和压力下。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+默认房间和结温：
+</span> 
+当您在当前项目中创建新房间、风管接合处或终端时，该值将成为使用的默认温度。如果更改此值，系统将提示您是否要更新所有现有房间、交叉口和航站楼的温度。
+</p>
+        <h4>
+SketchPad 尺寸
+</h4>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+尺寸：
+</span> 
+这是
+ <i>
+宽度
+</i> and <i>
+身高
+</i> 
+SketchPad 的。这些尺寸以单元单位和长度单位表示，如下面的比例因子所定义。 SketchPad 由方形单元组成，这些方形单元代表可以放置图标的每个空间。默认（和最小值）值为 66 个单元格宽和 58 个单元格高。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+比例因子：
+</span>  
+设置用于计算 SketchPad 位置以及墙长、墙面积和房间地板面积的单元尺寸。当 <i>
+显示伪几何
+</i> 
+选项被激活。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+显示伪几何：
+</span>  
+伪几何绘图模式根据缩放因子在状态栏中提供 SketchPad 坐标和墙壁尺寸。伪几何可用于定义建筑物的缩放表示以及设置气流路径乘数、使用显示的墙壁房间以及定义将根据比例因子自动提供楼层面积的新房间。当您绘制项目时，项目（dx 和 dy）的范围也将显示在状态栏中。在定义与 TRNSYS 或 EnergyPlus 耦合的模型时，比例绘图非常有用（请参见
+ <a href="../TRNSYS/IDH_UsingTRNSYS-WorkingWithTRNSYS.htm#top">
+与 TRNSYS 合作
+</a> and <a href="../EnergyPlus/IDH_UsingEnergyPlus-WorkingWithEnergyPlus.htm">
+与 EnergyPlus 合作
+</a>). </p>
+        <p class="NormalIndentCW2">
+从 CONTAM 3.3 开始，您可以导入位图图像，可以在其上绘制或追踪 CONTAM 平面图。这被称为
+ <i style="font-weight: bold;">
+追踪图像
+</i>
+。请参阅“工具”菜单，了解允许您在 SketchPad 上导入、删除、调整图像大小和移动图像的命令。跟踪图像不与项目文件一起保存。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+产地：
+</span>  设置在计算 SketchPad 上的项目位置时要使用的原点位置（列和行）。特殊图标将出现在 SketchPad 上的指定位置。默认情况下，原点表示 SketchPad 网格的左下角（第 1 列，第 56 行），并且 y 值在原点上方为正值。您可以反转 y 轴，以便 y 值在原点上方为负值。
+</p>
+        <p class="NormalIndent">
+注意：您还可以通过右键单击 SketchPad 并从上下文菜单中选择“设置原点”来设置原点。您可以围绕 SketchPad 移动原点，以简化相对于原点位置的绘图墙。
+</p>
+        <h3><a name="ProgramConfigurationProperties"></a>
+程序配置属性
+</h3>
+        <p>
+这些设置保存到 CONTAM.CFG 文件中，并在每次运行 ContamW 时加载。
+</p>
+        <h4>
+默认单位
+</h4>
+        <p>
+这些属性定义了创建新项目文件时将用于填充项目单位（如上所示）的单位和温度。
+</p>
+        <h4><a name="SketchPad_Display"></a>
+SketchPad 显示
+</h4>
+        <p class="NormalIndentCW2"><b>
+显示图标颜色：
+</b> 
+选中关联框以在 SketchPad 上显示特定类型图标的颜色或房间填充。
+ </p>
+        <p class="NormalIndentCW2" style="font-weight: bold;"><span style="font-weight: bold;">
+原点比例
+</span>
+        </p>
+        <p class="NormalIndentCW2-2"><span style="font-weight: bold;">
+展会规模：
+</span> 
+选中此选项可修改 Origin 图标以显示
+ <i>
+标尺长度
+</i>
+，在 SketchPad 上定义如下。
+</p>
+        <p class="NormalIndentCW2-2"><span style="font-weight: bold;">
+标尺长度：
+</span> 
+设置要在 SketchPad 上显示的比例的长度和单位。这在确定尺寸时很有用
+ <i>
+追踪图像
+</i> 
+在 SketchPad 上。将其设置为
+ <i>
+比例因子
+</i>
+，尽管它无论如何都会显示在 SketchPad 上。
+</p>
+        <p class="NormalIndentCW2"><span style="font-weight: bold;">
+跟踪图像调整（像素）
+</span>
+        </p>
+        <p class="NormalIndentCW2-2">
+设置调整大小和位置时要使用的这些值
+ <i>
+追踪图像
+</i> 
+在 SketchPad 上。您可以访问
+ <i>
+追踪图像调整
+</i> 
+控制通过
+ <span style="font-weight: bold;text-decoration: underline;">T</span><span style="font-weight: bold;">
+工具
+</span> 
+菜单。
+<br />
+注意：图像大小将与位图文件的宽度和高度成比例地变化，因此您应该确保这些比例反映了您正在缩放的图像的比例。
+</p>
+        <p class="NormalIndent"><b>
+杂项
+</b>
+        </p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+显示浮动状态：
+</span> 
+选中此框可在 SketchPad 上显示浮动状态框。您还可以通过以下方式打开和关闭浮动状态框
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew </span>&#8594;              <span style="font-weight: bold;">
+弗洛亚
+</span><span style="font-weight: bold;text-decoration: underline;">t</span><span style="font-weight: bold;">
+状态 (Ctrl+T)
+</span> 
+菜单命令。
+</p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+在启动时最大化 ContamW：
+</span> 
+选中此框可在启动程序时最大化 ContamW 窗口。
+</p>
+        <h4>
+单元格/图标大小
+</h4>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+当前单元格/图标大小：
+</span><a name="kanchor9"></a> 
+在 SketchPad 上显示图标有七个选项（1x1、2x2、3x3、4x4、5x5、8x8 和 16x16）。默认选项是 8x8。这是一种“缩放”功能，可提供视觉帮助，使您能够更详细地查看草图或在程序窗口中显示更大的草图。单元大小对项目模拟没有影响。工具栏上提供了两个“缩放”按钮，可根据下面可用的单元格大小快速增大和减小单元格大小。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+可用的单元尺寸：
+</span> 
+使用这些复选框来选择您想要的可用尺寸。 1x1 大小会导致某些版本的 Window 98 操作系统出现问题。如果您遇到这种情况，请取消选择 1x1 复选框并单击“保存配置”按钮。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+单元格跳转：
+</span> 
+使用此设置当您使用
+ <b>
+Shift + 箭头键
+</b> 
+在 SketchPad 周围进行操作。
+</p>
+        <h4>
+颜色
+</h4>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+调色板：
+ </span>
+ContamW 提供修改 SketchPad 上显示的项目颜色的功能。您可以选择四个可用调色板之一。您无法修改“默认”调色板的颜色，但可以修改其他三个“用户调色板”。选择一个调色板以在调色板中显示该调色板的颜色
+ <span style="font-weight: bold;">
+调色板颜色
+</span> 
+下面的部分。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+调色板颜色：
+</span> 
+这些是用于在 SketchPad 上显示项目的颜色。单击颜色框可更改用于显示每种类型的项目的颜色。只能更改用户调色板的颜色。以下是每个类别的简要说明。
+</p>
+        <p class="NormalIndent2"><i>
+前景
+</i> 
+- 定义的图标，包括墙壁
+</p>
+        <p class="NormalIndent2"><i>
+背景
+</i> 
+- SketchPad 单元格的背景、默认房间填充和填充所有房间时
+ <span style="font-weight: bold;">
+色区
+</span> 
+选项未激活。
+</p>
+        <p class="NormalIndent2"><i>
+流程结果
+</i> 
+- 显示气流路径和管道终端的缩放流量结果的线条
+</p>
+        <p class="NormalIndent2"><i>
+新闻结果
+</i> 
+- 在结果和风压视图模式下显示气流路径上的缩放压差结果的线条
+</p>
+        <p class="NormalIndent2"><i>
+画线
+</i> 
+- 在 SketchPad 上绘图时单元格突出显示
+</p>
+        <p class="NormalIndent2"><i>
+未定义
+</i> 
+- 未定义的图标
+</p>
+        <p class="NormalIndent2"><i>
+控制
+</i> 
+- 定义的控制图标
+</p>
+        <p class="NormalIndent2"><i>
+管道
+</i> 
+- 定义的管道的默认颜色和所有定义的管道的颜色
+ <span style="font-weight: bold;">
+彩色导管
+</span> 
+查看选项未激活
+</p>
+        <p class="NormalIndent2"><i>
+错误</i> - 在 SketchPad 上突出显示错误情况时单元格的背景颜色。当建筑物检查失败时会指示错误。当您选择时会执行建筑物检查
+ <span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> or <span style="font-weight: bold;">
+创建CONTAM
+</span><span style="font-weight: bold;text-decoration: underline;">X</span><span style="font-weight: bold;"> 
+输入文件
+</span> 
+从
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单。
+ </p>
+        <p class="NormalIndent2"><i>
+光标
+</i> 
+- SketchPad 绘图和图标选择光标</p>
+        <p class="NormalIndent2"><i>
+亮点
+</i> 
+- 查找操作的图标突出显示颜色
+</p>
+        <p class="NormalIndent2"><i>
+子级别
+</i> 
+- 通过激活子级别显示选项时，子级别上的所有图标 <span style="font-weight: bold;text-decoration: underline;">L</span><span style="font-weight: bold;">
+埃维尔
+ </span>&#8594;<span style="font-weight: bold;"> 
+显示等级
+ </span><span style="font-weight: bold;text-decoration: underline;">B</span><span style="font-weight: bold;">
+低 (Ctrl+Shift+B)
+</span> 
+菜单命令。
+</p>
+        <h4>
+结果显示
+</h4>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+结果线
+</span><span style="font-weight: bold;"><span style="font-weight: bold;">:</span></span>
+您可以选择是否在 SketchPad 上显示气流路径上的气流速率和压差。
+ <i>
+结果显示方式
+</i>.</p>
+        <p class="NormalIndent2"><b>
+压力和流量</b>
+：显示气流速率（绿线）和压差（红线）。
+</p>
+        <p class="NormalIndent2"><b>
+仅压力
+</b>
+：仅显示压差线。
+</p>
+        <p class="NormalIndent2"><b>
+仅流量
+</b>
+：仅显示气流线。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+时间步导航
+</span><span style="font-weight: bold;"><span style="font-weight: bold;">:</span></span>
+设置使用“结果导航”跳转命令时要跳过的模拟时间步数。
+ </p>
+        <p class="NormalIndent">See <a href="../Results/IDH_UsingResults_Viewing.htm">
+查看结果
+</a> 
+在
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a> 
+部分。
+</p>
+        <h3>&#160;</h3>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

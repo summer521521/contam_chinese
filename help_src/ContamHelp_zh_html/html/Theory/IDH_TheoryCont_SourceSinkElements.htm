@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Contaminant Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+污染物源/汇元素
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+污染物源/汇元素
+</h3>
+        <p>
+CONTAM 允许您定义生成，
+ <span style="font-style: italic;">G</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span>
+，并去除，
+ <span style="font-style: italic;">R</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span>
+，一些简单情况的系数。
+ </p>
+        <p class="SubHeading1">
+常数系数模型</p>
+        <p>
+常数系数或一般源/汇模型使用以下方程：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory15.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(15)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-style: italic;">S</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> 
+被称为污染物
+ <span style="font-family: &#x27;Symbol&#x27;;">a</span> 
+“源力”。方程 (16) 中各项的 CONTAM 内部单位为：
+  <span style="font-style: italic;">C</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> [kg<span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> 
+/ 公斤
+<span style="vertical-align: sub;font-size: 10pt;">air</span>], <span style="font-style: italic;">G</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span>, <span style="font-style: italic;">S</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> [kg<span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> 
+/s]，和
+ <span style="font-style: italic;">R</span><span style="font-family: &#x27;Symbol&#x27;;vertical-align: sub;font-size: 10pt;">a</span> [kg<span style="vertical-align: sub;font-size: 10pt;">air</span> 
+/s]。您可以用大量单位来表示这些值，并自动转换为内部值。
+ </p>
+        <p>
+对于室内空气过滤装置来说，
+ <span style="font-style: italic;">G</span> 
+= 0.0 和
+ <span style="font-style: italic;">R</span> = <span style="font-style: italic;">f</span>•<span style="font-style: italic;">e</span> 
+哪里
+ <span style="font-style: italic;">f</span> 
+是通过过滤器的室内空气的流速，
+ <span style="font-style: italic;">e</span> 
+为装置的单程去除效率。
+</p>
+        <p class="SubHeading1">
+压力驱动模型
+</p>
+        <p>
+压力驱动源/汇模型旨在模拟受内外压差控制的污染物源，例如进入地下室的氡气或土壤气体。在这种情况下，源方程为：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory16.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(16)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="SubHeading1">
+截止浓度模型
+</p>
+        <p>
+对于挥发性有机化合物，源方程有时表示为以下形式
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory17.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(17)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">
+截止
+</span> 
+是排放停止时的截止浓度。
+</p>
+        <p class="SubHeading1">
+衰变源模型
+</p>
+        <p>
+挥发性有机化合物的另一个源方程是指数衰减源，其表示形式为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory18.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(18)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">S</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;vertical-align: sub;">a</span> &#160;
+= 污染源强度，
+<br /><span style="font-style: italic;">G</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;vertical-align: sub;">a</span> &#160;
+= 初始排放率，
+ <br /><span style="font-style: italic;">t</span> &#160;
+= 自发射开始以来的时间，以及
+ <br /><span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span> &#160;
+= 衰减时间常数。
+</p>
+        <p class="SubHeading1">
+边界层扩散控制模型
+</p>
+        <p>
+边界层扩散控制的可逆源/汇模型遵循以下描述
+ <a href="../IDH_References.htm#REF_Axley_1991">
+阿克斯利 1991
+</a>
+。污染物转移到水槽中的速率为
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Theory19.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(19)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">h</span> &#160;
+= 水槽上的平均膜传质系数，
+<br /><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span> &#160;
+= 空气的薄膜密度，体积平均值
+ &amp; 
+表面密度，
+<br /><span style="font-style: italic;">A</span> &#160;
+= 吸附剂的表面积，
+<br /><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">i</span> &#160;
+= 空气中的浓度，
+<br /><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span> &#160;
+= 吸附剂中的浓度，以及
+<br /><span style="font-style: italic;">k</span> &#160;
+= 亨利吸附常数或分配系数。
+</p>
+        <p class="SubHeading1">
+突发源模型
+</p>
+        <p>
+用户指定的污染物质量在一个时间步长内添加到一个房间，实际上是瞬时添加——在少于一个时间步长的时间内无法解决任何问题。
+</p>
+        <p class="SubHeading1">
+沉积速度汇模型
+</p>
+        <p>
+沉积速度模型以熟悉的沉积速度术语提供了汇特征的输入。沉积速度模型方程为：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/DepVelModel.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(20)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="EqnParams">R<span style="font-family: &#x27;Symbol&#x27;;font-style: italic;vertical-align: sub; font-size: 10pt;">a</span>(<span style="font-style: italic;">t</span>)&#160;
+= 时间 t 时的去除率
+</p>
+        <p class="EqnParams"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">n</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span><span style="vertical-align: sub;font-size: 10pt;"> <![CDATA[ ]></span>&#160;
+= 沉积速度
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span>&#160;
+= 沉积表面积
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">m</span>&#160;
+= 元素乘数
+</p>
+        <p class="EqnParams"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span><span style="font-style: italic;">(t)</span>&#160;
+= 某时刻源区空气密度
+ <span style="font-style: italic;">t</span></p>
+        <p class="EqnParams"><span style="font-style: italic;">C</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;vertical-align: sub; font-size: 10pt;">a</span>(<span style="font-style: italic;">t</span>)&#160;
+= 污染物浓度
+ <span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">a</span> 
+在某个时间
+ <span style="font-style: italic;">t</span> [M<span style="font-family: &#x27;Symbol&#x27;;font-style: italic;vertical-align: sub;">a</span> / M<span style="vertical-align: sub;font-size: 10pt;">air</span>]</p>
+        <p class="EqnParams"><span style="font-style: italic;">
+s(t)
+</span>&#160;
+= 时刻表或控制信号值
+ <span style="font-style: italic;">t</span> [-]</p>
+        <p class="SubHeading1">
+沉积速率汇模型
+</p>
+        <p>
+沉积速率模型以熟悉的沉积或去除速率术语提供了汇特征的输入。沉积速率模型方程为：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/DepRateModel.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(21)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">k</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span>&#160;
+= 沉积速率 [1/T]
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">z</span>&#160;
+= 房间体积 [M
+<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="EqnParams">其他术语与沉积速度汇模型相同。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

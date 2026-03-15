@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Filters|Filter Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+简单的气体过滤器
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor108"></a>
+简单的气体过滤器
+</h4>
+        <p>The <span style="font-style: italic;">
+简单气态
+ </span><span style="font-style: italic;">
+过滤器
+</span> 
+元素由一组物质和相关的效率与负载曲线组成。因此，效率是过滤器“吸收”的污染物量的函数。每个过滤器元素可以与当前项目中存在的一个和多个物种之间的任何位置相关联。当您执行模拟时，只会考虑您选择作为污染物的那些物种。 </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+您要用来识别过滤器元件的唯一名称。
+</p>
+        <p><span style="font-weight: bold;">
+面积：
+</span> 
+滤芯的面面积和单位。
+ </p>
+        <p><span style="font-weight: bold;">
+深度：
+</span> 
+滤芯沿气流轴线的深度。
+</p>
+        <p><span style="font-weight: bold;">
+密度：
+</span> 
+过滤介质的密度。
+ </p>
+        <p>
+面积、深度和密度目前用于计算过滤介质的质量，进而用于计算过滤器负载。</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+使用此字段提供过滤器元素的更详细描述。
+</p>
+        <p><span style="font-weight: bold;">
+编辑元素数据：
+</span> 
+选择以定义过滤器元素的特定属性。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+过滤曲线数据：
+</span> 这是相对负载和过滤器效率数据对的列表，用于定义当前选定物种的过滤器曲线（见下图）。输入至少三个数据点后，ContamW 将尝试计算这些点的三次样条拟合。如果样条拟合过程中存在任何错误，您将收到通知，并且曲线的有问题部分将突出显示。
+</p>
+        <p class="CaptionCenter">
+            <img src="../../image/ebx_-1377254862.gif" border="0" alt="
+图片\ebx_-1377254862.gif
+" />
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+品种：
+</span> 
+这是所有的列表
+ <span style="font-style: italic;">
+物种</span> 
+在当前项目或库文件中，具体取决于您是编辑项目数据还是库数据。选择
+ <span style="font-style: italic;">
+物种</span> 
+您想要显示/编辑滤波器曲线数据的数据。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+突破性效率：
+</span> 
+设置每个物种的突破效率。该值将在模拟过程中用于报告过滤器效率是否以及何时低于该值。突破报告给
+ <span style="font-style: italic;">
+污染物总结
+</span> 
+模拟结果文件（参见
+ <a href="../Results/IDH_UsingResults_ResultsFiles.htm">
+结果文件
+</a> 
+在
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+处理结果
+</a> 
+部分）。
+ </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+过滤曲线数据：
+</span> 
+这是您创建的数据点列表，从这些数据点
+ <span style="font-style: italic;">
+过滤器
+ </span><span style="font-style: italic;">
+曲线
+</span> 
+使用三次样条拟合方法生成。生成曲线之前至少需要四个数据点。下面的空间将提供一个图
+ <span style="font-style: italic;">
+相对负载
+</span> vs. <span style="font-style: italic;">
+过滤效率
+</span>. <span style="font-style: italic;">
+相对负载
+</span> 
+是过滤器累积污染物的质量与过滤器质量的比率。
+ </p>
+        <p class="NormalIndent">
+使用
+ <span style="font-weight: bold;">
+相对负载
+</span> and <span style="font-weight: bold;">
+效率
+</span> 
+数据输入字段来设置和修改
+ <span style="font-style: italic;">
+过滤曲线数据
+</span> 
+列出与
+ <span style="font-weight: bold;">Add</span> and <span style="font-weight: bold;">
+删除
+</span> 
+按钮。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

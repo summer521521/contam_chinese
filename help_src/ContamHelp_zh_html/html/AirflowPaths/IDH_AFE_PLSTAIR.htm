@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types|One-way flow using Powerlaw Models" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+幂律模型：楼梯间
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h6>
+幂律模型：楼梯间
+</h6>
+        <p>
+此气流元件允许您输入楼梯的描述，假设压力指数为 0.5，ContamW 将其转换为幂律关系。楼梯间通常被建模为一系列垂直房间，这些房间由穿过地板的低阻力开口（此楼梯间流动元素）连接。阻力基于实验数据的拟合[
+<a href="../IDH_References.htm#REF_Achakji">
+阿查吉
+ &amp; 
+田村 1998
+</a>
+]。该模型只能在建筑物不同楼层的房间之间使用（穿过楼层的路径），而不能在同一楼层的房间之间使用（穿过墙壁的路径）。
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别气流元件的名称。气流元件将保存在当前项目中，并且可以与多个气流路径关联。
+</p>
+        <p><span style="font-weight: bold;">
+层间距离：
+</span> 
+楼梯间门口之间的垂直距离。这通常等于与该元素关联的路径下方的级别的“到上方级别的距离”。
+</p>
+        <p><span style="font-weight: bold;">
+横截面积：
+</span> 
+这是轴的水平横截面面积。
+ </p>
+        <p><span style="font-weight: bold;">
+人口密度：
+</span> 楼梯间内人员较多，影响楼梯间的流阻。实验使用的密度为每平方米 1 人、2 人和 3 人。这些是 ContamW 中唯一可用的单位。为了您的方便，提供以下转换。
+ </p>
+        <p>1 m<sup>2</sup> 
+= 10.76 英尺
+<sup>2</sup></p>
+        <p><span style="font-weight: bold;">
+楼梯踏板：
+</span> 该领域有两种选择：开放式胎面和封闭式胎面。这是指胎面的前部无论胎面是否开放都会影响流动。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定气流元件的更详细描述的字段。
+</p>
+        <p><span style="font-weight: bold;">
+图标：
+</span> 根据特定气流元件选择小或大开口图标。该图标对模拟没有影响。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

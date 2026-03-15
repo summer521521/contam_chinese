@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+沉积速度汇模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+重悬模型沉积
+</h5>
+        <p>
+该源/汇模型通过沉积到表面来去除房间空气中的污染物，而源排放则通过表面的再悬浮来实现。总沉积表面积保持恒定，由 (
+<i></i>
+多
+<i>
+·A
+</i><sub style="font-style: italic;">s</sub>
+) 项在下面的等式中，但重悬浮率和面积可以通过时间表或控制值进行修改。
+        单位以默认计算单位提供。
+</p>
+        <p><i>R</i><span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>) = <span style="font-family: Symbol;font-style: italic;">n</span><sub style="font-style: italic;">d</sub><i></i> (<i></i>
+多
+<i>
+·A
+</i><sub style="font-style: italic;">s</sub>)<span style="font-family: Symbol;font-style: italic;"> r</span><sub style="font-style: italic;">air</sub>(<i>t</i>) C<span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>)</p>
+        <p><i>S</i><span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>) = <span style="font-family: Symbol;font-style: italic;"></span><i></i><i></i>
+（ctrl·
+<i>r A</i><sub style="font-style: italic;">r</sub>) <span style="font-family: Symbol;font-style: italic;"></span>L<span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>)</p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">R</span><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>(<span style="font-style: italic;">t</span>
+) = 污染物去除率（通过沉积）
+ <span style="font-style: italic;"><span style="font-style: italic;"><span style="font-family: Symbol;">a</span> <![CDATA[ ]></span></span>
+一次从房间空气到地面
+ <span style="font-style: italic;">t</span> [kg<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">v</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span>&#160; 
+= 沉积速度 [m/s]
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span> 
+= 沉积表面积 [m
+<span style="vertical-align: super;font-size: 10pt;">2</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">&#961;</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span>(<span style="font-style: italic;">t</span>) = 某时刻源区空气密度
+ <i>t</i> [kg<span style="vertical-align: sub;font-size: 10pt;">air</span>/m<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>(<span style="font-style: italic;">t</span>
+) = 污染物浓度 <span style="font-family: Symbol;">a</span> 
+某时间房间风量
+ <i>t</i> [kg<sub style="font-family: Symbol;">a</sub>/kg<span style="vertical-align: sub;font-size: 10pt;">air</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;">S</span><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></span></span>(<span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;">t</span></span></span>)<span style="font-style: italic;"><span style="font-style: italic;"> = </span></span>
+污染物来源（再悬浮）率
+ <span style="font-style: italic;"><span style="font-style: italic;"><span style="font-family: Symbol;">a</span> <![CDATA[ ]></span></span>
+一次从地表到房间空气
+<span style="font-style: italic;"><span style="font-style: italic;"> t</span> <![CDATA[ ]></span>[kg<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]<span style="font-style: italic;"><span style="font-style: italic;"></span></span><span style="font-style: italic;"><span style="font-style: italic;"></span></span></p>
+        <p class="NormalIndent"><span style="font-style: italic;"><span style="font-style: italic;">r</span> = </span>
+重悬率
+<span style="font-style: normal;"> 
+[1/秒]
+</span></p>
+        <p class="NormalIndent"><span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">r</span> 
+= 再悬浮表面积 [m
+<span style="vertical-align: super;font-size: 10pt;">2</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">L</span><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>(<span style="font-style: italic;">t</span>
+) = 污染物浓度 <span style="font-family: Symbol;">a</span> 
+时间 t 时沉积表面上的重量 [kg
+<sub style="font-family: Symbol;">a</sub>/m<sup>2</sup>]</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+</p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><b>
+姓名：
+</b> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+</p>
+        <p><b>
+沉积速度：
+</b> 
+输入沉积速度和单位。空气密度将在模拟时从源/汇所在房间获得。
+
+</p>
+        <p><b>
+沉积表面积：
+</b> 
+输入所需的表面积和单位。您可以输入值 1.0 并使用源/汇乘数来指定该元素的每个特定实例的总沉积表面积。
+
+</p>
+        <p><b>
+重新暂停率：
+</b> <![CDATA[ ]>
+输入重新悬浮率和单位。
+
+</p>
+        <p><b>
+重悬表面积：
+</b> <![CDATA[ ]>
+再悬浮表面房间可以不同于沉积表面房间，例如，鞋撞击沉积表面。一旦与源/汇相关联，就可以使用也与源/汇相关联的时间表或控制来改变重悬浮率。
+
+</p>
+        <p><b>
+品种：
+</b> 
+从下拉框中选择先前定义的物种。
+
+</p>
+        <p><b>
+说明：
+</b> 
+用于输入特定接收器/源元件的更详细描述的字段。
+
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

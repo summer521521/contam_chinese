@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+源汇元边界层扩散模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+源/汇元件：边界层扩散模型
+</h5>
+        <p>
+具有线性吸附等温线的边界层扩散控制可逆汇/源模型遵循[
+<a href="../IDH_References.htm#REF_Axley_1991">
+阿克斯利 1991
+</a>
+]。边界层是指材料表面上方的房间，近表面浓度与气相浓度之间存在浓度梯度。污染物转移到表面（水槽）上的速率由以下方程定义。单位以默认计算单位提供。
+
+        </p>
+        <p><i>S</i><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>(<i>t</i>) = <i></i>
+控制键
+<i>
+·h·d·A
+<sub>s</sub></i>[<i>C</i><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>
+(t)-
+ <i>C<sub>s</sub></i>(<i>t</i>)/<i>k</i>]</p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">h&#160;&#160; </span>
+= 水槽上的薄膜传质系数 [m/s]
+<br /><span style="font-style: italic;">d</span>&#160;&#160; 
+= 空气膜密度 [kg
+<sub>air</sub>/m<sup>3</sup>]<br /><span style="font-style: italic;">A<sub>s</sub></span>&#160;&#160; 
+= 吸附剂的表面积 [m
+<sup>2</sup>]<br /><span style="font-style: italic;">C</span><sub><i></i><span style="font-family: Symbol; vertical-align: sub;">a</span></sub>&#160; 
+= 空气中浓度 [kg
+<i></i><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/kg<sub>air</sub>]<br /><span style="font-style: italic;">C</span><sub>s</sub> 
+= 吸附剂中的浓度
+<br /><span style="font-style: italic;">k</span>&#160;&#160; 
+= 亨利吸附常数或分配系数
+[公斤
+<i></i><sub>air</sub>/kg<sub>
+表面
+</sub>]       </p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+        </p>
+        <p><span style="font-weight: bold;">
+薄膜传输系数：
+</span> 
+吸附剂表面上方边界层（或薄膜）内污染物的平均传质系数。
+
+        </p>
+        <p><span style="font-weight: bold;">
+空气膜密度：
+</span> 
+这是空气体积密度和近表面密度的平均值。
+
+        </p>
+        <p><span style="font-weight: bold;">
+表面质量：
+</span> 
+输入单位表面积的质量，并使用源/汇乘数输入吸附剂的总面积。
+
+        </p>
+        <p><span style="font-weight: bold;">
+分配系数：
+</span> 
+将大量空气中的污染物浓度与吸附材料表面的污染物浓度联系起来的系数。
+
+        </p>
+        <p><span style="font-weight: bold;">
+品种：
+</span> 
+从下拉框中选择先前定义的物种。
+
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用于输入特定接收器/源元件的更详细描述的字段。
+
+</p>
+        <p>
+注：表面积，A<sub>s</sub>
+，由源/汇乘数提供，单位为 m
+<sup>2</sup>.</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Getting Started" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+CONTAM 项目的组成部分
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+CONTAM 项目的组成部分
+</h2>
+        <h3>
+项目文件
+</h3>
+        <p>
+与您所处理的项目特征相关的所有数据都存储在具有“PRJ”扩展名的“项目”文件中（请参阅
+ <a href="../PRJ/IDH_UsingPrjFiles_WorkingWithProjectFiles.htm">
+使用项目文件
+</a>）。这是一个 ASCII 文件，仅供 ContamW 程序“查看”。您应该仔细记录项目文件，并为您可能希望保存的项目的各个版本建立对您有意义的命名约定。 CONTAM 使用的其他文件包括：模拟结果文件、环境文件、库文件、日志文件和其他支持文件。
+</p>
+        <p class="SubHeading1">
+结果文件
+</p>
+        <p class="Normal">
+仿真结果存储在 ContamX 自动创建的文件中，其名称与 PRJ 文件相同，但“PRJ”扩展名被替换为取决于仿真生成的结果类型的扩展名（请参阅
+ <a href="../Results/IDH_UsingResults_Working_with_Results.htm">
+使用仿真结果
+</a>). </p>
+        <p class="SubHeading1">
+环境文件
+</p>
+        <p class="Normal">
+环境文件包括天气（WTH 扩展名）、污染物（CTM 扩展名）以及风压和污染物文件（WPC 扩展名）。环境文件可能包含最多一年的数据，并在执行瞬态模拟时使用（请参阅
+ <a href="../Weather/IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气
+</a>
+）。这些是 ASCII 文件，但格式是 CONTAM 所独有的。
+ </p>
+        <p class="SubHeading1">
+库文件
+</p>
+        <p class="Normal">
+库文件是您可以在 CONTAM 项目之间共享各种类型数据的方法（请参阅
+ <a href="../Library/IDH_UsingLibs_Working_with_Data_and_Libraries.htm">
+使用数据和库
+</a>). </p>
+        <p class="SubHeading1">
+支持文件
+</p>
+        <p class="Normal">
+支持文件包括日志文件、备份文件和配置文件。 ContamW 支持文件在用户的应用程序目录中创建 - c:\Documents and Settings\
+&lt;
+用户
+&gt;
+\应用程序数据\NIST\ContamW\。 ContamX 日志文件在 c:\Documents and Settings\ 中创建&lt;
+用户
+&gt;\应用程序数据\NIST\ContamX\。 Linux 版本的 ContamX 将 ContamX 日志文件存储在用户的主目录中。日志文件包含有关相关程序执行的信息，并且在您需要程序开发人员的技术支持时非常有用（请参阅
+ <a href="../IDH_UsingHLP_Getting_Help.htm">
+寻求帮助
+</a>
+）。每次成功打开 PRJ 文件时，ContamW 都会创建一个备份（BKP 扩展名）文件。配置文件（CFG 扩展名）和 BKP 文件也存储在 ContamW 应用程序目录中。
+</p>
+        <h3>
+建筑构件
+</h3>
+        <p>
+建筑组件是表征您使用 ContamW 定义的建筑物物理构成的项目。本节简要介绍这些组件。
+</p>
+        <p class="SubHeading1"><a name="BuildingComponents_Levels"></a>
+级别
+</p>
+        <p>
+CONTAM 表示建筑物的多个楼层，考虑了这些楼层之间空气和污染物的交流。标高通常对应于建筑物的楼层，但充当回风静压室的吊顶或充当送风静压室的高架地板也可被视为标高。
+<font style="color:red; "></font></p>
+        <p class="SubHeading1">
+墙壁
+</p>
+        <p>
+墙壁用于指定由墙壁、地板和天花板包围的房间。这些墙壁包括建筑围护结构和内部隔断，对气流具有很大的阻力。
+</p>
+        <p class="SubHeading1">
+地板和天花板
+</p>
+        <p>
+建筑房间的 ContamW 隐式包含地板和天花板。当您在 SketchPad 上绘制房间时，ContamW 会自动包含该区域的地板。要创建一个穿透到下面地板的屋顶，需要在顶层上方留出一个空白层。也可以创建一个没有地板或天花板的幻影房间，这可能需要创建一个跨越多个楼层的中庭（请参阅
+ <a href="../Zones/IDH_UsingZones_WorkingWithZones.htm">
+使用房间
+</a>).</p>
+        <p class="SubHeading1">
+房间
+</p>
+        <p>
+在 CONTAM 中，房间通常指具有均匀温度和污染物浓度的空气体积。但是，从版本 2.4 开始，房间现在可以配置为一维
+ <font style="font-style:italic; ">convection/diffusion zones</font> 
+其中允许污染物浓度沿着用户指定的轴变化。从版本 3.0 开始，建筑物的单个房间或房间可以定义为 CFD
+&#160;
+区。
+ </p>
+        <p>
+CONTAM 中有三种类型的房间：
+ <font style="font-style:italic; ">normal</font>, <font style="font-style:italic; ">phantom </font>and <font style="font-style:italic; ">ambient</font>. <font style="font-style:italic; ">Normal zones</font> 
+与下面的房间被地板隔开。的
+ <font style="font-style:italic; ">ambient zone</font>
+围绕建筑物的 是隐式定义的，并由 SketchPad 左上角的符号标识。您还可以使用
+ <font style="font-style:italic; ">ambient zone</font> 
+图标来定义庭院。
+ <font style="font-style:italic; ">Phantom zones</font> 
+表明当前层的房间实际上是
+ <font style="font-style:italic; ">normal zone</font> 
+就在下面的水平面上。之间没有地板
+ <font style="font-style:italic; ">phantom zone</font> 
+和
+ <font style="font-style:italic; ">normal zone</font> 
+下面。你可以使用
+ <font style="font-style:italic; ">phantom zones</font> 
+定义中庭等建筑特征。仅
+ <font style="font-style:italic; ">normal zones</font> 
+可以配置为
+ <font style="font-style:italic; ">convection/diffusion</font> 
+然而，这些房间仍然可以被引用
+ <font style="font-style:italic; ">phantom zones</font>.</p>
+        <p class="SubHeading1">
+气流路径
+</p>
+        <p>
+气流路径表示空气可以从一个房间移动到另一个房间的某些建筑特征。  这些特征包括建筑围护结构中的裂缝、敞开的门口和风扇。放置在墙上的路径符号用于表示房间之间或周围环境的开口；任何其他位置都代表地板上通往下层房间的开口。 CONTAM 可以实现几种不同的模型或 <a href="../AirflowPaths/IDH_UsingPaths_Airflow_Elements.htm">
+气流元件
+</a> 
+定义气流路径。气流单元或模型的基本类别如下：由幂律和二次压力关系表示的小和大裂缝/开口、小和大门口单元以及风扇/强制气流单元。 （参见
+ <a href="../AirflowPaths/IDH_UsingPaths_WorkingWithAirflowPaths.htm">
+使用气流路径
+</a>)</p>
+        <p class="SubHeading1">
+简单的空气处理系统
+</p>
+        <p>
+简单空气处理系统 (AHS) 提供了一种将空气处理系统引入建筑物的简单方法，而无需绘制管道系统。它提供了一个合理的空气处理系统模型，可提供用户指定的流量，其中系统得到适当的平衡，并且风扇不会受到建筑物中任何其他加压效应的影响。 AHS 由两个隐式气流节点（返回和送风）、三个隐式流动路径（再循环、室外和排气）以及放置在建筑物房间内的多个送风和返回点组成。您可以将 AHS 的气流设置为根据时间表变化。
+</p>
+        <p class="SubHeading1">
+管道
+</p>
+        <p>
+您可以使用管道来实现更详细的空气处理系统模型，以处理更广泛的条件。  例如，当空气处理器关闭时，管道系统可以在房间之间提供流动路径，这对于正常的建筑裂缝或开口来说是重要的。管道系统由管道段（路径）和连接点或终点（节点）组成。 CONTAM 可以实现几种不同的管道段模型或
+ <a href="../Ducts/IDH_UsingDucts_Duct_Flow_Elements.htm">
+管道流动元件
+</a> 
+定义管道段。风管流动元件的基本类别如下：阻力模型、风机性能曲线和逆风阻尼器。 （参见 <a href="../Ducts/IDH_UsingDucts_WorkingWithDucts.htm">
+使用管道
+</a>)</p>
+        <p class="SubHeading1">
+污染物、源和汇
+</p>
+        <p>
+您可以在单个项目中定义无限数量的污染物，并具有几乎无限数量的与污染物相关的来源。 CONTAM 可以模拟污染物通过房间之间的气流传输、通过与流路相关的过滤机制去除以及通过化学反应去除和添加。 CONTAM 还可以实现多种
+ <a href="../Sources/IDH_UsingSS_Elements.htm">
+源和汇模型
+</a> 
+在房间内产生污染物或从房间中去除污染物。这些模型包括：恒定生成、压力驱动、衰减源、截止浓度、可逆边界层扩散和爆发模型。 （参见
+ <a href="../Contaminants/IDH_UsingContams_WorkingWithContaminants.htm">
+处理污染物
+</a> and <a href="../Sources/IDH_UsingSS_WorkingWithSourcesAndSinks.htm">
+使用源和接收器
+</a>)</p>
+        <p class="SubHeading1">
+时间表
+</p>
+        <p>明细表用于控制或修改建筑构件随时间变化的各种属性。您可以设置气流路径、管道流路的时间表；污染物源和汇；以及简单空气处理系统的入口、出口和室外空气输送。在建筑组件上设置明细表的效果根据组件的属性而有所不同。例如，您可以设置一个计划来调整通过简单空气处理系统的入口输送到某个房间的气流。 （参见
+ <a href="../AHS/IDH_UsingAHS_WorkingWithAHS.htm">
+使用简单的空气处理系统
+</a>
+) CONTAM 还提供了安排房间温度的能力。
+</p>
+        <p class="SubHeading1">
+控制
+</p>
+        <p>
+控制装置包括传感器、执行器、调节器和链接。控制执行器可用于根据从传感器获得的控制信号来修改建筑组件的各种特性，甚至可以通过信号修改器进行修改。例如，传感器可用于获得房间内的污染物浓度，并且比例控制致动器可用于基于感测到的浓度来调节进入该区域的供应气流。
+</p>
+        <h3>
+居住者
+</h3>
+        <p>
+居住者可用于确定一个人在建筑物内可能遭受的污染物暴露量。居住者也会产生污染物。您可以设置时间表来确定每个居住者在建筑物内的活动。占用者时间表还可用于定义占用者不在建筑物内的时间段。 （参见
+ <a href="../Occupants/IDH_UsingOccs_Working_with_Occupant_Exposure.htm">
+处理乘员暴露情况
+</a>)</p>
+        <h3>
+天气
+</h3>
+        <p>
+CONTAM 使您能够考虑稳态或变化的天气条件。天气条件包括环境温度、气压、湿度比、风速和风向以及环境污染物浓度。
+</p>
+        <h3>
+模拟
+</h3>
+        <p>
+在CONTAM中，仿真是根据项目文件中存储的信息形成一组联立方程组，根据用户定义的规范执行数值分析以求解节点方程组，并创建可使用ContamW界面查看的仿真结果文件的过程。使用 CONTAM 可以执行三种基本类型的模拟来进行气流和污染物分析：稳态、瞬态和循环。 （见
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a>) </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

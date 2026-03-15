@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with WPC Files" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+PLD 文件格式
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+PLD 文件格式
+</h3>
+        <p>
+PLD（路径位置数据）文件将包含将建筑物连接到外部环境的任何流动路径的位置，以及用于指导 EWC 文件转换器行为的附加信息。该文件由 ContamW 创建，并存储在与项目文件相同的目录中，其名称与项目文件相同，但扩展名为 .pld 替换了 .prj 扩展名。它是根据需要创建的，用于将 WPC 文件信息与 CONTAM 项目文件中的信息进行比较。 （请参阅使用 WPC 文件）
+</p>
+        <p>
+该文件采用 ASCII 行分隔格式。
+ </p>
+        <p>
+参考位置由 (Xref,Yref,Zref) 定义，表示 EWC 文件位置，相当于路径位置的 CONTAM 坐标系的原点。
+&#160; 
+用户必须在 EWC 文件和 PRJ 文件之间进行协调，以确定该位置的坐标值。
+</p>
+        <p>
+旋转角度围绕 Z（垂直）轴。
+&#160; 
+用户必须协调 EWC 和 PRJ 文件坐标之间的旋转方向
+&#160; 
+假设
+&#160; 
+没有绕 X 轴或 Y 轴旋转。</p>
+        <p>
+第 6 行的六个坐标定义了一个围绕该文件内的流路的边界框，可用于帮助 EWC 文件转换器在绘图过程中快速排除不需要的点（例如，距离建筑物太远的点）。
+&#160; 
+请注意，此边界框不一定包围整个建筑物。
+</p>
+        <p>
+模拟时间步长向 EWC 文件转换器提供减小 WPC 文件大小的建议，以便仅包含与模拟时间步长一致的时间步长（这可以减少所需的插值）。
+&#160; </p>
+        <p>
+每个流路径由流路径类型和流路径ID值的组合唯一标识。
+</p>
+        <p>
+注释以感叹号 ('!') 开头，可以从任何行的开头开始（这样整行将被忽略），也可以在一行的所有字段之后开始（这样该行的其余部分将被忽略）。
+&#160; </p>
+        <p>
+为了用户可读性，应尽可能对字段进行注释。
+</p>
+        <p>
+R4 数据类型的格式可以类似于 C scanf() 语句的转换规范来解释。
+</p>
+        <p style="font-weight: bold;">
+标题部分：
+</p>
+        <p class="NormalItalic">
+前三行：
+</p>
+        <p class="code">
+EWC 文件名
+&#160;&#160;&#160;
+//（I1完整路径）
+</p>
+        <p class="code">
+WPC 文件名
+ &#160;&#160;
+//（I1完整路径）
+</p>
+        <p class="code">
+描述[]
+&#160;&#160;
+// 文件描述 (I1)
+</p>
+        <p class="NormalItalic">
+下一个标题行正是：
+</p>
+        <p class="code">
+！外部参照
+&#160;&#160;&#160; 
+外部参照
+&#160;&#160;&#160; 
+伊雷夫
+&#160;&#160;&#160; 
+角度
+</p>
+        <p class="NormalItalic">
+下一行包含以米为单位的参考坐标：
+</p>
+        <p class="code">
+外部参照
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+伊雷夫
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+兹雷夫
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+旋转
+&#160;
+角度
+&#160;&#160;
+// 真实格式%8.3f
+</p>
+        <p class="NormalItalic">
+下一行包含以度为单位的纬度和经度：
+</p>
+        <p class="code">
+纬度
+&#160;&#160;&#160;
+// (R4 %8.4f) 正北
+</p>
+        <p class="code">
+经度
+&#160;&#160;
+// (R4 %8.4f) 东部为正
+</p>
+        <p class="NormalItalic">
+下一个边界框标题行正是：
+</p>
+        <p class="code">！最小
+&#160;&#160;&#160; 
+最大X值
+&#160;&#160;&#160; 
+伊敏
+&#160;&#160;&#160; 
+最大Y值
+&#160;&#160;&#160;&#160; 
+兹敏
+&#160;&#160;&#160; 
+最大Z值
+</p>
+        <p class="NormalItalic">
+下一行包含边界框坐标：
+</p>
+        <p class="code">
+最小
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+最大X值
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+伊敏
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+最大Y值
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+兹敏
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="code">
+最大Z值
+&#160;&#160;&#160;
+// (R4 %7.3f)
+</p>
+        <p class="NormalItalic">
+下一个时间步标题行正是：
+</p>
+        <p class="code">
+！步骤
+&#160; 
+转变
+&#160;&#160;&#160;&#160; 
+开始
+&#160;&#160; end</p>
+        <p class="NormalItalic">下一行包含时间步数据：
+</p>
+        <p class="code">
+时间步长
+&#160;&#160;
+// (I4) [s]
+</p>
+        <p class="code">
+数据移位 //（时:分:秒
+ &#8594; 
+I4) 转换为 WPC 时的 EWC 开始时间
+</p>
+        <p class="code">
+开始
+&#160;
+日期
+&#160;
+//（毫米/日
+ &#8594; IX)</p>
+        <p class="code">
+结束日期
+&#160;&#160;&#160;
+//（毫米/日
+ &#8594; IX)</p>
+        <p class="NormalItalic">
+下一行包含：
+</p>
+        <p class="code">
+风
+&#160;
+按
+&#160;
+旗帜
+ &#160;&#160;&#160;
+// (I4) 1：在 WPC 中包含压力，0：不包含
+</p>
+        <p class="code">
+物种数量
+&#160;&#160;
+//（I4）
+</p>
+        <p class="code">物种图容差 // (R4 %7.3f) 摩尔质量容差
+</p>
+        <p style="font-weight: bold;">
+污染物定义部分：
+</p>
+        <p class="NormalItalic">
+污染物定义部分以标题行开头：
+</p>
+        <p class="code">
+！姓名
+&#160; 
+重量
+</p>
+        <p class="NormalItalic">
+下一个
+ <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-size: 10pt;">
+（物种数量）
+</span></span> 
+每个物种的行包含：
+</p>
+        <p class="codeindent">
+名称[]
+&#160;&#160;&#160;&#160;
+//（I1 - 最多 16 个字符）
+</p>
+        <p class="codeindent">
+摩尔质量
+&#160;
+// (R4 %6.2f)
+</p>
+        <p>
+            <p style="font-weight: bold;">
+气流路径定义部分：
+</p>
+        </p>
+        <p class="NormalItalic">
+气流路径定义部分的第一行包含：
+</p>
+        <p class="code">
+流路数量 // (I4)
+</p>
+        <p class="code">
+路径图容差
+&#160;&#160;&#160;
+// (R4 %7.3f) [m]
+</p>
+        <p class="NormalItalic">
+下一个标题行正是：
+</p>
+        <p class="code" style="margin-top: 1pt;">
+！编号#
+&#160;&#160; X&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Y&#160;&#160;&#160;&#160;&#160;&#160; Z</p>
+        <p class="NormalItalic">
+下一个
+ <span style="font-family: &#x27;Courier New&#x27;;"><span style="font-size: 10pt;">
+(流路数)
+</span></span> 
+每个气流路径的行包含：
+</p>
+        <p class="codeindent">
+路径号
+&#160;&#160;&#160;&#160;
+//（九）
+</p>
+        <p class="codeindent">
+x 坐标
+&#160;&#160;&#160;
+// (R4) [米]
+</p>
+        <p class="codeindent">
+y 坐标
+&#160;&#160;&#160;
+// (R4) [米]
+</p>
+        <p class="codeindent">
+z 坐标&#160;&#160;&#160;
+// (R4) [米]
+</p>
+        <p class="NormalItalic">
+该文件的最后一行正是：
+</p>
+        <p class="code">-999</p>
+        <p class="code">&#160;</p>
+        <h6>
+示例：
+</h6>
+        <p class="code">
+C:\Program Files\Contamw2\Prjs\WPCcube.ewc ！ EWC文件
+</p>
+        <p class="code">
+C:\Program Files\Contamw2\Prjs\WPCcube1.wpc ！ WPC 文件
+</p>
+        <p class="code">
+WPC 描述
+</p>
+        <p class="code">
+！外部参照
+&#160;&#160;&#160; 
+外部参照
+&#160;&#160;&#160; 
+伊雷夫
+&#160;&#160;&#160; 
+角度
+</p>
+        <p class="code">&#160; 0.000&#160;&#160; 0.000&#160;&#160; 0.000&#160;&#160; 0.00
+        </p>
+        <p class="code">&#160; 0.0000&#160; 0.0000&#160; 
+！无纬度/经度
+</p>
+        <p class="code">！最小
+&#160;&#160;&#160; 
+最大X值
+&#160;&#160;&#160; 
+伊敏
+&#160;&#160;&#160; 
+最大Y值
+&#160;&#160;&#160;&#160; 
+兹敏
+&#160;&#160;&#160; 
+最大Z值
+</p>
+        <p class="code">&#160; 0.000&#160;&#160; 5.000&#160;&#160; 2.500&#160;&#160; 10.000&#160;&#160; 1.000&#160;&#160; 1.000
+        </p>
+        <p class="code">
+！步骤
+&#160; 
+转变
+&#160;&#160;&#160;&#160; 
+开始
+&#160;&#160; end</p>
+        <p class="code">&#160; 0&#160;&#160;&#160;&#160; 00:00:00&#160; 1/1&#160;&#160;&#160;&#160; 1/1
+        </p>
+        <p class="code">&#160; 1&#160;&#160;&#160;&#160; 2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+0.01！压力标志，# 物种，映射耐受性
+
+        </p>
+        <p class="code">
+！姓名
+&#160; 
+重量
+</p>
+        <p class="code">&#160; CO&#160;&#160;&#160; 28.00</p>
+        <p class="code">&#160; CO2&#160;&#160; 44.00</p>
+        <p class="code">&#160; 4&#160;&#160;&#160;&#160; 
+1.00！流路数量和映射公差</p>
+        <p class="code">
+！编号#
+&#160;&#160; X&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Y&#160;&#160;&#160;&#160;&#160;&#160; Z</p>
+        <p class="code">&#160; 1&#160;&#160;&#160;&#160; 5.000&#160;&#160;&#160;&#160; 10.000&#160; 1.000</p>
+        <p class="code">&#160; 2&#160;&#160;&#160;&#160; 0.000&#160;&#160;&#160;&#160; 7.500&#160;&#160; 1.000</p>
+        <p class="code">&#160; 3&#160;&#160;&#160;&#160; 0.000&#160;&#160;&#160;&#160; 5.000&#160;&#160; 1.000</p>
+        <p class="code">&#160; 4&#160;&#160;&#160;&#160; 0.000&#160;&#160;&#160;&#160; 2.500&#160;&#160; 1.000</p>
+        <p class="code">-999</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ADJ_ZONE_TEMP_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+ADJ_ZONE_TEMP_MSGTYPE
+</h3>
+        <p>
+ContamX 可能会在任何时间收到此消息
+ <i>
+就绪模式
+</i>
+。每条消息可用于设置多个房间的温度。这里使用的 ID 是由 <span style="font-family: &#x27;Courier New&#x27;;">
+ZONE_INFO_MSGTYPE
+</span>.</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+num_zones；
+ &#160;&#160;&#160;  &#160;&#160;&#160;&#160;        <span style="color: #008100;">
+//要设置的房间数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+id[num_zones];
+ <span style="color: #008100;">&#160;&#160;&#160;&#160;&#160;
+// 房间索引列表
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+值[num_zones]；
+ <span style="color: #008100;">
+// 温度 [K]
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

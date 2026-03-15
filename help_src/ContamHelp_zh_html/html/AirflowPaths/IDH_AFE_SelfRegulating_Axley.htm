@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Element Types|Backdraft Damper Flow Models" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+自调节通风口型号
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h6>
+自调节通风口型号
+</h6>
+        <p>
+CONTAM 实现自调节通风口，如 [<a href="../IDH_References.htm#REF_Axley_2001">
+阿克斯利 2001
+</a>]<a href="../IDH_References.htm#REF_Axley_2001"></a>
+。该元件限制通过具有用户定义的限制气压差的流路的两个方向的气流速率。</p>
+        <p>
+流量根据以下公式计算元件上的正压差和负压差。为每个气流路径设置正流向。
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_AFE_SelfRegAxley_Qpos.png" />
+        </p>
+        <p>
+            <img src="../../Resources/Images/Eqn_AFE_SelfRegAxley_Qneg.png" />
+        </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+输入要用于识别气流元件的名称。气流元件将保存在当前项目中，并且可以与多个气流路径关联。
+</p>
+        <p><b>
+最大流量（
+</b><i style="font-weight: bold;">Q</i><sub style="font-style: italic;font-weight: bold;">0</sub><b>):</b> 
+设置允许通过气流路径的最大气流速率的经验值。
+</p>
+        <p><b>
+调节压力（
+</b><span style="font-family: Symbol;font-style: italic;font-weight: bold;">D</span><i style="font-weight: bold;">P</i><sub style="font-style: italic;font-weight: bold;">0</sub><b>):</b> 
+代表近似压差的经验值，高于该压差气流将被限制为最大流量
+ <i>Q</i><sub style="font-style: italic;">0</sub>.</p>
+        <p><b>
+逆流分数 (
+</b><i style="font-weight: bold;">f</i><b>):</b> 
+当气流路径上的压差为负时，通过该元件的气流将被限制到的最大流量的分数。
+</p>
+        <p><b>
+说明：
+</b> 
+您可以提供更详细的注释来描述此气流元件。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

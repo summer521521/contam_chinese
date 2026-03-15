@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Species and Contaminants" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+物种特性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor96"></a>
+物种特性
+</h3>
+        <p>
+本节提供特定物种属性的详细描述。
+ </p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+您将在整个程序中使用这个名称来指代该物种。您必须为每个物种指定当前项目唯一的名称。
+</p>
+        <p><span style="font-weight: bold;">Mol</span><span style="font-weight: bold;">a</span><span style="font-weight: bold;">r </span><span style="font-weight: bold;">
+弥撒
+</span><span style="font-weight: bold;">:</span><span style="font-weight: bold;"> <![CDATA[ ]></span>
+摩尔质量，单位为 g/mol 或 kg/kmol。 CONTAM 使用该值将体积浓度转换为质量分数，并计算由非痕量污染物组成的空气混合物的气体常数。您必须输入至少 1.0 的值。
+</p>
+        <p><span style="font-weight: bold;">
+默认浓度：
+</span> 
+CONTAM 将应用此值作为您创建的每个房间的默认初始浓度。您可以根据您的要求修改各个房间的初始浓度。这也是模拟期间的环境污染物浓度，不使用外部污染物数据文件（CTM 或 WPC）之一的污染物数据。
+</p>
+        <p><span style="font-weight: bold;">
+扩散系数：
+</span> 
+该值将在模拟过程中使用
+ <span style="font-style: italic;">
+一维管道模型
+</span> 
+的
+ <span style="font-style: italic;">
+短时间步长法
+</span> 
+（参见
+ <a href="../Simulation/IDH_UsingSIM_ParamsRunControl.htm">
+运行控制属性
+</a> 
+在
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+部分）。扩散系数将根据给定管道段中的雷诺数从此值计算。
+</p>
+        <p><span style="font-weight: bold;">
+平均直径：
+</span><span style="font-weight: bold;"> <![CDATA[ ]></span>
+如果该物种是颗粒类型物种，请输入平均粒径。 CONTAM 在颗粒计数单位与颗粒质量和体积单位之间进行转换时使用此值，并确定简单颗粒过滤器元件对于此尺寸颗粒的过滤效率（请参阅
+ <a href="../Filters/IDH_FLTE_PF0.htm">
+简单的粒子过滤器
+</a> 
+在
+ <a href="IDH_UsingContaminants_Contaminant_Filters.htm">
+使用过滤器
+</a> 
+部分）。
+</p>
+        <p>
+注：这不一定是空气动力学直径，因为当前污染物源模型不处理与气态污染物不同的颗粒。
+</p>
+        <p><span style="font-weight: bold;">
+有效密度：
+</span><span style="font-weight: bold;"> <![CDATA[ ]></span>
+输入您希望 CONTAM 用作您想要视为颗粒类型物种的物种的有效密度的密度。目前，CONTAM 仅在粒子计数单位与粒子质量和体积单位之间转换时使用此值。
+</p>
+        <p><span style="font-weight: bold;">
+比热：
+</span> 
+仅当以下情况时，才会在模拟过程中使用污染物的比热：
+ <span style="font-style: italic;">
+可变结温
+</span> 
+方法被选择。
+</p>
+        <p><span style="font-weight: bold;">
+衰减率：
+</span> 
+这是基于放射性物质半衰期的指数衰减常数，使用以下公式计算：
+</p>
+        <p>
+衰减率 = ln(2) /
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 14pt;">t</span><span style="vertical-align: sub;font-size: 10pt;">1/2</span>,</p>
+        <p>
+哪里
+ <span style="font-family: &#x27;Symbol&#x27;;font-size: 14pt;">t</span><span style="vertical-align: sub;font-size: 10pt;">1/2</span> 
+是放射性物质的半衰期（以秒为单位）。
+</p>
+        <p>
+ContamW 将使用该值来执行放射性污染物的单位转换。放射性物质与其他物质的区别仅在于与其相关的单位，而不是通过对放射性衰变过程进行建模。要模拟放射性衰变，请使用动力学反应（参见
+ <a href="IDH_KINETIC_REACTION.htm">
+动力学反应数据
+</a>).</p>
+        <p><span style="font-weight: bold;">
+UVGI 敏感性常数：
+</span> 
+用于确定 UVGI 的物种相关速率常数
+&#160;
+filter effectiveness for a specific contaminant [m
+<sup>2</sup>
+/J]。 [中提供了几个物种的值
+<a href="../IDH_References.htm#REF_Kowalski_2000">
+科瓦尔斯基等人。 2000年
+</a>
+] 范围从 10
+<sup>-3</sup> cm<sup>2</sup>/<span style="font-family: Symbol;">m</span>
+J 至 10
+<sup>-6</sup> cm<sup>2</sup>/<span style="font-family: Symbol;">m</span>
+J.（3.2 版新增）
+</p>
+        <p><span style="font-weight: bold;">
+无痕量污染物：
+</span> 
+非痕量污染物是那些可以影响空气密度的污染物，即被视为空气的组成部分。 （参见
+ <a href="IDH_UsingContaminants_WaterVapor.htm">
+无痕污染物和水蒸气
+</a>)</p>
+        <p><span style="font-weight: bold;">
+在模拟中的使用：
+</span> 
+这决定了一个物种是否会成为污染物。选中“在模拟中使用”表示该物种将成为污染物并在模拟中使用。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+用它来提供该物种的更详细描述。
+</p>
+        <p><span style="font-weight: bold;">
+指导值：
+</span> 
+目前尚未实施。
+</p>
+        <p><span style="font-weight: bold;">
+指南说明：
+</span> 
+目前尚未实施。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

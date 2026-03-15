@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+AHSP_FLOW_UPDATE_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+AHSP_FLOW_UPDATE_MSGTYPE
+</h3>
+        <p>
+此消息可能会在之后由 ContamX 发送
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_ADVANCE_MSGTYPE
+</span> 
+已收到且 ContamX 已提前至指定时间。 ContamX 将仅在相关位的情况下发送此消息
+ <code>
+选项
+</code> 
+前一个标志
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CX_ADVANCE_MSGTYPE
+</span> 
+已设置。值按照以下提供的顺序发送
+ <span style="font-family: &#x27;Courier New&#x27;;">
+AHSP_INFO_MSGTYPE
+</span>
+。  请参阅
+ <a href="E_1_Program_Execution.htm">
+程序执行
+</a> 
+部分了解与此消息所使用的单位相关的信息。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+时间；
+ <span style="color: #008100;">
+// 数据对应的仿真时间[s]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+值[num_ahsp]；
+<span style="color: #008100;"> // 每个简单空气处理器路径的气流速率 [kg/s] 或 [m3/s]
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

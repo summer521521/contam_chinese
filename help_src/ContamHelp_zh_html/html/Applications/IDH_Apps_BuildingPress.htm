@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Special Applications of CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+建筑耐压测试
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+建筑耐压测试
+</h2>
+        <p>
+建筑加压测试（有时称为风扇加压或鼓风机门测试）是确定建筑围护结构气密性的常用方法。风扇增压相对快速且廉价，并且其特征在于建筑围护结构的气密性不受天气条件的影响。在此过程中，大型风扇或鼓风机安装在门或窗中，并在整个建筑外壳上产生大且大致均匀的压力差。
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+，第 27.12 页；
+ <a href="../IDH_References.htm#REF_ASTM_1999">
+美国材料试验协会1999
+</a>
+]。常见的气密性等级是 50 Pa 时的气流速率除以建筑体积，得出每小时换气次数的单位。 CONTAM 现在提供了一种执行以下操作的自动化方法
+ <span style="font-style: italic;">
+建筑耐压测试
+</span> 
+（参见
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a>
+），但也有执行此测试的“手动”方法，如下所示，仅供参考。
+ </p>
+        <p>您可能希望进行模拟加压测试，以确定理想建筑的气密等级。通过将零海拔高度上的一个房间设置为 50 Pa 的恒定压力，运行模拟，然后观察流出该区域的总气流，可​​以轻松完成此操作。 （不要忘记流向其他建筑楼层。）您还可以使用恒定体积气流元件定义气流路径，通过该元件您可以改变气流，直到达到所需的增压水平。使用标准米
+<sup>3</sup>
+/h 流量单位并除以建筑体积即可得到 50 Pa 时的换气率。或者，可以使用 2005 年 ASHRAE 基本手册第 27 章中的公式将 4 Pa 时的流量转换为有效泄漏面积 (ELA) [
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+]。使用 CONTAM 结果显示来检查建筑物是否已正确加压，方法是将光标移动到围护结构上的每个路径，以获取状态栏中报告的压降。您可以使用所有流量的报告来获取所有流量和压降的列表。到环境房间的每条路径上的压力差 (dP) 应接近 -50 Pa。该值为负值，因为报告认为从“来自”中的房间到“房间”列中列出的房间的流量和 dP 为正。所有流量都流向“来自”房间。
+</p>
+        <p>
+由于密度效应，报告的各个流道上的压降不会恰好为 50 Pa。通过在相同（标准）温度和无风的情况下运行所有房间和环境，最大限度地减少这些差异。由于海拔不同而产生的压力差异使得恒定压力区处于零海拔水平至关重要。&#160;&#160;&#160; </p>
+        <p>
+在多房间建筑中，分区（内墙和地板）的影响通常很重要。
+&#160; 
+根据模拟的目标，有两种解决方案。如果目标只是在整个建筑外壳上实现均匀的压差，请在每个隔断上添加一个非常大的开口。如果目标是重现现场测试，请模拟内门打开以获得建筑物内相对均匀的压力。
+ </p>
+        <p>
+在执行这些测试之前，您应该复制项目文件，这样您就不必撤消更改来恢复原始项目文件。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

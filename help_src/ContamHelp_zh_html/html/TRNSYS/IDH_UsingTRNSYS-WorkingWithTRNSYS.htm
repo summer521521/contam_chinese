@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+与 TRNSYS 合作
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h1><a name="top"></a>
+与 TRNSYS 合作
+</h1>
+        <p>
+CONTAM 模拟引擎 ContamX 可以通过一组 TCP/IP 套接字通信消息进行控制。这使得 CONTAM 能够与其他仿真软件结合。这种套接字通信功能或桥接模式已用于将 CONTAM 与 TRNSYS (
+<a href="http://www.trnsys.com/" title="
+TRNSYS 软件网站
+" alt="
+TRNSYS 软件网站
+">
+www.trnsys.com
+</a>
+）对多房间建筑执行组合气流和传热模拟。更具体地说，TRNSYS 实现了 Type56 多房间建筑传热模块，CONTAM 可以与该模块“同步”，以在 Type56 和多房间建筑的 CONTAM 表示之间共享输入和输出。
+ </p>
+        <p>
+历史上，TRNSYS 已经实现了 Type96 和 Type97，它们基于 CONTAM 及其前身程序 AIRNET 的气流计算功能 [
+<a href="../IDH_References.htm#REF_Walton_1989a">
+沃尔顿 1989a
+</a>
+]。这些类型仅提供对 CONTAM/AIRNET 能够执行的气流网络计算的子集的访问。此外，这些类型不支持 CONTAM 能够执行的污染物计算。因此，开发了 Type98 作为 ContamX 的服务器，并提供 Type56 和 ContamX 之间的通信和信息/数据交换。实现的一个优点是随着 CONTAM 的发展，它的全部功能可以持续受益，而无需像以前 Type96/97 那样重新开发新类型。与此耦合相关的套接字通信消息记录在
+ <a href="../Appendices/AppE.htm">
+附录B
+</a>.</p>
+        <p>
+本节概述了如何实现 Type98 [
+<a href="../IDH_References.htm#REF_Dols_2014a">
+2014a 多尔斯
+</a>, <a href="../IDH_References.htm#REF_Dols_2014b">
+多尔斯 2014b
+</a>
+]。此实现目前仅限于所谓的
+ <i>
+准动态
+</i> 
+（或乒乓）耦合方法，每个分析工具独立收敛，而不是
+ <i>
+动态
+</i> 
+耦合（或洋葱）方法，在耦合工具之间实现收敛。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

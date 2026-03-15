@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+管道
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+管道
+</h4>
+        <p>
+管道（和管道）中的流动理论已在《管道》第 35 章中得到完善和总结。
+ <span style="font-style: italic;">200</span><span style="font-style: italic;">5</span><span style="font-style: italic;"> 
+ASHRAE 基础手册
+</span> 
+[ASHRAE 2005] 并在 [Blevins 1984] 关于管道和管道流的章节中进行了更广泛的处理。请参阅
+ <span style="font-style: italic;">
+管道配件数据库
+</span> 
+[ASHRAE 2002] 有关管道配件动态损耗的大量数据。分析基于伯努利方程及其假设。一段管道或管道的摩擦损失由下式给出
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800008C.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(47)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">f</span> 
+= 摩擦系数，
+<br /><span style="font-style: italic;">L</span> 
+= 管道长度，以及
+ <br /><span style="font-style: italic;">D</span> 
+= 水力直径。
+ 
+        </p>
+        <p>
+由配件等引起的动态损耗由下式给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000C9.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(48)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span> 
+= 动态损耗系数。总压力损失由下式给出
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CA.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(49)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+自从
+ <span style="font-style: italic;">F = </span><span style="font-family: Symbol;">r</span><span style="font-style: italic;">VA</span>
+, 其中
+ <span style="font-style: italic;">A</span> 
+是横截面（或流动）面积，
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CB.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(50)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+CONTAM 使用非线性 Colebrook 方程计算摩擦系数 [ASHRAE 2001, p 2.9, eqn. 29b]：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CC.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(51)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-family: Symbol;">e</span> 
+= 粗糙度尺寸，以及
+ <br />
+Re = 雷诺数 =
+ <span style="font-family: Symbol;">r</span><span style="font-style: italic;">VD</span>/<span style="font-family: Symbol;">m</span> = <span style="font-style: italic;">FD</span>/<span style="font-family: Symbol;">m</span><span style="font-style: italic;">A</span>. 
+        </p>
+        <p>
+该非线性方程可以使用以下通过牛顿法从方程（51）导出的迭代表达式来容易地求解：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/080000CD.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(52)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">g</span> = <span style="font-style: italic;">f</span><span style="vertical-align: super;font-size: 10pt;"> -1/2</span>,<br /><span style="font-family: Symbol;">a</span> = 1.14 - <span style="font-family: Symbol;">g</span> ln(<span style="font-family: Symbol;">e</span>
+/D),
+<br />
+β = 9.3/(Re
+<span style="font-family: &#x27;WP MathA&#x27;;">·</span><span style="font-family: Symbol;">e</span>/<span style="font-style: italic;">D</span>
+），以及
+<br /><span style="font-family: Symbol;">g</span> = 2<span style="font-family: &#x27;WP MathA&#x27;;">·</span>
+log(e) = 0.868589。
+
+        </p>
+        <p>
+收敛解通过方程 (52) 的 2 或 3 次迭代获得，使用
+ <span style="font-style: italic;">g</span> = <span style="font-family: Symbol;">a</span> 
+作为起始值。如果值
+ <span style="font-style: italic;">g</span> 
+已经保存了上次针对特定管道单元计算的结果，并且流量没有发生很大变化，只需要迭代一次方程（52）即可计算摩擦系数。
+
+        </p>
+        <p>
+方程 (50) 的精确导数很难计算，因此 CONTAM 使用割线近似。导数遇到幂律方程的标准问题，即它们未定义为
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span> 
+趋近于零。这在 CONTAM 中通过线性近似 (22) 求解，计算出的系数在用户指定的过渡雷诺数（默认 = 2000）下给出与方程 (50) 相同的流量。可以对层流房间中的流动进行更详细的描述，但这可能会超出 CONTAM 中描述问题其余部分的详细程度。
+
+        </p>
+        <p class="SubHeading1">
+终端损耗计算
+</p>
+        <p class="Normal">
+在 CONTAM 中，管道终端本质上是零长度管道，其特征是等效损耗系数，该系数是在模拟过程中根据终端的属性确定的，
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> and <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+，以及时间表或控制信号（<span style="font-style: italic;">S</span>
+) 作用于终端。
+ </p>
+        <p class="Normal"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span> = <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> + <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span> 
++ (1-S)/S
+ </p>
+        <p class="Normal">
+哪里
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> 
+= 终端损耗系数
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;"></span>
+= 终端平衡系数
+</p>
+        <p class="EqnParams"><span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span> 
+= 作用于终端的时间表或控制信号
+</p>
+        <p class="EqnParams">
+S = 最大值(1x10
+<span style="vertical-align: super;font-size: 10pt;">-6</span>, S<span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c1</span>)</p>
+        <p class="EqnParams">S<span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c1</span>
+= 分钟(1,
+ <span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span>)</p>
+        <p class="Normal">
+使用这种技术，输入信号
+ <span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span> 
+0.0 将产生非常高的损耗系数，1.0 将简单地提供由以下组合确定的损耗
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> and <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>, <span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span><span style="font-style: italic;"></span> 
+1x10 之间
+<span style="vertical-align: super;font-size: 10pt;">-6</span> 
+和 1 将用于增加 (
+<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> + <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+）根据上面的等式，并且
+ <span style="font-style: italic;">S</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">c</span> 
+小于 0.0 将等于 1.0，即损失不能降低到 (
+<span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">t</span> + <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">b</span>
+）。价值
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">e</span> 
+然后将用作上述管道流动方程中的动态损失系数。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

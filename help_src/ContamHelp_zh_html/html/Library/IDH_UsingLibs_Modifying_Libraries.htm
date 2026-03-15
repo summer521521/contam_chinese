@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Data and Libraries" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+修改库
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor124"></a>
+修改库
+</h3>
+        <p>
+您可以使用 CONTAMW 库管理器修改 CONTAM 库文件。 CONTAMW 库管理器允许您在库内创建新的数据元素、将数据元素从本地项目复制到库中、修改库数据元素以及从库中删除数据元素。
+</p>
+        <p class="SubHeading1">
+创建库数据元素
+</p>
+        <p>
+您可以使用 CONTAMW 库管理器的“库元素”部分中包含的“新建”按钮来创建新的数据元素。您只能创建库管理器当前显示的数据元素类型（例如气流元件、管道流元素、明细表等）。 “新建”按钮将激活与创建当前正在使用的数据元素类型相关的 ContamW 对话框。
+</p>
+        <p>
+必须有可用的物种才能创建新的污染物相关元素，例如源/汇、过滤器和动力学反应。
+</p>
+        <p class="SubHeading1"><a name="IDM_Copying_Library_Data_Elements"></a>
+复制库数据元素（在项目和库之间）
+</p>
+        <p>
+您可以将数据元素从库复制到本地项目，或从本地项目复制到库。所有复制均在本地项目和 CONTAMW 库管理器的库文件部分的“名称”框中当前指示的库文件之间完成。如果名称框为空，则您正在处理新的/未命名的库文件。要复制数据元素，您可以使用“复制
+ &#8594;
+” 和 “
+&#8592; 
+“复制”按钮。这些复制按钮指示复制操作的方向。如果某个元素同时存在于库文件和本地项目中，则复制按钮将被禁用，以防止您覆盖同名的元素。您可以重命名本地数据元素，而不会影响它们与本地项目中引用它们的构建组件的关联。
+</p>
+        <p>一些元素依赖于其他类型的元素来正确实施，例如，源/汇需要相关物种，周计划需要日计划。如果您复制需要子元素的这些元素之一，ContamW 将提示您替换同名的现有元素（如果它们已存在于目标文件中）。
+</p>
+        <p class="SubHeading1">
+修改库数据元素
+</p>
+        <p>
+要修改库数据元素，必须首先在 CONTAMW 库管理器的库元素部分的元素列表中突出显示元素名称。然后单击列表旁边的“编辑”按钮。这将激活 ContamW 对话框，该对话框与显示当前正在使用的数据元素类型的属性相关。然后进行所需的更改并单击“确定”按钮以使更改生效。
+</p>
+        <p class="SubHeading1">
+删除库数据元素
+</p>
+        <p>要删除库数据元素，请突出显示 CONTAMW 库管理器的库元素部分中的元素名称，然后单击列表旁边的“删除”按钮。系统将提示您确认删除，并且该数据元素将不再显示在库元素列表中。但是，在保存库文件之前，删除不会受到影响。只要删除元素后不保存文件，您就可以通过重新打开库文件来检索以前删除的数据元素。
+</p>
+        <p>
+删除具有关联子元素的数据元素不会删除子元素。您必须使用单独的库管理器操作删除子元素。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

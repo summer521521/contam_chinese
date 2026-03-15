@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Introduction" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+程序修改
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+程序修改
+</h2>
+        <p><span style="color: #8b0000;">
+CONTAM 3.4
+</span> 
+是 CONTAM 程序系列中的最新版本。  下面提供了主要增强功能的历史记录。最新版本的 CONTAM 向后兼容以前的版本，这意味着您可以打开使用以前版本创建的现有项目文件。一旦更新到程序的最新版本，项目文件将无法保存为以前的版本或用以前的版本打开。因此，您应该维护现有项目文件的旧副本。
+</p>
+        <p class="NormalCW2">
+在本手册中，您将发现该程序的新功能（最新版本），如本段所示突出显示。
+ <br /></p>
+        <p class="SubHeading1"><b>
+版本3.4.0.0
+</b>
+        </p>
+        <p class="NormalCW2">
+已修改 PRJ 以包含多重网格 CFD 解变量，但尚未修改 ContamW 以提供对这些变量的访问。求解方法默认为多重网格，并且必须使用文本编辑器修改 PRJ 文件以更改默认求解方法和关联值。
+</p>
+        <p class="SubHeading1"><b>
+版本3.3.0.0
+</b>
+        </p>
+        <p class="NormalCW2">
+3.3 版的大多数修改都与错误修复和与外部程序的耦合有关。与 CONTAM 功能相关的唯一重大变化是多重网格 CFD 求解器的实现。但是，由于 PRJ 格式的更改，次要版本（即“.3”）已更新。添加了图标着色以解决先前房间和管道图标着色之外的图标。添加了一个额外的图标颜色字段，用于气流路径、源汇、简单的空气处理系统、乘员暴露和注释。室外空气和房间湿度比的使用已纳入 ContamX 消息传递方案中。
+</p>
+        <p class="NormalItalicCW2">
+ContamX 增强功能
+</p>
+        <ul>
+            <li class="CW2" value="1"><i>
+EnergyPlus 联合仿真
+</i>
+                <ul style="list-style-type: circle;">
+                    <li class="CW2" value="1">
+实施湿度比消息。 ContamX 基于 EnergyPlus 密度计算方法 PsyRhoAirFnPbTdbW_Eplus() 使用湿度比计算体积气流。
+<br /></li>
+                    <li class="CW2" value="2">
+无需初始 CONTAM 重启 (.RST) 文件即可启动协同仿真。
+<br /></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li class="CW2" value="1"><i>
+耦合多房间/CFD
+</i>
+                <ul style="list-style-type: circle;">
+                    <li class="CW2" value="1">
+允许将简单的空气处理系统供应和返回路径放置在 CFD 房间内。
+<br /></li>
+                    <li class="CW2" value="2">
+实现了多重网格求解方法。
+<br /></li>
+                </ul>
+            </li>
+        </ul>
+        <p class="NormalItalicCW2">
+ContamX 已解决的问题
+</p>
+        <ul>
+            <li class="CW2" value="1"><i>
+压力驱动源 –
+ </i>
+源错误地使用房间压力而不是房间表压来计算排放率。此问题已得到纠正，并添加了检查以确保只有负表压才会产生排放率。
+<br /></li>
+            <li class="CW2" value="2"><i>
+12 月至 1 月交叉 –
+ </i>
+允许跨 12 月 31 日到 1 月 1 日运行模拟。问题是由于处理外部输入文件造成的：WTH、CTM、WPC、CVF 和 DVF。因此，现在也可以正确处理循环模拟。现在可以正确处理输出到控制日志文件的结果。
+<br /></li>
+            <li class="CW2" value="3"><i>
+建筑增压模拟
+</i> 
+– 在建筑增压模拟期间允许打开双向气流元件。
+<br /></li>
+            <li class="CW2" value="4"><i>
+结果文件时间步长
+</i> 
+– 模拟时间步长被写入一些结果文件中，而不是列出时间步长（EXP、ACH、AGE）。
+<br /></li>
+            <li class="CW2" value="5"><i>
+盒须计算 –
+ </i>
+提高了盒须计算的浮点分辨率，以提高输出精度。
+<br /></li>
+            <li class="CW2" value="6"><i>
+PI 控制 –
+ </i>
+对于小于或等于 0.0 的输入，PI 控制器输出不正确。现在将输出强制为 0 到 1 之间。
+<br /></li>
+            <li class="CW2" value="7"><i>
+三次样条元素 – </i>
+修复了运行 Linux 版本的 ContamX 时出现的读取三次样条气流元件的问题。
+<br /></li>
+            <li class="CW2" value="8"><i>
+运行平均控制 –
+ </i>
+更正计算。
+<br /></li>
+            <li class="CW2" value="9"><i>
+PATH_FLOW_UPDATE_MSG –
+ </i>
+将体积流量计算 (Vdot) 修正为 Mdot/AmbientDensity。以前它的计算方式为 Mdot/ZoneDensity。 EnergyPlus 将流量报告为 Vdot*AmbientDensity/ZoneDensity。
+<br /></li>
+            <li class="CW2" value="10"><i>
+CONTROL_NODE_UPDATE_MSG 和 ADJ_CONTROL_NODE_MSG –
+ </i>
+更正了与输入和输出控制消息相关的问题。
+<br /></li>
+        </ul>
+        <p class="NormalItalicCW2">
+ContamW 增强功能
+</p>
+        <ul>
+            <li class="CW2" value="1"><i>
+追踪图像 –
+ </i>提供将位图（例如平面图的图像）导入到 SketchPad 上的功能，以允许在图像上进行跟踪。可以在 SketchPad 上移动图像并调整其大小。墙壁的绘制不再局限于 SketchPad 的奇数行和列。
+</li>
+        </ul>
+        <p class="NormalItalicCW2">
+Contam3DExporter 增强功能
+</p>
+        <ul>
+            <li class="CW2" value="1"><i>
+能源加 –
+ </i>
+提供创建与以下相关的空气循环的选项
+ <i>
+简单的空气处理系统
+</i> 
+包含一个风扇，用于使空气通过回路或在空气回路中结合两种类型的热调节系统之一，即
+ <code>
+AirLoopHVAC：UnitaryHeatCool
+</code> or <code>
+AirLoopHVAC：一体式热泵：AirToAir
+</code> 
+系统。
+<i></i></li>
+            <li class="CW2" value="2">
+TRNSYS – 简化了耦合过程并针对 TRNSYS 版本 18 进行了更新。
+</li>
+        </ul>
+        <p class="SubHeading1"><b><b><b><b>
+版本3.2.0.3
+</b></b></b></b>
+        </p>
+        <p><i>
+耦合 EnergyPlus-CONTAM 和 TRNSYS-CONTAM
+</i> - 允许耦合模拟从 1 月 1 日以外的日期开始，并跨越年底的 12 月/1 月。
+</p>
+        <p class="SubHeading1"><b><b><b><b>
+3.2版本
+</b></b></b></b>
+        </p>
+        <p><i>
+EnergyPlus-CONTAM 多房间气流、传热和污染物分析
+ </i>
+- 此功能包括对 ContamX 的修改以及创建新的动态链接库 (DLL)，该动态链接库通过功能模型接口 (FMI) 实现 EnergyPlus 和 ContamX 之间的协同仿真。这包括开发 ContamFMU.dll 和增强 CONTAM3DExport.exe，以便能够创建 EnergyPlus 输入文件以执行联合仿真。
+</p>
+        <p><i>
+污染物渗漏结果文件
+</i> 
+- 增加了创建结果文件的功能，该文件提供了传输到环境中的污染物的质量。
+</p>
+        <p><i>
+SQLite 数据库结果文件
+</i> 
+- 添加了创建 SQLite 数据库文件 (.sqlite3) 的功能，该文件包含与模拟结果文件 (.sim) 相同的结果。
+</p>
+        <p><i>
+紫外线滤镜
+</i> 
+- 增加了紫外线杀菌照射滤芯。
+</p>
+        <p><i>
+通过 CVF 和 DVF 控件直接调度
+</i> 
+- 添加了通过外部文件直接安排项目（例如源/汇和气流路径）的功能，无需在 SketchPad 上绘制相关的控制网络。
+</p>
+        <p class="SubHeading1"><b><b><b><b>
+3.1版本
+</b></b></b></b>
+        </p>
+        <p><i>
+TRNSYS-CONTAM 多房间气流、传热和污染物分析
+ </i>
+- 此功能包括对 ContamW 和 ContamX 的修改以及创建新的 TRNSYS 类型和软件实用程序，以提供新的耦合过程，使 ContamX 能够更直接地与 TRNSYS Type56 耦合。
+ </p>
+        <p class="NormalIndent"><i>
+ContamW 伪几何
+</i> 
+- 能够定义在 ContamW SketchPad 上绘图的比例因子，并在 SketchPad 上查看墙壁尺寸。此功能有助于为 TRNSYS-CONTAM 耦合提供实用程序，为 TRNSYS 创建三维表示
+&#160;
+Type56多区传热计算。
+</p>
+        <p class="NormalIndent"><i>
+ContamW 温度图
+</i> 
+- 提供在 ContamW 中绘制温度的能力。
+</p>
+        <p class="NormalIndent"><i>
+CONTAMX
+</i> 
+- 添加了套接字通信消息，用于向/从 ContamX 传输温度和气流。
+</p>
+        <p class="NormalIndent"><i>
+98型
+</i> 
+- 充当 ContamX 和 Type56 之间的桥梁，用于 TRNSYS 模拟。
+</p>
+        <p class="NormalIndent"><i>
+公用事业
+</i> 
+- 创建软件实用程序
+ <i>
+CONTAM3DExport.exe
+</i> 
+挤压缩放的 CONTAM prj 表示形式
+ <i>
+Trnsys3d
+</i><i>idf</i> 
+文件和
+ <i>
+Type56-98Coupler.exe
+</i>  
+形成Type56和Type98之间的联动。
+</p>
+        <p><i>CVODE</i> 
+- 实现了用于瞬态污染物传输计算的可变时间步长求解器。 CVODE 是一种用于求解常微分方程的通用代码，提供可变时间步长、高阶积分方法和自动误差控制。
+</p>
+        <p class="NormalItalic">
+可用性增强
+</p>
+        <p class="NormalIndent"><i>
+粒子图
+</i> 
+- 使用 ContamW 模拟多个尺寸范围时提供绘制颗粒分布的能力。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Result Mode Toolbar</font> 
+- 提供工具栏按钮来操作结果时间步长显示。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Simulation Time Step Analysis</font> 
+- 使用户能够检查计划和输入文件（WTH、CTM、DVF、CVF），了解捕获所有计划事件所需的最大时间步长。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Program/Project Configuration</font> 
+- 修改了 ContamW 配置，将程序相关选项与项目相关选项分开。
+ </p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Result File Output</font> 
+- 为用户提供对模拟结果文件CSM、LOG和SRF输出的控制。
+</p>
+        <p class="NormalItalic">
+已解决的程序问题
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Restart File</font> 
+- 重新启动（第一个）文件未正确考虑沉积/再悬浮源/汇。此外，修改了重启文件行为，仅在每天结束时 (24:00:00) 和/或最后一天结束时写入重启数据（如果时间短于 24 小时）。使用重新启动文件时，用户不再需要选择要使用的时间，只需选择日期。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">PLD File and Duct Terminals</font> 
+- 管道端子未输出到路径位置数据文件 (PLD)。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Results Display Window and Duct Leakage</font> 
+- 结果显示窗口未提供具有相关管道泄漏连接点的房间的管道泄漏气流结果。
+</p>
+        <p class="NormalIndentCW2"><font style="font-style:italic; "></font>
+        </p>
+        <p class="SubHeading1"><b><b>
+3.0a版本
+</b></b>
+        </p>
+        <p><i>
+自调节通风口
+</i> 
+- CONTAM 中添加了新的气流元件。自调节通风口通过具有用户定义的限制气压差的流路限制两个方向的气流速率。 CONTAM 实现了 Axley 2001 住宅被动通风系统：评估和设计中描述的自调节通风口。
+</p>
+        <p><i>
+表面节点结果文件
+</i> 
+- 为边界层和沉积/再悬浮源/汇元素添加了新的结果文件 (SRF)。
+</p>
+        <p><i>
+新房间颜色选项
+</i> 
+- 现在，当显示下面的级别时，可以选择查看下面级别的房间的房间颜色。
+</p>
+        <p class="NormalItalic">
+已解决的程序问题
+</p>
+        <p class="NormalItalic">
+ContamW
+</p>
+        <p class="NormalIndent"><i>Fix</i> - 删除关卡时可能会发生崩溃。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 启用跨越 12 月/1 月过渡的瞬态模拟时间，即允许模拟在 12 月之前开始并在 1 月之后结束。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 使用“查找”替换风压曲线时
+ &amp; 
+替换对话框中的墙方位角和风速修改器应设置为默认值。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 允许绘制跨越 12 月/1 月过渡的模拟结果。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 删除具有引用它们的占用表的房间时发生崩溃。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 某些 Windows 主题的工具栏绘制不正确。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 如果三次样条气流元件曲线无效，则无法正确绘制三次样条气流元件曲线。
+</p>
+        <p class="NormalIndent"><i>
+改装
+</i> 
+- 合并的变密度气流计算参数。
+</p>
+        <p class="NormalItalic">
+CONTAMX
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Fix </font>
+- 由于索引参数的大小而尝试矩阵重新排序时，大型项目文件遇到致命错误时的矩阵重新排序问题。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 防止在 Windows 7 64 位操作系统下运行时间歇性程序崩溃。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 污染物摘要文件 (.csm) 问题：使用非痕量边界层扩散和沉积/再悬浮源汇时的值可能过高，因为每个时间步内的可变密度迭代的多次迭代中源贡献的总和；非痕量污染物和痕量污染物的组合可能导致与痕量污染物相关的总和未被计算在内。不过，这些问题并不影响 sim 文件结果。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 与涉及边界层扩散和沉积/再悬浮源的非痕量污染物计算相关的问题，其中添加到这些源/汇所在房间的质量贡献计算不正确。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 执行可变密度计算时与再悬浮源/汇元件沉积相关的问题。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 幂律源/汇模型未利用正确的源/汇元件功能。
+</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 启用 DVF 文件来处理 12 月/1 月过渡。</p>
+        <p class="NormalIndent"><i>Fix</i> 
+- 与衰减（指数衰减）源元素相关的问题：当安排源开/关时，生成率不会重置，并且当使用多个衰减源时，生成率会复合。
+</p>
+        <p class="NormalIndent"><i>
+改装
+</i> 
+- 改进了可变密度计算。
+</p>
+        <p class="SubHeading1"><b><b>
+3.0版本
+</b></b>
+        </p>
+        <p><i>
+耦合多房间/CFD
+ </i> 
+- 实现了使用计算流体动力学 (CFD) 模拟内部房间的能力。此功能的详细信息可通过 NIST 多房间建模网站提供。
+</p>
+        <p><i>
+沉积/再悬浮源/汇元件
+</i> 
+- 添加了一个新的源/汇元件，可解释颗粒污染物在表面上的沉积和再悬浮。
+</p>
+        <p><font style="font-style:italic; ">Windows 7 64-bit</font> 
+- 由于数据复制错误，ContamX 间歇性崩溃。
+ </p>
+        <p class="NormalItalics">
+可用性增强
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Editing Context Menu</font> 
+- 鼠标右键提供剪切、复制和粘贴功能。
+</p>
+        <p class="SubHeading1"><b>
+2.4c版本
+</b>
+        </p>
+        <p><i>
+新的控制类型
+</i> 
+- 添加了新的数学函数：exp、ln、log10 等。
+</p>
+        <p><i>
+TCP/IP套接字模拟控制
+</i> 
+- 启用多日模拟控制。
+</p>
+        <p class="NormalItalic">
+操作系统兼容性
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">CONTAM Fonts</font> 
+- ContamW SketchPad 现在使用内部位图模式而不是字体文件。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">HTML Help</font> - ContamW 帮助系统已转换为 HTML 帮助，以便与 Windows Vista 操作系统兼容。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">CONTAM Log Files</font> 
+- contamx2.log 和 contamw2.log 文件现在存储在用户的应用程序目录中（Linux 版本的 ContamX 的主目录）。
+</p>
+        <p class="NormalItalic">
+可用性增强
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">ContamX Non-Convergence Information</font> 
+- 如果ContamX气流计算无法收敛，则contamx2.log文件中将提供未能收敛的气流节点列表。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Error List</font> 
+- ContamW 生成问题图标列表，显示在新实现的
+ <i>
+建筑检查问题
+</i> 
+当 PRJ 文件未通过模拟之前执行的构建检查时出现对话框。这包括使用 WPC 文件时没有有效位置数据的气流路径。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Create WPC File Dialog</font> 
+- WPC 对话框已修改为启用“手动”生成 PLD 文件，以帮助创建 WPC 文件，并且“模拟参数”属性表的“天气”页面已进行相应修改。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Recent file list</font> 
+- 在“文件”菜单中添加了最近打开的项目文件的列表。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Open Project Input/Output Files</font> 
+- 提供从“文件”菜单打开 CONTAM 相关输入和输出文件的功能。文件是根据 Windows 的文件扩展名关联打开的。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Result Plotting</font> 
+- 查看结果时右键单击 SketchPad 图标以激活结果绘图。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">SketchPad Navigator</font> 
+- 显示小图标 SketchPad 窗口，以简化带有较大图标的主 SketchPad 的导航：从主菜单中选择视图 - SketchPad 导航器。
+</p>
+        <p class="NormalIndent"><i>
+管道结果显示
+</i> 
+- 根据上游空气密度计算的风道速度。
+</p>
+        <p class="NormalIndent"><i>CSM&#160;
+文件格式
+</i> 
+- 修改了 CSM 文件格式以提供与源/汇相关的更多详细信息。
+</p>
+        <p class="NormalItalic">
+已解决的程序问题
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Cubic Spline Elements</font> 
+- 允许在管道段中使用三次样条元素。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">CSM File</font> 
+- 污染物摘要文件中未考虑由包络流路过滤的 WPC 文件污染物。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">DVF and WTH File</font> 
+- 同时使用 DVF 和 WTH 文件时，WTH 文件记录被跳过。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Duct Balancing</font> 
+- 执行管道平衡后，“质量流量类型”风扇的流量可能会被错误地设置为体积流量类型。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Flow Limits</font> 
+- 读取文件时，气流路径的流量限制被设置回无。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">CVF/DVF Node Selection</font> 
+- 节点下拉列表排序不正确，导致可能设置不正确的节点。
+</p>
+        <p class="SubHeading1"><b>
+2.4b版
+</b>
+        </p>
+        <p class="NormalItalic">
+楼宇控制
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Occupancy Sensor</font> 
+- 添加了房间占用传感器类型。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Gage Pressure Sensor</font> 
+- 添加了用于房间、管道连接处和终端的表压传感器。
+</p>
+        <p class="NormalItalic">
+源/汇元件
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">NRCC Sources</font> 
+- 根据 NRCC 材料排放数据库添加了幂律和峰值污染物源类型。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Super Source/Sinks</font> 
+- 实现了将多个源/汇元素组合成单个超级源/汇元素的能力。
+</p>
+        <p class="NormalItalic">
+可用性增强
+ </p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Enhanced deletion capabilities</font> 
+- 提供了通过单个删除操作从 SketchPad 删除多个项目的能力。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Results display</font> 
+- 改进了对结果显示模拟时间选择的控制。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Wind pressure display</font> 
+- 能够检查由 WPC 文件提供的风数据产生的瞬态风压。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">SketchPad dragging</font> 
+- 当滚动条可见时，按住鼠标滚轮拖动 SketchPad。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Library Manager</font> 
+- 使用Ctrl和Shift键从元素列表中选择多个项目并对它们执行复制和删除操作。
+</p>
+        <p><b>
+版本 2.4a
+</b>
+        </p>
+        <p><font style="font-style:italic; ">Number of building components</font> 
+- 可在单个项目中创建的每种类型建筑组件（即房间、路径、管道、源/汇等）的总数限制已从 32 767 个增加到 2 147 483 647 个。
+</p>
+        <p><font style="font-style:italic; ">Short time-step method</font> 
+- 一种新的模拟模式，使用显式求解方法求解污染物扩散方程。
+ </p>
+        <p class="NormalIndent"><font style="font-style:italic; ">1D Zones</font> 
+- 已实现将选定房间模拟为一维对流/扩散房间的能力。这提供了更真实地模拟污染物通过“长”或“高”房间（例如走廊和竖井）的运输的能力，更好地考虑通过这些一维房间的运输时间。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">1D </font><font style="font-style:italic; ">duct m</font><font style="font-style:italic; ">odel</font> 
+- 在管道系统中实施一维对流/扩散元件，从而通过管道系统提供更真实的污染物传输结果。这就需要使用短时间步长的方法。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Duct temperature calculations</font> 
+- 在短时间步长模式下模拟一维管道时，CONTAM 现在可以根据管道连接处气流的“混合”以及将空气引入管道系统的源（房间）空气温度来计算管道温度。
+</p>
+        <p><font style="font-style:italic; ">Simulation results data</font> 
+- 修改了
+ <font style="font-style:italic; ">zone</font> and <font style="font-style:italic; ">junction pressures</font> 
+正如模拟结果文件所报告的那样，更接近表压。房间压力现在参考该区域所在级别的环境压力。结点静压现在参考结点位于该区域内的结点高度的房间。
+</p>
+        <p><font style="font-style:italic; ">Automated duct balancing</font> 
+- 添加了自动平衡管道系统的模拟选项。这将大大简化在 CONTAM 中定义详细管道系统的任务。
+</p>
+        <p class="NormalItalic">建筑模型验证测试
+</p>
+        <p class="NormalIndent"><i>
+建筑耐压试验
+</i> 
+- 模拟选项可根据模拟风扇加压测试自动确定建筑围护结构的气密性。
+</p>
+        <p class="NormalIndent"><i>
+建筑气流测试
+</i> 
+- 模拟选项，生成一组数据，主要与建筑物通风相关，可用于在开始分析建筑物之前衡量模型输入的合理性。
+</p>
+        <p class="NormalItalic">
+三次样条气流元件
+</p>
+        <p class="NormalItalic">污染物过滤器
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">New filter models</font> 
+- CONTAM 已添加
+ <font style="font-style:italic; ">particle </font>and <font style="font-style:italic; ">gaseous </font>
+过滤器模型大大提高了用户根据测量的过滤器性能数据（例如 MERV 和突破曲线）创建模型的灵活性。
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Filter super elements</font> 
+- 使多个过滤器模型能够组合成单个过滤器元件，例如，颗粒预过滤器与气体过滤器组合。
+</p>
+        <p><font style="font-style:italic; ">Contaminant summary file</font> 
+- 在模拟污染物时生成此文件，以提供与源/汇污染物生成和去除、过滤器加载和突破以及建筑房间和环境之间污染物传输相关的信息。 </p>
+        <p><font style="font-style:italic; ">Deposition sink models</font> 
+- 添加了沉积速度和沉积速率汇模型，以根据更熟悉的沉积术语简化汇的定义。
+</p>
+        <p><font style="font-style:italic; ">Control super elements</font> 
+- 通过减少所需的用户输入量、增加定义控制系统的灵活性以及实现项目内和项目之间的控制元件（例如传感器）共享，创建楼宇控制系统的任务得到了改进。
+ </p>
+        <p><font style="font-style:italic; ">TCP/IP socket simulation control</font> 
+- ContamX 可以通过基于一组预定义消息（包括控制命令和数据交换）的 TCP/IP 套接字通信协议进行控制。 ContamX 还可以在基于 Linux 的操作系统下编译和运行，并且 Linux 兼容的可执行文件现已在 NIST 网站上提供。
+</p>
+        <p><font style="font-style:italic; ">Usability enhancements </font>
+        </p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Find</font> 
+- 按名称和编号在 SketchPad 上搜索项目
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">Find-and-replace</font> 
+- 搜索并替换项目中建筑组件的属性
+</p>
+        <p class="NormalIndent"><font style="font-style:italic; ">SketchPad movement</font>
+            <br />
+Ctrl + 方向键 =
+&gt; 
+按箭头方向跳过 10 个单元格
+<br />
+Shift + 方向键 =
+&gt; 
+按箭头方向移至下一个图标
+<br />
+鼠标滚轮滚动：
+</p>
+        <p class="NormalIndent2">
+轮=
+&gt; 
+上/下
+   &#160;&#160;
+Shift+滚轮 =
+&gt; 
+向上/向下翻页
+</p>
+        <p class="NormalIndent2">
+Alt+滚轮 =&gt;  
+左/右
+ &#160;&#160;
+Shift+Alt+滚轮 =
+&gt; 
+页面左/右
+</p>
+        <p><font style="font-style:italic; ">Keyboard icon placement</font> 
+- 使用键盘将图标放置在 SketchPad 上
+</p>
+        <p><font style="font-style:italic; ">Floating status bar</font>
+        </p>
+        <p>
+用户自定义
+ <font style="font-style:italic; ">zone </font><font style="font-style:italic; ">colors</font></p>
+        <p>
+用户自定义
+ <font style="font-style:italic; ">duct colors</font> and <font style="font-style:italic; ">automated duct tracing/coloring tool</font></p>
+        <p>
+生成
+ <font style="font-style:italic; ">bitmap file</font> 
+SketchPad 的 (.bmp)</p>
+        <p class="SubHeading1">
+版本 2.0 至 2.1 的增强
+</p>
+        <p><font style="font-style:italic; ">Wind pressure and contaminant fields</font> 
+- 能够整合外部气流和污染物传输模型（例如羽流和烟团扩散模型）的数据，利用详细的环境风压和污染物数据字段来提供建筑结构围护结构气流路径上的边界条件
+</p>
+        <p><font style="font-style:italic; ">Control elements</font> - 新的控制元件可模拟与风扇旋转上升/下降以及风门打开/关闭相关的时间延迟，并执行积分、传感器输出随时间的峰值确定、最大值、最小值和指数运算
+</p>
+        <p><font style="font-style:italic; ">Particle analysis</font> 
+- 修改污染物属性以简化空气颗粒物的分析
+ </p>
+        <p><font style="font-style:italic; ">Mass release calculation</font> 
+- 模拟过程中污染物源释放的总质量的计算
+</p>
+        <p><font style="font-style:italic; ">Program Documentation</font> 
+- 生成了软件的编程文档，可以从 NIST 网站获取。本文档包含 CONTAM 输入和输出文件格式的详细信息 [
+<a href="../IDH_References.htm#REF_Walton_2003">
+沃尔顿与多尔斯 2003
+</a>].</p>
+        <p class="SubHeading1">从1.0版本到2.0版本的增强
+</p>
+        <p><i>
+楼宇控制
+</i> 
+- 控制装置包括传感器、执行器、调节器和链接。控制执行器可用于根据从传感器获得的控制信号来修改建筑组件的各种特性，甚至可以通过信号修改器进行修改。例如，传感器可用于获得房间内的污染物浓度，并且比例控制致动器可用于基于感测到的浓度来调节进入该区域的供应气流。
+ </p>
+        <p><i>
+预定房间温度
+</i> 
+- 现在可以通过使用用户定义的时间表来改变房间温度。根据理想气体关系，这允许仅由于房间内温度的变化而导致房间压力的变化。
+</p>
+        <p class="NormalItalic">
+污染物
+</p>
+        <p class="NormalIndent"><i>
+无痕量污染物
+</i> 
+- 您现在可以考虑污染物浓度对空气（例如水蒸气）密度的影响。
+</p>
+        <p class="NormalIndent"><i>
+污染物数量不受限制</i> 
+- CONTAM 不再限制您可以模拟的污染物数量。之前的限制是 10。
+</p>
+        <p class="NormalIndent"><i>
+污染物相关库
+</i> 
+- 污染物相关元素现在可以通过 CONTAM 库文件共享。这些元素包括污染物种类、过滤器、源/汇和动力学反应。
+</p>
+        <p class="NormalItalic">
+数值
+</p>
+        <p class="NormalIndent"><i>
+可变的空气密度
+</i> 
+- CONTAM 现在提供了模拟非流动相关过程的能力，这些过程可能导致建筑房间内质量的积累/减少，例如，由于非痕量污染物源以及由于房间温度变化而导致的房间压力变化。
+</p>
+        <p class="NormalIndent"><i>
+稀疏矩阵技术
+</i> 
+旨在大大减少大型问题的瞬态仿真时间。
+</p>
+        <p class="NormalIndent"><i>将求解器与图形界面分开
+</i> 
+提供模拟的批量执行并直接利用 .PRJ 文件。
+</p>
+        <p class="NormalItalic">
+短暂的天气
+</p>
+        <p class="NormalIndent"><i>
+单独的瞬态天气和污染物文件
+</i> 
+- 天气文件（WTH）不再包含污染物浓度（室外湿度比除外）。这意味着您不必根据您模拟的污染物类型创建不同的天气文件。 CONTAM 现在为您提供使用污染物文件 (CTM) 模拟瞬态环境污染物浓度的选项。
+</p>
+        <p class="NormalIndent"><i>
+天气文件创建/转换软件
+</i> 
+- NIST 开发了一款软件工具，可让您将现有天气文件转换为 CONTAM 2.0 兼容的天气文件。您可以转换现有的 1.0 兼容文件、TMY2 和 EnergyPlus 天气文件。</p>
+        <p class="NormalItalic">
+用户界面
+</p>
+        <p class="NormalIndent"><i>
+更长的房间名称
+</i> 
+- 房间名称现在最长可达 15 个字符。
+</p>
+        <p class="NormalIndent"><i>
+SketchPad 缩放功能
+</i> 
+- 您现在可以减小 SketchPad 的图标大小，以允许在屏幕上显示更大的项目。
+</p>
+        <p class="NormalIndentItalic">
+结果显示
+</p>
+        <p class="NormalIndent2"><i>
+房间间净气流
+</i> 
+在结果显示窗口中显示突出显示的房间
+</p>
+        <p class="NormalIndent2"><i>
+气流方向指示器
+</i> 
+查看气流路径结果时，现在会显示在状态栏中
+</p>
+        <p class="NormalIndent2"><i>
+独特的简单空气处理系统房间
+</i> 
+- 多个简单空气处理系统的隐式房间现在相互区分，以便绘制各个系统房间
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

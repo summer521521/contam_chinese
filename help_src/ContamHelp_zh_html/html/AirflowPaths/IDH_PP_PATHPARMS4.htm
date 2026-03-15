@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths|Airflow Path Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+气流路径 CFD 属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+气流路径 – CFD 属性
+
+        </h5>
+        <p>
+连接 CFD 房间与非 CFD 房间的气流路径称为
+ <i>
+接口路径
+</i> 
+其属性由以下参数定义。
+</p>
+        <p><span style="font-weight: bold;">CFD&#160;
+路径ID：
+</span> 
+每个接口路径必须被赋予一个唯一的标识符。该标识符将用于标识内部的每个接口路径
+ <i>
+CFD0 编辑器
+</i> 
+用于定义相对于 CFD 房间的接口路径的大小和位置。
+               </p>
+        <p><span style="font-weight: bold;">
+边界条件 - CONTAM 至 CFD：
+</span> <![CDATA[ ]>选择要从多房间传递到该路径的 CFD 计算的边界条件类型。这些选项将根据所选的多房间到 CFD 耦合方法启用/禁用（请参阅
+ <a href="../Simulation/IDH_UsingSIM_ParamsCFD.htm">
+CFD 数值
+</a>
+) 和接口路径的气流元件类型。 “CONTAM
+ &lt;-&gt; 
+CFD”和“CONTAM -
+&gt; CFD-&gt;
+CONTAM”耦合方法将所有边界条件设置为其默认值，以提供压力-压力边界条件交换方法，这是三种（压力-压力、压力-流量、流量-压力）中最稳定的。
+</p>
+        <ul>
+            <li value="1"><b>
+质量流量：
+</b> 
+CONTAM 为 CFD 提供质量流量边界条件。
+ </li>
+            <li value="2"><b>
+压力：
+</b> 
+CONTAM 为 CFD 提供压力边界条件。
+</li>
+        </ul>
+        <p class="NormalIndent"><b>
+压力边界条件类型
+</b>
+        </p>
+        <p class="NormalIndent"><b>
+线性：
+</b> 
+当 CONTAM 向 CFD 提供压力边界条件时，线性系数 (C = 1.0) 和指数 (Exp = 1.0) 将用于 CFD 房间中的每个界面单元。这个简单的模型应用于具有跨开口潜在双向流动（再循环）的大开口，其中“停滞和静压模型”通常会导致数值问题。这是默认模型。
+</p>
+        <p class="NormalIndent"><b>
+停滞和静压：
+</b> 
+当 CONTAM 为 CFD 提供压力边界条件时，会对 CFD 房间的流入施加停滞压力，并对 CFD 房间的流出施加静压力。在数值上，为 CFD 流出设置静压如下：10 量级的线性系数
+<span style="vertical-align: super;">3</span> 
+使用 CFD 局部压力可以保持 10 的差异
+<span style="vertical-align: super;">-3</span>  来自外部边界压力。这可能会导致双向流动的大开口的数值问题，其中动压头的轻微变化可能会导致边界处出现巨大的气流。在这种情况下，应使用线性模型。将耦合模拟与仅 CFD 模拟（所有房间均由 CFD 模拟）进行比较时，耦合模拟中的流量系数和指数变得更加重要，并且通常是未知的。最重要的是，线性模型带来了更高的数值稳定性，而停滞和静压模型则提供了设置 CFD 压力边界条件的方法。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

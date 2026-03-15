@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Simple Air-Handling Systems|Air-Handling System Properties" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+空气处理系统供应系统特性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+空气处理系统 - 供应系统属性
+</h5>
+        <p><span style="font-weight: bold;">
+系统音量：
+ </span>
+输入简单空气处理器（例如，供气侧管道系统等）的供气子系统（隐式供气房间）的值。该体积类似于房间体积，将用于模拟污染物传输。
+
+        </p>
+        <p><span style="font-weight: bold;">
+污染物数据：
+ </span>
+项目中所有定义的污染物都将显示在此列表框中。
+
+        </p>
+        <p><span style="font-weight: bold;">
+初始浓度：
+ </span>
+从列表中选择污染物并输入
+ <span style="font-style: italic;">
+初始污染物浓度
+</span> 
+为
+ <span style="font-style: italic;">
+供气子系统
+</span> 
+这个的
+ <span style="font-style: italic;">
+简单的空气处理系统
+</span>。请注意，只有您选择作为污染物的物种（在模拟期间使用）才会出现在列表中。如果您希望为其设置初始浓度的物种未出现在列表中，则必须将相应物种的“用于模拟”属性设置为 true（请参阅
+ <a href="../Contaminants/IDH_UsingContaminants_Creating_Contaminants.htm">
+创建物种和污染物
+</a>
+）。您可以通过模拟参数的运行控制属性重置这些初始值。
+
+        </p>
+        <p><span style="font-weight: bold;">
+注意： </span>改变污染物的数量，即模拟中使用的那些种类，将重置
+ <span style="font-style: italic;">
+初始浓度
+</span> 
+将所有房间调整为默认污染物浓度。您可以通过上述运行控制属性或此处单独重置所有这些浓度。
+
+        </p>
+        <p><span style="font-weight: bold;">
+非痕量初始浓度之和：
+ </span>
+提供此值作为检查，以确保您在使用时输入一组合理的初始值
+ <span style="font-style: italic;">
+非痕量污染物
+</span>
+。该值应接近 1.0。
+
+        </p>
+        <p><span style="font-weight: bold;">
+动力学反应：
+ </span>
+您可以通过按“新反应”按钮定义新的动力学反应，然后完成动力学反应矩阵。您可以通过从下拉框中选择适当的矩阵并按“编辑反应”按钮来编辑现有矩阵。您必须事先定义污染物才能实施动力学反应。
+
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+说明：
+ </span>
+如果由用户输入，则显示特定反应的更详细描述的字段。可以通过按描述字段旁边的“编辑反应”按钮来修改此描述，然后更改反应的描述字段。
+
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+姓名：
+ </span>
+其中包含所有先前创建的反应的名称列表。从此框中选择的反应将定义正在修改的特定供应系统的行为。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

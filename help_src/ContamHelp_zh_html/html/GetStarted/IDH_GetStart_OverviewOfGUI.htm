@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Getting Started" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+CONTAM 图形界面
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+CONTAM 图形界面
+</h2>
+        <p>ContamW 是 CONTAM 的图形界面 (GUI)。使用 ContamW 创建和查看您的气流与污染物扩散分析项目。它主要由一个称为 SketchPad 的绘图区、一组绘图工具、一个标题栏、一组菜单和一个状态栏组成。以下部分提供了 CONTAM GUI 的每个功能的简要说明。请参阅
+ <a href="../IDH_Using_Overview.htm">
+使用 ContamW
+</a> 
+部分了解如何使用这些功能的详细信息。
+ </p>
+        <p style="margin-top:0;margin-bottom:0">&#160;</p>
+        <p class="CaptionCenter">
+            <img src="../../image/sketchpad-blank-33.png" />
+        </p>
+        <p class="CaptionCenter">
+图 - CONTAM 图形界面
+</p>
+        <h3>
+标题栏
+</h3>
+        <p>
+标题栏是 ContamW 主窗口顶部的典型矩形区域。 CONTAM 项目文件名将显示在此区域中。</p>
+        <h3>
+菜单
+</h3>
+        <p>该菜单是典型的 Windows 程序，但具有提供特定于 CONTAM 应用程序的功能的差异。通过此菜单，可以执行大多数 ContamW 操作，包括：保存和检索项目文件、选择各种显示模式、设置和执行模拟以及访问在线帮助系统。请注意，某些菜单项具有可快速访问的快捷键或热键；例如，要保存当前项目文件，请使用 Ctrl+S 组合键。
+</p>
+        <h3>
+工具栏
+</h3>
+        <p>工具栏（如下图所示）出现在菜单下方，并提供某些菜单项的便捷快捷方式。一些工具栏按钮与其他 Windows 应用程序中的按钮类似。其他按钮提供了特定于 ContamW 的功能的快捷方式。
+</p>
+        <p>
+            <img src="../../Resources/Images/Toolbar_2.4b_424x26.jpg" border="0" alt="
+ContamW 工具栏
+" style="width: 424; height: 26;">
+            </img>
+        </p>
+        <h3><a name="StatusBar"></a>
+状态栏
+</h3>
+        <p>
+如下图所示，状态栏是主窗口底部、SketchPad 下方显示的区域。该区域分为三个独立的窗格，根据 SketchPad 的当前模式显示各种信息。
+ </p>
+        <p class="Normal">
+ContamW 2.4 现在为您提供了一个浮动状态栏，每当您在屏幕上选择某些图标时，该状态栏就会显示在光标附近，从而提供更方便的方式来查看图标信息。这类似于当您将 Windows 光标悬停在工具栏按钮上时出现的工具提示。您可以通过以下方式打开和关闭此功能
+ <font style="font-weight:bold; text-decoration:underline;">V</font><font style="font-weight:bold; ">iew &#8594;</font><font style="font-weight:bold; "> Floa</font><font style="font-weight:bold; text-decoration:underline;">t</font><font style="font-weight:bold; ">ing Status Bar</font> or <font style="font-weight:bold; ">Ctrl+T</font> 
+获取工具提示。
+</p>
+        <p class="SubHeading1">
+左窗格
+</p>
+        <p>
+该窗格始终显示建筑组件图标的类型和数量，例如房间、路径、空气处理系统等。
+ </p>
+        <p>
+在
+ <font style="font-style:italic; ">常规模式</font> 
+操作时，最左边的窗格显示当前突出显示的单元格或图标的摘要信息。
+ </p>
+        <p>
+在模拟中
+ <font style="font-style:italic; ">结果模式</font>
+，最左边的窗格显示当前突出显示的图标的结果。对于房间，这包括相对于该区域所在水平面高度处的环境压力的温度和压力。对于管道接头和终端，它显示相对于接头或终端所在房间的温度和静压。对于路径和管道段，它将显示路径或段上的气流和压降以及指示流动方向的符号（
+&gt;, &lt;
+, ^, v)。对于简单的空气处理系统图标，将显示隐式流动路径的室外气流、再循环气流和排气气流。
+</p>
+        <p>
+许多显示单位可以通过在项目配置属性中选择单位的 SI 或 IP 系统来控制，该属性可通过
+ <font style="font-weight:bold; text-decoration:underline;">V</font><font style="font-weight:bold; ">iew </font>&#8594;<font style="font-weight:bold; text-decoration:underline;">O</font><font style="font-weight:bold; ">ptions... </font> 
+菜单命令。
+
+        </p>
+        <p class="SubHeading1">
+中心窗格
+</p>
+        <p>
+在
+ <font style="font-style:italic; ">常规模式</font> 
+在操作过程中，中心窗格指示当前突出显示的图标或单元格在 SketchPad 坐标中的位置（从左上角开始编号）。在模拟中
+ <font style="font-style:italic; ">结果模式</font> 
+中心窗格显示当前模拟时间步长，并显示其结果。
+ </p>
+        <p class="SubHeading1">
+右窗格
+</p>
+        <p>
+最右侧的窗格显示当前级别的名称和编号以及项目中的级别总数。
+ </p>
+        <p class="CaptionCenter">
+            <img src="../../image/statusbar16.gif" border="0" height="28" width="568" alt="
+图片\statusbar16.gif
+" />
+        </p>
+        <p class="CaptionCenter">
+            <img src="../../image/statusbar16respath.gif" border="0" height="29" width="654" alt="
+图像\statusbar16respath.gif
+" />
+        </p>
+        <p class="CaptionCenter">
+图 - 状态栏
+ <font style="font-style:italic; ">Normal Mode</font> and <font style="font-style:italic; ">Results Viewing Mode </font>
+分别
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

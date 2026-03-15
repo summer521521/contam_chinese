@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Species and Contaminants" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+污染物文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor97"></a>
+污染物文件
+</h3>
+        <p>
+使用环境污染物 (CTM) 文件执行瞬态污染物模拟时，您可以考虑环境污染物浓度的变化。如果您将污染物文件与您的项目相关联（请参阅
+ <a href="../Simulation/IDH_UsingSIM_ParamsRunControl.htm">
+运行控制属性
+</a>
+) ContamX 会将项目文件中定义的污染物与污染物文件中包含的污染物进行比较。如果它们匹配，ContamX 将在模拟中使用污染物文件中的环境浓度，否则它们将被忽略。
+</p>
+        <p>
+您在 ContamW 外部创建污染物文件。您可以使用 NIST Weather 2.0 提供的实用程序将现有 CONTAM 1.0 天气（以前包含环境污染物浓度）文件转换为 CONTAM 2.0 天气和污染物文件。
+</p>
+        <p>
+请注意，使用此方法时，环境浓度不会在空间上变化，而只会在时间上变化。如果您需要室外污染物水平的空间变化，请参阅标题为“
+ <a href="../Weather/IDH_UsingWPC_WorkingWithWPCFiles.htm">
+使用 WPC 文件
+</a>.</p>
+        <p class="SubHeading1">
+污染物 (CTM) 文件格式
+</p>
+        <p>
+CONTAM 污染物（种类）文件是制表符分隔的 ASCII 文本文件。使用常见的电子表格应用程序可以轻松创建、导入和修改这些文件。它们可以保存为制表符分隔的文本文件，以便与 CONTAM 一起使用。在下面的列表中
+ <span style="font-family: &#x27;Courier New&#x27;;">I1</span> 
+表示一个字符串，
+ <span style="font-family: &#x27;Courier New&#x27;;">I2</span> 
+表示一个短整数并且
+ <span style="font-family: &#x27;Courier New&#x27;;">R4</span> 
+表示一个四字节实数。各个数据行由破折号分隔（这些破折号仅出于格式演示目的而显示在此处，不应包含在实际文件中）。每天必须从时间 00:00:00 开始，到时间 24:00:00 结束。 00:00:00 和 24:00:00 之间的时间间隔可以是规则的或不规则的 – ContamX 将根据需要进行插值。允许发表评论，并用“！”表示。 （感叹号）。污染文件读取器将忽略注释指示器后面的行中出现的任何内容。
+</p>
+        <p style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="code">
+物种文件 ContamW 2.0！文件和版本标识
+</p>
+        <p class="code">-----</p>
+        <p class="code">
+I1 描述[]！物种文件描述
+</p>
+        <p class="code">-----</p>
+        <p class="code">
+I1 开始日期！一年中的某一天 (1/1 – 12/31)
+ </p>
+        <p class="code">
+I1 结束日期！一年中的某一天 (1/1 – 12/31)
+ </p>
+        <p class="code">
+I2 数字连续！物种数量
+</p>
+        <p class="code">-----</p>
+        <p class="code">
+I1 名称[1]！物种名称 1（最多 16 个字符）
+</p>
+        <p class="code">
+I1 名称[2]！物种名称2
+</p>
+        <p class="code">...</p>
+        <p class="code">
+I2 名称[NumCont] !物种名称 NumCont
+</p>
+        <p class="code">-----</p>
+        <p class="code">
+!日期时间名称[1] 名称[2] ... 名称[NumCont]
+</p>
+        <p class="code">-----</p>
+        <p class="code">
+！每天：开始日期 – 结束日期
+</p>
+        <p class="code">
+！每次：00:00:00 - 24:00:00 增量可能是可变的
+</p>
+        <p class="code">   
+I1 日期！日期 (1/1 – 12/31)
+&#160;</p>
+        <p class="code">   
+I1 时间！一天中的时间 00:00:00 – 24:00:00
+&#160;</p>
+        <p class="code">   
+R4 浓[1] !物种 1 的浓度
+&#160;</p>
+        <p class="code">   
+R4 浓[2] !物种2的浓度
+&#160;</p>
+        <p class="code">   ...&#160;</p>
+        <p class="code">   
+R4 浓度[NumCont] !物种浓度 nc
+ &#160;</p>
+        <p class="code">                    
+！ [千克物种/千克空气]
+&#160;</p>
+        <p class="code">-----</p>
+        <p class="SubHeading1">
+编辑污染物文件
+</p>
+        <p>
+您可以将环境文件导入到电子表格程序中进行编辑。但是，保存文件时必须确保日期格式与 CONTAM 兼容。一个著名的电子表格程序会将 CONTAM 日期格式 mm/dd 转换为 mmm-dd 形式。例如，1 月 1 日的 CONTAM 日期格式为“1/1”，但电子表格程序会将其转换为“Jan-01”，除非您“强制”它以文本形式导入第一列数据（包含日期信息的数据列）。另一种选择是接受默认导入选项，然后将每个日期的单元格格式更改为 CONTAM 格式 mm/dd，然后再将文件保存为制表符分隔。
+</p>
+        <p class="SubHeading1"><a name="IDMID_ConcentrationConversions"></a>
+污染物单位换算
+</p>
+        <p>
+气态污染物 – 从 ppm 转换为：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">kg</span><span style="">/</span><span style="font-style: italic;">kg</span><span style="">&#160;= (</span><span style="font-style: italic;">ppm</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">MW</span><span style="">) / (1 </span><span style="">000</span><span style=""> <![CDATA[ ]></span><span style="">000 </span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span><span style="">)</span>
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">mg</span><span style="">/</span><span style="font-style: italic;">L</span><span style="">&#160;&#160;= (</span><span style="font-style: italic;">ppm</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">MW</span><span style="">) / (1</span><span style=""> <![CDATA[ ]></span><span style="">000 </span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span><span style="">)</span>
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">mg</span><span style="">/</span><span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: super;">3</span><span style="">&#160;= (</span><span style="font-style: italic;">ppm</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">MW</span><span style="">) / </span><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span><span style=""> <![CDATA[ ]></span>
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">mg</span><span style="">/</span><span style="font-style: italic;">ft</span><span style="font-style: italic;vertical-align: super;">3</span><span style="vertical-align: super;font-size: 10pt;">&#160;</span><span style="">= (</span><span style="font-style: italic;">ppm</span><span style=""> <![CDATA[ ]></span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">MW</span><span style="">) / (35.3147 </span><span style="font-family: &#x27;Symbol&#x27;;">´</span><span style=""> <![CDATA[ ]></span><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span><span style="">)</span>
+        </p>
+        <p>颗粒污染物 – 转换自
+ <span style="font-style: italic;">#</span>/<span style="font-style: italic;">m</span><span style="font-style: italic;vertical-align: super;">3</span> to <span style="font-style: italic;">kg</span>/<span style="font-style: italic;">kg</span>:</p>
+        <p class="NormalIndent">
+            <img src="../../Resources/Images/Eqn_ContConvert.PNG" alt="
+方程
+" />
+        </p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">MW</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;"> <![CDATA[ ]></span>
+= 污染物的摩尔质量 [kg/kmol]
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">s</span> 
+= 24.05 m
+<span style="vertical-align: super;font-size: 10pt;">3</span> 
+这是 T = 20 ℃ 且 P = 101 325 Pa (1 atm) 时 1 kmol 空气的体积
+</p>
+        <p class="NormalIndent"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span><span style=""> 
+= 1.204 公斤/米
+</span><span style="vertical-align: super;font-size: 10pt;">3</span><span style=""> 
+在 T = 20
+</span><span style=""> <![CDATA[ ]></span><span style="">
+℃
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">eff</span><span style=""> &#160;</span><span style="">
+= 有效颗粒密度 [kg/m
+</span><span style="vertical-align: super;font-size: 10pt;">3</span><span style="">]</span>
+        </p>
+        <p class="NormalIndent"><span style="font-style: italic;">D</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">
+意思是
+</span>&#160;
+= 平均粒径 [m]
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

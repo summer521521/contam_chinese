@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with EnergyPlus" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+EnergyPlus 输入文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+EnergyPlus 输入文件
+</h2>
+        <p>
+这些输入文件用于耦合过程，以通过 ContamFMU.dll 协调 EnergyPlus 和 CONTAM 之间的联合仿真期间的数据传输。这些文件可以使用 CONTAM3DExportTool 创建，但其内容在此处提供。
+</p>
+        <p><b>&lt;
+项目
+&gt;
+.vef
+</b>
+        </p>
+        <p>
+这个
+ <i>
+变量交换文件
+</i> 
+ContamFMU.dll 使用它来在协同仿真运行开始时协调数据交换信息。该文件将包含协同仿真期间要交换的变量列表。变量的数量和类型将取决于 CONTAM 项目文件的内容。</p>
+        <p>
+下面简要描述各个变量。单位在括号 [ ] 内表示。变量的类型在括号中。
+
+</p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">(I)</span> <![CDATA[ ]>
+= 整数值，
+</p>
+        <p><![CDATA[ ]><span style="font-family: &#x27;Courier New&#x27;;">(R)</span> <![CDATA[ ]>
+= 实数/小数值，
+ </p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">
+（字符）
+</span> 
+= 单个字符
+</p>
+        <p><span style="font-family: &#x27;Courier New&#x27;;">
+（字符串）
+</span> 
+= 字符串
+</p>
+        <p class="SubHeading1">
+文件格式：
+</p>
+        <p class="NormalItalic" style="color: #a52a2a;">
+第一行是文件头，指示文件类型、版本信息和日志记录级别。
+<br /><code>
+日志级别
+</code> 
+可以设置在 0 到 3 之间，以向 ContamFMU.log 文件提供递增级别的数据交换信息：
+</p>
+        <p class="codeindent" style="color: #a52a2a;">
+变量交换文件 1.0 fmi log_levl
+</p>
+        <p class="NormalItalic">
+第二行提供了正在交换的变量的数量：
+</p>
+        <p class="codeindent">
+n 变量 (I)
+</p>
+        <p><i><i>
+每行将提供与联合仿真期间要交换的单个变量相关的信息：
+&#160;</i></i>
+        </p>
+        <p class="codeindent">
+输入/输出指示灯
+ <span style="color: #008000;">
+//（字符）“I”用于 ContamX 的输入或“O”用于 ContamX 的输出。
+</span></p>
+        <p class="codeindent">
+变量识别
+ <span style="color: #008000;">
+// (string) - 该标识符用于确保变量
+</span><br style="color: #008000;" /><span style="color: #008000;">
+// 匹配 modelDescription.xml 文件中的内容。这些变量的顺序必须
+</span><br style="color: #008000;" /><span style="color: #008000;">
+// 匹配 xml 文件中的内容以确保 EnergyPlus（FMI 主算法）
+</span><br style="color: #008000;" /><span style="color: #008000;">
+// 可以将输入和输出与从属进程 ContamFMU.dll 进行匹配
+</span></p>
+        <p class="codeindent"><code>
+变量类型
+ <span style="color: #008000;">
+// （字符串）三个字符的缩写，指示类型
+</span><br style="color: #008000;" /><span style="color: #008000;">
+// 后面的数据。
+</span></code> <![CDATA[ ]></p>
+        <p class="codeindent"><code>
+可变数据
+</code> <![CDATA[ ]><span style="color: #008000;">
+// 该信息取决于
+ </span><code style="color: #008000;">
+类型</code><span style="color: #008000;"> 
+如下所述。
+</span></p>
+        <p class="NormalItalic">&#160;</p>
+        <p class="NormalItalic">
+类型字符串和相关数据（对于 FMI 和 Type98）：</p>
+        <ul>
+            <li value="1"><code>wat</code> – <i>
+环境温度
+</i>. <code>
+WTH_环境温度
+</code></li>
+            <li value="2"><code>wbp</code> – <i>
+大气压力
+</i><i></i>. <code>
+WTH_气压
+</code></li>
+            <li value="3"><code>wws</code> – <i>
+风速
+</i>. <code>
+WTH_风速
+</code></li>
+            <li value="4"><code>wwd</code> – <i>
+风向
+</i>. <code>
+WTH_WindDirection
+</code></li>
+            <li class="CW2" value="5"><code>whr</code> – <i>
+湿度比
+</i>. <code>
+WTH_湿度比
+</code></li>
+            <li value="6"><code>zti</code> – <i>
+房间温度输入 [C]
+</i><i></i>, <code>TAIR_&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称
+</code></li>
+            <li class="CW2" value="7"><code>zhr</code> – <i>
+房间湿度比 [kg/kg]
+</i><i></i>, <code>HRAIR_&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称
+</code></li>
+            <li value="8"><code>mix</code> – <i>
+区间气流速度
+</i>. <code>MIX_&lt;
+lev_from
+&gt;_&lt;
+房间来源
+&gt;_&lt;
+升压至
+&gt;_&lt;
+房间到
+&gt; 
+lev_from zone_from lev_to zone_to
+</code></li>
+            <li value="9"><code>inf</code> – <i>
+渗透气流速率[]
+</i>. <code>INFIL_&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称
+</code></li>
+            <li value="10"><code>ahs</code> – <i>
+空气处理系统送风末端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_供应_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称 ahs_nr
+</code></li>
+            <li value="11"><code>ahr</code> – <i>
+空气处理系统回风末端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_返回_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称 ahs_nr
+</code></li>
+            <li class="CW2" value="12"><code>
+高级研究计划
+</code> – <i>
+空气处理系统静压回风终端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_返回_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间_名称 ahs_nr 路径_nr
+</code></li>
+            <li value="13"><code>exh</code> – <i>
+仅排气空气处理系统回风终端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_exhaust_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称 ahs_nr
+</code></li>
+            <li value="14"><code>hvs</code> – <i>
+能量回收通风机空气处理系统送风末端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_供应_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称 ahs_nr
+</code></li>
+            <li value="15"><code>hvr</code> – <i>
+能量回收通风机空气处理系统回风末端
+</i> 
+（输入到 ContamX）。
+ <code>
+AHS_供应_
+&lt;
+等级编号
+&gt;_&lt;
+房间名称
+&gt; 
+lev_nr 房间名称 ahs_nr
+</code></li>
+            <li value="16"><code>poa</code> – <i>
+空气处理系统室外空气百分比
+</i> 
+（输入到 ContamX）。
+ <code>PCTOA_&lt;
+AHS_名称
+&gt; 
+ahs_名称
+</code></li>
+            <li value="17"><code>cti</code> – <i>
+控制输入
+</i><i></i>. <code>
+CTRL_I_
+&lt;
+姓名
+&gt; &lt;
+姓名
+&gt;</code></li>
+            <li value="18"><code>cto</code> – <i>
+控制输出
+</i>. <code>
+CTRL_O_
+&lt;
+姓名
+&gt; &lt;
+姓名
+&gt;</code></li>
+        </ul>
+        <p><b>
+模型描述.xml
+</b>
+        </p>
+        <p>
+EnergyPlus 联合仿真主算法使用该文件来协调数据交换。其内容的一般要求由FMI联合仿真规范定义[
+<a href="../IDH_References.htm#REF_MODELISAR_2010">
+莫迪萨 2010a
+</a>, <a href="../IDH_References.htm#REF_MODELISAR_2010b">
+莫迪萨尔 2010b
+</a>
+]。唯一的变量名称将用作
+ <i>
+功能模型单元导入
+</i> 
+EnergyPlus 中的对象。
+</p>
+        <p class="NormalCW2">
+VEF 文件中变量出现的顺序必须与 XML 文件中的值引用编号匹配。变量的名称不需要匹配。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

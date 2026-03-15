@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Controls" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+控制超元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+控制超元件
+</h3>
+        <p class="Normal">在 CONTAM 版本 2.2 之前，ContamW 要求您直接在主 SketchPad 上绘制所有控制网络，即使它们共享相同的逻辑和控制元素，这可能会导致大量重复工作。为了最大限度地减少用户输入并允许在不同项目文件之间共享控制逻辑，增强了控件以支持创建
+ <span style="font-style: italic;">
+控制超元件
+</span>. <span style="font-style: italic;">
+超元件
+</span><span style=""> 
+可以保存在项目文件以及新的 CONTAM 库文件类型 LB5 中。
+</span></p>
+        <p class="Normal" style="font-weight: bold;">
+术语
+</p>
+        <p class="Normal"><span style="font-style: italic;font-weight: bold;">
+超元件
+</span> 
+- 命名的控制逻辑图和随附的控制元件（
+<span style="font-style: italic;">
+子节点
+</span>
+）来自先前提供的控制元素列表。在面向对象的编程术语中，这类似于类，因为它在被实例化为对象之前不会被实际使用。
+
+	    </p>
+        <p class="Normal"><span style="font-style: italic;font-weight: bold;">
+超级节点
+</span> 
+- 实例化的
+ <span style="font-style: italic;">
+超元件
+</span>
+。在面向对象编程术语中，这将是用户定义类的对象或实例。
+
+	    </p>
+        <p class="SubHeading1">
+控制超元件/超级节点SketchPad
+</p>
+        <p class="Normal">
+随着新事物的出现
+ <span style="font-style: italic;">
+控制超元件</span>
+，是 SketchPad 的另一种用途来创建和编辑
+ <span style="font-style: italic;">
+超元件
+</span> and <span style="font-style: italic;">
+超级节点
+</span>
+。使用超元件时，仅启用控件绘图工具以及定义控制网络图标的功能。此 SketchPad 通过以下方式激活
+ <span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">ata</span>&#8594;<b>Co</b><span style="font-weight: bold;text-decoration: underline;">n</span><span style="font-weight: bold;">
+巨魔
+</span>&#8594;<span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+上层元素...
+</span> 
+菜单项。当超元件 SketchPad 处于活动状态时，SketchPad 的左上角将显示“
+<span style="font-family: &#x27;Courier New&#x27;;font-weight: bold;font-size: 10pt;">
+超元件：
+</span>
+" 后跟当前显示在 SketchPad 上的超元件的名称。使用超元件时，也会显示“控制超元件”对话框，如下所示。
+
+	    </p>
+        <p class="Normal" style="margin-left: 5pt;margin-right: 5pt;text-align: center;">
+            <img src="../../image/Control_SE_SketchPad.gif" style="visibility: visible;mso-wrap-style: square;" />
+        </p>
+        <p class="Normal">
+超级节点SketchPad只能修改现有控制子节点图标，因此控制绘图工具将被禁用，删除控制网络图标的功能也将被禁用。超级节点 SketchPad 被激活
+ <span style="font-style: italic;">
+实例化
+</span> 
+现有的
+ <span style="font-style: italic;">
+控制超元件</span> 
+或双击超级节点图标。当超级节点SketchPad激活时，SketchPad左上角会显示“
+<span style="font-family: &#x27;Courier New&#x27;;font-weight: bold;font-size: 10pt;">
+超级节点：
+</span>
+" 后跟当前显示在 SketchPad 上的超级节点的名称。使用超级节点时，还会显示“超级节点”对话框，如下所示。
+
+	    </p>
+        <p class="Normal" style="margin-left: 5pt;margin-right: 5pt;text-align: center;">
+            <img src="../../image/Control_SN_SketchPad.gif" style="visibility: visible;mso-wrap-style: square;" />
+        </p>
+        <p class="SubHeading1">
+定义超元件
+</p>
+        <p class="Normal">
+要创建超元件，请激活超元件 SketchPad。与其他库元素类型不同，所有超元件都必须在 CONTAM 项目文件中创建和编辑。启动超元件编辑模式会激活超元件 SketchPad 和控制超元件对话框，如下所示。使用 SketchPad 绘制
+ <span style="font-style: italic;">
+超元图
+</span> 
+并以与主 SketchPad 上的控件相同的方式定义控件子节点类型。该对话框用于命名、保存和设置下面描述的其他超元件属性。
+</p>
+        <p class="SubHeading1">
+删除超元件
+</p>
+        <p class="Normal">
+您可以通过 CONTAMW 库管理器删除超元件。只能删除当前未被超级节点引用的超元件。您可以确定超元件是否被引用
+ <span style="font-style: italic;">
+超级节点引用计数
+</span> 
+在超元件 SketchPad 上显示特定超元件时，在“控制超元件”对话框中提供。
+</p>
+        <p class="SubHeading1">
+修改超元件</p>
+        <p class="Normal">修改超元件包括修改图形（即添加和删除控制链接和子节点）、修改各个子节点的属性以及修改超元件属性。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+修改绘图
+</span> <![CDATA[ ]>
+– 您只能修改绘图，如果
+ <span style="font-style: italic;">
+超级节点引用计数
+</span> 
+为 0。此限制有效，因为 a 的所有实例
+ <span style="font-style: italic;">
+超元件
+ </span>
+（即，
+ <span style="font-style: italic;">
+超级节点
+</span>
+) 引用超元件的草图数据和子节点列表。
+
+	    </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+修改子节点属性
+</span> <![CDATA[ ]>
+– 您可以根据需要修改子节点的属性。这不会影响超元件的现有实例；但是，这将更改超元件的新实例的默认属性。
+
+	    </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+修改超元件属性
+</span> <![CDATA[ ]>
+– 您可以根据需要修改超元件属性。这不会影响现有实例，因为超级节点只是引用超元件属性，但不会创建它们的新实例。
+
+	    </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

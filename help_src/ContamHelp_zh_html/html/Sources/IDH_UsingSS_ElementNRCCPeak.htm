@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+NRCC - 峰值模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+NRCC - 峰值模型
+</h5>
+        <p>
+这是一个基于经验的模型，旨在与 NRCC 材料排放数据库兼容 [
+<a href="../IDH_References.htm#REF_Howard-Reed_2004">
+霍华德-里德 2004
+</a> and <a href="../IDH_References.htm#REF_Howard-Reed_2006">2006</a>].</p>
+        <p><i>S<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></i>(<i>t</i>
+) = 乘数·
+<i>a</i>
+·exp{-0.5[(1/
+<i>b</i>)<i>·</i>ln(<i>t/t<sub>p</sub></i>)<i></i>]<sup>2</sup>}</p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"> <![CDATA[ ]><span style="font-style: italic;">a</span>, <span style="font-style: italic;">b</span> and <span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span> 
+是通常根据发射室测量确定的经验系数。
+ <br />
+排放率，
+ <i>S<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></i>(<i>t</i>
+) [公斤
+<i><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></i>/s]<i></i>
+，将增加直到时间
+ <span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span> 
+此时它将开始腐烂。
+
+</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+        </p>
+        <p><span style="font-weight: bold;">
+注意： </span>每次模拟只能触发一次此类源。如果使用计划，第一个非零计划值将触发源，否则它将立即开始发射。
+
+        </p>
+        <p><span style="font-weight: bold;">
+姓名：
+ </span>
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+        </p>
+        <p><span style="font-weight: bold;">
+峰值排放因子：
+ </span>
+输入峰值排放因子
+ <span style="font-style: italic;">a</span>
+。这就是价值
+ <span style="font-style: italic;">
+S(t)
+</span> 
+当时间
+ <span style="font-style: italic;">t</span> = <span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span>.
+        </p>
+        <p><span style="font-weight: bold;">
+配件参数：
+ </span> 
+输入参数值
+ <span style="font-style: italic;">b</span> 
+在上面的等式中。
+
+        </p>
+        <p><span style="font-weight: bold;">
+高峰时间：
+ </span>
+输入时间
+ <span style="font-style: italic;">t</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span> 
+达到峰值排放因子。
+
+        </p>
+        <p><span style="font-weight: bold;">
+说明：
+ </span>
+用于输入特定源/汇元素的更详细描述的字段。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

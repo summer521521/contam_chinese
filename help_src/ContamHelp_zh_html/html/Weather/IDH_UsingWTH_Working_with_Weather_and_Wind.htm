@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+处理天气和风
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+处理天气和风
+</h2>
+        <p>
+CONTAM 使您能够将天气对建筑物的影响纳入考虑范围。天气参数包括环境温度、气压、风速、风向以及室外污染物水平。模拟所需的天气数据类型取决于您正在执行的模拟类型、是否要考虑风的影响以及是否正在模拟污染物。如果您正在执行稳态气流模拟，则只需要稳态天气和风数据。如果您正在执行瞬态气流模拟，则可以使用稳态或瞬态天气数据。瞬态天气数据是通过使用天气文件或WTH文件来实现的。如果您正在执行瞬态污染物模拟，您也可以使用稳态或瞬态环境污染物数据。瞬态环境污染物数据通过使用环境污染物文件或 CTM 文件来实现（参见
+ <a href="../Contaminants/IDH_UsingContaminants_Contaminant_Files.htm">
+污染物文件
+</a>).</p>
+        <p><b>
+注意：</b> WTH 和 CTM 文件都假定任何给定时间点的环境房间的一组值，即压力或污染物场没有空间变化。但是，CONTAM 还允许使用瞬态风压和污染物文件（WPC 文件），您可以使用它们来解释建筑围护结构表面上的压力和污染物浓度的空间变化（请参阅使用 WPC 文件）。
+</p>
+        <p class="SubHeading1">
+稳态天气
+</p>
+        <p>
+当您使用稳态天气数据时，ContamX 在模拟过程中保持环境温度、气压、风速和风向以及相对湿度恒定。以下各节给出了这些参数的详细描述。</p>
+        <p class="SubHeading1">
+瞬态天气
+</p>
+        <p>
+执行瞬态模拟时，您可以使用瞬态天气数据来模拟不断变化的室外天气和风况。瞬态天气数据存储在天气文件中，您必须根据以下指定的特殊格式创建该文件：
+ <a href="IDH_UsingWTH_Defining_Transient_Weather_and_Wind.htm#Weather_File_Format">
+天气文件格式
+</a> 
+以下部分。天气文件包含至少一天到一年内每天离散间隔的环境温度、压力、风速和风向以及湿度比。如果天气文件中数据之间的间隔与模拟时间步长不匹配，ContamX 将对天气数据进行线性插值以获得所需时间步长的值。
+</p>
+        <p class="SubHeading1">
+风
+</p>
+        <p>
+风压可能是空气渗透建筑围护结构的重要驱动力。它是风速、风向、建筑物配置和当地地形影响的函数。 CONTAM 使您能够考虑风压对穿过建筑围护结构的流动路径（外部气流路径）的影响。您可以根据具体情况定义如何考虑每个外部流动路径的风效应。在 ContamW 中，您可以选择忽略风对围护结构穿透的影响，将每个围护结构穿透的风压定义为恒定，或对围护结构穿透实施可变风压。
+ </p>
+        <p>
+CONTAM 提供了处理风对建筑围护结构的可变影响的通用方法。此方法要求您向 CONTAM 提供与确定建筑表面局部风压系数相关的信息。
+</p>
+        <p>
+有关风压对建筑物影响的一般介绍，请参阅 2005 年 ASHRAE 基础手册中的第 16 章“建筑物周围的气流”[
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+]。以下概述了 CONTAM 如何处理这些效果。</p>
+        <p>
+建筑表面风压方程为
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind1.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">H</span> &#160;&#160;&#160;
+迎风墙高度（通常是建筑物的高度）处的接近风速
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span>&#160;&#160;&#160;
+风压系数
+</p>
+        <p>
+风压系数可以进一步概括为局部地形影响系数和风相对于所考虑的墙壁的方向。以下方程是 CONTAM 在计算建筑物风压时使用的方程。
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind2.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span> &#160;&#160;&#160;&#160;&#160;&#160;
+环境空气密度
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met</span><span style="font-family: &#x27;Symbol&#x27;;"><span style="font-size: 8pt;font-family: ;">&#160;&#160;</span></span>
+气象站测量的风速
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span><span style="font-family: &#x27;Symbol&#x27;;"> <![CDATA[ ]></span> &#160;&#160;&#160;
+考虑地形和海拔影响的风速修正系数
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">f</span><span style="font-family: &#x27;Symbol&#x27;;">(</span><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">q</span><span style="font-family: &#x27;Symbol&#x27;;">)</span> &#160;&#160;&#160;
+系数是相对风向的函数。 CONTAM 将此函数称为
+ <span style="font-style: italic;">
+风压剖面
+</span>.</p>
+        <p>
+相对风向由下式给出
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind3.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">q</span><span style="color: black;font-style: italic;vertical-align: sub;">w</span>&#160;&#160;
+风方位角（N = 0
+<span style="font-family: &#x27;Symbol&#x27;;">°</span>
+，E = 90
+<span style="font-family: &#x27;Symbol&#x27;;">°</span>
+等），以及
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">q</span><span style="color: black;font-style: italic;vertical-align: sub;">s</span> &#160;&#160;
+表面方位角。
+</p>
+        <p><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">r</span><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: super;">2</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met </span><span style="font-family: &#x27;Symbol&#x27;;">/ 2 </span>
+上式中的公式是 ContamX 根据稳态或天气文件温度、压力和风速数据计算得出的。
+</p>
+        <p><span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">p</span>
+，ASHRAE 使用的压力系数相当于
+ <span style="font-style: italic;">f</span>(<span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">q</span> 
+）在 CONTAM 公式中。在 ContamW 中，您必须定义函数
+ <span style="font-style: italic;">f</span>(<span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">q</span><span style="font-family: &#x27;Symbol&#x27;;"> <![CDATA[ ]></span>
+）的形式
+ <span style="font-style: italic;">
+风压剖面
+</span> 
+正如稍后所解释的。请参阅 2005 年 ASHRAE 基本手册第 27.5 页 [
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+] 了解有关压力系数数据的详细信息。 NIST 多房间建模网站上有一些以 CONTAM 库文件形式提供的风压剖面示例。
+</p>
+        <p>
+风压调节器， <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span>
+，解释了之间的差异
+ <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met</span> and <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">H</span>
+。的价值
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span> 
+对于给定建筑物上的所有开口，通常都是恒定的。但是，ContamW 允许您定义一个默认值，该值将用于连接到环境的每个流路（请参阅
+ <a href="IDH_PP_WTH_WIND.htm">
+风属性
+</a>
+) 或为每个路径单独设置该值。 ContamW 使用以下公式来计算值
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span>:</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../Resources/Images/Eqn_Wind4.PNG" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(1)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-style: italic;">H</span> 
+是墙的高度，
+ <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> and <span style="font-style: italic;">a</span> 
+取决于建筑物周围的地形[
+<a href="../IDH_References.htm#REF_ASHRAE_1993">
+美国采暖及制冷工程师协会 1993
+</a>
+，第 14.3 页]：
+</p>
+        <p>&#160;</p>
+        <table>
+            <tr>
+                <td class="HeadCenterBold">
+地形
+<br />
+类型
+</td>
+                <td class="HeadCenterBold">
+系数
+<br />(<span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>)</td>
+                <td class="HeadCenterBold">
+指数
+<br />(<i>a</i>)</td>
+            </tr>
+            <tr>
+                <td>
+城市
+</td>
+                <td class="Center">0.35</td>
+                <td class="Center">0.40</td>
+            </tr>
+            <tr>
+                <td>
+郊区
+</td>
+                <td class="Center">0.60</td>
+                <td class="Center">0.28</td>
+            </tr>
+            <tr>
+                <td>
+机场
+</td>
+                <td class="Center">1.00</td>
+                <td class="Center">0.15</td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <p>
+风速，
+ <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met</span>
+，通常是在机场（开放地形）的海拔高度测量的，
+ <span style="font-style: italic;">H</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met</span> 
+= 10m，距地面。风速，
+ <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>
+，在建筑工地的同一高度由下式给出
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind5.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+风速，
+ <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">H</span>
+，在墙的顶部，标高
+ <span style="font-style: italic;">H</span>
+，则由下式给出
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind6.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+更新的方法，来自中提出的方法
+ <a href="../IDH_References.htm#REF_ASHRAE_1993">
+美国采暖及制冷工程师协会 1993
+</a>
+，第 16 章介绍了考虑局部地形影响的方法
+ <a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+。使用这种方法，
+ <i>V</i><sub style="font-style: italic;">H</sub> <![CDATA[ ]><span style="vertical-align: sub;font-size: 10pt;"></span>
+根据以下等式计算：
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind7.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>
+哪里
+ </p>
+        <p class="NormalIndent"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">d</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met&#160;</span>&#160;
+气象站风边界层厚度
+</p>
+        <p class="NormalIndent"><span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">d</span> &#160;&#160;&#160;&#160;&#160;&#160;
+当地建筑物地形的风边界层厚度
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">a</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">met&#160;</span>&#160;
+气象站风边界层指数
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">a</span> &#160;&#160;&#160;&#160;&#160;&#160;
+当地建筑物地形的风边界层指数
+</p>
+        <p>
+第16章表1
+ <a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a> 
+包含上述参数的值。 ContamW 计算
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span> 
+根据上面的等式（1）并提供了输入
+ <span style="font-style: italic;">
+当地地形
+ </span><span style="font-style: italic;">
+常数
+</span>, <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span>
+，但不是
+ <span style="font-family: &#x27;Symbol&#x27;;font-style: italic;">d</span>
+。因此，为了实现更新的方法，必须调整
+ <span style="font-style: italic;">A</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">o</span> 
+根据以下等式：
+</p>
+        <p>
+            <img src="../../Resources/Images/Eqn_Wind8.PNG" border="0" alt="
+方程
+" />
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

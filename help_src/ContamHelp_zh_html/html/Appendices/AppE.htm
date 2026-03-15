@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+附录 B - ContamX TCP/IP 套接字通信
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h1>
+附录 B - ContamX TCP/IP 套接字通信
+</h1>
+        <p>
+ContamX 的套接字通信功能使另一个应用程序能够在 ContamX 运行时控制其执行。在此期间
+ <i>
+桥
+</i> 
+在执行模式下，ContamX 称为客户端，控制程序称为服务器。这两个程序使用 TCP/IP Socket 通信方法和一组预定义的消息相互通信。一般情况下，服务器必须由用户自行开发。本节提供了一组套接字通信消息，可在运行时交换 ContamX 相关信息，包括详细的气流结果、房间温度和控制数据。
+ </p>
+        <p>
+ContamX 与 TRNSYS 和 EnergyPlus 结合的能力也已得到开发。 TRNSYS Type98 的开发是为了演示这些功能，并且 ContamFMU 动态链接库的开发是为了实现 EnergyPlus 和 ContamX 之间的协同仿真（请参阅
+ <a href="../TRNSYS/IDH_UsingTRNSYS-WorkingWithTRNSYS.htm">
+与 TRNSYS 合作
+</a> and <a href="../EnergyPlus/IDH_UsingEnergyPlus-WorkingWithEnergyPlus.htm">
+与 EnergyPlus 合作
+</a>).</p>
+        <p>
+本节提供在套接字模式下执行 ContamX 的详细信息以及 ContamX 实现的预定义消息集的规范。这些消息属于从 ContamX 角度定义的以下类别：
+ </p>
+        <ul>
+            <li value="1">
+发送
+ <i>
+项目信息
+</i></li>
+            <li value="2">
+发送/接收
+ <i>
+执行控制
+</i></li>
+            <li value="3">
+接收
+ <i>
+项目修改
+</i></li>
+            <li value="4">
+发送
+ <i>
+模拟结果
+</i></li>
+        </ul>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Weather and Wind|Defining Weather and Wind" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+定义稳态天气和风
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor126"></a>
+定义稳态天气和风
+</h4>
+        <p>
+要定义稳态天气和风力数据，您可以使用 <span style="font-weight: bold;">
+编辑
+ </span><span style="font-weight: bold;text-decoration: underline;">W</span><span style="font-weight: bold;">
+以太数据…
+</span> 
+选择的
+ <span style="font-weight: bold;text-decoration: underline;">W</span><span style="font-weight: bold;">
+伊瑟
+</span> 
+菜单或
+ <span style="font-weight: bold;">F7</span> 
+键盘快捷键。这将显示“天气和风参数”属性表。属性表包含四个不同的参数页面，包括：天气、风、位置和风压显示。所有风和天气属性的详细描述在
+ <a href="IDH_UsingWTH_Weather_and_Wind_Properties.htm">
+天气和风力特性
+</a> 
+本手册的部分。
+</p>
+        <p>
+您可以使用“天气”页面来定义稳态天气和风力数据。 “位置”页面允许您输入建筑工地的海拔高度，如果您不知道给定建筑工地的默认气压应该是多少，ContamW 将使用该高度来确定默认气压。这两页的默认值将提供无风、20°C 和 1 个大气压（约 101 kPa）的气压条件。
+ </p>
+        <p>
+风页面参数允许您输入盛行风向和 ContamW 使用的其他值来确定风速调节器。风速修正量由当地地形常数和速度剖面指数确定。为郊区地形提供默认值。
+</p>
+        <p class="SubHeading1"><a name="IDM_CheckingWind"></a>
+检查风压数据
+</p>
+        <p>
+ContamW 使您能够使用以下命令在 SketchPad 上直观地验证风信息：
+ <span style="font-weight: bold;text-decoration: underline;">W</span><span style="font-weight: bold;">
+工业压力
+</span> and <span style="font-weight: bold;">
+风
+ </span><span style="font-weight: bold;text-decoration: underline;">P</span><span style="font-weight: bold;">
+压力类型
+</span> 
+的选择
+ <span style="font-weight: bold;text-decoration: underline;">V</span><span style="font-weight: bold;">iew</span> 
+菜单。查看此显示时，您应该根据风向数据检查流向是否有意义。
+ <a href="IDH_PP_WTH_WPDISPLAY.htm">
+风压显示
+</a> 属性页（WP 显示）或包含在 WTH 和 WPC 文件中（请参阅使用 WPC 文件）。在查看 WTH 和 WPC 文件压力时，您可以使用
+ <span style="font-weight: bold;">
+结果导航
+</span> 
+下的控制
+ <span style="font-weight: bold;">
+查看
+</span> 
+菜单以逐步浏览 WPC 文件中的数据。任一文件中相应数据的日期和时间将显示在状态栏中。
+</p>
+        <p>当您选择显示风压结果时，彩色线条（压力结果颜色）将出现在 SketchPad 上。仅显示连接到环境房间的气流路径和管道终端的风压，并将风压选项设置为可变或恒定，或者如果使用 WPC 文件，则显示 WPC 文件中指定的压力。风压显示将显示压降的相对大小以及穿过建筑围护结构开口的气流方向。您可以将插入符号移动到每个正在显示风压的气流路径上，以在 ContamW 状态栏中显示该气流路径的风压、方位角和仰角。当插入符号置于环境房间时，如果风压类型设置为 WP Display 或 WTH，则状态栏中将显示风速和风向。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

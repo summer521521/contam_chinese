@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+TERM_INFO_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+TERM_INFO_MSGTYPE
+</h3>
+        <p>
+提供有关终端类型交汇点的信息。  id[] 数组提供 ContamX 通过以下方式提供气流速率的顺序
+ <span style="font-family: &#x27;Courier New&#x27;;">
+TERM_FLOW_UPDATE_MSGTYPE
+</span>
+。  如果ambient_index为0，则该终端不是渗透点。否则，ambient_index 指定使用以下命令将最终浓度发送至 ContamX 的顺序：
+ <span style="font-family: &#x27;Courier New&#x27;;">
+ADJ_WPC_MSGTYPE
+</span>.</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+num_terms；
+            <span style="color: #008100;">
+// PRJ 中的管道终端数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+id[num_terms];
+           <span style="color: #008100;">
+// 对于每个终端：根据 ContamX 的索引
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+环境索引[num_terms]
+       <span style="color: #008100;">
+// 对于每个终端：0/1 = 未连接/已连接到环境
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+x[num_terms];
+                <span style="color: #008100;">
+// 对于每个终端：绝对坐标 [m]
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+y[num_terms];
+</p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+z[num_terms];
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

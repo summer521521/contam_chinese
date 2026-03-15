@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ZONE_INFO_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+ZONE_INFO_MSGTYPE
+</h3>
+        <p>
+按 ContamX 通过发送回浓度的顺序提供房间信息
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CONC_UPDATE_MSGTYPE
+</span>
+。  该区域列表包括每个简单空气处理系统的两个隐式房间（送风和回风）的房间。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+num_zones；
+       <span style="color: #008100;">
+// PRJ 文件中的房间数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+级别[num_zones]；
+   <span style="color: #008100;">
+// 房间所在的级别号
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+ahs[num_zones];
+   <span style="color: #008100;">
+// 0 = 不是简单的 ahs 房间，1 = 隐式 ahs 房间
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+体积[num_zones]；
+   <span style="color: #008100;">
+// 每个房间的体积 [m3]
+</span></p>
+        <p class="code"><span style="color: blue;">
+字符
+</span> 
+*名称[num_zones]；
+  <span style="color: #008100;">
+// 房间名称（空终止字符串）
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

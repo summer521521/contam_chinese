@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ADJ_CONTROL_NODE_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+ADJ_CONTROL_NODE_MSGTYPE
+</h3>
+        <p>
+ContamX 可以随时在
+ <span style="font-style: italic; font-weight: normal;">
+就绪模式
+</span>
+。它用于设置a的值
+ <i>
+常数
+</i> (<i>Set</i> 
+类型，CT_SET）控制节点，其中
+ <code>
+节点id
+</code> 
+是由 ContamX 分配给控制节点并由以下提供的标识符
+ <span style="font-family: &#x27;Courier New&#x27;;">
+INPUT_CTRL_INFO_MSGTYPE
+</span>
+。请注意，
+ <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;"></span><code>
+节点id
+</code> 
+不太可能对应于相应控制图标的 ContamW SketchPad 上显示的控制节点编号。但是，节点名称由以下提供：
+ <span style="font-family: &#x27;Courier New&#x27;;">
+INPUT_CTRL_INFO_MSGTYPE
+</span>.    <![CDATA[ ]></p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+节点id；
+    <span style="color: #008100;">
+// 控制节点的id
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+价值；
+    <span style="color: #008100;">
+// 节点应更改为的值
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

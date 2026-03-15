@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Weather and Wind|Defining Weather and Wind|Weather and Wind Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+风属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>天气和风 – 风属性
+</h4>
+        <p>
+墙高、地形和指数用于计算风速修正值。
+ </p>
+        <p class="NormalCW2"><span style="font-weight: bold;">
+相对北：
+</span> 
+相对北方向将用于将 SketchPad 上的墙壁方位角与真北联系起来，以确定风向影响。输入从 ContamW SketchPad 上的垂直线到正北的 -180 度（逆时针）和 +180 度（顺时针）之间的角度。</p>
+        <p class="NormalCW2">
+            <img src="../../image/RelativeNorth_296x207.png" title="
+SketchPad 上的相对北图像
+" alt="
+SketchPad 上的相对北图像
+" style="width: 296; height: 207;" />
+        </p>
+        <p><span style="font-weight: bold;">
+屋顶或墙壁高度：
+</span> 
+输入建筑物迎风墙的高度。这是本节中给出的方程中的 H 值
+ <a href="IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a>
+。输入零值会将风速修改器降低为零。无论风速如何，这都会导致计算出的风压为零，除非您覆盖外部气流路径的风压系数。 2005 年 ASHRAE 基础手册第 16 章中的图 4 [
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>] 显示基于墙顶局部风压的建筑物表面的相对风压。
+</p>
+        <p><span style="font-weight: bold;">
+地形
+ &amp; 
+指数：
+</span> 
+输入描述建筑物所在房间类型的风速剖面的值。 1993 年 ASHRAE 基础手册第 14 章中的图 4 [
+<a href="../IDH_References.htm#REF_ASHRAE_1993">
+美国采暖及制冷工程师协会 1993
+</a>
+] 显示代表性房间的地形常数和速度剖面指数。
+</p>
+        <p>
+更新的方法，来自中提出的方法
+ <a href="../IDH_References.htm#REF_ASHRAE_1993">
+美国采暖及制冷工程师协会 1993
+</a>
+，第 16 章介绍了考虑局部地形影响的方法
+ <a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+。参考
+ <a href="IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a> 
+有关如何在 CONTAM 中实现此方法的详细信息。
+</p>
+        <p><span style="font-weight: bold;">
+修改器：
+</span> 
+这是风速调节器，
+ <span style="font-style: italic;">C</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">h</span>
+，由 ContamW 根据上面的墙高、地形和指数值计算得出。该值将是为您在 SketchPad 上创建并为其选择可变风压选项的每个包络气流路径提供的默认值。参见部分
+ <a href="IDH_UsingWTH_Working_with_Weather_and_Wind.htm">
+处理天气和风
+</a> 
+有关该术语的更详细解释。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 8b 节：过滤器
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 8b 节：过滤器
+</h5>
+        <p>
+过滤器数据由filter_read()函数读取并由filter_save()函数保存。数据存储在 FLT_DSC 结构中，该结构在 contam.h（针对 ContamW）和 simdat.h（针对 ContamX）中定义。
+</p>
+        <p class="NormalItalic">
+过滤器部分开始于：
+ </p>
+        <p class="code">
+_nfilt // 过滤器数量 (
+<span style="">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是所有数据
+ <span style="font-family: &#x27;Courier New&#x27;;font-size: 10pt;">
+_nfilt
+</span> 
+过滤器。
+</p>
+        <p class="NormalItalic">
+对于每个过滤器，第一数据行包括：
+</p>
+        <p class="codeindent">
+nr // 过滤器编号 (
+<span style="">IX</span>
+）；按从 1 到 _nfilt 的顺序
+</p>
+        <p class="codeindent">fe&#160;&#160;
+// 过滤元素个数 (
+<span style="">IX</span>)</p>
+        <p class="codeindent">
+纳米粒子
+ &#160;
+// 子元素数量，如果不是超级过滤器则为1 (
+<span style="">IX</span><span style="">)</span></p>
+        <p class="NormalItalic">
+接下来是
+ <i style="font-style: normal;font-family: &#x27;Courier New&#x27;;">
+纳米粒子
+</i> 
+初始总相对载荷线：
+</p>
+        <p class="codeindent">
+load // 初始相对加载 [-] (R4)
+</p>
+        <p class="codeindent">
+负载
+&#160;
+// 物种负载数 (I2) [0]
+</p>
+        <p class="NormalIndentItalic">
+接下来是
+ <span style="font-family: &#x27;Courier New&#x27;;">
+加载
+</span><span style=""> 
+物种加载数据线：
+&#160; 
+[尚未使用；
+ </span><span style="font-style: normal;">
+负载
+</span><span style=""> = 0] </span></p>
+        <p class="codeindent">&#160;&#160;&#160;
+规格[]
+&#160;&#160; 
+// 物种名称 (I1)
+</p>
+        <p class="codeindent">&#160;&#160;&#160;
+负载
+&#160;&#160;&#160;&#160; 
+// 初始相对加载 [-] (R4)
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

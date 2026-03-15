@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Filters" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+过滤器属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3><a name="kanchor104"></a>
+过滤器属性
+</h3>
+        <p><span style="font-weight: bold;">
+过滤器数量：
+</span> 
+该编号由 ContamW 自动分配，并且可以在您向项目添加过滤器或从项目中删除过滤器时更改。每次保存项目时，都会重新分配过滤器编号。
+ </p>
+        <p>
+尽管这是 CONTAM 使用的实际过滤器编号，但在显示过滤器累积结果时将使用不同的编号
+ <span style="font-style: italic;">
+污染物摘要文件
+</span> （.csm 文件）。该文件将根据与其关联的建筑组件来显示过滤器。例如，与气流路径和空气处理系统供应和返回点相关的过滤器将通过路径编号和字母“p”来引用，以指示它是路径过滤器。与管道相关的过滤器将通过管道段编号和字母“d”或端子编号和端子字母“t”来引用。
+</p>
+        <p><span style="font-weight: bold;">
+过滤器
+ </span><span style="font-weight: bold;">
+元素
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+姓名：
+</span> &lt;
+必填
+&gt; 
+您可以从名称列表中包含的过滤器元素中选择先前定义的过滤器元素。单击“新元素”按钮定义新的过滤器元素。要查看或修改过滤器元素数据，请单击“编辑元素”按钮。您还可以访问 CONTAM 库管理器，通过单击“库”按钮从库文件导入过滤器元素（请参阅
+ <a href="../Library/IDH_UsingLibs_Working_with_Data_and_Libraries.htm">
+使用数据和库
+</a>
+）。每个过滤器都必须有一个与其关联的过滤器元件。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+描述
+</span><span style="font-weight: bold;">:</span> 
+显示名称字段中当前显示的过滤器元素的描述。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+类型：
+</span> 
+显示“名称”字段中当前显示的过滤器的过滤器元素类型。
+</p>
+        <p><span style="font-weight: bold;">
+初始过滤器加载
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+总相对负载：
+</span> 
+设置过滤器相对于过滤器质量的初始负载。可以将其设置为零以表示模拟开始时的“干净”过滤器；否则设置该值以确定模拟开始时过滤器上累积的污染物总质量（以过滤器质量的百分比表示）。相对负载仅用于气体过滤器元件，该元件是目前唯一将效率描述为过滤器负载函数的元件。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

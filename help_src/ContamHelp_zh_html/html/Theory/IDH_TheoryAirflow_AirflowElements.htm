@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+气流元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+气流元件
+</h3>
+        <p>
+渗透是空气流过建筑围护结构中大大小小的、有意或无意的开口的结果。模拟程序需要开口流动特性的数学模型。有关一般介绍，请参阅[的第 27 章]
+<a href="../IDH_References.htm#REF_ASHRAE_2005">
+2005年美国采暖及制冷工程师协会
+</a>
+] 和 [ 的第 2.2 节
+<a href="../IDH_References.htm#REF_Feustel_1990">
+费斯特尔 1990
+</a>].
+        </p>
+        <p>
+假设每个气流元件内的流动受伯努利方程控制：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000099.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(16)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span>
+= 点 1 和点 2 之间的总压降
+<br /><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">1</span>, <span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">2</span>
+= 入口和出口静压力
+<br /><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">1</span>, <span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">2</span>
+= 进入和退出速度
+<br /><span style="font-family: Symbol;">r</span>
+= 空气密度
+<br /><span style="font-style: italic;">g</span>
+= 重力加速度 (9.81 m/s
+<span style="vertical-align: super;font-size: 10pt">2</span>)<br /><span style="font-style: italic;">z</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">1</span>, <span style="font-style: italic;">z</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">2</span>
+= 入口和出口标高。
+
+        </p>
+        <p>
+以下参数适用于房间：
+&#160; 
+压力、温度（计算密度和粘度）和海拔。房间高程值用于确定烟囱效应压力。当该区域代表房间时，气流元件可以在其参考标高以外的位置与房间连接。流体静力方程用于将流元件两端的压差与元件端部的标高和房间标高联系起来，假设房间内的空气处于恒温状态。可以重新排列压力项，并添加建筑围护结构开口可能的风压，以给出
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/0800009A.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(17)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">i</span>, <span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">j</span>
+= i 区和 j 区的总压力
+<br /><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">S</span>
+= 由于密度和海拔差异而产生的压力差，以及
+<br /><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">W</span>
+= 风引起的压力差。
+
+        </p>
+        <p>
+方程 (17) 建立了流向的符号约定：
+&#160; 
+正值是从 j 区到 i 区。由于气流元件将通过以下形式的关系来描述
+ <span style="font-style: italic;">w</span> 
+= f(
+<span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span>
+)，[ 所需的偏导数
+<span style="font-weight: bold;">J</span>
+方程（9）中的 ] 之间的关系为
+ <span style="font-family: Symbol;">¶</span><span style="font-style: italic;">w</span>/<span style="font-family: Symbol;">¶</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">j</span> = -<span style="font-family: Symbol;">¶</span><span style="font-style: italic;">w</span>/<span style="font-family: Symbol;">¶</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">i</span> 
+建立了方程（10）中的关系。 CONTAM 中提供了多种形式的气流元件。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

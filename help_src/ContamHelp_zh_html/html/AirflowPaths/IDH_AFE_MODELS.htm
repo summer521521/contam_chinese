@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Airflow Paths|Defining Airflow Paths" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+气流元件类型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor48"></a>
+气流元件类型
+</h4>
+        <p>
+这是可用气流元件或数学模型的列表，提供气流路径的气流和压差之间的关系。请参阅气流分析
+ <a href="../Theory/IDH_Theory_Background.htm">
+理论背景
+</a> 
+手册的数学细节部分。
+</p>
+        <p class="SubHeading1">
+使用幂律模型的单向流
+</p>
+        <p>
+这些单向流动模型允许沿压降方向流动。 CONTAM 为您提供以下幂律流动模型。
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_PLQCN.htm">
+Q = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a>
+：这是体积流量形式的幂律模型的一般形式，允许您直接输入系数，
+ <span style="font-style: italic;">C</span>
+，和指数，
+ <span style="font-style: italic;">n</span>.</p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_PLFCN.htm">
+F = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a>
+：这是质量流量形式的幂律模型的一般形式，允许您直接输入系数，
+ <span style="font-style: italic;">C</span>
+，和指数，
+ <span style="font-style: italic;">n</span>.</p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_AFE_PLLEAK.htm">
+泄漏面积数据
+</a>
+：该模型是指有效泄漏面积，如《规范》第 26 章中所述。
+ <span style="font-style: italic;">2001</span><span style="font-style: italic;"> 
+ASHRAE 基础知识手册
+</span>. </p>
+            </li>
+            <li value="4">
+                <p><a href="IDH_AFE_PLCONN.htm">
+连接 (ASCOS) 数据
+</a>
+：指ASCOS程序中使用的气流描述[
+<a href="../IDH_References.htm#REF_Klote_1982">
+克洛特 1982
+</a>].</p>
+            </li>
+            <li value="5">
+                <p><a href="IDH_AFE_PLORFC.htm">
+孔口面积数据
+</a>
+：将开口描述与孔口面积数据相关联。
+ </p>
+            </li>
+            <li value="6">
+                <p><a href="IDH_AFE_PLCRACK.htm">
+裂纹描述
+</a>
+：通过其长度和宽度描述的狭窄开口。
+</p>
+            </li>
+            <li value="7">
+                <p><a href="IDH_AFE_PLTEST1.htm">
+测试数据（1分）
+</a>
+：使用单一流量和压降以及压力指数的估计值，
+ <span style="font-style: italic;">n</span>.</p>
+            </li>
+            <li value="8">
+                <p><a href="IDH_AFE_PLTEST2.htm">
+测试数据（2分）
+</a>
+：使用两个流速及其相应的压降来使用幂律模型定义流量。
+</p>
+            </li>
+            <li value="9">
+                <p><a href="IDH_AFE_PLSTAIR.htm">
+楼梯间
+</a>
+：楼梯间对应的数据符合幂律模型。
+</p>
+            </li>
+            <li value="10">
+                <p><a href="IDH_AFE_PLSHAFT.htm">
+轴
+</a>
+：描述大竖井中的流动。
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+使用二次模型的单向流
+</p>
+        <p>
+这些模型仅允许基于压降沿一个方向流动通过路径。
+ </p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_QFQAB.htm"><span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P = aQ + bQ^2
+</a> and <a href="IDH_AFE_QFFAB.htm"><span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P = aF + bF^2
+</a>
+：这些模型允许您直接输入二次模型的“a”和“b”系数。
+</p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_QFCRACK.htm">
+裂纹描述
+</a>
+：该模型比幂律版本的裂纹模型更详细地描述了狭窄的开口。
+</p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_AFE_QFTEST2.htm">
+测试数据（2点）
+</a>
+：该模型使用两个流速及其相应的压降来使用二次模型定义流量。
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+双向流模型
+</p>
+        <p>这些模型用于表示高开口，开口处的温差可能会导致开口处的双向流动，例如门口。
+ </p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_DORDOR.htm">
+具有 2 路流动的单开口型号
+</a>
+：这会将通过路径的流量建模为单个大开口。
+</p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_DORPL2.htm">
+两开型号
+</a>
+：该模型垂直划分一个开口，并使用两个幂律模型（每个开口一个）对流量进行建模。结果以每个方向的净流量的形式获得。
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">
+逆流阻尼器流动模型
+</p>
+        <p>
+这些模型允许您根据压降方向对具有不同阻力的特征进行建模，例如排烟风门。 CONTAM 实现了反向气流阻尼器模型的体积流量和质量流量版本，这两个版本都基于幂律模型。
+</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_PLBDF.htm">
+逆止阻尼器模型：F = C(
+<span style="font-family: &#x27;Symbol&#x27;;">D</span>
+P)^n
+</a>
+：这是逆风阻尼器模型的体积流量形式。您可以根据阻尼器压降的符号输入单独的 C 和 n 值。
+</p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_PLBDQ.htm">
+逆止阻尼器模型：Q = C(dP)^n
+</a>
+：这是逆风阻尼器模型的质量流量形式。您可以根据阻尼器压降的符号输入单独的 C 和 n 值。
+</p>
+            </li>
+            <li value="3"><a href="IDH_AFE_PLBDQ.htm">
+自调节通风口
+</a>
+：该元件限制通过具有用户定义的限制气压差的流路的两个方向的气流速率。 CONTAM 实现自调节通风口，如 [<a href="../IDH_References.htm#REF_Axley_2001">
+阿克斯利 2001
+</a>]<a href="../IDH_References.htm#REF_Axley_2001"></a>.</li>
+        </ol>
+        <p class="SubHeading1">
+风扇和强制流动模型
+</p>
+        <p>
+这些模型允许您创建代表风扇的气流路径或您要为其指定流速的其他路径。</p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_FNCMF.htm">
+恒质量流量风机
+</a>
+：该模型提供恒定的质量流量。
+ </p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_FNCVF.htm">
+定风量风机
+</a>
+：该模型提供恒定的体积流量，但质量流量将根据实际密度而变化。
+</p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_AFE_FNFAN.htm">
+三次多项式风扇模型
+</a>
+：该模型实现了用户定义的风扇性能曲线来关联压力与流量。
+</p>
+            </li>
+        </ol>
+        <p class="SubHeading1">三次样条流模型
+</p>
+        <p>
+这些模型能够根据三次样条曲线拟合的一组数据点创建用户定义的气流元件。有四种版本将质量流量或体积流量与流量元件上的压差相关（反之亦然）。三次样条曲线拟合确保流量和压力之间的关系按照 CONTAM 气流求解器的要求是可微分的。
+ </p>
+        <ol>
+            <li value="1">
+                <p><a href="IDH_AFE_CubicSpline.htm">
+F 与 P
+</a>: <span style="font-style: italic;">
+质量流量
+</span> 
+作为一个函数
+ <span style="font-style: italic;">
+压差
+</span></p>
+            </li>
+            <li value="2">
+                <p><a href="IDH_AFE_CubicSpline.htm">
+Q 与 P
+</a>: <span style="font-style: italic;">
+体积
+ </span><span style="font-style: italic;">
+流量
+</span> 
+作为一个函数
+ <span style="font-style: italic;">
+压差
+</span></p>
+            </li>
+            <li value="3">
+                <p><a href="IDH_AFE_CubicSpline.htm">
+P 与 F
+</a>:<span style="font-style: italic;"> 
+压差
+ </span>
+作为一个函数
+ <span style="font-style: italic;">
+质量流量
+</span></p>
+            </li>
+            <li value="4">
+                <p><a href="IDH_AFE_CubicSpline.htm">
+P 与 Q
+</a>:<span style="font-style: italic;"> 
+压差
+ </span>
+作为一个函数
+ <span style="font-style: italic;">
+体积
+ </span><span style="font-style: italic;">
+流量
+</span></p>
+            </li>
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

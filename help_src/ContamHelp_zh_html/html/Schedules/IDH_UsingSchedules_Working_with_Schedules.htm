@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用时间表
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor131"></a>
+使用时间表
+</h2>
+        <p>
+时间表使您能够根据一天中的时间和一周中的某一天修改各种参数。您可以使用计划在您定义的时间设置或修改受控参数的值。您可以安排参数，例如通过气流路径的流量；管道；简单的空气处理系统入口、出口和部分室外空气入口；污染物源/汇；居住者的位置和污染物产生率；和房间温度。
+ </p>
+        <p>
+CONTAM 提供占用者时间表和非占用者时间表，这些时间表分为周时间表，而周时间表又由一天或多天的时间表组成。非占用者周计划可以根据需要与任意数量的可安排项目相关联，而占用者周计划只能应用于单个占用者。使用 ContamW 库管理器只能在 CONTAM 项目文件之间共享非占用者计划。占用者时间表无法在项目之间共享，因为它们取决于级别和房间名称，而项目之间可能有所不同。以下部分提供了与 ContamW 中计划的创建、修改和删除相关的详细信息。
+</p>
+        <p>
+执行瞬态和稳态模拟时会应用时间表，并且根据模拟期间的日期类型和时间来访问时间表值。日期类型用于选择组成每周时间表的十二天时间表之一，如下所述。  日类型将在模拟期间通过稳态或瞬态天气数据确定（参见 <a href="../Simulation/IDH_UsingSIM_ParamsRunControl.htm">
+运行控制属性
+</a> 
+在
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+部分）。为了获得更大的调度灵活性，请使用 CVF 和 DVF 控制类型，它们允许调度在一年中发生变化（请参阅
+ <a href="../Controls/IDH_UsingControls_ControlElementTypes.htm#Controls_CVF_DVF">
+CVF/DVF
+</a> 
+在
+<a href="../Controls/IDH_UsingControls_WorkingWithControls.htm"> 
+使用控件
+</a> 
+部分）。
+</p>
+        <p>
+如果有时间表和控制信号（参见
+ <a href="../Controls/IDH_UsingControls_WorkingWithControls.htm">
+使用控件
+</a>
+）都与相同的建筑元素图标相关联，那么在模拟过程中控制信号将优先于时间表。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

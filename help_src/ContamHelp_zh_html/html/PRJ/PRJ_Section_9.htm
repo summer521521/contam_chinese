@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 9 节：源/汇元件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 9 节：源/汇元件
+</h5>
+        <p>
+源/宿元素由 cselmt_read( ) 函数读取并由 cselmt_save( ) 函数保存。数据存储在 CSE_DAT 结构中，这些结构在 contam.h（对于 ContamW）和 simdat.h（对于 ContamX）中定义。 CSE_DAT 包括指向元素特定数据结构的指针。
+</p>
+        <p class="NormalItalic">
+源/汇元素部分以以下内容开头：
+ </p>
+        <p class="code">
+_ncse // 源/汇元素的数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _ncse 元素的数据。
+
+        </p>
+        <p class="NormalItalic">
+对于每个元素，第一个数据行包括：
+
+        </p>
+        <p class="codeindent">
+nr // 元素编号 (
+<span style="color: red;">IX</span>
+）；按从 1 到 _ncse 的顺序
+</p>
+        <p class="codeindent">
+spcs[] // 物种名称 (I1)
+</p>
+        <p class="codeindent">
+ctype // 元素数据类型（字符串？I2）
+</p>
+        <p class="code">&#160; 元素类型名称按 ctype 顺序存储在 _cse_dnames 中。
+</p>
+        <p class="codeindent">
+name[] // 元素名称 (I1) {W}
+</p>
+        <p class="NormalItalic">
+第二行有：
+</p>
+        <p class="codeindent">
+desc[] // 元素描述 (I1) {W} 可以为空
+</p>
+        <p class="NormalItalic">
+接下来是取决于元素数据类型的一行或多行数据。
+</p>
+        <p class="NormalItalic">
+接下来的介绍行给出了类型编号、定义为该编号的程序宏、类型名称 from_cse_dnames 以及保存数据的数据结构。数据结构在 ContamW 中的 celmts.h 和 ContamX 中的 selmts.h 中定义。只要 _csse_names 和相关数组中的顺序反映了该顺序，类型号就可以更改。
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 0 [CS_CCF]“ccf”存储在结构 CSE_CCF 中。
+</p>
+        <p class="NormalItalic">
+常数系数源模型数据：
+</p>
+        <p class="codeindent">
+G // 生成速率 [kg/s] (R4)
+</p>
+        <p class="codeindent">
+D // 沉积速率[kg/s] (R4)
+</p>
+        <p class="codeindent">
+u_G // 生成单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_D // 沉积单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 1 [CS_PRS]“prs”存储在结构 CSE_PRS 中。
+</p>
+        <p class="NormalItalic">
+压力驱动源数据：
+</p>
+        <p class="codeindent">
+G // 生成速率 [kg/s] (R4)
+</p>
+        <p class="codeindent">
+x // 压力指数 [-] (R4)
+</p>
+        <p class="codeindent">
+u_G // 生成单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 2 [CS_CUT]“剪切”存储在结构 CSE_CUT 中。
+</p>
+        <p class="NormalItalic">
+浓度截止模型数据：
+</p>
+        <p class="codeindent">
+G // 生成速率 [kg/s] (R4)
+</p>
+        <p class="codeindent">
+Co // 截止浓度 [kg/kg] (R4)
+</p>
+        <p class="codeindent">
+u_G // 生成单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_C // 浓度单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 3 [CS_EDS]“eds”存储在结构 CSE_EDS 中。
+</p>
+        <p class="NormalItalic">
+指数衰减模型数据：
+</p>
+        <p class="codeindent">
+G0 //初始生成速率[kg/s] (R4)
+</p>
+        <p class="codeindent">
+k // 衰减常数 [1/s] (R4)
+</p>
+        <p class="codeindent">
+u_G // 生成单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_k // 时间单位 (I2) {W}
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 4 [CS_BLS]“bls”存储在结构 CSE_BLS 中。
+</p>
+        <p class="NormalItalic">
+边界层扩散模型数据：
+</p>
+        <p class="codeindent">hm //平均膜传质系数[m/s] (R4)
+</p>
+        <p class="codeindent">
+rho // 空气膜密度 [kg/m^3] (R4)
+</p>
+        <p class="codeindent">
+Kp //分配系数(R4)
+</p>
+        <p class="codeindent">
+M // 吸附剂质量/单位面积[kg/m^2] (R4)
+</p>
+        <p class="codeindent">
+u_h // hm 单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_r // rho (I2) {W} 的单位
+</p>
+        <p class="codeindent">
+u_M // M (I2) {W} 的单位
+</p>
+        <p class="code">&#160;</p>
+        <p class="NormalItalic">
+元素类型 5 [CS_BRS]“brs”存储在结构 CSE_BRS 中。
+</p>
+        <p class="NormalItalic">
+突发源数据：
+</p>
+        <p class="codeindent">
+M // 在一个时间步内添加到房间的质量 [kg] (R4)
+</p>
+        <p class="codeindent">
+u_M // 质量单位 (I2) {W}
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="NormalItalic">
+元素类型 6 [CS_DVS]“dvs”
+&#160;
+存储在结构体CSE_DVS中。
+</p>
+        <p class="NormalItalic">
+沉积速度汇模型数据：
+</p>
+        <p class="codeindent">dV&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积速度 [m/s] (R4)
+</p>
+        <p class="codeindent">dA&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积面积 [m^2] (R4)
+</p>
+        <p class="codeindent">u_V&#160;&#160;&#160;&#160;&#160;&#160; 
+// 速度单位 (I2) {W}
+</p>
+        <p class="codeindent">u_A&#160;&#160;&#160;&#160;&#160;&#160; 
+// 面积单位 (I2) {W}
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="NormalItalic">
+元素类型 7 [CS_DRS]“drs”
+&#160;
+存储在结构体CSE_DRS中。
+</p>
+        <p class="NormalItalic">
+沉积速率汇模型数据：
+</p>
+        <p class="codeindent">kd&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积速率[1/s] (R4)
+</p>
+        <p class="codeindent">u_k&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积速率单位 (I2) {W}
+</p>
+        <p class="codeindent">
+            <br />
+        </p>
+        <p class="NormalItalic">
+元素类型 8 [CS_DVR]“dvr”
+&#160;
+存储在结构体CSE_DVR中。
+&#160;
+{CONTAM 3.0}
+</p>
+        <p class="NormalItalic">
+沉积速度再悬浮源/汇模型数据：
+</p>
+        <p class="codeindent">dV&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积速度 [m/s] (R4)
+</p>
+        <p class="codeindent">R&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 重新暂停率 [1/s] (R4)
+</p>
+        <p class="codeindent">dA&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积表面积 [m2] (R4)
+</p>
+        <p class="codeindent">rA&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 重悬浮表面积 [m2] (R4)
+</p>
+        <p class="codeindent">u_V&#160;&#160;&#160;&#160;&#160;&#160; 
+// 沉积速度单位 (I2) {W}
+<br />u_R&#160;&#160;&#160;&#160;&#160;&#160; 
+// 重悬率单位 (I2) {W}
+<br />
+u_dA
+&#160;&#160;&#160;&#160;&#160; 
+// 沉积面积单位a (I2) {W}
+<br />
+u_dR
+&#160;&#160;&#160;&#160;&#160; 
+// 重悬浮面积单位 (I2) {W}
+<br /></p>
+        <p class="codeindent">&#160;</p>
+        <p class="NormalItalic">
+元素类型 11 [CS_PLM]“plm”
+&#160; 
+存储在结构 CSE_PLM 中。
+<span style="font-size: 10pt;font-style: normal;"> <![CDATA[ ]></span><span style="font-size: 10pt;font-style: normal;">
+{CONTAM 2.4b}
+</span></p>
+        <p class="NormalItalic">
+NRCC幂律模型数据：
+</p>
+        <p class="codeindent">a&#160;&#160;
+// 系数(R4) [kg/s]
+</p>
+        <p class="codeindent">b&#160;&#160;
+// 指数 (R4)
+</p>
+        <p class="codeindent">tp&#160;&#160;
+// PL 模型时间 [s] (R4)
+</p>
+        <p class="codeindent">u_a&#160;
+// 初始排放因子的单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_tp
+&#160;
+// PL 模型时间单位 (I2) {W}
+</p>
+        <p class="codeindent">&#160;</p>
+        <p class="NormalItalic">元素类型 12 [CS_PKM]“pkm”
+&#160; 
+存储在结构 CSE_PKM 中。
+<span style="font-size: 10pt;font-style: normal;"> <![CDATA[ ]></span><span style="font-size: 10pt;font-style: normal;">
+{CONTAM 2.4b}
+</span></p>
+        <p class="NormalItalic">
+NRCC峰值模型数据：
+</p>
+        <p class="codeindent">a&#160;&#160;
+// 峰值发射率(R4) [kg/s]
+</p>
+        <p class="codeindent">b&#160;&#160;
+// 拟合参数(R4)
+</p>
+        <p class="codeindent">tp&#160;&#160;
+// 达到峰值的时间 [s] (R4)
+</p>
+        <p class="codeindent">u_a&#160;
+// 峰值发射率单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_tp
+&#160;
+// 高峰时间单位 (I2) {W}
+</p>
+        <p class="codeindent" style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p class="NormalItalic">
+元素类型 13 [CS_SUP]“sup”。
+ <span style="font-size: 10pt;font-style: normal;">
+{CONTAM 2.4b}
+</span></p>
+        <p class="NormalItalic">
+超级源元素数据：
+</p>
+        <p class="codeindent">n&#160;&#160;
+// 子元素的数量 (IX)
+</p>
+        <p class="NormalIndentItalic">
+包含所有子元素编号列表的行：
+</p>
+        <p class="codeindent">
+埃尔姆特[]
+&#160;
+// 子元素编号 (IX) – 转换为指针
+</p>
+        <p class="NormalItalic">
+源/汇元件部分以以下内容终止：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+AHS_INFO_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+AHS_INFO_MSGTYPE
+</h3>
+        <p>
+提供与简单空气处理系统相关的信息，如果使用
+ <span style="font-family: &#x27;Courier New&#x27;;">
+ADJ_AHS_POA_MSGTYPE
+</span>.</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+num_ahs；
+ &#160;&#160;&#160;&#160;&#160;&#160;       <span style="color: #008100;">
+// PRJ 文件中简单 AHS 的数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>id[<span style="color: blue;"></span>
+num_ahs];
+ &#160;&#160;      <span style="color: #008100;">
+// 每个 AHS 的索引：
+&#160;
+根据 ContamX 的索引
+</span></p>
+        <p class="code"><span style="color: blue;">
+字符
+ </span>
+*名称[num_ahs]
+       <span style="color: #008100;">
+// AHS
+&#160;
+名称（以空字符结尾的字符串）
+</span></p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Filters|Filter Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+宾夕法尼亚州立大学 UVGI 过滤器
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4>
+宾夕法尼亚州立大学 UVGI 过滤器
+</h4>
+        <p>The <span style="font-style: italic;">
+宾夕法尼亚州立大学 UVGI
+</span> 
+element 基于宾夕法尼亚州立大学所做的工作实现了紫外线杀菌辐射过滤器模型 [
+<a href="../IDH_References.htm#REF_Lau_2009a" class="Hyperlink">
+刘 2009a
+</a>, <a href="../IDH_References.htm#REF_Lau_2009b">
+刘 2009b</a>
+]。过滤器效率（即紫外线输出）是温度、速度（气流速率）、过滤器相对寿命和设计紫外线输出率的函数。下面提供的单位是 ContamX 内部使用的单位。
+     <![CDATA[ ]></p>
+        <p><span style="font-weight: bold;">
+姓名：
+</span> 
+您想要用来标识此过滤器元素的唯一名称。
+</p>
+        <p>
+面积、深度和密度用于计算过滤介质的质量，该质量未用于此 UVGI 过滤器模型，因此可以忽略这些输入。
+</p>
+        <p><span style="font-weight: bold;">
+说明：
+</span> 
+使用此字段提供过滤器元素的更详细描述。
+</p>
+        <p><span style="font-weight: bold;">
+编辑
+ </span><span style="font-weight: bold;">
+元素
+</span><span style="font-weight: bold;"> 
+数据：
+</span> 
+选择以定义此过滤器元素的特定属性。单位以默认计算单位提供。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计生存能力，
+ <i>S<sub>
+设计
+</sub></i></span><span style="font-weight: bold;">:</span> 
+输入所需的过滤器生存能力（0 到 1.0 之间的分数）。单程过滤器灭活效率等于1-S。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计速度，
+ <i>u</i><sub style="font-style: italic;">
+设计
+</sub> <![CDATA[ ]></span>
+[米/秒]
+<span style="font-weight: bold;">:</span> 
+输入预期通过过滤器流动房间的设计最大速度。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计生物体特异性速率常数，
+ <i style="font-family: &#x27;Cambria Math&#x27;;">k</i><sub style="font-style: italic;">
+设计
+</sub> [</span>m<sup>2</sup><span style="font-weight: bold;"></span>/J]<span style="font-weight: bold;">:</span> 
+输入设计最小微生物特定速率常数。这将用于确定设计紫外线剂量。您还需要为您想要通过该 UVGI 过滤的每个物种输入一个值
+&#160;
+过滤元件（参见
+ <a href="../Contaminants/IDH_UsingContaminants_SpeciesProperties.htm">
+物种特性
+</a>).</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计质量流量，
+ <i>F</i><sub style="font-style: italic;">des</sub> <![CDATA[ ]></span>
+[公斤/秒]
+<span style="font-weight: bold;">: </span>
+输入预期通过过滤器流动房间的设计最大气流速率。这将与设计速度一起用于计算横截面流动面积。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+横截面流动面积，
+ <i>A </i><b></b>[</span>m<sup>2</sup><span style="font-weight: bold;"></span><b>]</b><span style="font-weight: bold;"><i></i>:</span> <![CDATA[ ]><i>A</i> = <i>F</i><sub style="font-style: italic;">
+设计
+</sub> / (<span style="font-family: Symbol;font-style: italic;">r</span><sub style="font-style: italic;">std</sub><i> u</i><sub style="font-style: italic;">
+设计
+</sub>)</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+设计剂量，（
+<i>It</i>)<i></i><sub style="font-style: italic;">
+设计
+</sub> [</span>J/m<span style="font-weight: bold;"><sup style="font-weight: normal;">2</sup></span>]<span style="font-weight: bold;">:</span> (<i>It</i>)<i></i><sub style="font-style: italic;">
+设计
+</sub>
+= ln(
+<i>S</i><sub style="font-style: italic;">
+设计
+</sub>)/-<span style="font-style: italic; font-family: &#x27;Cambria Math&#x27;;">k</span><sub style="font-style: italic;">
+设计
+</sub></p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+TU 常数：
+</span> <![CDATA[ ]>
+C0 到 C4 用于确定输出占设计的百分比，
+ <i>OUT</i><sub style="font-style: italic;">TU</sub>
+，基于当前条件，包括流速和温度。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+使用年龄模型：
+</span> 
+选择此选项可使输出也确定为灯寿命的函数。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+年龄常数：
+</span> 
+K0和K1是用于确定输出百分比的系数，
+ <i>OUT</i><sub style="font-style: italic;">age</sub>
+，基于灯龄函数。
+</p>
+        <p class="SubHeading1">
+背景
+</p>
+        <p>
+最简单的形式是暴露于 UV-C 辐射的空气微生物的生存能力，
+ <i>S</i>
+，如方程 (uv-1) 所示，由单级指数衰减方程近似 [<a href="../IDH_References.htm#REF_Lee_2013">
+李和班弗莱斯 2013
+</a>].</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-1.png" />
+                    </td>
+                    <td class="EqnNum">
+(紫外线-1)
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+效率就是 1 减去生存能力。
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-2.png" />
+                    </td>
+                    <td class="EqnNum">
+（紫外线2）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+紫外线剂量是一段时间内的辐照度，
+ <i>I</i><span style="font-family: Symbol;font-style: italic;">t</span>
+。出于设计目的，人们可能会指定一种设计生存能力，
+ <i>S</i><sub style="font-style: italic;">
+设计
+</sub>
+，以及设计最小微生物特定速率常数，
+ <span style="font-family: Symbol;font-style: italic;">k</span><sub style="font-style: italic;">
+设计
+</sub>
+，确定所需的设计紫外线剂量：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-3.png" />
+                    </td>
+                    <td class="EqnNum">
+（紫外线3）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+相关速率常数大于或等于的任何微生物
+ <span style="font-style: italic; font-family: &#x27;Cambria Math&#x27;;">k</span><sub style="font-style: italic;">
+设计
+</sub> 
+最多有一个生存能力
+ <i>S</i><sub style="font-style: italic;">
+设计
+</sub>.</p>
+        <p>
+紫外线输出通过两种关系确定为额定输出的百分比：一种基于灯周围气流的当前条件，即温度和速度，另一种基于灯的寿命[
+<a href="../IDH_References.htm#REF_Lau_2009a" class="Hyperlink">
+刘 2009a
+</a>, <a href="../IDH_References.htm#REF_Lau_2009b">
+刘 2009b</a>
+]。这些关系分别如方程 (uv-4) 和 (uv-5) 所示。根据用户定义的正气流方向，分别从上游房间或接合处获得气流路径和管道的温度。
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-4.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+(UV-4)
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-5.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+（紫外线5）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+等式 (uv-4) 和 (uv-5) 相乘以提供分数 UV 输出
+ <i>OUT<sub>uv1</sub></i> 
+由方程（uv-6）提供。
+ <i>OUT</i><sub style="font-style: italic;">age</sub> 
+保持在默认值 1.0，直到经过的模拟时间达到
+ <i>t</i><sub style="font-style: italic;">100</sub> 
+如方程 (uv-7) 所定义。
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-6.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+（紫外线6）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-7.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+（紫外线7）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+在模拟过程中，将根据等式 (uv-2) 根据相对于设计条件的输出来计算 UV 效率，其中
+ <i>I</i><span style="font-family: Symbol;font-style: italic;">t</span><i>
+(T,U)
+</i> 
+将由以下方程（uv-8）确定或作为方程（uv-9）中所示的气流速率的函数。
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-8.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+(UV-8)
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/eqn-uvgi/uvgi-9.png">
+                        </img>
+                    </td>
+                    <td class="EqnNum">
+（紫外线9）
+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix A - PRJ File Format" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+第 14 节：房间
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+第 14 节：房间
+</h5>
+        <p>
+房间数据由zone_read()函数读取并由zone_save()函数保存。数据存储在 ZONE_DSC 结构中，这些结构在 contam.h（对于 ContamW）和 simdat.h（对于 ContamX）中定义。
+</p>
+        <p class="NormalItalic">
+房间部分开始于：
+ </p>
+        <p class="code">
+_nzone // 房间数量 (
+<span style="color: red;">IX</span>)</p>
+        <p class="NormalItalic">
+接下来是数据头注释行，然后是所有 _nzone 房间的数据。
+</p>
+        <p class="NormalItalic">
+对于每个房间，数据行包括：
+</p>
+        <p class="codeindent">
+nr // 防区编号 (
+<span style="color: red;">IX</span>
+）；按从 1 到 _nzone 的顺序
+</p>
+        <p class="codeindent">
+flags // 房间标志 – contam.h (U2) 中定义的位
+</p>
+        <p class="codeindent">
+ps // 周日程索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pc // 控制节点索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pk // 动力学反应指数 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+pl // 建筑等级索引 (
+<span style="color: red;">IX</span>
+）；转换为指针
+</p>
+        <p class="codeindent">
+relHt // 房间高度 [m] (R4)
+</p>
+        <p class="codeindent">
+Vol // 房间体积 [m^3] (R4)
+</p>
+        <p class="codeindent">
+T0 // 初始房间温度 [K] (R4)
+</p>
+        <p class="codeindent">
+P0 // 初始房间压力 [Pa] (R4)
+</p>
+        <p class="codeindent">
+name[] // 房间名称 (I1) {W}
+</p>
+        <p class="codeindent">
+color // 房间填充颜色 (I2) {W} {Contam 2.4}
+</p>
+        <p class="codeindent">
+u_Ht // 高度单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_V // 体积单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_T // 温度单位 (I2) {W}
+</p>
+        <p class="codeindent">
+u_P // 压力单位 (I2) {W}
+</p>
+        <p class="codeindent">
+cdaxis // 转换/差异轴 – (0=无 cd, 1-4 =
+&gt; 
+cd轴方向）（I2）
+</p>
+        <p class="codeindent">
+vf_type // 0=无值文件，1=使用 cvf，2=使用 dvf (I2) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+vf_node_name[NAMELEN] // 值文件节点名称 (I1) {CONTAM 3.2}
+</p>
+        <p class="codeindent">
+cfd // cfd 房间 (0=否，1=是) (I2) {CONTAM 3.0}
+</p>
+        <p class="NormalItalic">
+如果 cfd = 1，则该行继续包含：{CONTAM 3.0}
+</p>
+        <p class="codeindent">
+name[] // cfd 房间 ID (I1)
+
+</p>
+        <p class="NormalItalic">
+如果cdaxis
+ &gt; 
+0 然后该行继续包括：
+</p>
+        <p class="codeindent">
+"1D:" // 后面是表示一维数据的字符串
+</p>
+        <p class="codeindent">X1&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// cdaxis一端的X坐标
+</p>
+        <p class="codeindent">Y1&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 是
+&#160;&#160;&#160;&#160; "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; "</p>
+        <p class="codeindent">H1&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 相对高度
+&#160;&#160;&#160; "</p>
+        <p class="codeindent">X2&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// cdaxis另一端的X坐标
+</p>
+        <p class="codeindent">Y2&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 是
+&#160;&#160;&#160;&#160; "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; "</p>
+        <p class="codeindent">H2&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+// 相对高度
+&#160;&#160;&#160; "</p>
+        <p class="codeindent">
+celldx // c/d 单元的长度 [m] (R4)
+</p>
+        <p class="codeindent">
+axisD // 轴向扩散系数[m^2/s] (R4)
+</p>
+        <p class="codeindent">
+u_aD // 轴向扩散单位 (I2)
+</p>
+        <p class="codeindent">
+u_L // c/d 轴限制单位 (I2)
+</p>
+        <p class="NormalItalic">
+房间部分终止于：
+</p>
+        <p class="code">
+-999 // 用于检查上述数据是否有读取错误
+</p>
+        <p class="code">&#160;</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

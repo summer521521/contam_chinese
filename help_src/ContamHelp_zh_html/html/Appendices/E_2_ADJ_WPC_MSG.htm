@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+ADJ_WPC_MSGTYPE
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+ADJ_WPC_MSGTYPE
+</h3>
+        <p>
+ContamX 可以随时在
+ <span style="font-style: italic; font-weight: normal;">
+就绪模式
+</span>
+。它可用于设置包络气流路径处的环境浓度或压力，包括简单空气处理系统和管道终端的室外进气口。路径、简易空气处理系统室外进风口和末端的浓度按照环境指标规定的顺序传输
+ <span style="font-family: &#x27;Courier New&#x27;;">
+PATH_INFO_MSGTYPE
+</span>, <span style="font-family: &#x27;Courier New&#x27;;">
+AHSP_INFO_MSGTYPE
+</span>
+, 和
+   <![CDATA[ ]><span style="font-family: &#x27;Courier New&#x27;;">
+TERM_INFO_MSGTYPE
+</span> 
+消息。如果需要传输多个agent，顺序为：
+</p>
+        <p class="code">&#160;
+[路径 1 的所有代理]，
+ </p>
+        <p class="code"> ...</p>
+        <p class="code">&#160;
+[路径 num_paths 的所有代理]，
+ </p>
+        <p class="code">&#160;
+[ahs 路径 1 的所有代理]，
+</p>
+        <p class="code"> &#160;...</p>
+        <p class="code">&#160;
+[路径 num_ahsp 的所有代理]，
+ </p>
+        <p class="code">&#160;
+[1号航站楼的所有代理]，
+</p>
+        <p class="code">&#160;...</p>
+        <p class="code">&#160;
+[终端 num_terms 的所有代理]
+</p>
+        <p>&#160;</p>
+        <p>If <span style="font-family: &#x27;Courier New&#x27;;">
+代理数量
+</span> 
+为 0，则消息应提供与包络位置处的压力相对应的一组压力，而不是浓度。压力必须符合 WPC 文件的 2.4 格式，如
+ <a href="../Weather/IDH_UsingWPC_WPC_File_Format.htm">
+WPC 文件格式
+</a> 
+文档部分。
+</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+时间；
+        <span style="color: #008100;">
+//（需要但当前未使用的值）
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+代理数量；
+  <span style="color: #008100;">
+// 污染物数量或设置为零以发送压力
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+num_vals；
+<span style="color: green;">   
+// 根据 num_agents 参数发送的项目数
+</span></p>
+        <p class="NormalItalic">
+对于污染物，即 num_agents
+ &gt; 0:</p>
+        <p class="code"><span style="color: blue;">int </span>
+agent_ids[num_agents];
+<span style="color: green;"> 
+// 正在发送值的每种污染物的索引
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+值[num_agents * nEnvPaths]；
+  <span style="color: #008100;">
+// 浓度 [kg_cont/kg_air]
+</span></p>
+        <p class="NormalItalic">
+对于风压，即 num_agents == 0：
+</p>
+        <p class="code"><span style="color: blue;">
+浮动
+ </span>
+值[nEnvPaths]；
+  <span style="color: #008100;">
+// 风压 [Pa]
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

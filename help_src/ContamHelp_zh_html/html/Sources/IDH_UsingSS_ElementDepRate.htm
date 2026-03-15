@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Sources and Sinks|Source Sink Element Types" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+沉积速率汇模型
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h5>
+沉积速率汇模型
+</h5>
+        <p>
+该水槽模型是作为使用沉积速率创建水槽的便捷方法而提供的。该模型取决于源/汇所在房间中的空气质量，并且其行为类似于具有相同反应速率的动力学反应。
+ 单位以默认计算单位提供。
+ </p>
+        <p><i>R</i><span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>
+) = 乘数
+<i><sub style="font-style: italic;"></sub></i>
+·ctrl键
+<i>·</i><span style="font-family: Symbol;font-style: italic;"><span style="font-family: &#x27;Times New Roman&#x27;;">k</span></span><sub style="font-style: italic;">d</sub><i> V</i><sub style="font-style: italic;">z</sub><span style="font-family: Symbol;font-style: italic;"> r</span><sub style="font-style: italic;">air</sub>(<i>t</i>) C<span style="font-family: Symbol; vertical-align: sub; font-style: italic; font-size: 10pt;">a</span>(<i>t</i>)</p>
+        <p>
+其中：
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">R</span><span style="font-family: Symbol;vertical-align: sub;"><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></span>(<span style="font-style: italic;">t</span>
+) = 某时间的去除率（通过沉积）
+ <span style="font-style: italic;">t</span> [kg<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/s]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">V</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">z</span> 
+= 房间体积 [m
+<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">k</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">d</span>&#160; 
+= 沉积速率 [1/s]
+</p>
+        <p class="NormalIndent"><span style="font-style: italic;">&#961;</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">air</span>(<span style="font-style: italic;">t</span>) = 某时刻源区空气密度
+ <i>t</i> [kg<span style="vertical-align: sub;font-size: 10pt;">air</span>/m<span style="vertical-align: super;font-size: 10pt;">3</span>]</p>
+        <p class="NormalIndent"><span style="font-style: italic;">C</span><span style="font-family: Symbol;vertical-align: sub;"><span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span></span> (<span style="font-style: italic;">t</span>
+) = 污染物浓度 <span style="font-family: Symbol;">a</span><span style="font-family: Symbol;"></span>
+在某个时间
+ <i>t</i> [kg<span style="font-family: Symbol; vertical-align: sub; font-size: 10pt;">a</span>/kg<span style="vertical-align: sub;font-size: 10pt;">air</span>]</p>
+        <p class="NormalIndent">
+mult = 源/汇乘数 [无单位]
+</p>
+        <p class="NormalIndent">
+ctrl = 计划或控制值 [无单位]
+</p>
+        <p><b>
+姓名：
+</b> 
+输入要用于标识源/汇元素的唯一名称。该元素将保存在当前项目中，并且可以与多个源/汇关联。
+
+</p>
+        <p><b>
+沉积率：
+</b> 输入沉积速率和单位。体积和密度将在模拟时从源/汇图标所在的房间获得。
+
+</p>
+        <p><b>
+品种：
+</b> 
+从下拉框中选择先前定义的物种。
+
+</p>
+        <p><b>
+说明：
+</b> 
+用于输入特定接收器/源元件的更详细描述的字段。
+
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

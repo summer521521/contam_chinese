@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Weather and Wind|Defining Weather and Wind|Weather and Wind Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+天气属性
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor128"></a>
+天气和风 – 天气属性
+</h4>
+        <p>
+当您在执行模拟时指定使用稳态天气条件时，CONTAM 使用以下常量值（请参阅 <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a>). </p>
+        <p><span style="font-weight: bold;">
+温度：
+</span> 
+ContamX 在计算外部空气密度和建筑物烟囱效应时使用环境温度。
+</p>
+        <p><span style="font-weight: bold;">
+绝对压力：
+</span> 
+绝对气压（未根据海平面进行校正）。如果您不知道该值，可以在屏幕上输入建筑工地的海拔高度
+ <a href="IDH_PP_WTH_SITE.htm">
+位置属性
+</a> 
+页面让 ContamW 为您计算气压。
+</p>
+        <p><span style="font-weight: bold;">
+相对湿度：
+</span> 
+相对湿度以分数表示，即介于 0.0 和 1.0 之间。该值将与环境温度和压力一起用于计算 H2O 的湿度比和质量分数。
+</p>
+        <p><span style="font-weight: bold;">
+湿度比：
+</span> 
+根据温度、压力和相对湿度计算得出的每质量空气（不包括水蒸气）的水蒸气质量。
+</p>
+        <p>
+湿度比 = 质量分数 / (1 – 质量分数)
+</p>
+        <p><span style="font-weight: bold;">
+质量分数（H2O）：
+</span> 
+每质量空气（包括水蒸气）的水蒸气质量。这些是 CONTAM 中污染物的默认单位。提供此值是为了让您可以将其用作 H2O 的默认污染物浓度。
+</p>
+        <p><span style="font-weight: bold;">
+风速：
+</span> 
+风速的大小。
+</p>
+        <p><span style="font-weight: bold;">
+风向：
+</span> 
+风吹的方向（以度数为单位，从正北顺时针方向测量）。
+</p>
+        <p><span style="font-weight: bold;">
+日类型：
+</span> 
+这是您在稳定气流且没有天气文件的情况下执行模拟时想要使用的一天类型。日期类型对应于您可以创建的十二天计划之一。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

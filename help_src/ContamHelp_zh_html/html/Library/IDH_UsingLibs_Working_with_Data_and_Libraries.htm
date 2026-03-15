@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用数据和库
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor120"></a>
+使用数据和库
+</h2>
+        <p>
+CONTAM 使您能够在项目内包含的构建组件之间以及项目之间共享某些类型的数据。项目内（本地）数据的共享是通过允许您将多个建筑组件与
+ <span style="font-style: italic;">
+数据元素
+</span> 
+在项目中定义。通过将数据元素从一个项目导出到 CONTAM 库文件，然后将数据元素从库文件检索到另一个项目，可以在项目之间共享数据。下表列出了 CONTAM 实现的不同类型的数据元素。所有数据元素都可以在项目内共享，并且除占用时间表之外的所有数据元素都可以在项目之间共享。
+ </p>
+        <div align="center">
+            <table class="Center">
+                <col />
+                <tr>
+                    <td class="HeadCenterBold">
+图书馆/本地数据元素
+</td>
+                </tr>
+                <tr>
+                    <td>
+污染物相关 (LB0)
+</td>
+                </tr>
+                <tr>
+                    <td>&#160;&#160;&#160;
+物种
+</td>
+                </tr>
+                <tr>
+                    <td>&#160;&#160;&#160;
+源/汇元件
+</td>
+                </tr>
+                <tr>
+                    <td>&#160;&#160;&#160;污染物过滤器
+</td>
+                </tr>
+                <tr>
+                    <td>&#160;&#160;&#160;
+动力学反应
+</td>
+                </tr>
+                <tr>
+                    <td>
+时间表 (LB1)
+</td>
+                </tr>
+                <tr>
+                    <td>
+风压剖面 (LB2)
+</td>
+                </tr>
+                <tr>
+                    <td>
+气流元件 (LB3)
+</td>
+                </tr>
+                <tr>
+                    <td>
+管道流量元件 (LB4)
+</td>
+                </tr>
+                <tr>
+                    <td>
+控制超元件 (LB5)
+</td>
+                </tr>
+                <tr>
+                    <td class="HeadCenterBold">
+仅限本地的数据元素
+</td>
+                </tr>
+                <tr>
+                    <td>
+入住时间表
+</td>
+                </tr>
+            </table>
+        </div>
+        <p>&#160;</p>
+        <p class="SubHeading1">
+数据元素
+</p>
+        <p>您可以根据本手册“使用CONTAM”部分中针对特定数据元素给出的过程来创建和修改数据元素。创建数据元素后，您可以在创建相关建筑组件时将其与相关建筑组件关联起来。您可以通过在编辑特定建筑组件的属性时从 ContamW 向您显示的本地列表中选择所需的元素来完成此操作。要在项目文件之间共享数据元素，您必须使用 CONTAMW 库管理器。您还必须使用 CONTAMW 库管理器从本地项目或库中删除数据元素。要删除本地数据元素，它们不得被任何建筑组件引用。
+</p>
+        <p class="SubHeading1">
+库文件
+</p>
+        <p>CONTAM 库是包含可共享数据元素的描述的文件。每种类型的可共享数据元素都存储在不同的库文件中。您可以根据需要创建任意数量的每种类型的库文件，并将它们存储在计算机文件结构中的任何位置。每种类型的库文件都与不同的三字符扩展名相关联，如上表所示。
+ </p>
+        <p class="SubHeading1"><a name="IDMID_UsingLibs_CONTAMWLibraryManager"></a>
+CONTAMW 图书馆经理
+</p>
+        <p>
+CONTAMW 库管理器（如下图所示）是一个对话框，当您从库访问数据元素时会显示该对话框。
+ <span style="font-weight: bold;text-decoration: underline;">D</span><span style="font-weight: bold;">ata</span> 菜单或在编辑利用库数据元素的建筑组件之一的属性时单击“库...”按钮。该对话框分为三个部分：库文件、库元素和本地项目元素部分。库文件部分显示当前显示的库文件的名称，并允许您保存、重命名和打开新的和现有的库文件。库元素部分显示库文件部分中当前列出的库文件中包含的数据元素。本地项目元素部分显示当前项目文件中包含的数据元素。
+</p>
+        <p>
+            <img src="../../image/LibManager.gif" border="0" alt="
+图像\LibManager.gif
+" />
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

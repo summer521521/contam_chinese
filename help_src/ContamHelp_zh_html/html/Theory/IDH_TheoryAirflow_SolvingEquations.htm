@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Theoretical Background|Airflow Analysis" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+解方程
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+解方程
+</h3>
+        <p>
+多个房间的稳态气流分析需要同时求解所有房间的方程（5）。由于方程（1）中的函数可能并且通常是非线性的，因此需要一种方法来求解联立非线性代数方程。牛顿-拉夫森 (N-R) 方法 [
+<a href="../IDH_References.htm#REF_Conte_1972">
+孔蒂和
+&#160; 
+德布尔 1972
+</a> 
+p。 86]通过线性方程解的迭代来解决非线性问题。在 N-R 方法中，所有房间压力向量的新估计，{
+<span style="font-weight: bold;">P</span>}<span style="vertical-align: super;font-size: 10pt">*</span>
+，根据当前压力估计值计算，{
+<b>P</b>
+}，由
+ 
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">{<b>P</b>}<span style="vertical-align: super;">*</span> = {<b>P</b>} - {<b>C</b>}</td>
+                    <td class="EqnNum">(6)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+其中校正向量，{
+<b>C</b>
+}，通过矩阵关系计算
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">[<b>J</b>]{<b>C</b>} = {<b>B</b>}</td>
+                    <td class="EqnNum">(7)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+其中{
+<b>B</b>
+} 是一个列向量，每个元素由下式给出
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000091.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(8)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+和[
+<span style="font-weight: bold;">J</span>
+] 是方阵（即 N 个房间的网络中的 N × N）雅可比矩阵，其元素由下式给出
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000092.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(9)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+在方程(8)和(9)中
+ <span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">j,i</span> and <span style="font-family: Symbol;">¶</span><span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">j,i</span>/<span style="font-family: Symbol;">¶</span><span style="font-style: italic;">P</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">j</span> 
+使用当前压力估计值进行评估{
+<span style="font-weight: bold;">P</span>
+}。 ContamX 程序包含每个气流元件的子程序，这些子程序返回给定压差输入的质量流量和偏导数值。
+ 
+        </p>
+        <p>
+方程(7)表示一组线性方程，每次迭代都必须建立并求解该方程组，直到获得该组房间压力的收敛解。其完整形式[
+<span style="font-weight: bold;">J</span>
+] 需要N个计算机内存<span style="vertical-align: super;font-size: 10pt">2</span> 
+值，标准高斯消除解的执行时间与 N 成正比
+<span style="vertical-align: super;font-size: 10pt">3</span>
+。稀疏矩阵方法可用于减少存储和执行时间要求。按照[中提出的方法进行天际线求解过程<a href="../IDH_References.htm#REF_Dhatt_1984">
+达特 1984
+</a>
+] 被选中。该方法可用于求解对称或非对称矩阵的方程。它在对角线上方的列中最高非零元素上方不存储任何零值，并且在对角线下方的每行中第一个非零值的左侧不存储零值。在这种情况下，雅可比矩阵是对称的。 CONTAM 提供了两种线性方程的求解方法：Skyline（也称为轮廓法）和预条件共轭梯度（PCG）。 PCG 对于许多房间和交叉点的问题可能很有用。
+
+        </p>
+        <p>
+对元素模型的分析将表明
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000093.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(10)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="">
+尽管缩放可能有用，但此条件允许无需旋转的解决方案。请注意，分解后雅可比矩阵的稀疏程度取决于房间的排序。可以通过各种算法或经验法则来改进排序。在 AIRNET 中，定义气流网络很容易，但没有独特的解决方案。 ContamW 用户界面确保网络中气流元件的正确互连。
+</p>
+        <p>
+CONTAM 允许具有已知或未知压力的房间。恒压房间包含在方程组中，并且处理方程(7)以便不改变这些房间压力。这为定义气流网络提供了灵活性，同时保持了方程组的对称性。雅可比行列式是非奇异的充分条件 [
+<a href="../IDH_References.htm#REF_Axley_1987">
+阿克斯利 1987
+</a>
+]是所有未知压力房间都通过压力相关流动路径连接到(a)恒定压力房间。在 CONTAM 中，环境（或室外）空气被视为恒压区。对于流量计算，假设环境房间压力为零，导致计算出的房间压力是相对于真实环境压力的值，并有助于在计算中保持数值显着性
+ <span style="font-family: Symbol;">D</span><span style="font-style: italic;">P</span>. 
+        </p>
+        <p style="">
+每个房间的质量守恒为 N-R 迭代提供了收敛标准。也就是说，当对于当前系统压力估计的所有房间都满足等式(4)时，解已经收敛。通过测试每个房间的相对收敛性可以获得足够的精度：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000094.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(11)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+通过测试（<span style="font-family: Symbol;">S</span><span style="font-family: Symbol;">|</span><span style="font-style: italic;">F</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt">j,i</span><span style="font-family: Symbol;">|</span> &lt; <span style="font-family: Symbol;">e</span>
+1、绝对收敛因子）防止被零除。的大小
+ <span style="font-family: Symbol;">e</span> 
+可以通过考虑计算气流的使用来建立，例如在能量平衡中。无论如何，舍入误差可能会妨碍完美收敛（
+<span style="font-family: Symbol;">e</span> = 0).
+        </p>
+        <p style="">
+N-R 方法解的数值测试表明偶尔会出现收敛非常慢的情况，因为迭代几乎在两组不同的值之间振荡。在 AIRNET 中，这是由 Steffensen 加速进程处理的。作者和 Wray 的最新测试 [
+<a href="../IDH_References.htm#REF_Wray_1993">
+雷 1993
+</a>
+]表明使用更简单的常数欠松弛系数可以产生更快、更可靠的收敛加速过程。迭代过程的方程（6）变为
+ </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">{<b>P</b>}<sup>*</sup> = {<b>P</b>} - <span style="font-family: Symbol;">w</span>{<b>C</b>}
+                    </td>
+                    <td class="EqnNum">(12)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+哪里
+ <span style="font-family: Symbol;">w</span> 
+是松弛系数。已发现 0.75 的松弛系数可用于广泛的气流网络。该值不是真正的最佳值，但似乎可以很好地工作，而无需花费计算成本来查找理论上的最佳值。
+ 
+        </p>
+        <p>
+当收敛进展迅速时，欠松弛（<span style="font-family: Symbol;">w</span> &lt; 
+1）与没有松弛相比，收敛速度减慢。为了防止这种情况，计算全局收敛值：
+
+        </p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000096.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(13)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+当
+ <span style="font-family: Symbol;">g</span><span style="vertical-align: super;font-size: 10pt">*</span> &lt; <span style="font-family: Symbol;">a</span><span style="font-family: Symbol;">g</span>, <span style="font-family: Symbol;">w</span> 
+设置为 1。当前 CONTAM 使用
+ <span style="font-family: Symbol;">a</span> = 30%。这通常会减少迭代次数。这就是简单的松弛不足。 CONTAM 也可以使用由 David M. Lorenzetti 基于 [
+<a href="../IDH_References.htm#REF_Dennis_and_Schnabel_1996">
+丹尼斯和施纳贝尔 1996
+</a>].
+        </p>
+        <p style="">
+牛顿法需要一组房间压力的初始值。这些可以通过在每个气流元件模型中包含一个线性来获得
+&#160; 
+流量与压降的近似值：
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">
+                        <img src="../../image/08000097.png" alt="
+方程
+" />
+                    </td>
+                    <td class="EqnNum">(14)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+每个房间的质量守恒导致一组以下形式的线性方程
+</p>
+        <table class="NoBorder">
+            <tbody>
+                <tr>
+                    <td class="Eqn">[<b>A</b>]{<b>P</b>} = {<b>B</b>}</td>
+                    <td class="EqnNum">(15)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+矩阵[
+<b>A</b>
+方程 (15) 中的 ] 具有与 [ 相同的稀疏模式
+<b>J</b>
+] 在方程（7）中允许对两个方程使用相同的稀疏矩阵求解过程。这种初始化可以很好地处理堆栈效应，并倾向于为流程建立正确的方向。 CONTAM 使用的单元模型的层流状态可以方便地提供线性近似。当解决一组类似的问题时，例如通过连续的稳态解来近似瞬态解时，最好使用房间压力的先前解作为新问题的初始值。
+
+        </p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

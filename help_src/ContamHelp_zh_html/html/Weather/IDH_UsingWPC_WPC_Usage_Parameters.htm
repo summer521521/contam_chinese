@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with WPC Files" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+创建 WPC 文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+创建 WPC 文件对话框
+</h3>
+        <p>
+创建 WPC 文件对话框是一个可以帮助创建 WPC 及关联文件的工具。无论您是使用外部编辑器创建 WPC 文本文件还是使用
+ <font style="font-style:italic; ">EWC File Converter</font>
+。通过以下方式访问此对话框 <font style="font-weight:bold; "><u>W</u>eather &#8594; <u>C</u>reate WPC File...</font> 
+菜单项。
+</p>
+        <p class="Normal"><b>
+注意：</b> 
+WPC 文件可以在模拟过程中与瞬态天气和瞬态污染物文件结合使用，如下所示：
+ </p>
+        <ul>
+            <li value="1">
+如果使用 WPC 文件中的风压，则不能使用 WTH 文件。
+ </li>
+            <li value="2">
+如果使用 WPC 文件中的污染物浓度，则不得使用 CTM 文件。
+</li>
+        </ul>
+        <p>
+            <font style="font-weight:bold; ">Name of WPC File to create:</font> 
+这是使用以下命令创建的 WPC 文件的名称
+ <font style="font-style:italic; ">EWC File Converter</font>。您可以使用
+ <font style="font-style:italic; ">Browse...</font> 
+按钮选择现有文件，或输入新名称。
+
+</p>
+        <p>
+            <font style="font-weight:bold; ">WPC Description:</font> <![CDATA[ ]>
+输入您想要的描述
+ <font style="font-style:italic; ">EWC File Converter</font> 
+创建新的 WPC 文件时写入。
+
+</p>
+        <p>
+            <font style="font-weight:bold; ">EWC File Name:</font> <![CDATA[ ]>The <font style="font-weight:bold; font-style:italic; ">E</font><font style="font-style:italic; ">xternal </font><font style="font-weight:bold; font-style:italic; ">W</font><font style="font-style:italic; ">ind Pressure and </font><font style="font-weight:bold; font-style:italic; ">C</font><font style="font-style:italic; ">ontaminant</font> 
+(EWC) 文件包含外部污染物浓度和压力，
+ <font style="font-style:italic; ">EWC File Converter</font> 
+（必须为您的特定应用程序开发）将转换为 WPC 文件。使用
+ <font style="font-style:italic; ">Browse...</font> 
+按钮选择现有的 EWC 文件。
+</p>
+        <p>
+            <font style="font-weight:bold; ">WPC File Creation Program:</font> 
+使用
+ <font style="font-style:italic; ">Browse...</font> 
+按钮选择用于创建 WPC 文件的程序，例如
+ <font style="font-style:italic; ">EWC File Converter</font>.
+</p>
+        <p><span style="font-weight: bold;">
+坐标变换数据
+</span>
+        </p>
+        <p>
+这些参数可以由
+ <font style="font-style:italic; ">EWC File Converter</font> 
+建立 EWC 文件和 CONTAM 项目文件的坐标之间的关系。如果 PRJ 和 EWC 文件的坐标系一致，则不需要转换。这些值通过 ContamW 存储在 PLD 文件中。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Origin (X, Y and Z):</font> 
+CONTAM PRJ 文件的来源相对于 EWC 文件的来源的位置。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Rotation Angle:</font> 
+EWC 坐标系的 x 轴和 y 轴绕 z 轴旋转，以与 CONTAM 坐标系的 x 轴和 y 轴对齐。逆时针方向被认为是正方向。
+</p>
+        <p><span style="font-weight: bold;">
+转换容差
+</span>&#160;</p>
+        <p>
+这些是公差
+ <font style="font-style:italic; ">EWC File Converter</font> 
+可能用于确定 EWC 文件和 PLD 文件中的信息必须匹配的程度，以便解析污染物（种类）和位置数据。这些值通过 ContamW 存储在 PLD 文件中。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Species:</font> 
+物种可以通过其摩尔质量来解析，即 ContamW 和 WPC 文件中定义的每个物种的摩尔质量的差异不得超过此数量才能被视为相同物种。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Location:</font> 
+位置可以通过距离来解析，距离由
+ <font style="font-style:italic; ">EWC File Converter</font>
+，例如，到网格单元中心的距离。 PLD 文件中的单位为米。
+</p>
+        <p><span style="font-weight: bold;">
+日期和时间
+</span>
+        </p>
+        <p>
+这些参数可以由
+ <font style="font-style:italic; ">EWC File Converter</font> 
+确定写入 WPC 文件的日期和时间值，以便于根据 CONTAM 的时间表进行工作。这些值通过 ContamW 存储在 PLD 文件中。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Data Time Shift:</font> 
+该值的格式为 hh:mm:ss。安
+ <font style="font-style:italic; ">EWC File Converter </font>
+可以将此值添加到 EWC 文件时间中。例如一个
+ <font style="font-style:italic; ">EWC File Converter </font>
+可以创建一个从 00:00:00 开始的文件，并将下一个时间设置为
+ <font style="font-style:italic; ">Data Time Shift</font> 
+你进入这里。这两次的数据将是EWC 文件中的初始值。
+</p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Start and End Date:</font> 
+该值的格式为 mmmdd。例如，将 1 月 1 日输入为 Jan01。安
+ <font style="font-style:italic; ">EWC File Converter </font>
+可以使用它来输出运行瞬态模拟时使用的日期。
+</p>
+        <p><span style="font-weight: bold;">
+包含在 WPC 文件中
+</span>
+        </p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Wind Pressures:</font> 
+选中此框以使转换器创建包含风压数据的 WPC 文件。
+ </p>
+        <p class="NormalIndent">
+            <font style="font-weight:bold; ">Contaminant Concentrations:</font> 
+选中此框以使转换器创建包含污染物数据的 WPC 文件。在模拟过程中，WPC 文件中的污染物浓度优先于其他瞬态污染物设置。对于在 PRJ 文件中定义但未包含在 WPC 文件中的污染物，将使用稳态污染物数据，即默认浓度。
+</p>
+        <p><span style="font-weight: bold;">
+生成 WPC 文件：
+</span> 
+使用此按钮激活用户开发的 WPC 创建程序。这将首先对 PRJ 文件执行检查并生成 PLD
+&#160;
+如果所有信封开口均已正确定义，则归档。
+          <![CDATA[ ]></p>
+        <p class="Normal"><span style="font-weight: bold;">
+生成 PLD 文件：
+</span> 
+使用此按钮手动生成 PLD 文件。 PLD 文件将存储在与 PRJ 相同的位置
+&#160;
+文件，与 PRJ 文件同名，但扩展名为 PLD。此文件对于使用外部编辑器创建 WPC 文件非常有用。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Appendix B - ContamX TCP/IP Socket Communication|ContamX TCP/IP Message Formats" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+控制输出信息消息
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+OUTPUT_CTRL_INFO_MSGTYPE</h3>
+        <p>
+在仿真开始时提供控制输出节点的初始值。控制输出节点通过 ContamW 定义，提供
+ <i>
+信号分离
+</i> 
+输入带有名称的控制节点。可以在仿真过程中通过以下方式获得值
+ <span style="font-family: &#x27;Courier New&#x27;;">
+CTRL_NODE_UPDATE_MSGTYPE
+</span>.</p>
+        <p class="code">
+消息头；
+</p>
+        <p class="code"><span style="color: blue;">int </span>
+节点数；
+        <span style="color: #008100;">
+// PRJ 文件中控制输出节点的数量
+</span></p>
+        <p class="code"><span style="color: blue;">int </span>
+id[节点数];
+       <span style="color: #008100;">
+// 根据 ContamX 的控制节点索引
+</span></p>
+        <p class="code"><span style="color: blue;">
+浮动
+   <![CDATA[ ]></span>
+init_vals[num_nodes];
+ <span style="color: #008100;">
+// 控制输入节点的初始值</span></p>
+        <p class="code"><span style="color: blue;">
+字符
+</span>
+* 名称[节点数];
+   <span style="color: #008100;">
+// 输出节点名称（空终止字符串）
+</span></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

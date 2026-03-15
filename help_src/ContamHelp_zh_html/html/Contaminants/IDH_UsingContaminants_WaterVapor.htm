@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Species and Contaminants" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+无痕污染物和水蒸气
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h3>
+无痕污染物和水蒸气
+</h3>
+        <p>
+CONTAM 处理非痕量污染物，即您定义为空气成分的污染物。通常，您可能希望将水蒸气视为非痕量污染物。 CONTAM 会将名称为“H20”的污染物视为水蒸气。浓度将受到您在模拟过程中使用的天气文件中包含的湿度比的影响（请参阅
+ <a href="../Weather/IDH_UsingWTH_Defining_Transient_Weather_and_Wind.htm">
+定义瞬态天气和风
+</a>
+）。 ContamX 将计算 H 的浓度
+<span style="vertical-align: sub;font-size: 10pt;">2</span>
+每个房间内的 O，作为水与空气的质量分数，单位为
+ <span style="font-style: italic;">kg</span><span style="font-style: italic;"> of </span><span style="font-style: italic;">H</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">2</span><span style="font-style: italic;">O</span> /<span style="font-style: italic;">kg</span><span style="font-style: italic;"> of</span><span style="font-style: italic;"> <![CDATA[ ]></span><span style="font-style: italic;">air</span>
+, 其中
+ <span style="font-style: italic;">kg </span><span style="font-style: italic;">of </span><span style="font-style: italic;">air</span> = <span style="font-style: italic;">kg</span><span style="font-style: italic;"> of </span><span style="font-style: italic;">dry</span><span style="font-style: italic;"> <![CDATA[ ]></span><span style="font-style: italic;">air </span>+ <span style="font-style: italic;">kg</span><span style="font-style: italic;"> of </span><span style="font-style: italic;">H</span><span style="font-style: italic;vertical-align: sub;font-size: 10pt;">2</span><span style="font-style: italic;">O</span>
+。而湿度比通常以水蒸气质量与干燥空气质量的比率给出。您可以使用以下关系在两者之间进行转换。
+</p>
+        <p class="NormalIndent">
+湿度比=H的质量分数
+<span style="vertical-align: sub;font-size: 10pt;">2</span>
+O / (1 – H 的质量分数
+<span style="vertical-align: sub;font-size: 10pt;">2</span>O)</p>
+        <p>
+例如，要从其典型成分中产生空气，您可以定义以下一组非痕量污染物（请参见
+ <a href="IDH_UsingContaminants_Creating_Contaminants.htm">
+创建物种和污染物
+</a>):</p>
+        <div align="center">
+            <table class="center">
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <tr>
+                    <td class="HeadCenterBold">
+名称
+</td>
+                    <td class="HeadCenterBold">
+摩尔质量
+<br />
+[千克/千摩尔]
+</td>
+                    <td class="HeadCenterBold">
+默认浓度
+<br />
+[kg_cont/kg_空气]
+</td>
+                    <td class="HeadCenterBold">
+微量污染物
+</td>
+                    <td class="HeadCenterBold">
+在模拟中的使用
+</td>
+                </tr>
+                <tr>
+                    <td class="Center">N2</td>
+                    <td class="Center">28</td>
+                    <td class="Center">0.7554</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+                <tr>
+                    <td class="Center">O2</td>
+                    <td class="Center">32</td>
+                    <td class="Center">0.2314</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+                <tr>
+                    <td class="Center">Ar</td>
+                    <td class="Center">40</td>
+                    <td class="Center">0.0127</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+                <tr>
+                    <td class="Center">CO2</td>
+                    <td class="Center">44</td>
+                    <td class="Center">0.0005</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+                <tr>
+                    <td class="Center">H2O</td>
+                    <td class="Center">18</td>
+                    <td class="Center">0.0000</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+            </table>
+        </div>
+        <p style="margin-top: 0;margin-bottom: 0;">&#160;</p>
+        <p>
+请注意，在上面的示例中，
+ <span style="font-family: &#x27;Symbol&#x27;;">å</span>
+默认浓度 = 1.0 kg/kg（参见
+ <a href="IDH_UsingContaminants_ProjectSpecies.htm">
+项目种类
+</a> 
+了解详情）。
+ </p>
+        <p>
+作为一个更简单的示例，您可以创建干燥空气污染物 Air 和水蒸气污染物 H20，如下所示。
+</p>
+        <div align="center">
+            <table class="center">
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <tr>
+                    <td class="HeadCenterBold">
+名称
+</td>
+                    <td class="HeadCenterBold">
+摩尔质量
+<br />
+[千克/千摩尔]
+</td>
+                    <td class="HeadCenterBold">
+默认浓度
+<br />
+[kg_cont/kg_空气]
+</td>
+                    <td class="HeadCenterBold">
+微量污染物
+</td>
+                    <td class="HeadCenterBold">
+在模拟中的使用
+</td>
+                </tr>
+                <tr>
+                    <td class="Center">
+干燥空气
+</td>
+                    <td class="Center">28.9645</td>
+                    <td class="Center">1.000</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+                <tr>
+                    <td class="Center">H2O</td>
+                    <td class="Center">18.0150</td>
+                    <td class="Center">0.000</td>
+                    <td class="Center">
+无痕
+</td>
+                    <td class="Center">Use</td>
+                </tr>
+            </table>
+        </div>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

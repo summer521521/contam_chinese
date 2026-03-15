@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Getting Started" madcap:medium="non-print" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+运行 CONTAM</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+运行 CONTAM</h2>
+        <p>
+如中所示
+ <a href="IDH_GetStart_InstallingContamW.htm">
+安装 CONTAM
+</a> 
+部分，CONTAM 实际上由两个可执行程序组成：ContamW 和 ContamX。 ContamW 是图形界面，ContamX 是模拟引擎。通常，您将通过 ContamW 中的菜单命令激活 ContamX。但是，ContamX 可以用作命令行工具，甚至可以在脚本或批处理文件中使用。
+</p>
+        <p class="SubHeading1">
+运行 ContamW
+</p>
+        <p class="NormalCW2">
+通过选择运行 ContamW
+ <code>
+CONTAM #.#.#.#
+</code> 
+（其中 # 表示程序版本，例如 3.4.0.0）从“开始”菜单。
+</p>
+        <p class="SubHeading1">
+作为命令行程序运行 ContamX
+</p>
+        <p class="NormalCW2">
+将 ContamX 作为命令行程序运行的最简单方法是将 contamx3.exe 文件以及相关项目和支持文件复制到公共目录。可以通过键入以下内容来显示运行 ContamX 的选项：
+</p>
+        <p class="codeindentCW2">
+contamx3 --帮助
+</p>
+        <p class="NormalCW2">
+这将显示以下输出：
+</p>
+        <p class="codeCW2">
+ContamX - 多房间气流和污染物传输分析软件
+</p>
+        <p class="codeCW2">
+用法：contam-x [输入文件] [选项]
+</p>
+        <p class="codeindentCW2">
+-h, --help 显示此帮助消息并退出
+</p>
+        <p class="codeindentCW2">
+-v, --Version 显示该程序的版本并退出
+</p>
+        <p class="codeindentCW2">
+-b，--桥=
+&lt;str&gt;    
+在桥接模式下运行 ContamX，可选
+ &lt;
+IP地址:端口
+&gt;</p>
+        <p class="codeindentCW2">
+-w, --Wind ContamX 根据风速计算风压
+</p>
+        <p class="codeindentCW2">&#160;&#160;&#160;&#160;&#160;&#160;
+通过 ADJ_WTH_MSGTYPE 获得的方向
+</p>
+        <p class="codeindentCW2">
+-f, --volumeFlow ContamX 通过桥输出体积气流速率，单位为 [m3/s]
+</p>
+        <p class="codeindentCW2">
+-c, --Console 使用交互式控制台运行 ContamX
+</p>
+        <p class="codeindentCW2">
+-d, --Dialog 使用 Windows 对话框运行 ContamX
+</p>
+        <p class="codeindentCW2">
+-t, --TestInput 仅测试输入
+</p>
+        <p class="codeindentCW2">
+[input-file] 是 CONTAM PRJ 文件的路径。
+</p>
+        <p class="codeindentCW2">&#160;&#160;&#160;&#160;
+如果省略且没有其他选项，系统将提示您输入文件名。
+</p>
+        <p class="codeindentCW2">&#160;&#160;&#160;&#160;
+可以通过拖动在 Windows 资源管理器中指定该文件
+</p>
+        <p class="codeindentCW2">&#160;&#160;&#160;&#160;
+将项目文件图标拖到 ContamX 程序图标上。
+</p>
+        <p class="SubHeading1">
+使用 TCP/IP 套接字通信运行 ContamX
+</p>
+        <p>
+ContamX 可以在 TCP/IP 套接字通信模式下运行，该模式可以对仿真进行运行时控制，包括通过 TCP/IP 套接字执行控制和数据传输。   参见
+ <a href="../Appendices/AppE.htm">
+附录B
+</a> 
+了解 TCP/IP 消息结构的详细信息和完整描述。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

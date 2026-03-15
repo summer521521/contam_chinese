@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+处理物种和污染物
+</title>
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2><a name="kanchor91"></a>
+处理物种和污染物
+</h2>
+        <p>由于多种传输机制，空气中的污染物分散在整个建筑物中。其中包括进出建筑系统以及在建筑系统内的空气流动；供暖、通风和空调 (HVAC) 系统；通过过滤、沉积和吸附去除；生成和重新悬浮；化学反应；和放射性化学衰变。 CONTAM 使您能够模拟这些空气污染物在建筑结构内扩散的方法。
+  </p>
+        <p><span style="font-style: italic;">
+物种
+</span> 
+是一个通用术语（由 CONTAM 使用），用于识别在模拟过程中可用作污染物的物质，即污染物是您指定在模拟中使用的那些物质。您可以在项目中包含所需数量的物种/污染物。
+</p>
+        <p>
+CONTAM 处理两者
+ <span style="font-style: italic;">
+痕量和非痕量污染物
+</span>
+。痕量污染物是指那些浓度不会导致空气密度发生“显着”变化的污染物。非痕量污染物是那些可以影响空气密度的污染物。非痕量污染物的质量分数总和为 1 kg/kg，即它们是空气的成分。
+</p>
+        <p>
+在 CONTAM 2.4 之前的版本中，模型的基本假设是每个房间在任何给定时间都被认为具有单一浓度值。该假设有时被称为“充分混合”房间假设。对于污染物分析，这意味着给定房间内不存在空间浓度梯度。然而，从版本 2.4 开始，用户可以将房间预先配置为一维对流/扩散房间，其中污染物可以沿着用户定义的轴变化，并使用
+ <i>
+短时间步长
+</i> 
+方法（参见
+ <a href="../Simulation/IDH_UsingSIM_ParamsRunControl.htm" target="" title="" alt="" class="MCXref">
+使用控件
+</a> and <a href="../Theory/IDH_TheoryCont_One_Dimensional_Convection_Diffusion_Flow.htm" target="" title="" alt="" class="MCXref">
+使用控件
+</a>
+）。从 CONTAM 版本 3.0 开始，建筑物/项目的单个房间可被视为计算流体动力学 (CFD) 房间（
+<a href="../Zones/IDH_PP_ZONEPARMS2_CFD.htm">
+详细的房间属性
+</a>
+）。 CFD 计算用于确定 CFD 房间内的三维压力、气流和污染物浓度场。
+</p>
+        <p>
+您可以使用 CONTAM 执行稳态、瞬态和周期性污染物分析。稳态分析是指在稳态流动条件下测定污染物浓度。瞬态分析是指确定一组离散时间步长的每个房间内污染物浓度的时间历史。通过瞬态分析，您可以使用污染物文件来实现不同环境污染物的影响（请参阅
+ <a href="IDH_UsingContaminants_Contaminant_Files.htm">
+污染物文件
+</a>
+）。循环分析确定 24 小时期间污染物浓度的时间历史，使得每个房间在 24 小时期间开始和结束时的浓度相同。
+</p>
+        <p>使用 CONTAM 时，您必须定义污染物，以便利用 CONTAM 提供的功能来模拟污染物源的产生、水槽的去除（包括过滤器和动力学反应）以及确定居住者的暴露情况。在实现 CONTAM 的任何这些与污染物相关的功能之前，必须创建/定义污染物。在项目中实施污染物之前，您可以首先在 SketchPad 上定义建筑布局，定义所有气流路径（包括管道）并通过执行稳态气流模拟来测试您的建筑模型。
+</p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

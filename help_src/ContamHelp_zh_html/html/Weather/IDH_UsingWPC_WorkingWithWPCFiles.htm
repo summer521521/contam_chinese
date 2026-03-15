@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+使用 WPC 文件
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h2>
+使用 WPC 文件
+</h2>
+        <p>
+风压和污染物 (WPC) 文件可用于解释建筑围护结构上的外部风压和室外污染物浓度的变化。该方法解决了允许使用一般的、空间变化的风压和环境污染物浓度的需要，例如来自风洞实验或大气模型的那些，例如羽流或烟团扩散模拟工具。 WPC 文件提供连接到环境房间的每个流路的外部压力和/或污染物浓度时间历史记录，包括管道终端和简单空气处理系统的室外进气口。
+</p>
+        <p>WPC 文件是在 CONTAM 外部创建的，但是 ContamW 可以帮助创建它们，该文件可以生成路径位置数据 (PLD) 文件，列出连接到环境房间的所有气流路径的位置。下图说明了 CONTAM 和 WPC 文件之间的交互。图中的虚线表示可选组件。 WPC 文件是一个 ASCII 文件，可以使用传统方式创建，例如将电子表格转换为文本。人们还可以开发一个 WPC 文件转换器程序，以根据由单独工具（例如外部 CFD 程序）创建的外部风压和污染物数据文件来创建文件。然后，转换器可以使用 PLD 文件来创建特定于相关建筑物的 WPC 文件，即 PRJ 文件。 ContamW 提供了一种激活用户可选转换器的方法。 WPC 和 PLD 文件格式的详细信息在标题为
+ <a href="IDH_UsingWPC_WPC_File_Format.htm">
+WPC 文件格式
+</a>
+, 和
+ <a href="IDH_UsingWPC_PLDFileFormat.htm">
+PLD 文件格式
+</a> 
+分别。 CONTAM 不包括 EWC 文件创建工具或 EWC 到 WPC 转换器工具。
+</p>
+        <p class="CaptionCenter">
+            <img src="../../image/WPC_FileConversionDiagram.gif" />
+        </p>
+        <p class="CaptionCenter">
+图 - WPC 文件实现原理图
+</p>
+        <p>&#160;</p>
+        <p>
+实施 WPC 文件的步骤：
+</p>
+        <ol>
+            <li value="1">
+输入建筑围护结构每个渗透点的位置坐标，即室内和室外房间之间的连接，包括：
+ <a href="../AirflowPaths/IDH_PP_PATHPARMS0.htm">
+气流路径
+</a>, <a href="../Ducts/IDH_JCT_P0.htm">
+管道终端
+</a> and <a href="../AHS/IDH_UsingAHS_Properties_AHS.htm">
+室外进气口
+</a> 
+简单的空气处理系统。
+</li>
+            <li value="2">
+根据以下内容创建 WPC 文件
+ <a href="IDH_UsingWPC_WPC_File_Format.htm">
+WPC 文件格式
+</a> 
+本节稍后提供使用外部编辑器或用户开发的
+ <i>
+EWC 文件转换器
+</i> 
+程序。
+</li>
+            <p class="BulletAfter1">
+如果使用外部编辑器，您可以使用创建 WPC 文件对话框生成路径位置数据列表，其中包含所有建筑围护结构开口的位置。您还可以让 ContamW 通过以下方式调用您的 EWC 文件转换器程序：
+ <a href="IDH_UsingWPC_WPC_Usage_Parameters.htm">
+创建 WPC 文件
+</a> 
+对话框将在本节后面出现并通过
+ <b><u>W</u>
+伊瑟
+&#8594;<u>C</u>
+重新创建 WPC 文件...
+</b> 
+菜单命令。
+</p>
+            <li value="3">
+设置模拟以利用 WPC 文件（请参阅
+ <a href="../Simulation/IDH_UsingSIM_ParamsWeather.htm">
+模拟天气属性</a> 
+在
+ <a href="../Simulation/IDH_UsingSIM_Working_with_Simulations.htm">
+使用模拟
+</a> 
+部分）。
+</li>
+            <li value="4">
+验证 WPC 文件
+</li>
+            <p class="BulletAfter1">
+如果您使用外部编辑器创建了 WPC 文件，则应验证其内容是否与项目文件的内容匹配。您可以使用
+ <b><u>V</u>iew</b> &#8594; <b><u>W</u>
+工业压力模式
+</b> 
+显示 WPC 风压类型（参见
+ <a href="IDH_UsingWTH_Defining_Steady_State_Weather_and_Wind.htm#IDM_CheckingWind">
+检查风
+</a> 
+在
+ <a href="IDH_UsingWTH_Defining_Weather_and_Wind.htm">
+定义天气和风
+</a> 
+部分）或通过选择启动预模拟检查
+ <font style="font-weight:bold; text-decoration:underline;">R</font><font style="font-weight:bold; ">un Simulation</font> or<font style="font-weight:bold; ">&#160;</font><font style="font-weight:bold; ">Create Contam</font><font style="font-weight:bold; text-decoration:underline;">X</font><font style="font-weight:bold; "> Input File</font> 
+从
+ <font style="font-weight:bold; text-decoration:underline;">S</font><font style="font-weight:bold; ">imulation</font> 
+菜单
+<font style="font-weight:bold; "></font><font style="font-weight:bold; "></font><font style="font-weight:bold; "></font>
+任一选项都会比较 WPC 和 PLD 文件，并提供它们之间差异的通知，包括不匹配的位置数据和污染物数据。如果您使用 EWC
+&#160;
+文件转换器程序，然后验证步骤将自动发生。如果有任何流路径未映射到 WPC 文件中的位置，它们将在 SketchPad 上突出显示，并且这些位置的列表将写入 CONTAMW3.LOG 文件。查找 WPC 文件中未找到的路径/终端/连接点列表。
+</p>
+            <li value="5">
+运行模拟
+</li>
+            <p class="BulletAfter1">
+如果 WPC 文件和 PLD 文件之间存在错误，则 ContamX 将无法运行模拟。  ContamW 不会启动 ContamX。如果在存在差异的项目上从命令行运行 ContamX，它也会退出并显示错误消息。
+</p>
+        </ol>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

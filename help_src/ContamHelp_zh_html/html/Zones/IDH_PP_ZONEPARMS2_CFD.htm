@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:madcap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" madcap:disablemasterstylesheet="true" madcap:tocpath="Using CONTAM|Working with Zones|Defining Zones|Zone Properties" madcap:medium="non-print" class="" madcap:pathtohelpsystem="../../../" madcap:searchtype="Stem">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+详细的房间数据
+</title>
+        <link href="../../Resources/Stylesheets/CWhtml.css" rel="stylesheet" />
+        <script src="../../ehlpdhtm.js">
+        </script>
+        <script src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body>
+        <h4><a name="kanchor32"></a>
+房间 – 详细的房间属性
+</h4>
+        <p><a name="kanchor33"></a>
+这些属性用于定义一维对流/扩散房间，其中污染物浓度可以沿着用户指定的轴变化。此选项适用于您需要考虑长房间或高房间内污染物传输延迟的情况。如果启用此功能，ContamX 将沿指定轴将该区域细分为多个单元或子节点，以便进行污染物迁移计算。
+ </p>
+        <p><span style="font-weight: bold;">
+房间名称：</span> 
+这是在“房间数据”属性页上输入的房间的符号名称。
+</p>
+        <p><span style="font-weight: bold;">
+防区类型
+</span>
+        </p>
+        <ul>
+            <li value="1">
+正常区：充分混合区
+</li>
+            <li value="2">
+1D 房间：1D 对流/扩散房间
+</li>
+            <li value="3">CFD&#160;
+房间：只有一个 CFD
+&#160;
+每个 CONTAM 项目允许使用房间。使用 CFD0 编辑器（可通过 NIST 多房间建模网站获取）定义房间的 CFD 属性，例如房间网格和边界。
+</li>
+        </ul>
+        <p><span style="font-weight: bold;">
+一维房间数据
+</span>
+        </p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+轴向色散系数：
+</span> 
+输入房间的轴向色散系数和单位。请注意，房间扩散系数是特定于房间的，不一定是所定义污染物的分子扩散特性。该系数是基于经验的，并且也应该考虑湍流混合。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+轴端点坐标：
+ </span>
+定义端点，
+ <span style="font-weight: bold;">
+第1点
+</span> and <span style="font-weight: bold;">
+第2点
+</span>
+，一维房间的轴。当将此区域视为一维对流扩散房间时，这些坐标将定义计算污染物传输的方向。需要这些值来建立其他建筑组件相对于该区域的关系，即流动路径、管道接头和终端、简单的空气处理装置供应和返回点、污染物源/汇、传感器和居住者。
+</p>
+        <p class="NormalIndent">
+虽然坐标系是用户定义的，但 ContamW 将在运行模拟之前验证一维房间与相关建筑组件的关系，以确保坐标“匹配”。当您选择以下任一选项时，会自动执行此验证
+ <span style="font-weight: bold;text-decoration: underline;">R</span><span style="font-weight: bold;">
+联合国模拟
+</span> or <span style="font-weight: bold;">
+创建一个Contam
+</span><span style="font-weight: bold;text-decoration: underline;">X</span><span style="font-weight: bold;"> 
+输入文件
+</span> 
+命令来自
+ <span style="font-weight: bold;text-decoration: underline;">S</span><span style="font-weight: bold;">
+模拟
+</span> 
+菜单。如果存在差异，将会显示消息，通知您差异的性质。
+</p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+X 和 Y：
+</span> 
+X 和 Y 值采用绝对坐标。这些值可以基于比例图和/或用户定义的坐标系。与 SketchPad 上的墙不同，轴不需要是直线的，即，您可以指定在 x-y 平面中不水平或不垂直的轴。
+ </p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+相对海拔：
+</span> 
+输入 Z 坐标作为相对于房间底部的高度。
+</p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+单元尺寸：
+</span> 
+如果要将房间视为一维对流/扩散房间，则这是 ContamX 在模拟过程中将房间细分为的像元大小。如果轴长度不能被像元大小整除，则将根据需要调整像元大小。虽然对单元尺寸的选择没有严格的指导，但通常应遵循沿轴的流速乘以模拟时间步长的顺序。
+ </p>
+        <p class="NormalIndent2"><span style="font-weight: bold;">
+单位：
+</span> 
+设置以上项目的单位。
+</p>
+        <p class="NormalIndent"><span style="font-weight: bold;">
+SketchPad 上的轴方向：
+ </span>
+使用结果查看工具（例如 CONTAM 结果查看器 (ContamRV)）时，SketchPad 上的轴方向非常有用。如果模拟输出选项设置为写入 1D 结果文件，ContamRV 可以显示 1D 房间内的浓度变化（请参阅模拟 - 输出属性）
+ <a href="../Simulation/IDH_UsingSIM_Simulation_Parameters.htm">
+仿真参数
+</a> 
+部分）。一维房间单元的质量分数按照轴端点的点 1 到点 2 的顺序写入一维结果文件。 “轴方向”使 ContamRV 能够为 SketchPad 上房间的直线房间着色，即使轴端点指定的轴在平面图中实际上不是水平或垂直的，例如倾斜的走廊。</p>
+        <p><span style="font-weight: bold;">
+CFD 房间数据
+</span>
+        </p>
+        <p class="NormalIndent"><b>CFD&#160;
+房间 ID：
+</b> 
+该标识符用于命名 CFD&#160;
+与该项目相关的文件。这些文件将由 CFD0 编辑器和 ContamX 生成。例如，使用 CFD0 编辑器导入包含 CFD 房间的 PRJ 文件。使用 CFD0 编辑器定义 CFD 域后，您将使用 CFD0 编辑器生成一个 CFD 文件，该文件与 PRJ 文件同名，但附加 CFD 房间 ID，例如 MyProject_CfdZone.cfd。运行耦合模拟将生成具有各种扩展名的更相似的命名文件。
+</p>
+        <p class="NormalIndent"> <![CDATA[ ]></p>
+        <p>&#160;</p>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>
