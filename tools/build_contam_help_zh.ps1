@@ -1,6 +1,7 @@
 param(
     [string]$RootDir = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
-    [string]$HhcPath
+    [string]$HhcPath,
+    [string]$OutputPath
 )
 
 $ErrorActionPreference = "Stop"
@@ -35,8 +36,10 @@ function Get-RelativePath {
         [string]$TargetPath
     )
 
-    $base = [System.Uri]((Resolve-Path $BasePath).Path.TrimEnd('\') + '\')
-    $target = [System.Uri](Resolve-Path $TargetPath).Path
+    $basePathResolved = [System.IO.Path]::GetFullPath((Resolve-Path $BasePath).Path).TrimEnd('\') + '\'
+    $targetPathResolved = [System.IO.Path]::GetFullPath($TargetPath)
+    $base = [System.Uri]$basePathResolved
+    $target = [System.Uri]$targetPathResolved
     return $base.MakeRelativeUri($target).ToString().Replace('/', '\')
 }
 
@@ -79,10 +82,19 @@ function Convert-ChmTextFile {
 $root = (Resolve-Path $RootDir).Path
 $helpSourceDir = Join-Path $root "help_src\\ContamHelp_zh_html"
 $buildAssetsDir = Join-Path $root "build_assets"
-$compiledFile = Join-Path $root "ContamHelp.chm"
+$compiledFile = if ($OutputPath) {
+    [System.IO.Path]::GetFullPath($OutputPath)
+} else {
+    Join-Path $root "local\\build\\ContamHelp.chm"
+}
+$compiledDir = Split-Path -Parent $compiledFile
 
 if (-not (Test-Path $helpSourceDir)) {
     throw "Help source not found: $helpSourceDir"
+}
+
+if ($compiledDir -and -not (Test-Path $compiledDir)) {
+    New-Item -ItemType Directory -Force -Path $compiledDir | Out-Null
 }
 
 $hhc = Resolve-HhcPath -Preferred $HhcPath

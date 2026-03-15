@@ -25,7 +25,7 @@ if not defined FILE2 (
 )
 
 set "LEVEL="
-set /p LEVEL=Comparison detail level [0-3, default 1]: 
+set /p LEVEL=Comparison detail level [0-3, default 1]:
 if not defined LEVEL set "LEVEL=1"
 
 echo Comparing:
