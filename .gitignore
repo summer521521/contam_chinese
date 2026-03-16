@@ -12,15 +12,12 @@ tools/downloads/
 
 # Local release binaries kept outside the public repo layout
 /ContamHelp.chm
-/contamw3_zh.exe
+/contamw3.exe
 /contamx3.exe
 /prjup.exe
 /simread.exe
 /simcomp.exe
 /olch2d32.dll
-/PRJUP_PICKER.cmd
-/SIMREAD_PICKER.cmd
-/SIMCOMP_PICKER.cmd
 
 # Windows noise
 Thumbs.db

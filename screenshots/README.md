@@ -1,14 +1,14 @@
 # Screenshots
 
-把准备展示在 `README.md` 或 GitHub Releases 中的截图放到这里。
+This directory stores screenshots used in `README.md` or GitHub Releases.
 
-推荐至少准备：
+Current screenshot set:
 
 - `main-window.png`
 - `help-window.png`
 - `tool-wrappers.png`
 
-截图建议优先覆盖：
+These screenshots show:
 
 - 主界面中文化效果
 - 中文帮助目录页

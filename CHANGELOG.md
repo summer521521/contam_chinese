@@ -1,8 +1,8 @@
 # Changelog
 
-All notable changes to this project should be documented in this file.
+This file records notable changes to this project.
 
-建议把发布版本命名为 `v<上游版本>-zh.<修订号>`，例如：
+This project uses the version format `v<上游版本>-zh.<修订号>`，例如：
 
 - `v3.4.0.8-zh.1`
 
@@ -18,9 +18,7 @@ All notable changes to this project should be documented in this file.
 - GitHub Release 说明模板：`docs/RELEASE_TEMPLATE.md`
 - 截图占位目录：`screenshots/`
 - 中文帮助 HTML 源码与构建链路
-- Release 素材目录：`release_assets/root/`
 - Release 打包脚本：`tools/package_release.ps1`、`tools/package_release.cmd`
-- 命令行工具双击包装器源码：`release_assets/root/PRJUP_PICKER.cmd`、`release_assets/root/SIMREAD_PICKER.cmd`、`release_assets/root/SIMCOMP_PICKER.cmd`
 
 ### Changed
 
@@ -31,8 +29,10 @@ All notable changes to this project should be documented in this file.
 - 将当前附带工具版本明确记录为 `3.4.0.3`
 - 将中文帮助构建产物改为输出到本地忽略目录
 - 将公开仓库结构改为“不提交运行成品，只保留汉化成果和文档”
+- 将发布主程序文件名统一为 `contamw3.exe`
+- 将 Release 打包简化为“直接压缩 `local/release_seed/` 中的成品文件”
 
 ### Notes
 
-- 推荐用 GitHub Releases 分发最终 zip 或安装包，而不是把成品下载入口完全放在仓库文件列表中。
-- 每次继续修改界面、帮助、脚本或打包方式时，都应同步更新本文件和 `NOTICE.md`。
+- GitHub Releases 作为最终 zip 或安装包的分发入口。
+- 本文件与 `NOTICE.md` 记录项目版本与发布信息。
