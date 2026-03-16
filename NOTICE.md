@@ -2,9 +2,9 @@
 
 ## Project Identity
 
-This repository is an unofficial Chinese-localized modified distribution based on NIST CONTAM. The public repository preserves localization assets, documentation, and release scripts, while runnable binaries are distributed through GitHub Releases.
+This repository is an unofficial Chinese-localized modified project based on NIST CONTAM. Runnable binaries are distributed through GitHub Releases.
 
-The repository homepage, release page, and package notes retain the following statements:
+The repository homepage and release materials retain the following statements:
 
 - `Based on CONTAM developed by NIST.`
 - `This is an unofficial Chinese-localized modified distribution.`
@@ -37,9 +37,8 @@ This repository includes the following major modifications or additions:
 
 - Chinese localization of `contamw3.exe` interface resources
 - Chinese help file `ContamHelp.chm`
-- Chinese help HTML source and build materials
-- Scripts used to build the Chinese help file
-- Public release documentation such as the README, changelog, and release template
+- Localization assets and related scripts
+- Public release documentation such as the README and release template
 
 This NOTICE does not declare changes to the original numerical solving algorithms.
 
@@ -57,7 +56,7 @@ The public version reference for this project is:
 
 - `based on CONTAM 3.4.0.8`
 
-## Minimum Redistribution Notice
+## Redistribution Notice
 
 The public repository and packaged release materials retain the following items:
 

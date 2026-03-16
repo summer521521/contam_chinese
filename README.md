@@ -2,27 +2,23 @@
 
 Unofficial Chinese localization for CONTAM (based on CONTAM 3.4.0.8)
 
-`contam_chinese` provides an unofficial Chinese-localized version of CONTAM. The runnable package is distributed through GitHub Releases, while this repository preserves project notes, version history, and localization assets.
+`contam_chinese` is an unofficial Chinese localization project for CONTAM. Runnable files are distributed through GitHub Releases. This repository preserves the project materials used to prepare and publish the localization.
 
 ## Download
 
 The runnable package is available from GitHub Releases.
-
-The current release package contains:
-
-- `contamw3.exe`
-- `ContamHelp.chm`
-- `contamx3.exe`
-- `prjup.exe`
-- `simread.exe`
-- `simcomp.exe`
-- `olch2d32.dll`
 
 ## Usage
 
 1. Download and extract the release archive.
 2. Run `contamw3.exe`.
 3. Open `ContamHelp.chm` for the Chinese help file.
+
+## Screenshots
+
+![Chinese help interface](screenshots/help-interface.png)
+
+![Localized main interface](screenshots/main-interface.png)
 
 ## Source And Modification Notice
 
@@ -37,7 +33,7 @@ This project is not an official NIST release and does not imply NIST endorsement
 
 As of `2026-03-16`, the latest version listed on the official NIST download page is `CONTAM 3.4.0.8`, released on `2026-01-08`. The same page states that the bundled `ContamX` version is `3.4.0.3`.
 
-The main binaries in this release package have the following versions:
+The release package for this project uses the following binary versions:
 
 - `contamw3.exe`: `3.4.0.8`
 - `contamx3.exe`: `3.4.0.3`
@@ -51,25 +47,16 @@ The main binaries in this release package have the following versions:
   - project overview and download guidance
 - `NOTICE.md`
   - source and modification notice
-- `CHANGELOG.md`
-  - version history
 - `build_assets/`
   - program resource localization files, translation cache, and related scripts
 - `tools/`
   - maintenance and packaging scripts
 - `docs/`
-  - supplementary project documents and release notes material
-- `screenshots/`
-  - screenshots used in the README and Releases
+  - supplementary release documents
 
 ## Notes
 
-The main entry points of this repository are:
-
-- `README.md`
-- GitHub Releases
-
-Runnable files are distributed through Releases. The remaining repository contents preserve project materials and version information.
+The main public entry points of this project are this `README.md` file and the GitHub Releases page.
 
 ## References
 
