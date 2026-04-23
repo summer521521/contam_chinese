@@ -2,13 +2,13 @@
 
 Unofficial Chinese localization for CONTAM (based on CONTAM 3.4.0.8)
 
-`contam_chinese` 提供 CONTAM 的非官方中文汉化版本。可直接使用的程序通过 GitHub Releases 分发；本仓库保留项目说明、版本记录和汉化资料。
+`contam_chinese` provides an unofficial Chinese-localized version of CONTAM. The runnable package is distributed through GitHub Releases, while this repository preserves project notes, version history, and localization assets.
 
-## 下载
+## Download
 
-可直接运行的版本请从 GitHub Releases 下载压缩包。
+The runnable package is available from GitHub Releases.
 
-当前 Release 包包含：
+The current release package contains:
 
 - `contamw3.exe`
 - `ContamHelp.chm`
@@ -18,26 +18,26 @@ Unofficial Chinese localization for CONTAM (based on CONTAM 3.4.0.8)
 - `simcomp.exe`
 - `olch2d32.dll`
 
-## 使用方法
+## Usage
 
-1. 下载并解压 Release 压缩包。
-2. 运行 `contamw3.exe`。
-3. 需要帮助文档时，打开 `ContamHelp.chm`。
+1. Download and extract the release archive.
+2. Run `contamw3.exe`.
+3. Open `ContamHelp.chm` for the Chinese help file.
 
-## 来源与修改说明
+## Source And Modification Notice
 
-本项目基于 NIST 官方发布的 CONTAM，仓库和 Release 均保留下列声明：
+This project is based on the official CONTAM release from NIST. The repository and release materials retain the following statements:
 
 - `Based on CONTAM developed by NIST.`
 - `This is an unofficial Chinese-localized modified distribution.`
 
-本项目不是 NIST 官方发布版本，也不代表 NIST 认可。
+This project is not an official NIST release and does not imply NIST endorsement.
 
-## 基底版本
+## Base Version
 
-截至 `2026-03-16`，NIST 官方下载页列出的最新发行版为 `CONTAM 3.4.0.8`，发布日期为 `2026-01-08`；该页同时说明随安装包附带的 `ContamX` 为 `3.4.0.3`。
+As of `2026-03-16`, the latest version listed on the official NIST download page is `CONTAM 3.4.0.8`, released on `2026-01-08`. The same page states that the bundled `ContamX` version is `3.4.0.3`.
 
-本项目对应发布包中的主要程序文件版本如下：
+The main binaries in this release package have the following versions:
 
 - `contamw3.exe`: `3.4.0.8`
 - `contamx3.exe`: `3.4.0.3`
@@ -45,34 +45,34 @@ Unofficial Chinese localization for CONTAM (based on CONTAM 3.4.0.8)
 - `simread.exe`: `3.4.0.3`
 - `simcomp.exe`: `3.4.0.3`
 
-## 仓库内容
+## Repository Contents
 
 - `README.md`
-  - 项目说明和下载指引
+  - project overview and download guidance
 - `NOTICE.md`
-  - 来源说明和修改说明
+  - source and modification notice
 - `CHANGELOG.md`
-  - 版本更新记录
+  - version history
 - `build_assets/`
-  - 程序资源汉化文件、翻译缓存与相关脚本
+  - program resource localization files, translation cache, and related scripts
 - `tools/`
-  - 项目维护和打包脚本
+  - maintenance and packaging scripts
 - `docs/`
-  - 补充文档和 Release 资料
+  - supplementary project documents and release notes material
 - `screenshots/`
-  - README 和 Release 中使用的截图
+  - screenshots used in the README and Releases
 
-## 说明
+## Notes
 
-本仓库的主要入口是：
+The main entry points of this repository are:
 
 - `README.md`
 - GitHub Releases
 
-可直接使用的程序通过 Release 下载；仓库中的其余内容用于保存项目资料和版本信息。
+Runnable files are distributed through Releases. The remaining repository contents preserve project materials and version information.
 
-## 参考链接
+## References
 
-- [NIST CONTAM 下载页](https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling/software/contam/download)
-- [NIST CONTAM 软件页（含许可说明）](https://www.nist.gov/services-resources/software/contam)
-- [NIST TN 1887r1 文档](https://doi.org/10.6028/NIST.TN.1887r1)
+- [NIST CONTAM Download Page](https://www.nist.gov/el/energy-and-environment-division-73200/nist-multizone-modeling/software/contam/download)
+- [NIST CONTAM Software Page](https://www.nist.gov/services-resources/software/contam)
+- [NIST TN 1887r1 Document](https://doi.org/10.6028/NIST.TN.1887r1)

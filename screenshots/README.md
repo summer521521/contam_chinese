@@ -10,6 +10,6 @@ Current screenshot set:
 
 These screenshots show:
 
-- 主界面中文化效果
-- 中文帮助目录页
-- 命令行工具双击包装器的使用方式
+- the localized main interface
+- the Chinese help landing page
+- the usage flow of the command-line helper wrappers

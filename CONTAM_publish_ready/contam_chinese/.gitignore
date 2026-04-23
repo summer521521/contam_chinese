@@ -1,0 +1,24 @@
+# Build outputs
+*.zip
+*.log
+dist/
+local/
+
+# Temporary CHM build stages
+build_assets/help_chm_stage_*/
+
+# Download cache
+tools/downloads/
+
+# Local release binaries kept outside the public repo layout
+/ContamHelp.chm
+/contamw3.exe
+/contamx3.exe
+/prjup.exe
+/simread.exe
+/simcomp.exe
+/olch2d32.dll
+
+# Windows noise
+Thumbs.db
+Desktop.ini
