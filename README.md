@@ -24,6 +24,17 @@ The current release package contains:
 2. Run `contamw3.exe`.
 3. Open `ContamHelp.chm` for the Chinese help file.
 
+## Automation With CONTAM_plugin
+
+For AI-agent workflows, project inspection, ContamX simulation, MCP access, and ContamW-safe PRJ checks, use:
+
+- [CONTAM_plugin](https://github.com/summer521521/CONTAM_plugin)
+
+After extracting this `contam_chinese` release package, `CONTAM_plugin` can link to it through `CONTAM_CHINESE_HOME` or its `scripts/link-contam-chinese.ps1` helper. In that setup:
+
+- `contam_chinese` provides the localized GUI executable and Chinese help package.
+- `CONTAM_plugin` provides automation, project checks, simulation workflows, and result triage.
+
 ## Source And Modification Notice
 
 This project is based on the official CONTAM release from NIST. The repository and release materials retain the following statements:

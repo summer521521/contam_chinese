@@ -8,7 +8,7 @@ This project uses the version format `v<upstream-version>-zh.<revision>`, for ex
 
 ## [Unreleased]
 
-- Pending changes
+- Added a README link to `CONTAM_plugin` for MCP automation, project checks, and simulation workflows that can use `contam_chinese` release executables.
 
 ## [3.4.0.8-zh.1] - 2026-03-15
 
