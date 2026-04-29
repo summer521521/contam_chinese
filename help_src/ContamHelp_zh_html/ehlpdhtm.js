@@ -9,7 +9,7 @@
 /// Section Begin - General and relative topics(JavaScript 1.0)
 
 //{{HH_SYMBOL_SECTION
-var HH_ChmFilename = "C:\\Documents and Settings\\wsdols.NIST\\My Documents\\Contam2.3_HelpCopy\\HtmlHelp\\CWHelp24.chm";
+var HH_ChmFilename = "ContamHelp.chm";
 var HH_WindowName = "main||Second||placeMain";
 var HH_GlossaryFont = "";
 var HH_Glossary = "0,0,0";
